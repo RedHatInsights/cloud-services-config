@@ -12,7 +12,6 @@ catalog:
 chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
-  frontend_paths: []
 
 compliance:
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
@@ -58,7 +57,6 @@ inventory:
 landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
-  frontend_paths: []
 
 openshift:
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
@@ -87,7 +85,6 @@ sources:
 
 tower-analytics:
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
-  frontend_paths: []
 
 vulnerability:
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
