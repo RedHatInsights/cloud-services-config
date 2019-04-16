@@ -1,0 +1,96 @@
+approval:
+  deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
+  frontend_paths:
+  - /hybrid/catalog/approval
+
+catalog:
+  channel: '#insights-svc-portal'
+  deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
+  frontend_paths:
+  - /hybrid/catalog
+
+chrome:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
+  frontend_paths: []
+
+compliance:
+  deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
+  frontend_paths:
+  - /rhel/compliance
+
+cost-management:
+  deployment_repo: https://github.com/RedHatInsights/cost-management-build
+  frontend_paths:
+  - /hybrid/settings/cost-management-sources
+  - /hybrid/cost-management
+
+dashboard:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
+  frontend_paths:
+  - /rhel/dashboard
+  - /rhel
+
+drift:
+  deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
+  frontend_paths:
+  - /rhel/drift
+
+hooks:
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
+  frontend_paths:
+  - /insights/hooks
+
+insights:
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  frontend_paths:
+  - /insights
+
+inventory:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
+  frontend_paths:
+  - /rhel/inventory
+  - /insights/inventory
+
+landing:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
+  frontend_paths: []
+
+openshift:
+  deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
+  frontend_paths:
+  - /openshift
+
+rbac:
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  frontend_paths:
+  - /hybrid/settings/rbac
+
+remediations:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
+  frontend_paths:
+  - /rhel/remediations
+  - /insights/remediations
+
+sources:
+  channel: '#insights_topology_svc'
+  deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
+  frontend_paths:
+  - /insights/settings/sources
+  - /hybrid/settings/catalog-sources
+  - /hybrid/sources
+
+tower-analytics:
+  deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  frontend_paths: []
+
+vulnerability:
+  deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
+  frontend_paths:
+  - /rhel/vulnerability
+
