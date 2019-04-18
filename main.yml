@@ -39,7 +39,7 @@ drift:
 hooks:
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend_paths:
-  - /insights/hooks
+  - /insights/settings/hooks
 
 insights:
   channel: '#advisor'
