@@ -80,7 +80,7 @@ sources:
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend_paths:
   - /insights/settings/sources
-  - /hybrid/settings/catalog-sources
+  - /hybrid/settings/sources
   - /hybrid/sources
 
 tower-analytics:
