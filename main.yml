@@ -1,9 +1,13 @@
 approval:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend_paths:
   - /hybrid/catalog/approval
 
 catalog:
+  versions:
+    - v1
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend_paths:
@@ -14,11 +18,31 @@ chrome:
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
 compliance:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend_paths:
   - /rhel/compliance
 
 cost-management:
+  name: Cost Management
+  versions:
+    - v1
+  description: >
+    Cost Management is an application that provides users a view of their 
+    enterprise cost. Cost Management allows users to evaluate the cost on 
+    infrastructures like Amazon Web Services (AWS) across multiple *master* 
+    accounts, breaking down to service usage, compute usage, and storage 
+    allocation. Details can also be broken down utilizing tagging to view 
+    data attributed to project or cost center assignments. Cost Management 
+    also allows users to breakdown cost at the platform level by associating 
+    cost with OpenShift clusters, nodes, and the projects running their. Cost 
+    can be determined by deriving it from the underlying infrastructure (like 
+    AWS) or deriving it based on a user set of rates.
+  git_repo: https://github.com/project-koku/
+  docs: https://koku.readthedocs.io/en/latest/
+  channel: '#koku'
+  mailing_list: cost-mgmt@redhat.com
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   frontend_paths:
   - /hybrid/settings/cost-management-sources
@@ -32,22 +56,30 @@ dashboard:
   - /rhel/dashboard
   
 drift:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend_paths:
   - /rhel/drift
 
 hooks:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend_paths:
   - /insights/settings/hooks
 
 insights:
+  versions:
+    - v1
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend_paths:
   - /insights
 
 inventory:
+  versions:
+    - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend_paths:
@@ -59,16 +91,22 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
 openshift:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend_paths:
   - /openshift
 
 rbac:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend_paths:
   - /hybrid/settings/rbac
 
 remediations:
+  versions:
+    - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend_paths:
@@ -76,6 +114,8 @@ remediations:
   - /insights/remediations
 
 sources:
+  versions:
+    - v1
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend_paths:
@@ -90,9 +130,13 @@ storybook:
   - /docs/storybook
 
 tower-analytics:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
+  versions:
+    - v1
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend_paths:
   - /rhel/vulnerability
