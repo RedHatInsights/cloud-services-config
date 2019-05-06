@@ -1,11 +1,14 @@
 approval:
+  name: Approval Service
   versions:
     - v1
+  git_repo: 
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend_paths:
   - /hybrid/catalog/approval
 
 catalog:
+  name: Catalog
   versions:
     - v1
   channel: '#insights-svc-portal'
@@ -18,6 +21,7 @@ chrome:
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
 compliance:
+  name: Compliance
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
@@ -56,6 +60,7 @@ dashboard:
   - /rhel/dashboard
   
 drift:
+  name: Configuration Drift
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
@@ -63,6 +68,7 @@ drift:
   - /rhel/drift
 
 hooks:
+  name: Web Hooks Service
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
@@ -70,6 +76,7 @@ hooks:
   - /insights/settings/hooks
 
 insights:
+  name: Insights
   versions:
     - v1
   channel: '#advisor'
@@ -78,6 +85,7 @@ insights:
   - /insights
 
 inventory:
+  name: Managed Inventory
   versions:
     - v1
   channel: '#flip-mode-squad'
@@ -91,6 +99,7 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
 openshift:
+  name: OpenShift (UHC)
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
@@ -98,6 +107,7 @@ openshift:
   - /openshift
 
 rbac:
+  name: Role-based Access Control
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
@@ -105,6 +115,7 @@ rbac:
   - /hybrid/settings/rbac
 
 remediations:
+  name: Remediations
   versions:
     - v1
   channel: '#flip-mode-squad'
@@ -114,6 +125,7 @@ remediations:
   - /insights/remediations
 
 sources:
+  name: Discovered Inventory
   versions:
     - v1
   channel: '#insights_topology_svc'
@@ -130,11 +142,13 @@ storybook:
   - /docs/storybook
 
 tower-analytics:
+  name: Ansible Tower Analytics
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
+  name: Vulnerability Management
   versions:
     - v1
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
