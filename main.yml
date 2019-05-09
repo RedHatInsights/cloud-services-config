@@ -83,6 +83,12 @@ sources:
   - /hybrid/settings/sources
   - /hybrid/sources
 
+storybook:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
+  frontend_paths:
+  - /docs/storybook
+
 tower-analytics:
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
