@@ -30,6 +30,7 @@ dashboard:
   frontend_paths:
   - /rhel/dashboard
   - /rhel
+  
 
 drift:
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
@@ -49,7 +50,8 @@ insights:
   frontend_exclude:
   - /insights/inventory
   - /insights/remediations
-  - /insights/settings/webhooks
+  - /insights/settings/hooks
+  - /insights/settings/sources
 
 inventory:
   channel: '#flip-mode-squad'
