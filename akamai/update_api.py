@@ -9,7 +9,7 @@ import copy
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urlparse import urljoin
 
-# Set up Edgegrid auth
+# Set up connectivity
 http = urllib3.PoolManager()
 s = requests.Session()
 
@@ -34,9 +34,10 @@ def getEdgeGridAuthFromConfig(path="~/.edgerc"):
 def getHostFromConfig(path="~/.edgerc"):
     config = ConfigParser.RawConfigParser()
     config.read(os.path.expanduser(path))
-    return "https://" + config.get("default", "host")
+    return config.get("default", "host")
 
 def getLatestVersionNumber(env="PRODUCTION"):
+    print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     return data["versions"]["items"][0]["propertyVersion"]
     
@@ -47,18 +48,14 @@ def createNewVersion():
     body["createFromVersion"] = latest_prod_version
     
     # Create temp response content so I can test without creating a million versions in Akamai
-    # TODO: uncomment next line and delete the two following ones
-    # response_content = json.loads(akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
-    response_content = {}
-    response_content["versionLink"] = "/papi/v0/properties/prp_516561/versions/174?contractId=ctr_3-1MMN3Z&groupId=grp_134508"
+    print("API - Creating new version based on v{}".format(latest_prod_version))
+    response_content = json.loads(akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
     if m:
         new_version = m.group(1)
-
-    print("New version number {}".format(new_version))
-
+    print("Version {} created.".format(new_version))
     return new_version
 
 def createRulesForEnv(master_config, global_path_prefix=""):
@@ -67,7 +64,6 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     rules.extend(getJSONFromFile("./data/storybook_rules.json"))
 
     # If global path prefix exists, modify paths on landing page rules.
-    # TODO: Loop instead
     if global_path_prefix != "":
         for rule in rules:
             if rule["behaviors"][0]["name"] == "failAction":
@@ -105,6 +101,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     return rules
 
 def updatePropertyRulesUsingConfig(version_number, master_config):
+    print("Creating new ruleset based on master config...")
     rules_tree = getJSONFromFile("./data/base_rules.json")
 
     # TODO: Find this value dynamically instead of hardcoding since this could change
@@ -113,9 +110,40 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
     rules_tree["rules"]["children"][2]["children"][2]["children"] = createRulesForEnv(master_config, "/beta")
 
     # Update property with this new ruleset
+    print("API - Updating rule tree...")
     response = json.loads(akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number), rules_tree))
-    print("Update response:")
-    print(json.dumps(response))
+
+def activateVersion(version_number, env="STAGING"):
+    body = {
+        "note": "Auto-generated activation",
+        "useFastFallback": "false",
+        "notifyEmails": [
+            "aprice@redhat.com"
+        ]
+    }
+    body["propertyVersion"] = version_number
+    body["network"] = env
+    print("API - Activating version {} on {}...".format(version_number, env))
+    response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
+
+    # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
+    # Acknowledging these warnings in the request body will allow the activation to work.
+    if "status" in response and response["status"] == 400:
+        warnings = []
+        for w in response["warnings"]:
+            warnings.append(w["messageId"])
+        body["acknowledgeWarnings"] = warnings
+        print("API - First activation request gave warnings. Acknowledging...")
+        response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
+
+        # If it fails again, give up.
+        if "status" in response:
+            print("Something went wrong; here's the response we got:")
+            print(json.dumps(response))
+            print("The activaction failed. Please check out the above response and see what happened.")
+        else:
+            print("Success! Version {} activated on {}.".format(version_number, env))
+
 
 def akamaiGet(url):
     return s.get(urljoin(baseurl, url)).content
@@ -127,19 +155,20 @@ def akamaiPut(url, body):
     return s.put(urljoin(baseurl, url), json=body).content
 
 
+# Authenticate session with user's local EdgeGrid config file (~/.edgerc)
 s.auth = getEdgeGridAuthFromConfig()
-baseurl = getHostFromConfig()
 
+# Get the base url using the 
+baseurl = "https://" + getHostFromConfig()
+
+# Get the Cloud Services config file (main source of truth)
 cs_config = getYMLFromFile("../main.yml")
 
-# Get the number of the latest version running in Production
-# http --auth-type edgegrid -a default: ":/papi/v1/properties/prp_516561/versions/latest?activatedOn=PRODUCTION&contractId=ctr_3-1MMN3Z&groupId=grp_134508"
-
-# Create a new version every time once we"re done testing
+# Create a new version based off of the active Prod version
 new_version_number = createNewVersion()
 
-# Update the rules JSON using the cs configuration as a reference
+# Update the rules JSON using the CS configuration as a reference
 updatePropertyRulesUsingConfig(new_version_number, cs_config)
 
-# Activate on STAGING???
-
+# Activate on STAGING
+activateVersion(new_version_number, "STAGING")
