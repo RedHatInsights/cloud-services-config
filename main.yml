@@ -46,6 +46,10 @@ insights:
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend_paths:
   - /insights
+  frontend_exclude:
+  - /insights/inventory
+  - /insights/remediations
+  - /insights/settings/webhooks
 
 inventory:
   channel: '#flip-mode-squad'

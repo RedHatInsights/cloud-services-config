@@ -1,0 +1,8 @@
+{
+    "name": "path",
+    "options": {
+        "values": [],
+        "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+        "matchCaseSensitive": false
+    }
+}

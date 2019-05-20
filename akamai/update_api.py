@@ -40,10 +40,6 @@ def getLatestVersionNumber(env="PRODUCTION"):
     data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     return data["versions"]["items"][0]["propertyVersion"]
     
-# TODO: Are we even going to use this one?
-def getPropertyData():
-    return json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/153/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=fast"))
-
 def createNewVersion():
     # Get the number of the latest prod version to use as a base
     latest_prod_version = getLatestVersionNumber("PRODUCTION")
@@ -54,7 +50,7 @@ def createNewVersion():
     # TODO: uncomment next line and delete the two following ones
     # response_content = json.loads(akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
     response_content = {}
-    response_content["versionLink"] = "/papi/v0/properties/prp_516561/versions/171?contractId=ctr_3-1MMN3Z&groupId=grp_134508"
+    response_content["versionLink"] = "/papi/v0/properties/prp_516561/versions/172?contractId=ctr_3-1MMN3Z&groupId=grp_134508"
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -80,16 +76,23 @@ def createRulesForEnv(master_config, global_path_prefix=""):
 
     # Create a template object to copy from
     rule_template = getJSONFromFile("./data/single_rule_template.json")
+    nomatch_template = getJSONFromFile("./data/no_match_criteria.json")
 
     # Group Config section
     for app in master_config:
-        app_rule = copy.deepcopy(rule_template)
-
         if "frontend_paths" in master_config[app]:
+            app_rule = copy.deepcopy(rule_template)
             app_rule["name"] = "/" + app
             app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app)
             for frontend_path in master_config[app]["frontend_paths"]:
                 app_rule["criteria"][0]["options"]["values"] += [global_path_prefix + frontend_path, global_path_prefix + frontend_path + "/*"]
+
+            if "frontend_exclude" in master_config[app]:
+                app_criteria = copy.deepcopy(nomatch_template)
+                for nomatch in master_config[app]["frontend_exclude"]:
+                    app_criteria["options"]["values"].append(global_path_prefix + nomatch)
+                    app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
+                app_rule["criteria"].append(app_criteria)
 
             rules.append(app_rule)
 
@@ -129,7 +132,6 @@ cs_config = getYMLFromFile("../main.yml")
 # http --auth-type edgegrid -a default: ":/papi/v1/properties/prp_516561/versions/latest?activatedOn=PRODUCTION&contractId=ctr_3-1MMN3Z&groupId=grp_134508"
 
 # Create a new version every time once we"re done testing
-# For now we"ll just build on v171
 new_version_number = createNewVersion()
 
 # Update the rules JSON using the cs configuration as a reference
