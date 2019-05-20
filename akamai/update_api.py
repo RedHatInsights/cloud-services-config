@@ -5,6 +5,7 @@ import urllib3
 import requests
 import ConfigParser
 import os
+import copy
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urlparse import urljoin
 
@@ -21,7 +22,7 @@ def getJSONFromFile(path):
     with open(path, "r") as f:
         return json.load(f)
 
-def getEdgeGridAuthFromFile(path="~/.edgerc"):
+def getEdgeGridAuthFromConfig(path="~/.edgerc"):
     config = ConfigParser.RawConfigParser()
     config.read(os.path.expanduser(path))
     return EdgeGridAuth(
@@ -29,6 +30,11 @@ def getEdgeGridAuthFromFile(path="~/.edgerc"):
         client_secret=config.get("default", "client_secret"),
         access_token=config.get("default", "access_token")
     )
+
+def getHostFromConfig(path="~/.edgerc"):
+    config = ConfigParser.RawConfigParser()
+    config.read(os.path.expanduser(path))
+    return "https://" + config.get("default", "host")
 
 def getLatestVersionNumber(env="PRODUCTION"):
     data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
@@ -60,26 +66,42 @@ def createNewVersion():
     return new_version
 
 def createRulesForEnv(master_config, global_path_prefix=""):
-    # Temporarily using a sample rule for testing
-    rules = getJSONFromFile("./data/sample_rule.json")
+    # First, add the rules for the landing page.
+    rules = getJSONFromFile("./data/landing_page_rules.json")
 
-    # TODO: Go through master_config and create rules one at a time
+    # If global path prefix exists, modify paths on landing page rules.
+    # TODO: Loop instead
+    if global_path_prefix != "":
+        for rule in rules:
+            if rule["behaviors"][0]["name"] == "failAction":
+                rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
+            if rule["criteria"][0]["name"] == "path":
+                rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
+
+    # Create a template object to copy from
+    rule_template = getJSONFromFile("./data/single_rule_template.json")
+
+    # Group Config section
+    for app in master_config:
+        app_rule = copy.deepcopy(rule_template)
+
+        if "frontend_paths" in master_config[app]:
+            app_rule["name"] = "/" + app
+            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app)
+            for frontend_path in master_config[app]["frontend_paths"]:
+                app_rule["criteria"][0]["options"]["values"] += [global_path_prefix + frontend_path, global_path_prefix + frontend_path + "/*"]
+
+            rules.append(app_rule)
 
     return rules
 
 def updatePropertyRulesUsingConfig(version_number, master_config):
-    rules_tree = getJSONFromFile("./data/rules_base.json")
-
-    print("Before:")
-    print(json.dumps(rules_tree))
+    rules_tree = getJSONFromFile("./data/base_rules.json")
 
     # TODO: Find this value dynamically instead of hardcoding since this could change
     # Need to be able to get a node by whether it says "Stable" or "Beta"
     rules_tree["rules"]["children"][2]["children"][1]["children"] = createRulesForEnv(master_config, "")
     rules_tree["rules"]["children"][2]["children"][2]["children"] = createRulesForEnv(master_config, "/beta")
-
-    print("After:")
-    print(json.dumps(rules_tree))
 
     # Update property with this new ruleset
     response = json.loads(akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number), rules_tree))
@@ -97,12 +119,11 @@ def akamaiPut(url, body):
 
 
 print("Script started")
-baseurl = "https://akab-fivf4v4qvlicqynr-uv7txgqiof4thfet.luna.akamaiapis.net"
-s.auth = getEdgeGridAuthFromFile()
+
+s.auth = getEdgeGridAuthFromConfig()
+baseurl = getHostFromConfig()
 
 cs_config = getYMLFromFile("../main.yml")
-# print("CS config:")
-# print(cs_config)
 
 # Get the number of the latest version running in Production
 # http --auth-type edgegrid -a default: ":/papi/v1/properties/prp_516561/versions/latest?activatedOn=PRODUCTION&contractId=ctr_3-1MMN3Z&groupId=grp_134508"
@@ -115,11 +136,4 @@ new_version_number = createNewVersion()
 updatePropertyRulesUsingConfig(new_version_number, cs_config)
 
 # Activate on STAGING???
-
-
-
-
-# property_data = getPropertyData()
-# print("Property data:")
-# print(json.dumps(property_data))
 
