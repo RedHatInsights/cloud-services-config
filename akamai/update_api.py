@@ -50,7 +50,7 @@ def createNewVersion():
     # TODO: uncomment next line and delete the two following ones
     # response_content = json.loads(akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
     response_content = {}
-    response_content["versionLink"] = "/papi/v0/properties/prp_516561/versions/172?contractId=ctr_3-1MMN3Z&groupId=grp_134508"
+    response_content["versionLink"] = "/papi/v0/properties/prp_516561/versions/174?contractId=ctr_3-1MMN3Z&groupId=grp_134508"
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -64,6 +64,7 @@ def createNewVersion():
 def createRulesForEnv(master_config, global_path_prefix=""):
     # First, add the rules for the landing page.
     rules = getJSONFromFile("./data/landing_page_rules.json")
+    rules.extend(getJSONFromFile("./data/storybook_rules.json"))
 
     # If global path prefix exists, modify paths on landing page rules.
     # TODO: Loop instead
@@ -85,14 +86,19 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             app_rule["name"] = "/" + app
             app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app)
             for frontend_path in master_config[app]["frontend_paths"]:
-                app_rule["criteria"][0]["options"]["values"] += [global_path_prefix + frontend_path, global_path_prefix + frontend_path + "/*"]
+                values = [global_path_prefix + frontend_path]
+                if "capture_path_additions" in master_config[app] and master_config[app]["capture_path_additions"]:
+                    values += [global_path_prefix + frontend_path + "/*"]
+                else:
+                    values += [global_path_prefix + frontend_path + "/"]
+                app_rule["criteria"][0]["options"]["values"].extend(values)
 
-            if "frontend_exclude" in master_config[app]:
-                app_criteria = copy.deepcopy(nomatch_template)
-                for nomatch in master_config[app]["frontend_exclude"]:
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch)
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
-                app_rule["criteria"].append(app_criteria)
+                if "frontend_exclude" in master_config[app]:
+                    app_criteria = copy.deepcopy(nomatch_template)
+                    for nomatch in master_config[app]["frontend_exclude"]:
+                        app_criteria["options"]["values"].append(global_path_prefix + nomatch)
+                        app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
+                    app_rule["criteria"].append(app_criteria)
 
             rules.append(app_rule)
 
@@ -108,7 +114,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
 
     # Update property with this new ruleset
     response = json.loads(akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number), rules_tree))
-    print("update response:")
+    print("Update response:")
     print(json.dumps(response))
 
 def akamaiGet(url):
@@ -120,8 +126,6 @@ def akamaiPost(url, body):
 def akamaiPut(url, body):
     return s.put(urljoin(baseurl, url), json=body).content
 
-
-print("Script started")
 
 s.auth = getEdgeGridAuthFromConfig()
 baseurl = getHostFromConfig()
