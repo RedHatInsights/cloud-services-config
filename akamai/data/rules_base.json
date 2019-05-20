@@ -1,0 +1,714 @@
+{
+    "rules": {
+        "behaviors": [
+            {
+                "name": "origin",
+                "options": {
+                    "netStorage": {
+                        "cpCode": 822386,
+                        "g2oToken": null,
+                        "downloadDomainName": "cloud-unprotected.download.akamai.com"
+                    },
+                    "originType": "NET_STORAGE"
+                }
+            },
+            {
+                "name": "cpCode",
+                "options": {
+                    "value": {
+                        "name": "Insights - Ion & Kona",
+                        "products": [
+                            "Site_Defender",
+                            "Fresca"
+                        ],
+                        "createdDate": 1549456793000.0,
+                        "id": 818944,
+                        "cpCodeLimits": null,
+                        "description": "Insights - Ion & Kona"
+                    }
+                }
+            },
+            {
+                "name": "allowPost",
+                "options": {
+                    "enabled": true,
+                    "allowWithoutContentLength": false
+                }
+            },
+            {
+                "name": "cacheRedirect",
+                "options": {
+                    "enabled": "false"
+                }
+            },
+            {
+                "name": "prefetch",
+                "options": {
+                    "enabled": true
+                }
+            },
+            {
+                "name": "dnsAsyncRefresh",
+                "options": {
+                    "enabled": true,
+                    "timeout": "7200h"
+                }
+            },
+            {
+                "name": "cacheKeyQueryParams",
+                "options": {
+                    "behavior": "IGNORE_ALL"
+                }
+            }
+        ],
+        "uuid": "default",
+        "variables": [],
+        "comments": "The behaviors in the Default Rule apply to all requests for the property hostname(s) unless another rule overrides the Default Rule settings.",
+        "children": [
+            {
+                "behaviors": [
+                    {
+                        "name": "gzipResponse",
+                        "options": {
+                            "behavior": "ALWAYS"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "responseHeader",
+                        "options": {
+                            "matchWildcardName": false,
+                            "headerName": "Content-Type",
+                            "matchWildcardValue": false,
+                            "values": [
+                                "text/html*",
+                                "application/x-javascript*",
+                                "text/css*",
+                                "text/javascript",
+                                "text/plain*"
+                            ],
+                            "matchCaseSensitiveValue": true,
+                            "matchOperator": "IS_ONE_OF"
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "name": "Last Mile Acceleration",
+                "children": []
+            },
+            {
+                "behaviors": [],
+                "name": "Config Manager Legacy: Disable LMA for Old Browsers",
+                "comments": "Replicates Config Manager's 'Last Mile Acceleration': 'Disable for Old Browsers' logic. Config Manger's description: 'Do not use Last Mile Acceleration for the following browsers: MSIE 4, MSIE 5( Mac), and all Mozilla 4. These older browsers incorrectly advertise they support gzip compression.'",
+                "criteriaMustSatisfy": "any",
+                "criteria": [],
+                "children": [
+                    {
+                        "behaviors": [
+                            {
+                                "name": "gzipResponse",
+                                "options": {
+                                    "behavior": "NEVER"
+                                }
+                            }
+                        ],
+                        "name": "Old IE browsers",
+                        "comments": "Disables last mile compression for old Internet Explorer browsers",
+                        "criteriaMustSatisfy": "any",
+                        "criteria": [
+                            {
+                                "name": "userAgent",
+                                "options": {
+                                    "matchWildcard": true,
+                                    "values": [
+                                        "*MSIE 5*Mac*",
+                                        "*MSIE 4*"
+                                    ],
+                                    "matchOperator": "IS_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "behaviors": [
+                            {
+                                "name": "gzipResponse",
+                                "options": {
+                                    "behavior": "NEVER"
+                                }
+                            }
+                        ],
+                        "name": "Old Mozilla browsers",
+                        "comments": "Disables last mile compression for old Mozilla browsers",
+                        "criteriaMustSatisfy": "all",
+                        "criteria": [
+                            {
+                                "name": "userAgent",
+                                "options": {
+                                    "matchWildcard": true,
+                                    "values": [
+                                        "*Mozilla/4*"
+                                    ],
+                                    "matchOperator": "IS_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            },
+                            {
+                                "name": "userAgent",
+                                "options": {
+                                    "matchWildcard": true,
+                                    "values": [
+                                        "*(compatible;*"
+                                    ],
+                                    "matchOperator": "IS_NOT_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "children": []
+                    },
+                    {
+                        "behaviors": [
+                            {
+                                "name": "downstreamCache",
+                                "options": {
+                                    "behavior": "TUNNEL_ORIGIN"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "cacheability",
+                                "options": {
+                                    "value": "CACHEABLE",
+                                    "matchOperator": "IS_NOT"
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "Downstream TTL",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "behaviors": [
+                    {
+                        "name": "caching",
+                        "options": {
+                            "mustRevalidate": true,
+                            "behavior": "MAX_AGE",
+                            "ttl": "10m"
+                        }
+                    },
+                    {
+                        "name": "gzipResponse",
+                        "options": {
+                            "behavior": "ALWAYS"
+                        }
+                    }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "name": "Cloud Services Prerelease",
+                "children": [
+                    {
+                        "behaviors": [
+                            {
+                                "name": "edgeSideIncludes",
+                                "options": {
+                                    "enableViaHttp": false,
+                                    "enabled": true,
+                                    "i18nStatus": false,
+                                    "detectInjection": false,
+                                    "passSetCookie": false,
+                                    "passClientIp": false
+                                }
+                            },
+                            {
+                                "name": "gzipResponse",
+                                "options": {
+                                    "behavior": "ORIGIN_RESPONSE"
+                                }
+                            },
+                            {
+                                "name": "modifyOutgoingResponseHeader",
+                                "options": {
+                                    "action": "ADD",
+                                    "standardAddHeaderName": "OTHER",
+                                    "headerValue": "1",
+                                    "customHeaderName": "x-fms-debug-esi"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "contentType",
+                                "options": {
+                                    "matchWildcard": true,
+                                    "values": [
+                                        "text/html*"
+                                    ],
+                                    "matchOperator": "IS_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "ESI",
+                        "children": []
+                    },
+                    {
+                        "behaviors": [],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "values": [
+                                        "/beta/*",
+                                        "/api/*"
+                                    ],
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "Stable (AUTO-GENERATED)",
+                        "children": []
+                    },
+                    {
+                        "behaviors": [],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "values": [
+                                        "/beta/*"
+                                    ],
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "Beta (AUTO-GENERATED)",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "behaviors": [
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "customHeaderName": "if-none-match",
+                            "standardPassHeaderName": "OTHER"
+                        }
+                    },
+                    {
+                        "name": "origin",
+                        "options": {
+                            "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                            "forwardHostHeader": "ORIGIN_HOSTNAME",
+                            "originSni": true,
+                            "verificationMode": "PLATFORM_SETTINGS",
+                            "hostname": "api-gateway.1b13.insights.openshiftapps.com",
+                            "compress": true,
+                            "trueClientIpHeader": "True-Client-IP",
+                            "httpPort": 80,
+                            "enableTrueClientIp": true,
+                            "httpsPort": 443,
+                            "trueClientIpClientSetting": false,
+                            "originType": "CUSTOMER",
+                            "ports": "",
+                            "originCertificate": ""
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-issuer"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-cn"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "c0290a96032d1124d643abc277a2d658",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "cloud.redhat.com",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/api/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "name": "API",
+                "children": [
+                    {
+                        "behaviors": [
+                            {
+                                "name": "allowPatch",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPost",
+                                "options": {
+                                    "enabled": true,
+                                    "allowWithoutContentLength": true
+                                }
+                            },
+                            {
+                                "name": "allHttpInCacheHierarchy",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowDelete",
+                                "options": {
+                                    "allowBody": true,
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPut",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [],
+                        "criteriaMustSatisfy": "all",
+                        "name": "API Allow Methods",
+                        "children": []
+                    },
+                    {
+                        "behaviors": [
+                            {
+                                "name": "origin",
+                                "options": {
+                                    "netStorage": {
+                                        "cpCode": 822386,
+                                        "g2oToken": null,
+                                        "downloadDomainName": "cloud-unprotected.download.akamai.com"
+                                    },
+                                    "originType": "NET_STORAGE"
+                                }
+                            },
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "mustRevalidate": false,
+                                    "behavior": "MAX_AGE",
+                                    "ttl": "11m"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "values": [
+                                        "/api/static*"
+                                    ],
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "/api/static",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "behaviors": [
+                    {
+                        "name": "responseCookie",
+                        "options": {
+                            "defaultPath": false,
+                            "domain": "cloud.redhat.com",
+                            "secure": true,
+                            "expires": "NEVER",
+                            "enabled": true,
+                            "cookieName": "x-rh-insights-alpha",
+                            "value": "flipmodesquadisthegreatest",
+                            "path": "/",
+                            "type": "FIXED",
+                            "defaultDomain": false
+                        }
+                    },
+                    {
+                        "name": "redirect",
+                        "options": {
+                            "queryString": "IGNORE",
+                            "destinationHostname": "SAME_AS_REQUEST",
+                            "destinationPath": "OTHER",
+                            "destinationPathOther": "/",
+                            "responseCode": 307,
+                            "mobileDefaultChoice": "DEFAULT",
+                            "destinationProtocol": "HTTPS"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/0b3e491aaeaa09936652d9df8c43b318"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "name": "Set Cloud Cookie",
+                "children": []
+            },
+            {
+                "behaviors": [
+                    {
+                        "name": "http2",
+                        "options": {
+                            "enabled": ""
+                        }
+                    },
+                    {
+                        "name": "allowTransferEncoding",
+                        "options": {
+                            "enabled": true
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "values": [
+                                "cloud.redhat.com"
+                            ],
+                            "matchOperator": "IS_ONE_OF"
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "name": "HTTP/2 on Host match",
+                "children": []
+            },
+            {
+                "behaviors": [
+                    {
+                        "name": "redirect",
+                        "options": {
+                            "queryString": "APPEND",
+                            "destinationHostname": "SAME_AS_REQUEST",
+                            "destinationPath": "SAME_AS_REQUEST",
+                            "responseCode": 301,
+                            "mobileDefaultChoice": "DEFAULT",
+                            "destinationProtocol": "HTTPS"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "requestProtocol",
+                        "options": {
+                            "value": "HTTP"
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "name": "Force HTTPS",
+                "children": []
+            },
+            {
+                "behaviors": [],
+                "uuid": "9e4371af-29cf-4074-9f62-a6dd16701eb5",
+                "criteriaMustSatisfy": "all",
+                "criteria": [
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "values": [
+                                "cloud.redhat.com"
+                            ],
+                            "matchOperator": "IS_ONE_OF"
+                        }
+                    }
+                ],
+                "children": [
+                    {
+                        "behaviors": [
+                            {
+                                "name": "modifyIncomingRequestHeader",
+                                "options": {
+                                    "action": "DELETE",
+                                    "standardDeleteHeaderName": "OTHER",
+                                    "customHeaderName": "x-rh-certauth-issuer"
+                                }
+                            },
+                            {
+                                "name": "modifyIncomingRequestHeader",
+                                "options": {
+                                    "action": "DELETE",
+                                    "standardDeleteHeaderName": "OTHER",
+                                    "customHeaderName": "x-rh-certauth-cn"
+                                }
+                            },
+                            {
+                                "name": "modifyIncomingRequestHeader",
+                                "options": {
+                                    "action": "DELETE",
+                                    "standardDeleteHeaderName": "OTHER",
+                                    "customHeaderName": "x-rh-certauth-host"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "requestType",
+                                "options": {
+                                    "value": "CLIENT_REQ",
+                                    "matchOperator": "IS"
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all",
+                        "name": "Remove Client Cert Headers",
+                        "children": []
+                    },
+                    {
+                        "behaviors": [
+                            {
+                                "uuid": "74d1c20c-a753-4eb4-a487-96338ad940a2",
+                                "name": "advanced",
+                                "options": {
+                                    "xml": "<assign:variable>\n    <name>CC_CHECK</name>\n    <value>on</value>\n</assign:variable>\n<match:request.method value=\"AKAMAI_PURGE AKAMAI_TRANSLATE\">\n    <assign:variable>\n        <name>CC_CHECK</name>\n        <value>off</value>\n    </assign:variable>\n</match:request.method>\n<match:client.ip2 value=\"127.0.0.1\" check-ips=\"connecting\">\n    <assign:variable>\n        <name>CC_CHECK</name>\n        <value>off</value>\n    </assign:variable>\n</match:client.ip2>\n<match:variable name=\"CC_CHECK\" value=\"on\">\n    <match:request.type value=\"CLIENT_REQ\">\n        <assign:extract-value>\n            <location>Client_Certificate</location>\n            <location-id>status_msg</location-id>\n            <variable-name>CC_STATUS_MSG</variable-name>\n        </assign:extract-value>\n        <match:variable name=\"CC_STATUS_MSG\" value=\"missing\" result=\"false\">\n            <assign:extract-value>\n                <location>Client_Certificate</location>\n                <location-id>issuer_dn</location-id>\n                <variable-name>CC_ISSUER</variable-name>\n            </assign:extract-value>\n            <edgeservices:modify-outgoing-request.add-header>\n                <name>x-rh-certauth-issuer</name>\n                <status>on</status>\n                <value>%(CC_ISSUER)</value>\n            </edgeservices:modify-outgoing-request.add-header>\n            <assign:extract-value>\n                <location>Client_Certificate</location>\n                <location-id>subject_dn</location-id>\n                <variable-name>CC_CN</variable-name>\n            </assign:extract-value>\n            <edgeservices:modify-outgoing-request.add-header>\n                <name>x-rh-certauth-cn</name>\n                <status>on</status>\n                <value>%(CC_CN)</value>\n            </edgeservices:modify-outgoing-request.add-header>\n            <edgeservices:modify-outgoing-request.add-header>\n                <name>x-rh-certauth-host</name>\n                <status>on</status>\n                <value>cloud.redhat.com</value>\n            </edgeservices:modify-outgoing-request.add-header>\n        </match:variable>\n    </match:request.type>\n</match:variable>",
+                                    "description": "Client Certificate Logic"
+                                }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "ADD",
+                                    "standardAddHeaderName": "OTHER",
+                                    "headerValue": "7f7438422b80a9acd34f5b61322455ef",
+                                    "customHeaderName": "x-rh-insights-certauth-secret"
+                                }
+                            }
+                        ],
+                        "uuid": "4d242f8e-9d81-423e-9cfa-9025b20618b3",
+                        "criteriaMustSatisfy": "all",
+                        "criteria": [],
+                        "children": [],
+                        "name": "Client Certificate"
+                    },
+                    {
+                        "behaviors": [
+                            {
+                                "uuid": "a12c69e0-7ba9-4a2c-96b8-5486c4f2c4a4",
+                                "name": "advanced",
+                                "options": {
+                                    "xml": "<assign:variable>\n        <name>NL</name>\n        <value>&lt;br&gt;</value>\n    </assign:variable>\n    <assign:variable>\n        <name>B</name>\n        <value>&lt;b&gt;</value>\n    </assign:variable>\n    <assign:variable>\n        <name>BE</name>\n        <value>&lt;/b&gt;</value>\n    </assign:variable>\n    <assign:extract-value>\n        <location>Client_Request_Header</location>\n        <location-id>Cookie</location-id>\n        <variable-name>COOKIE_VALUE</variable-name>\n    </assign:extract-value>\n    <assign:variable>\n        <name>AKA_TEST_BODY</name>\n        <value>&lt;h1&gt;Akamai Test Page&lt;/h1&gt;%(NL)%(NL)%(B)CC STATUS:%(BE) %(CC_STATUS)%(NL)%(NL)%(B)CERTIFICATE INFORMATION:%(BE)%(NL)%(B)CC_PROBLEM:%(BE) %(CC_PROBLEM)%(NL)%(B)error:%(BE) %(CC_STATUS_MSG)%(NL)%(B)serial:%(BE)%(CC_SERIAL)%(NL)%(B)issuer:%(BE)%(CC_ISSUER_DN)%(NL)%(B)subject:%(BE)%(CC_SUBJECT_DN)%(NL)%(NL)%(B)CCC INFORMATION:%(BE)%(NL)%(B)ccc_valid:%(BE)%(IS_CCC_VALID)%(NL)%(B)ccc_ip:%(BE)%(PASSED_CCC_IP)%(NL)%(B)ccc_exp:%(BE)%(PASSED_CCC_EXPIRE_TIME)%(NL)%(B)ccc_serial:%(BE)%(CCC_SERIAL)%(NL)%(B)ccc_issuer:%(BE)%(CCC_ISSUER)%(NL)%(B)ccc_subject:%(BE)%(CCC_SUBJECT)%(NL)%(NL)%(B)CLIENT IP:%(BE) %(AK_CLIENT_IP)%(NL)%(B)EDGE SERVER IP:%(BE) %(AK_GHOST_IP)%(NL)%(B)Epoch Time:%(BE) %(AK_CURRENT_TIME)%(NL)%(B)CPCODE:%(BE) %(AK_CPCODE)%(NL)%(NL)%(B)COOKIES:%(BE) %(CC_PEM)</value>\n    </assign:variable>\n    <match:variable name=\"FORWARD_ORIGIN\">\n        <assign:variable>\n            <name>AKA_TEST_BODY</name>\n            <value>%(AKA_TEST_BODY)%(NL)%(NL)%(B)FORWARD ORIGIN: %(BE)%(FORWARD_ORIGIN)%(NL)</value>\n        </assign:variable>\n    </match:variable>\n    <!-- Logic to build the Response Body -->\n    <edgeservices:construct-response>\n        <status>on</status>\n        <http-status>200</http-status>\n        <body>%(AKA_TEST_BODY)</body>\n        <force-cache-eviction>on</force-cache-eviction>\n    </edgeservices:construct-response>",
+                                    "description": ""
+                                }
+                            }
+                        ],
+                        "uuid": "459b3e34-5efb-41cf-97e5-d974ce56602b",
+                        "criteriaMustSatisfy": "all",
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "values": [
+                                        "cloud.redhat.com"
+                                    ],
+                                    "matchOperator": "IS_ONE_OF"
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "values": [
+                                        "/RHClientCertTestPage"
+                                    ],
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "children": [],
+                        "name": "Client Certificate Debug"
+                    }
+                ],
+                "name": "Client Cert"
+            }
+        ],
+        "options": {
+            "is_secure": true
+        },
+        "name": "default"
+    }
+}
