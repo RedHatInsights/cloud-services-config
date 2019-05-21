@@ -89,12 +89,12 @@ def createRulesForEnv(master_config, global_path_prefix=""):
                     values += [global_path_prefix + frontend_path + "/"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
-                if "frontend_exclude" in master_config[app]:
-                    app_criteria = copy.deepcopy(nomatch_template)
-                    for nomatch in master_config[app]["frontend_exclude"]:
-                        app_criteria["options"]["values"].append(global_path_prefix + nomatch)
-                        app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
-                    app_rule["criteria"].append(app_criteria)
+            if "frontend_exclude" in master_config[app]:
+                app_criteria = copy.deepcopy(nomatch_template)
+                for nomatch in master_config[app]["frontend_exclude"]:
+                    app_criteria["options"]["values"].append(global_path_prefix + nomatch)
+                    app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
+                app_rule["criteria"].append(app_criteria)
 
             rules.append(app_rule)
 
