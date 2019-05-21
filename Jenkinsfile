@@ -1,9 +1,10 @@
+@Library("github.com/RedHatInsights/insights-pipeline-lib") _
 import groovy.json.JsonSlurper
 
 node {
   stage ("deploy") {
-
-    // TODO: Run the Akamai API update
-
+    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/python27-jenkins-slave:latest") {
+      sh "akamai/run.sh"
+    }
   }
 }
