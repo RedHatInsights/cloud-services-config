@@ -1,46 +1,26 @@
-import yaml
+import copy
 import json
 import re
-import urllib3
 import requests
-import ConfigParser
-import os
-import copy
-from akamai.edgegrid import EdgeGridAuth, EdgeRc
+import urllib3
+import update_api_utilties as util
 from urlparse import urljoin
 
-# Set up connectivity
-http = urllib3.PoolManager()
-s = requests.Session()
+#HTTP Helper Functions 
+def akamaiGet(url):
+    return s.get(urljoin(baseurl, url)).content
 
-# Utility functions
-def getYMLFromFile(path="../main.yml"):
-    with open(path, "r") as f:
-        return yaml.safe_load(f)
+def akamaiPost(url, body):
+    return s.post(urljoin(baseurl, url), json=body).content
 
-def getJSONFromFile(path):
-    with open(path, "r") as f:
-        return json.load(f)
-
-def getEdgeGridAuthFromConfig(path="~/.edgerc"):
-    config = ConfigParser.RawConfigParser()
-    config.read(os.path.expanduser(path))
-    return EdgeGridAuth(
-        client_token=config.get("default", "client_token"),
-        client_secret=config.get("default", "client_secret"),
-        access_token=config.get("default", "access_token")
-    )
-
-def getHostFromConfig(path="~/.edgerc"):
-    config = ConfigParser.RawConfigParser()
-    config.read(os.path.expanduser(path))
-    return config.get("default", "host")
+def akamaiPut(url, body):
+    return s.put(urljoin(baseurl, url), json=body).content
 
 def getLatestVersionNumber(env="PRODUCTION"):
     print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     return data["versions"]["items"][0]["propertyVersion"]
-    
+
 def createNewVersion():
     # Get the number of the latest prod version to use as a base
     latest_prod_version = getLatestVersionNumber("PRODUCTION")
@@ -60,8 +40,8 @@ def createNewVersion():
 
 def createRulesForEnv(master_config, global_path_prefix=""):
     # First, add the rules for the landing page.
-    rules = getJSONFromFile("./data/landing_page_rules.json")
-    rules.extend(getJSONFromFile("./data/storybook_rules.json"))
+    rules = util.getJSONFromFile("./data/landing_page_rules.json")
+    rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
     # If global path prefix exists, modify paths on landing page rules.
     if global_path_prefix != "":
@@ -72,8 +52,8 @@ def createRulesForEnv(master_config, global_path_prefix=""):
                 rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
 
     # Create a template object to copy from
-    rule_template = getJSONFromFile("./data/single_rule_template.json")
-    nomatch_template = getJSONFromFile("./data/no_match_criteria.json")
+    rule_template = util.getJSONFromFile("./data/single_rule_template.json")
+    nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
 
     # Group Config section
     for app in master_config:
@@ -102,7 +82,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
 
 def updatePropertyRulesUsingConfig(version_number, master_config):
     print("Creating new ruleset based on master config...")
-    rules_tree = getJSONFromFile("./data/base_rules.json")
+    rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
     # TODO: Find this value dynamically instead of hardcoding since this could change
     # Need to be able to get a node by whether it says "Stable" or "Beta"
@@ -145,30 +125,28 @@ def activateVersion(version_number, env="STAGING"):
             print("Success! Version {} activated on {}.".format(version_number, env))
 
 
-def akamaiGet(url):
-    return s.get(urljoin(baseurl, url)).content
 
-def akamaiPost(url, body):
-    return s.post(urljoin(baseurl, url), json=body).content
+def main():    
+    # Set up connectivity
+    s = requests.Session()
 
-def akamaiPut(url, body):
-    return s.put(urljoin(baseurl, url), json=body).content
+    # Authenticate session with user's local EdgeGrid config file (~/.edgerc)
+    s.auth = util.getEdgeGridAuthFromConfig()
 
+    # Get the base url using the 
+    baseurl = "https://" + util.getHostFromConfig()
 
-# Authenticate session with user's local EdgeGrid config file (~/.edgerc)
-s.auth = getEdgeGridAuthFromConfig()
+    # Get the Cloud Services config file (main source of truth)
+    cs_config = util.getYMLFromFile("../main.yml")
 
-# Get the base url using the 
-baseurl = "https://" + getHostFromConfig()
+    # Create a new version based off of the active Prod version
+    new_version_number = createNewVersion()
 
-# Get the Cloud Services config file (main source of truth)
-cs_config = getYMLFromFile("../main.yml")
+    # Update the rules JSON using the CS configuration as a reference
+    updatePropertyRulesUsingConfig(new_version_number, cs_config)
 
-# Create a new version based off of the active Prod version
-new_version_number = createNewVersion()
+    # Activate on STAGING
+    activateVersion(new_version_number, "STAGING")
 
-# Update the rules JSON using the CS configuration as a reference
-updatePropertyRulesUsingConfig(new_version_number, cs_config)
-
-# Activate on STAGING
-activateVersion(new_version_number, "STAGING")
+if __name__== "__main__":
+    main()
