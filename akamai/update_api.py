@@ -2,23 +2,17 @@ import copy
 import json
 import re
 import requests
-import urllib3
 import update_api_utilties as util
-from urlparse import urljoin
 
-#HTTP Helper Functions 
-def akamaiGet(url):
-    return s.get(urljoin(baseurl, url)).content
-
-def akamaiPost(url, body):
-    return s.post(urljoin(baseurl, url), json=body).content
-
-def akamaiPut(url, body):
-    return s.put(urljoin(baseurl, url), json=body).content
+#global variables
+# Set up connectivity
+s = requests.Session()
+# Get the base url using the 
+baseurl = "https://" + util.getHostFromConfig()
 
 def getLatestVersionNumber(env="PRODUCTION"):
     print("API - Getting version of latest activation in {}...".format(env))
-    data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
+    data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env),baseurl, s))
     return data["versions"]["items"][0]["propertyVersion"]
 
 def createNewVersion():
@@ -29,7 +23,7 @@ def createNewVersion():
     
     # Create temp response content so I can test without creating a million versions in Akamai
     print("API - Creating new version based on v{}".format(latest_prod_version))
-    response_content = json.loads(akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
+    response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -91,7 +85,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
-    response = json.loads(akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number), rules_tree))
+    response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),baseurl, rules_tree, s))
 
 def activateVersion(version_number, env="STAGING"):
     body = {
@@ -104,7 +98,7 @@ def activateVersion(version_number, env="STAGING"):
     body["propertyVersion"] = version_number
     body["network"] = env
     print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
+    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
 
     # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
     # Acknowledging these warnings in the request body will allow the activation to work.
@@ -114,7 +108,7 @@ def activateVersion(version_number, env="STAGING"):
             warnings.append(w["messageId"])
         body["acknowledgeWarnings"] = warnings
         print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508", body))
+        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
 
         # If it fails again, give up.
         if "status" in response:
@@ -127,14 +121,9 @@ def activateVersion(version_number, env="STAGING"):
 
 
 def main():    
-    # Set up connectivity
-    s = requests.Session()
 
     # Authenticate session with user's local EdgeGrid config file (~/.edgerc)
     s.auth = util.getEdgeGridAuthFromConfig()
-
-    # Get the base url using the 
-    baseurl = "https://" + util.getHostFromConfig()
 
     # Get the Cloud Services config file (main source of truth)
     cs_config = util.getYMLFromFile("../main.yml")

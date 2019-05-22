@@ -3,6 +3,7 @@ import yaml
 import os
 import json
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
+from urlparse import urljoin
 
 
 # Utility functions
@@ -28,5 +29,15 @@ def getHostFromConfig(path="~/.edgerc"):
     config.read(os.path.expanduser(path))
     return config.get("default", "host")
 
+
+#HTTP Helper Functions 
+def akamaiGet(url, baseurl, s):
+    return s.get(urljoin(baseurl, url)).content
+
+def akamaiPost(url, baseurl, body, s):
+    return s.post(urljoin(baseurl, url), json=body).content
+
+def akamaiPut(url, baseurl, body, s):
+    return s.put(urljoin(baseurl, url), json=body).content
 
 
