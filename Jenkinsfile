@@ -7,7 +7,7 @@ node {
       checkout scm
       sh "set -e"
       sh "rm -rf venv || true"
-      sh "python3 -m venv venv"
+      sh "python3.6 -m venv venv"
       sh "source ./venv/bin/activate"
       sh "pip install -r ./akamai/requirements.txt"
       sh "python ./akamai/update_api.py"
