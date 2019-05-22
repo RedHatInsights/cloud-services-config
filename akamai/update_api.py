@@ -1,18 +1,11 @@
 import copy
 import json
 import re
-import requests
 import update_api_utilties as util
-
-#global variables
-# Set up connectivity
-s = requests.Session()
-# Get the base url using the 
-baseurl = "https://" + util.getHostFromConfig()
 
 def getLatestVersionNumber(env="PRODUCTION"):
     print("API - Getting version of latest activation in {}...".format(env))
-    data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env),baseurl, s))
+    data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     return data["versions"]["items"][0]["propertyVersion"]
 
 def createNewVersion():
@@ -23,7 +16,7 @@ def createNewVersion():
     
     # Create temp response content so I can test without creating a million versions in Akamai
     print("API - Creating new version based on v{}".format(latest_prod_version))
-    response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
+    response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -85,43 +78,50 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
-    response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),baseurl, rules_tree, s))
+    response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),rules_tree))
 
 def activateVersion(version_number, env="STAGING"):
     body = {
         "note": "Auto-generated activation",
         "useFastFallback": "false",
-        "notifyEmails": []
+        "notifyEmails": [
+            "aprice@redhat.com"
+        ]
     }
     body["propertyVersion"] = version_number
     body["network"] = env
     print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
+    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    err = False
 
     # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
     # Acknowledging these warnings in the request body will allow the activation to work.
-    if "status" in response and response["status"] == 400:
+    if "activationLink" in response:
+        print("Wow, first try! Version {} activated on {}.".format(version_number, env))
+    elif "status" in response and response["status"] == 400 and "warnings" in response:
         warnings = []
         for w in response["warnings"]:
             warnings.append(w["messageId"])
         body["acknowledgeWarnings"] = warnings
         print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",baseurl, body, s))
+        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
         # If it fails again, give up.
-        if "status" in response:
-            print("Something went wrong; here's the response we got:")
-            print(json.dumps(response))
-            print("The activaction failed. Please check out the above response and see what happened.")
-        else:
+        if "activationLink" in response:
             print("Success! Version {} activated on {}.".format(version_number, env))
-
-
+        else:
+            err = True
+            print("Something went wrong while acknowledging warnings. Here's the response we got:")     
+    else:
+        err = True
+        print("Something went wrong on the first activation attempt. Here's the response we got:")
+    if err:
+        print(json.dumps(response))
+        print("The activaction failed. Please check out the above response to see what happened.") 
 
 def main():    
-
-    # Authenticate session with user's local EdgeGrid config file (~/.edgerc)
-    s.auth = util.getEdgeGridAuthFromConfig()
+    # Authenticate with EdgeGrid
+    util.initEdgeGridAuth()
 
     # Get the Cloud Services config file (main source of truth)
     cs_config = util.getYMLFromFile("../main.yml")
