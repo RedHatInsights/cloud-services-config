@@ -1,2 +1,6 @@
-pip install -q -r requirements.txt
-python2.7 update_api.py
+set -e
+rm -rf venv || true
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 update_api.py

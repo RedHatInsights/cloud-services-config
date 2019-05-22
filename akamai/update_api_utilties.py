@@ -1,10 +1,10 @@
-import ConfigParser
+import configparser
 import yaml
 import os
 import json
 import requests
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 def getYMLFromFile(path="../main.yml"):
     with open(path, "r") as f:
@@ -15,7 +15,7 @@ def getJSONFromFile(path):
         return json.load(f)
 
 def initEdgeGridAuth(path="~/.edgerc"):
-    config = ConfigParser.RawConfigParser()
+    config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
     s.auth = EdgeGridAuth(
         client_token=config.get("default", "client_token"),
@@ -24,7 +24,7 @@ def initEdgeGridAuth(path="~/.edgerc"):
     )
 
 def getHostFromConfig(path="~/.edgerc"):
-    config = ConfigParser.RawConfigParser()
+    config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
     return config.get("default", "host")
 
