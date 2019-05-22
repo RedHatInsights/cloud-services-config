@@ -97,9 +97,7 @@ def activateVersion(version_number, env="STAGING"):
     body = {
         "note": "Auto-generated activation",
         "useFastFallback": "false",
-        "notifyEmails": [
-            "aprice@redhat.com"
-        ]
+        "notifyEmails": []
     }
     body["propertyVersion"] = version_number
     body["network"] = env
