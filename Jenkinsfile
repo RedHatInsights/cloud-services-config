@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 node {
   stage ("deploy") {
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/python27-jenkins-slave:latest") {
-      sh "akamai/run.sh"
+      sh "akamai/run_dev.sh"
     }
   }
 }
