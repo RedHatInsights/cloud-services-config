@@ -9,7 +9,7 @@ node {
       sh "rm -rf venv || true"
       sh "python3.6 -m venv venv"
       sh "source ./venv/bin/activate"
-      sh "pip install -r ./akamai/requirements.txt"
+      sh "pip install --user -r ./akamai/requirements.txt"
       sh "python ./akamai/update_api.py"
     }
   }
