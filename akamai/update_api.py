@@ -50,7 +50,6 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
 
     # Creates rules for all the apps that follow a pattern.
-    # TODO: Shouldn't they always be "/*" instead of "/"?
     for app in master_config:
         if "frontend_paths" in master_config[app]:
             app_rule = copy.deepcopy(rule_template)
@@ -58,10 +57,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app)
             for frontend_path in master_config[app]["frontend_paths"]:
                 values = [global_path_prefix + frontend_path]
-                if "capture_path_additions" in master_config[app] and master_config[app]["capture_path_additions"]:
-                    values += [global_path_prefix + frontend_path + "/*"]
-                else:
-                    values += [global_path_prefix + frontend_path + "/"]
+                values += [global_path_prefix + frontend_path + "/*"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
             if "frontend_exclude" in master_config[app]:

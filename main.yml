@@ -8,7 +8,8 @@ catalog:
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend_paths:
   - /hybrid/catalog
-  capture_path_additions: true
+  frontend_exclude:
+  - /hybrid/catalog/approval
 
 chrome:
   channel: '#flip-mode-squad'
@@ -18,21 +19,18 @@ compliance:
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend_paths:
   - /rhel/compliance
-  capture_path_additions: true
 
 cost-management:
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   frontend_paths:
   - /hybrid/settings/cost-management-sources
   - /hybrid/cost-management
-  capture_path_additions: true
 
 dashboard:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend_paths:
   - /rhel/dashboard
-  - /rhel
   
 drift:
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
@@ -43,7 +41,6 @@ hooks:
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend_paths:
   - /insights/settings/hooks
-  capture_path_additions: true
 
 insights:
   channel: '#advisor'
@@ -55,7 +52,6 @@ insights:
   - /insights/remediations
   - /insights/settings/hooks
   - /insights/settings/sources
-  capture_path_additions: true
 
 inventory:
   channel: '#flip-mode-squad'
@@ -63,7 +59,6 @@ inventory:
   frontend_paths:
   - /rhel/inventory
   - /insights/inventory
-  capture_path_additions: true
 
 landing:
   channel: '#flip-mode-squad'
@@ -73,7 +68,6 @@ openshift:
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend_paths:
   - /openshift
-  capture_path_additions: true
 
 rbac:
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
@@ -86,7 +80,6 @@ remediations:
   frontend_paths:
   - /rhel/remediations
   - /insights/remediations
-  capture_path_additions: true
 
 sources:
   channel: '#insights_topology_svc'
@@ -109,4 +102,3 @@ vulnerability:
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend_paths:
   - /rhel/vulnerability
-  capture_path_additions: true
