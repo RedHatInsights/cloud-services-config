@@ -8,11 +8,12 @@ node {
       withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
         checkout scm
         sh "set -e"
+        sh "cd akamai"
         sh "rm -rf venv || true"
         sh "python3 -m venv venv"
         sh "source ./venv/bin/activate"
-        sh "pip3 install --user -r ./akamai/requirements.txt"
-        sh "python3 ./akamai/update_api.py $EDGERC"
+        sh "pip3 install --user -r ./requirements.txt"
+        sh "python3 ./update_api.py $EDGERC"
       }
     }
   }
