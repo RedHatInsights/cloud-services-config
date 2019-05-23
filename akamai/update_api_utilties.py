@@ -1,11 +1,13 @@
 import configparser
-import yaml
-import os
 import json
+import os
 import requests
+import sys
+import yaml
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urllib.parse import urljoin
 
+# These two are simply local file helpers.
 def getYMLFromFile(path="../main.yml"):
     with open(path, "r") as f:
         return yaml.safe_load(f)
@@ -14,16 +16,27 @@ def getJSONFromFile(path):
     with open(path, "r") as f:
         return json.load(f)
 
+# Initializes the EdgeGrid auth using the .edgerc file (or some passed-in config).
 def initEdgeGridAuth(path="~/.edgerc"):
+    # If the config file was passed in, use that.
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
     config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
+
+    # TODO: We might actually be able to authenticate without EdgeGridAuth,
+    # which would reduce the number of dependencies.
     s.auth = EdgeGridAuth(
         client_token=config.get("default", "client_token"),
         client_secret=config.get("default", "client_secret"),
         access_token=config.get("default", "access_token")
     )
 
+# Gets the hostname from the .edgerc file (or some passed-in config).
 def getHostFromConfig(path="~/.edgerc"):
+    # If the config file was passed in, use that.
+    if len(sys.argv) > 1:
+        path = sys.argv[1]
     config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
     return config.get("default", "host")

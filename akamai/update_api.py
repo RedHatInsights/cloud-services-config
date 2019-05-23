@@ -3,16 +3,20 @@ import json
 import re
 import update_api_utilties as util
 
+# Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env="PRODUCTION"):
     print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     return data["versions"]["items"][0]["propertyVersion"]
 
+# Creates a new version of the property in Akamai,
+# which is based off of the latest active version in Production.
 def createNewVersion():
     # Get the number of the latest prod version to use as a base
     latest_prod_version = getLatestVersionNumber("PRODUCTION")
-    body = {}
-    body["createFromVersion"] = latest_prod_version
+    body = {
+        "createFromVersion": latest_prod_version
+    }
     
     # Create temp response content so I can test without creating a million versions in Akamai
     print("API - Creating new version based on v{}".format(latest_prod_version))
@@ -25,6 +29,9 @@ def createNewVersion():
     print("Version {} created.".format(new_version))
     return new_version
 
+# Creates a list of rules in the correct Akamai PM structure based on
+# the master_config (source of truth), and prepends paths with
+# global_path_prefix as appropriate.
 def createRulesForEnv(master_config, global_path_prefix=""):
     # First, add the rules for the landing page.
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
@@ -38,11 +45,12 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             if rule["criteria"][0]["name"] == "path":
                 rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
 
-    # Create a template object to copy from
+    # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
     nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
 
-    # Group Config section
+    # Creates rules for all the apps that follow a pattern.
+    # TODO: Shouldn't they always be "/*" instead of "/"?
     for app in master_config:
         if "frontend_paths" in master_config[app]:
             app_rule = copy.deepcopy(rule_template)
@@ -67,6 +75,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
 
     return rules
 
+# Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config):
     print("Creating new ruleset based on master config...")
     rules_tree = util.getJSONFromFile("./data/base_rules.json")
@@ -80,6 +89,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
     print("API - Updating rule tree...")
     response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),rules_tree))
 
+# Makes an API call to activate the specified version on the specified environment.
 def activateVersion(version_number, env="STAGING"):
     body = {
         "note": "Auto-generated activation",
@@ -119,7 +129,7 @@ def activateVersion(version_number, env="STAGING"):
         print(json.dumps(response))
         print("The activaction failed. Please check out the above response to see what happened.") 
 
-def main():    
+def main():
     # Authenticate with EdgeGrid
     util.initEdgeGridAuth()
 
