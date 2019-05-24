@@ -8,8 +8,6 @@ catalog:
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend_paths:
   - /hybrid/catalog
-  frontend_exclude:
-  - /hybrid/catalog/approval
 
 chrome:
   channel: '#flip-mode-squad'
@@ -47,11 +45,6 @@ insights:
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend_paths:
   - /insights
-  frontend_exclude:
-  - /insights/inventory
-  - /insights/remediations
-  - /insights/settings/hooks
-  - /insights/settings/sources
 
 inventory:
   channel: '#flip-mode-squad'

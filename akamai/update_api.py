@@ -2,6 +2,7 @@ import copy
 import json
 import re
 import update_api_utilties as util
+import sys
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env="PRODUCTION"):
@@ -139,6 +140,27 @@ def activateVersion(version_number, env="STAGING"):
         print(json.dumps(response))
         print("The activaction failed. Please check out the above response to see what happened.") 
 
+def generateExclusions(frontend_path, config):
+    exclusions = []
+    for app in (x for x in config if "frontend_paths" in config[x]):
+        for path in (y for y in config[app]["frontend_paths"] if frontend_path != y):
+            if frontend_path in path:
+                exclusions.append(path + "/*")
+    return exclusions
+
+def generateConfigForBranch(branch):
+    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(branch))
+    # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
+    for main_app in (x for x in config if "frontend_paths" in config[x]):
+        exclusions = []
+        for fe_path in config[main_app]["frontend_paths"]:
+            exclusions.extend(generateExclusions(fe_path, config))
+        config[main_app]["frontend_exclude"] = exclusions
+    
+    print(json.dumps(config))
+    sys.exit("Quitting before it can update.")
+    return config
+
 def main():
     # Authenticate with EdgeGrid
     util.initEdgeGridAuth()
@@ -151,7 +173,7 @@ def main():
             "name": env,
             "branch": environments[env]["branch"],
             "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
-            "config": util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(environments[env]["branch"]))
+            "config": generateConfigForBranch(environments[env]["branch"])
         })
 
     # Create a new version based off of the active Prod version
