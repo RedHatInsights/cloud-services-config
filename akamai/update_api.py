@@ -61,7 +61,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
                 values += [global_path_prefix + frontend_path + "/*"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
-            if "frontend_exclude" in master_config[app]:
+            if "frontend_exclude" in master_config[app] and len(master_config[app]["frontend_exclude"]) > 0:
                 app_criteria = copy.deepcopy(nomatch_template)
                 for nomatch in master_config[app]["frontend_exclude"]:
                     app_criteria["options"]["values"].append(global_path_prefix + nomatch)
@@ -142,10 +142,10 @@ def activateVersion(version_number, env="STAGING"):
 
 def generateExclusions(frontend_path, config):
     exclusions = []
-    for app in (x for x in config if "frontend_paths" in config[x]):
-        for path in (y for y in config[app]["frontend_paths"] if frontend_path != y):
+    for app in (x for x in config if "frontend_paths" in config[x] and frontend_path not in config[x]["frontend_paths"]):
+        for path in config[app]["frontend_paths"]:
             if frontend_path in path:
-                exclusions.append(path + "/*")
+                exclusions.append(path)
     return exclusions
 
 def generateConfigForBranch(branch):
@@ -157,8 +157,6 @@ def generateConfigForBranch(branch):
             exclusions.extend(generateExclusions(fe_path, config))
         config[main_app]["frontend_exclude"] = exclusions
     
-    print(json.dumps(config))
-    sys.exit("Quitting before it can update.")
     return config
 
 def main():
