@@ -28,6 +28,7 @@ dashboard:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend_paths:
+  - /rhel
   - /rhel/dashboard
   
 drift:
