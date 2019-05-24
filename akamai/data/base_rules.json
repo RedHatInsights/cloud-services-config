@@ -260,43 +260,6 @@
                         "criteriaMustSatisfy": "all",
                         "name": "ESI",
                         "children": []
-                    },
-                    {
-                        "behaviors": [],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "values": [
-                                        "/beta/*",
-                                        "/api/*"
-                                    ],
-                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                    "matchCaseSensitive": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all",
-                        "name": "Stable (AUTO-GENERATED)",
-                        "children": []
-                    },
-                    {
-                        "behaviors": [],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "values": [
-                                        "/beta/*"
-                                    ],
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all",
-                        "name": "Beta (AUTO-GENERATED)",
-                        "children": []
                     }
                 ]
             },

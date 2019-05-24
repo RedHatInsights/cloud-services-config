@@ -1,0 +1,6 @@
+Stable:
+  branch: master
+
+Beta:
+  branch: beta
+  prefix: /beta

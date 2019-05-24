@@ -7,7 +7,7 @@ import yaml
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urllib.parse import urljoin
 
-# These two are simply local file helpers.
+# These are simply local file helpers.
 def getYMLFromFile(path="../main.yml"):
     with open(path, "r") as f:
         return yaml.safe_load(f)
@@ -15,6 +15,9 @@ def getYMLFromFile(path="../main.yml"):
 def getJSONFromFile(path):
     with open(path, "r") as f:
         return json.load(f)
+
+def getYMLFromUrl(url):
+    return yaml.safe_load(s.get(url).content.decode('utf-8'))
 
 # Initializes the EdgeGrid auth using the .edgerc file (or some passed-in config).
 def initEdgeGridAuth(path="~/.edgerc"):
