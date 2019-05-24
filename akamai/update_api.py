@@ -72,14 +72,26 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     return rules
 
 # Makes an API call which updates the property version with a new rule tree.
-def updatePropertyRulesUsingConfig(version_number, master_config):
-    print("Creating new ruleset based on master config...")
+def updatePropertyRulesUsingConfig(version_number, master_config_list):
+    print("Creating new ruleset based on list of master configs...")
     rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
-    # TODO: Find this value dynamically instead of hardcoding since this could change
-    # Need to be able to get a node by whether it says "Stable" or "Beta"
-    rules_tree["rules"]["children"][2]["children"][1]["children"] = createRulesForEnv(master_config, "")
-    rules_tree["rules"]["children"][2]["children"][2]["children"] = createRulesForEnv(master_config, "/beta")
+    parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
+    
+    # Iterate through the configurations for each environment
+    for env in master_config_list:
+        parent_rule = copy.deepcopy(parent_rule_template)
+        parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
+        parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF" if ("prefix" not in env or env["prefix"] == "") else "MATCHES_ONE_OF"
+        if ("prefix" not in env or env["prefix"] == ""):
+            parent_rule["criteria"][0]["options"]["values"].append("/api/*")
+            for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
+                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
+        else:
+            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"] + "/*")
+            
+        parent_rule["children"] = createRulesForEnv(env["config"], env["prefix"])
+        rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
@@ -87,6 +99,8 @@ def updatePropertyRulesUsingConfig(version_number, master_config):
 
 # Makes an API call to activate the specified version on the specified environment.
 def activateVersion(version_number, env="STAGING"):
+    # "notifyEmails" is unfortunately required for this API call.
+    # TODO: Find a better email for this and release me from this torture
     body = {
         "note": "Auto-generated activation",
         "useFastFallback": "false",
@@ -129,14 +143,22 @@ def main():
     # Authenticate with EdgeGrid
     util.initEdgeGridAuth()
 
-    # Get the Cloud Services config file (main source of truth)
-    cs_config = util.getYMLFromFile("../main.yml")
+    # Get the Cloud Services config files (main source of truth) for all configured environments
+    environments = util.getYMLFromFile("./data/environments.yml")
+    cs_config_list = []
+    for env in environments:
+        cs_config_list.append({
+            "name": env,
+            "branch": environments[env]["branch"],
+            "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
+            "config": util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(environments[env]["branch"]))
+        })
 
     # Create a new version based off of the active Prod version
     new_version_number = createNewVersion()
 
     # Update the rules JSON using the CS configuration as a reference
-    updatePropertyRulesUsingConfig(new_version_number, cs_config)
+    updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
 
     # Activate on STAGING
     activateVersion(new_version_number, "STAGING")
