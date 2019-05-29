@@ -12,12 +12,12 @@
   frontend_paths:
     - /hybrid/catalog
   sub_apps:
-    - portfolios:
+    - id: portfolios
       title: Portfolios
       default: true
-    - platforms:
+    - id: platforms
       title: Platforms
-    - orders:
+    - id: orders
       title: Orders
     - approval
 
@@ -38,14 +38,14 @@
     - /hybrid/settings/cost-management-sources
     - /hybrid/cost-management
   sub_apps:
-    - '':
+    - id: ''
       title: Overview
       default: true
-    - ocp-on-aws:
+    - id: ocp-on-aws
       title: OpenShift on cloud details
-    - ocp:
+    - id: ocp
       title: OpenShift details
-    - aws:
+    - id: aws
       title: Cloud details
 
 - id: dashboard
@@ -73,23 +73,23 @@
 - id: hybrid
   title: Hybrid Cloud Management Services
   sub_apps:
-    - catalog
-    - cost-management
-    - settings-hybrid
+    - id: catalog
+    - id: cost-management
+    - id: settings-hybrid
   top_level: true
 
 - id: insights
   title: Red Hat Insights
   channel: '#advisor'
   sub_apps:
-    - actions:
+    - id: actions
       title: Overview
       default: true
-    - rules:
+    - id: rules
       title: Rules
-    - inventory
-    - remediations
-    - settings-insights
+    - id: inventory
+    - id: remediations
+    - id: settings-insights
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend_paths:
     - /insights
@@ -113,7 +113,7 @@
   frontend_paths:
     - /openshift
   sub_apps:
-    - clusters:
+    - id: clusters
       title: Clusters
       default: true
   top_level: true
@@ -136,32 +136,32 @@
 - id: rhel
   title: Cloud Management Services
   sub_apps:
-    - dashboard:
+    - id: dashboard
       default: true
-    - vulnerability
-    - compliance
-    - drift
-    - inventory
-    - remediations
+    - id: vulnerability
+    - id: compliance
+    - id: drift
+    - id: inventory
+    - id: remediations
   top_level: true
 
 - id: settings-hybrid
   title: Settings
   sub_apps:
-    - catalog-sources:
+    - id: catalog-sources
       title: Catalog Sources
       reload: settings/sources
-    - cost-management-sources:
+    - id: cost-management-sources
       title: Cost Management Sources
       reload: cost-management/sources
-    - rbac
+    - id: rbac
 
 - id: settings-insights
   title: Settings
   disabled_on_stable: true
   sub_apps:
-    - hooks
-    - sources
+    - id: hooks
+    - id: sources
 
 - id: sources
   title: Sources
