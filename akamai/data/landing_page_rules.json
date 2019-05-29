@@ -1,0 +1,141 @@
+[
+    {
+        "behaviors": [
+            {
+                "name": "failAction",
+                "options": {
+                    "contentPath": "/apps/landing/404.html",
+                    "enabled": true,
+                    "actionType": "RECREATED_CO",
+                    "contentCustomPath": true,
+                    "contentHostname": "cloud.redhat.com",
+                    "preserveQueryString": false
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "matchResponseCode",
+                "options": {
+                    "values": [
+                        "404",
+                        "000"
+                    ],
+                    "matchOperator": "IS_ONE_OF"
+                }
+            },
+            {
+                "name": "originTimeout",
+                "options": {
+                    "matchOperator": "ORIGIN_TIMED_OUT"
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "any",
+        "name": "404 Redirect",
+        "children": []
+    },
+    {
+        "behaviors": [
+            {
+                "name": "responseCode",
+                "options": {
+                    "statusCode": 404
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "path",
+                "options": {
+                    "values": [
+                        "/apps/landing/404.html"
+                    ],
+                    "matchOperator": "MATCHES_ONE_OF",
+                    "matchCaseSensitive": false
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "all",
+        "name": "404",
+        "children": []
+    },
+    {
+        "behaviors": [
+            {
+                "name": "failAction",
+                "options": {
+                    "contentPath": "/apps/landing/index.html",
+                    "enabled": true,
+                    "actionType": "RECREATED_CO",
+                    "contentCustomPath": true,
+                    "contentHostname": "cloud.redhat.com",
+                    "preserveQueryString": false
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "path",
+                "options": {
+                    "values": [
+                        "/"
+                    ],
+                    "matchOperator": "MATCHES_ONE_OF",
+                    "matchCaseSensitive": false
+                }
+            },
+            {
+                "name": "matchResponseCode",
+                "options": {
+                    "values": [
+                        "404"
+                    ],
+                    "matchOperator": "IS_ONE_OF"
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "all",
+        "name": "/",
+        "children": []
+    },
+    {
+        "behaviors": [
+            {
+                "name": "failAction",
+                "options": {
+                    "contentPath": "/apps/landing/logout.html",
+                    "enabled": true,
+                    "actionType": "RECREATED_CO",
+                    "contentCustomPath": true,
+                    "contentHostname": "cloud.redhat.com",
+                    "preserveQueryString": false
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "path",
+                "options": {
+                    "values": [
+                        "/logout"
+                    ],
+                    "matchOperator": "MATCHES_ONE_OF",
+                    "matchCaseSensitive": false
+                }
+            },
+            {
+                "name": "matchResponseCode",
+                "options": {
+                    "values": [
+                        "404"
+                    ],
+                    "matchOperator": "IS_ONE_OF"
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "all",
+        "name": "/logout",
+        "children": []
+    }
+]

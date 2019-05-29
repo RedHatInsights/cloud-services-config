@@ -1,0 +1,16 @@
+{
+    "behaviors": [],
+    "criteria": [
+        {
+            "name": "path",
+            "options": {
+                "values": [],
+                "matchOperator": "",
+                "matchCaseSensitive": false
+            }
+        }
+    ],
+    "criteriaMustSatisfy": "all",
+    "name": "(AUTO-GENERATED)",
+    "children": []
+}

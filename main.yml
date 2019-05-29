@@ -28,9 +28,9 @@ dashboard:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend_paths:
-  - /rhel/dashboard
   - /rhel
-
+  - /rhel/dashboard
+  
 drift:
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend_paths:
@@ -96,4 +96,3 @@ vulnerability:
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend_paths:
   - /rhel/vulnerability
-
