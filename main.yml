@@ -1,11 +1,11 @@
-approval:
+- approval:
   title: Approval
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend_paths:
     - /hybrid/catalog/approval
   reload: catalog/approval
 
-catalog:
+- catalog:
   title: Catalog
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
@@ -21,17 +21,17 @@ catalog:
       title: Orders
     - approval
 
-chrome:
+- chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
-compliance:
+- compliance:
   title: Compliance
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend_paths:
     - /rhel/compliance
 
-cost-management:
+- cost-management:
   title: Cost Management
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   frontend_paths:
@@ -48,7 +48,7 @@ cost-management:
     - aws:
       title: Cloud details
 
-dashboard:
+- dashboard:
   title: Dashboard
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
@@ -57,20 +57,20 @@ dashboard:
     - /rhel
     - /rhel/dashboard
   
-drift:
+- drift:
   title: System Comparison
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend_paths:
     - /rhel/drift
 
-hooks:
+- hooks:
   title: Hooks
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend_paths:
     - /insights/settings/hooks
   reload: settings/hooks
 
-hybrid:
+- hybrid:
   title: Hybrid Cloud Management Services
   sub_apps:
     - catalog
@@ -78,7 +78,7 @@ hybrid:
     - settings-hybrid
   top_level: true
 
-insights:
+- insights:
   title: Red Hat Insights
   channel: '#advisor'
   sub_apps:
@@ -95,7 +95,7 @@ insights:
     - /insights
   top_level: true
 
-inventory:
+- inventory:
   title: Inventory
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
@@ -103,11 +103,11 @@ inventory:
     - /rhel/inventory
     - /insights/inventory
 
-landing:
+- landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
-openshift:
+- openshift:
   title: Red Hat OpenShift Cluster Manager
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend_paths:
@@ -117,14 +117,14 @@ openshift:
       title: Clusters
       default: true
 
-rbac:
+- rbac:
   title: User Access Management
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend_paths:
     - /hybrid/settings/rbac
   reload: settings/rbac
 
-remediations:
+- remediations:
   title: Remediations
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
@@ -132,7 +132,7 @@ remediations:
     - /rhel/remediations
     - /insights/remediations
 
-rhel:
+- rhel:
   title: Cloud Management Services
   sub_apps:
     - dashboard:
@@ -143,7 +143,7 @@ rhel:
     - inventory
     - remediations
 
-settings-hybrid:
+- settings-hybrid:
   title: Settings
   sub_apps:
     - catalog-sources:
@@ -154,14 +154,14 @@ settings-hybrid:
       reload: cost-management/sources
     - rbac
 
-settings-insights:
+- settings-insights:
   title: Settings
   disabled_on_stable: true
   sub_apps:
     - hooks
     - sources
 
-sources:
+- sources:
   title: Sources
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
@@ -171,16 +171,16 @@ sources:
     - /hybrid/sources
   reload: settings/sources
 
-storybook:
+- storybook:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
   frontend_paths:
     - /docs/storybook
 
-tower-analytics:
+- tower-analytics:
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
-vulnerability:
+- vulnerability:
   title: Vulnerability
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend_paths:
