@@ -116,6 +116,7 @@
     - clusters:
       title: Clusters
       default: true
+  top_level: true
 
 - rbac:
   title: User Access Management
@@ -142,6 +143,7 @@
     - drift
     - inventory
     - remediations
+  top_level: true
 
 - settings-hybrid:
   title: Settings
