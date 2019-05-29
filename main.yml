@@ -1,53 +1,113 @@
+actions:
+  title: Overview
+  default: true
+
 approval:
+  title: Approval
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend_paths:
   - /hybrid/catalog/approval
+  reload: catalog/approval
+
+aws:
+  title: Cloud Details
 
 catalog:
+  title: Catalog
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend_paths:
   - /hybrid/catalog
+  sub_apps:
+  - portfolios
+  - platforms
+  - orders
+  - approval
+
+catalog-sources:
+  title: Catalog Sources
+  reload: settings/sources
 
 chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
+clusters:
+  title: Clusters
+  default: true
+
 compliance:
+  title: Compliance
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend_paths:
   - /rhel/compliance
 
 cost-management:
+  title: Cost Management
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   frontend_paths:
   - /hybrid/settings/cost-management-sources
   - /hybrid/cost-management
+  sub_apps:
+  - cost-management-overview
+  - ocp-on-aws
+  - ocp
+  - aws
+
+cost-management-sources:
+  title: Cost Management Sources
+  reload: cost-management/sources
+
+cost-management-overview:
+  title: Overview
+  default: true
 
 dashboard:
+  title: Dashboard
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
+  default: true
   frontend_paths:
   - /rhel
   - /rhel/dashboard
   
 drift:
+  title: System Comparison
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend_paths:
   - /rhel/drift
 
 hooks:
+  title: Hooks
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend_paths:
   - /insights/settings/hooks
+  reload: settings/hooks
+
+hybrid:
+  title: Hybrid Cloud Management Services
+  sub_apps:
+  - catalog
+  - cost-management
+  - settings-hybrid
+  top_level: true
 
 insights:
+  title: Red Hat Insights
   channel: '#advisor'
+  sub_apps:
+  - actions
+  - rules
+  - inventory
+  - remediations
+  - settings-insights
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend_paths:
   - /insights
+  top_level: true
 
 inventory:
+  title: Inventory
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend_paths:
@@ -58,30 +118,81 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
+ocp:
+  title: OpenShift details
+
+ocp-on-aws:
+  title: OpenShift on cloud details
+
 openshift:
+  title: Red Hat OpenShift Cluster Manager
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend_paths:
   - /openshift
+  sub_apps:
+  - clusters
+
+orders:
+  title: Orders
+
+platforms:
+  title: Platforms
+
+portfolios:
+  title: Portfolios
+  default: true
 
 rbac:
+  title: User Access Management
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend_paths:
   - /hybrid/settings/rbac
+  reload: settings/rbac
 
 remediations:
+  title: Remediations
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend_paths:
   - /rhel/remediations
   - /insights/remediations
 
+rhel:
+  title: Cloud Management Services
+  sub_apps:
+  - dashboard
+  - vulnerability
+  - compliance
+  - drift
+  - inventory
+  - remediations
+
+rules:
+  title: Rules
+
+settings-hybrid:
+  title: Settings
+  sub_apps:
+  - catalog-sources
+  - cost-management-sources
+  - rbac
+
+settings-insights:
+  title: Settings
+  disabled_on_stable: true
+  sub_apps:
+  - hooks
+  - sources
+
 sources:
+  title: Sources
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend_paths:
   - /insights/settings/sources
   - /hybrid/settings/sources
   - /hybrid/sources
+  reload: settings/sources
 
 storybook:
   channel: '#flip-mode-squad'
@@ -93,6 +204,7 @@ tower-analytics:
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
+  title: Vulnerability
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend_paths:
   - /rhel/vulnerability
