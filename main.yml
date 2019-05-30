@@ -148,6 +148,7 @@
   top_level: true
 
 - id: settings-hybrid
+  id-override: settings
   title: Settings
   sub_apps:
     - id: catalog-sources
@@ -159,6 +160,7 @@
     - id: rbac
 
 - id: settings-insights
+  id-override: settings
   title: Settings
   disabled_on_stable: true
   sub_apps:
