@@ -19,7 +19,7 @@
       title: Platforms
     - id: orders
       title: Orders
-    - approval
+    - id: approval
 
 - id: chrome
   channel: '#flip-mode-squad'
