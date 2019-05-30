@@ -85,8 +85,10 @@
     - id: actions
       title: Overview
       default: true
+      group: insights
     - id: rules
       title: Rules
+      group: insights
     - id: inventory
     - id: remediations
     - id: settings-insights
