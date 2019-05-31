@@ -52,7 +52,6 @@
   title: Dashboard
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
-  default: true
   frontend_paths:
     - /rhel
     - /rhel/dashboard
