@@ -1,20 +1,24 @@
 approval:
   name: Approval Service
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   git_repo: 
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
-  frontend_paths:
-  - /hybrid/catalog/approval
+  frontend:
+    paths:
+      - /hybrid/catalog/approval
 
 catalog:
   name: Catalog
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend_paths:
-  - /hybrid/catalog
+  frontend:
+    paths:
+      - /hybrid/catalog
 
 chrome:
   channel: '#flip-mode-squad'
@@ -22,16 +26,19 @@ chrome:
 
 compliance:
   name: Compliance
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
-  frontend_paths:
-  - /rhel/compliance
+  frontend:
+    paths:
+      - /rhel/compliance
 
 cost-management:
   name: Cost Management
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   description: >
     Cost Management is an application that provides users a view of their 
     enterprise cost. Cost Management allows users to evaluate the cost on 
@@ -48,51 +55,61 @@ cost-management:
   channel: '#koku'
   mailing_list: cost-mgmt@redhat.com
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
-  frontend_paths:
-  - /hybrid/settings/cost-management-sources
-  - /hybrid/cost-management
+  frontend:
+    paths:
+      - /hybrid/settings/cost-management-sources
+      - /hybrid/cost-management
 
 dashboard:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
-  frontend_paths:
-  - /rhel
-  - /rhel/dashboard
-  
+  frontend:
+    paths:
+      - /rhel/dashboard
+      - /rhel
+
 drift:
   name: Configuration Drift
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
-  frontend_paths:
-  - /rhel/drift
+  frontend:
+    paths:
+      - /rhel/drift
 
 hooks:
   name: Web Hooks Service
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
-  frontend_paths:
-  - /insights/settings/hooks
+  frontend:
+    paths:
+      - /insights/settings/hooks
 
 insights:
   name: Insights
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
-  frontend_paths:
-  - /insights
+  frontend:
+    paths:
+      - /insights
 
 inventory:
   name: Managed Inventory
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
-  frontend_paths:
-  - /rhel/inventory
-  - /insights/inventory
+  frontend:
+    paths:
+      - /rhel/inventory
+      - /insights/inventory
 
 landing:
   channel: '#flip-mode-squad'
@@ -100,40 +117,48 @@ landing:
 
 openshift:
   name: OpenShift (UHC)
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
-  frontend_paths:
-  - /openshift
+  frontend:
+    paths:
+      - /openshift
 
 rbac:
   name: Role-based Access Control
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
-  frontend_paths:
-  - /hybrid/settings/rbac
+  frontend:
+    paths:
+      - /hybrid/settings/rbac
 
 remediations:
   name: Remediations
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
-  frontend_paths:
-  - /rhel/remediations
-  - /insights/remediations
+  frontend:
+    paths:
+      - /rhel/remediations
+      - /insights/remediations
 
 sources:
   name: Discovered Inventory
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
-  frontend_paths:
-  - /insights/settings/sources
-  - /hybrid/settings/sources
-  - /hybrid/sources
+  frontend:
+    paths:
+      - /insights/settings/sources
+      - /hybrid/settings/sources
+      - /hybrid/sources
 
 storybook:
   channel: '#flip-mode-squad'
@@ -143,14 +168,18 @@ storybook:
 
 tower-analytics:
   name: Ansible Tower Analytics
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
   name: Vulnerability Management
-  versions:
-    - v1
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
-  frontend_paths:
-  - /rhel/vulnerability
+  frontend:
+    paths:
+      - /rhel/vulnerability
+
