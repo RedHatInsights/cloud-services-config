@@ -163,8 +163,9 @@ sources:
 storybook:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
-  frontend_paths:
-  - /docs/storybook
+  frontend:
+    paths:
+      - /docs/storybook
 
 tower-analytics:
   name: Ansible Tower Analytics
