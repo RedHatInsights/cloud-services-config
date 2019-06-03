@@ -354,7 +354,8 @@
                         "name": "path",
                         "options": {
                             "values": [
-                                "/api/*"
+                                "/api/*",
+                                "/api"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false
