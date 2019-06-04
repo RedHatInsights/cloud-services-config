@@ -19,7 +19,6 @@ def createNewVersion():
         "createFromVersion": latest_prod_version
     }
     
-    # Create temp response content so I can test without creating a million versions in Akamai
     print("API - Creating new version based on v{}".format(latest_prod_version))
     response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
@@ -51,19 +50,19 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
 
     # Creates rules for all the apps that follow a pattern.
-    for app in master_config:
-        if "frontend_paths" in master_config[app]:
+    for key, app in master_config.items():
+        if "frontend" in app and "paths" in app["frontend"]:
             app_rule = copy.deepcopy(rule_template)
-            app_rule["name"] = "/" + app
-            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app)
-            for frontend_path in master_config[app]["frontend_paths"]:
+            app_rule["name"] = "/" + key
+            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, key)
+            for frontend_path in app["frontend"]["paths"]:
                 values = [global_path_prefix + frontend_path]
                 values += [global_path_prefix + frontend_path + "/*"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
-            if "frontend_exclude" in master_config[app] and len(master_config[app]["frontend_exclude"]) > 0:
+            if "frontend_exclude" in app and len(app["frontend_exclude"]) > 0:
                 app_criteria = copy.deepcopy(nomatch_template)
-                for nomatch in master_config[app]["frontend_exclude"]:
+                for nomatch in app["frontend_exclude"]:
                     app_criteria["options"]["values"].append(global_path_prefix + nomatch)
                     app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
                 app_rule["criteria"].append(app_criteria)
@@ -85,7 +84,9 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
         parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF" if ("prefix" not in env or env["prefix"] == "") else "MATCHES_ONE_OF"
         if ("prefix" not in env or env["prefix"] == ""):
+            parent_rule["criteria"][0]["options"]["values"].append("/api")
             parent_rule["criteria"][0]["options"]["values"].append("/api/*")
+            # Each env should exclude matches for other envs.
             for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
                 parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
         else:
@@ -142,20 +143,20 @@ def activateVersion(version_number, env="STAGING"):
 
 def generateExclusions(frontend_path, config):
     exclusions = []
-    for app in (x for x in config if "frontend_paths" in config[x] and frontend_path not in config[x]["frontend_paths"]):
-        for path in config[app]["frontend_paths"]:
+    for key in (x for x in config if "frontend" in config[x] and "paths" in config[x]["frontend"] and frontend_path not in config[x]["frontend"]["paths"]):
+        for path in config[key]["frontend"]["paths"]:
             if frontend_path in path:
                 exclusions.append(path)
     return exclusions
 
 def generateConfigForBranch(branch):
-    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(branch))
+    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/enhancements/chrome-nav/main.yml".format(branch))
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
-    for main_app in (x for x in config if "frontend_paths" in config[x]):
+    for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
-        for fe_path in config[main_app]["frontend_paths"]:
+        for fe_path in config[key]["frontend"]["paths"]:
             exclusions.extend(generateExclusions(fe_path, config))
-        config[main_app]["frontend_exclude"] = exclusions
+        config[key]["frontend_exclude"] = exclusions
     
     return config
 
