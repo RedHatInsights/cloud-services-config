@@ -143,7 +143,7 @@ def activateVersion(version_number, env="STAGING"):
 
 def generateExclusions(frontend_path, config):
     exclusions = []
-    for key in (x for x in config if "frontend" in config[x] and "paths" in config[x]["frontend"] and frontend_path not in config[x]["frontend"]["paths"]):
+    for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"] and frontend_path not in config[x]["frontend"]["paths"]):
         for path in config[key]["frontend"]["paths"]:
             if frontend_path in path:
                 exclusions.append(path)
