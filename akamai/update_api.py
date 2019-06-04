@@ -150,7 +150,7 @@ def generateExclusions(frontend_path, config):
     return exclusions
 
 def generateConfigForBranch(branch):
-    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/enhancements/chrome-nav/main.yml".format(branch))
+    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(branch))
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
