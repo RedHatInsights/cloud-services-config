@@ -1,192 +1,277 @@
-- id: approval
-  title: Approval
+approval:
+  name: Approval
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
-  frontend_paths:
-    - /hybrid/catalog/approval
-  reload: catalog/approval
+  frontend:
+    paths:
+      - /hybrid/catalog/approval
+    reload: catalog/approval
 
-- id: catalog
-  title: Catalog
+catalog:
+  name: Catalog
+  api:
+    versions:
+      - v1
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend_paths:
-    - /hybrid/catalog
-  sub_apps:
-    - id: portfolios
-      title: Portfolios
-      default: true
-    - id: platforms
-      title: Platforms
-    - id: orders
-      title: Orders
-    - id: approval
+  frontend:
+    paths:
+      - /hybrid/catalog
+    sub_apps:
+      - id: portfolios
+        name: Portfolios
+        default: true
+      - id: platforms
+        name: Platforms
+      - id: orders
+        name: Orders
+      - id: approval
 
-- id: chrome
+chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
-- id: compliance
-  title: Compliance
+compliance:
+  name: Compliance
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
-  frontend_paths:
-    - /rhel/compliance
+  frontend:
+    paths:
+      - /rhel/compliance
 
-- id: cost-management
-  title: Cost Management
+cost-management:
+  name: Cost Management
+  api:
+    versions:
+      - v1
+  channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
-  frontend_paths:
-    - /hybrid/settings/cost-management-sources
-    - /hybrid/cost-management
-  sub_apps:
-    - id: ''
-      title: Overview
-      default: true
-    - id: ocp-on-aws
-      title: OpenShift on cloud details
-    - id: ocp
-      title: OpenShift details
-    - id: aws
-      title: Cloud details
+  description: >
+    Cost Management is an application that provides users a view of their 
+    enterprise cost. Cost Management allows users to evaluate the cost on 
+    infrastructures like Amazon Web Services (AWS) across multiple *master* 
+    accounts, breaking down to service usage, compute usage, and storage 
+    allocation. Details can also be broken down utilizing tagging to view 
+    data attributed to project or cost center assignments. Cost Management 
+    also allows users to breakdown cost at the platform level by associating 
+    cost with OpenShift clusters, nodes, and the projects running their. Cost 
+    can be determined by deriving it from the underlying infrastructure (like 
+    AWS) or deriving it based on a user set of rates.
+  docs: https://koku.readthedocs.io/en/latest/
+  frontend:
+    paths:
+      - /hybrid/settings/cost-management-sources
+      - /hybrid/cost-management
+    sub_apps:
+      - id: ''
+        name: Overview
+        default: true
+      - id: ocp-on-aws
+        name: OpenShift on cloud details
+      - id: ocp
+        name: OpenShift details
+      - id: aws
+        name: Cloud details
+  git_repo: https://github.com/project-koku/
+  mailing_list: cost-mgmt@redhat.com
 
-- id: dashboard
-  title: Dashboard
+dashboard:
+  name: Dashboard
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
-  frontend_paths:
-    - /rhel
-    - /rhel/dashboard
+  frontend:
+    paths:
+      - /rhel
+      - /rhel/dashboard
   
-- id: drift
-  title: System Comparison
+drift:
+  name: Configuration Drift
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
-  frontend_paths:
-    - /rhel/drift
+  frontend:
+    name: System Comparison
+    paths:
+      - /rhel/drift
 
-- id: hooks
-  title: Hooks
+hooks:
+  name: Web Hooks Service
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
-  frontend_paths:
-    - /insights/settings/hooks
-  reload: settings/hooks
+  frontend:
+    name: Hooks
+    paths:
+      - /insights/settings/hooks
+    reload: settings/hooks
 
-- id: hybrid
-  title: Hybrid Cloud Management Services
-  sub_apps:
-    - id: catalog
-    - id: cost-management
-    - id: settings-hybrid
+hybrid:
+  name: Hybrid Cloud Management Services
+  frontend:
+    sub_apps:
+      - id: catalog
+      - id: cost-management
+      - id: settings-hybrid
   top_level: true
 
-- id: insights
-  title: Red Hat Insights
+insights:
+  name: Insights
+  api:
+    versions:
+      - v1
   channel: '#advisor'
-  sub_apps:
-    - id: actions
-      title: Overview
-      default: true
-      group: insights
-    - id: rules
-      title: Rules
-      group: insights
-    - id: inventory
-    - id: remediations
-    - id: settings-insights
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
-  frontend_paths:
-    - /insights
+  frontend:
+    name: Red Hat Insights
+    paths:
+      - /insights
+    sub_apps:
+      - id: actions
+        name: Overview
+        default: true
+        group: insights
+      - id: rules
+        name: Rules
+        group: insights
+      - id: inventory
+      - id: remediations
+      - id: settings-insights
   top_level: true
 
-- id: inventory
-  title: Inventory
+inventory:
+  name: Managed Inventory
+  api:
+    versions:
+      - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
-  frontend_paths:
-    - /rhel/inventory
-    - /insights/inventory
+  frontend:
+    name: Inventory
+    paths:
+      - /rhel/inventory
+      - /insights/inventory
 
-- id: landing
+landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
-- id: openshift
-  title: Red Hat OpenShift Cluster Manager
+openshift:
+  name: OpenShift (UHC)
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
-  frontend_paths:
-    - /openshift
-  sub_apps:
-    - id: clusters
-      title: Clusters
-      default: true
+  frontend:
+    name: Red Hat OpenShift Cluster Manager
+    paths:
+      - /openshift
+    sub_apps:
+      - id: clusters
+        name: Clusters
+        default: true
   top_level: true
 
-- id: rbac
-  title: User Access Management
+rbac:
+  name: Role-based Access Control
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
-  frontend_paths:
-    - /hybrid/settings/rbac
-  reload: settings/rbac
+  frontend:
+    name: User Access Management
+    paths:
+      - /hybrid/settings/rbac
+    reload: settings/rbac
 
-- id: remediations
-  title: Remediations
+remediations:
+  name: Remediations
+  api:
+    versions:
+      - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
-  frontend_paths:
-    - /rhel/remediations
-    - /insights/remediations
+  frontend:
+    paths:
+      - /rhel/remediations
+      - /insights/remediations
 
-- id: rhel
-  title: Cloud Management Services
-  sub_apps:
-    - id: dashboard
-      default: true
-    - id: vulnerability
-    - id: compliance
-    - id: drift
-    - id: inventory
-    - id: remediations
+rhel:
+  name: Cloud Management Services
+  frontend:
+    sub_apps:
+      - id: dashboard
+        default: true
+      - id: vulnerability
+      - id: compliance
+      - id: drift
+      - id: inventory
+      - id: remediations
   top_level: true
 
-- id: settings-hybrid
+settings-hybrid:
   suppress_id: true
-  title: Settings
-  sub_apps:
-    - id: catalog-sources
-      title: Catalog Sources
-      reload: settings/sources
-    - id: cost-management-sources
-      title: Cost Management Sources
-      reload: cost-management/sources
-    - id: rbac
+  name: Settings
+  frontend:
+    sub_apps:
+      - id: catalog-sources
+        name: Catalog Sources
+        reload: settings/sources
+      - id: cost-management-sources
+        name: Cost Management Sources
+        reload: cost-management/sources
+      - id: rbac
 
-- id: settings-insights
+settings-insights:
   suppress_id: true
-  title: Settings
+  name: Settings
   disabled_on_stable: true
-  sub_apps:
-    - id: hooks
-    - id: sources
+  frontend:
+    sub_apps:
+      - id: hooks
+      - id: sources
 
-- id: sources
-  title: Sources
+sources:
+  name: Discovered Inventory
+  api:
+    versions:
+      - v1
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
-  frontend_paths:
-    - /insights/settings/sources
-    - /hybrid/settings/sources
-    - /hybrid/sources
-  reload: settings/sources
+  frontend:
+    name: Sources
+    paths:
+      - /insights/settings/sources
+      - /hybrid/settings/sources
+      - /hybrid/sources
+    reload: settings/sources
 
-- id: storybook
+storybook:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
-  frontend_paths:
-    - /docs/storybook
+  frontend:
+    paths:
+      - /docs/storybook
 
-- id: tower-analytics
+tower-analytics:
+  name: Ansible Tower Analytics
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
-- id: vulnerability
-  title: Vulnerability
+vulnerability:
+  name: Vulnerability Management
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
-  frontend_paths:
-    - /rhel/vulnerability
+  frontend:
+    name: Vulnerability
+    paths:
+      - /rhel/vulnerability
