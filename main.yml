@@ -218,7 +218,7 @@ settings-hybrid:
   name: Settings
   frontend:
     sub_apps:
-      - id: catalog-sources
+      - id: sources
         name: Catalog Sources
         reload: settings/sources
       - id: cost-management-sources
