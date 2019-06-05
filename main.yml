@@ -1,5 +1,5 @@
 approval:
-  name: Approval
+  title: Approval
   api:
     versions:
       - v1
@@ -10,7 +10,7 @@ approval:
     reload: catalog/approval
 
 catalog:
-  name: Catalog
+  title: Catalog
   api:
     versions:
       - v1
@@ -21,12 +21,12 @@ catalog:
       - /hybrid/catalog
     sub_apps:
       - id: portfolios
-        name: Portfolios
+        title: Portfolios
         default: true
       - id: platforms
-        name: Platforms
+        title: Platforms
       - id: orders
-        name: Orders
+        title: Orders
       - id: approval
 
 chrome:
@@ -34,7 +34,7 @@ chrome:
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
 compliance:
-  name: Compliance
+  title: Compliance
   api:
     versions:
       - v1
@@ -44,7 +44,7 @@ compliance:
       - /rhel/compliance
 
 cost-management:
-  name: Cost Management
+  title: Cost Management
   api:
     versions:
       - v1
@@ -68,19 +68,19 @@ cost-management:
       - /hybrid/cost-management
     sub_apps:
       - id: ''
-        name: Overview
+        title: Overview
         default: true
       - id: ocp-on-aws
-        name: OpenShift on cloud details
+        title: OpenShift on cloud details
       - id: ocp
-        name: OpenShift details
+        title: OpenShift details
       - id: aws
-        name: Cloud details
+        title: Cloud details
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
 dashboard:
-  name: Dashboard
+  title: Dashboard
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
@@ -89,30 +89,30 @@ dashboard:
       - /rhel/dashboard
   
 drift:
-  name: Configuration Drift
+  title: Configuration Drift
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
-    name: System Comparison
+    title: System Comparison
     paths:
       - /rhel/drift
 
 hooks:
-  name: Web Hooks Service
+  title: Web Hooks Service
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend:
-    name: Hooks
+    title: Hooks
     paths:
       - /insights/settings/hooks
     reload: settings/hooks
 
 hybrid:
-  name: Hybrid Cloud Management Services
+  title: Hybrid Cloud Management Services
   frontend:
     sub_apps:
       - id: catalog
@@ -121,23 +121,23 @@ hybrid:
   top_level: true
 
 insights:
-  name: Insights
+  title: Insights
   api:
     versions:
       - v1
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
-    name: Red Hat Insights
+    title: Red Hat Insights
     paths:
       - /insights
     sub_apps:
       - id: actions
-        name: Overview
+        title: Overview
         default: true
         group: insights
       - id: rules
-        name: Rules
+        title: Rules
         group: insights
       - id: inventory
       - id: remediations
@@ -145,14 +145,14 @@ insights:
   top_level: true
 
 inventory:
-  name: Managed Inventory
+  title: Managed Inventory
   api:
     versions:
       - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend:
-    name: Inventory
+    title: Inventory
     paths:
       - /rhel/inventory
       - /insights/inventory
@@ -162,35 +162,35 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
 openshift:
-  name: OpenShift (UHC)
+  title: OpenShift (UHC)
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend:
-    name: Red Hat OpenShift Cluster Manager
+    title: Red Hat OpenShift Cluster Manager
     paths:
       - /openshift
     sub_apps:
       - id: clusters
-        name: Clusters
+        title: Clusters
         default: true
   top_level: true
 
 rbac:
-  name: Role-based Access Control
+  title: Role-based Access Control
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    name: User Access Management
+    title: User Access Management
     paths:
       - /hybrid/settings/rbac
     reload: settings/rbac
 
 remediations:
-  name: Remediations
+  title: Remediations
   api:
     versions:
       - v1
@@ -202,7 +202,7 @@ remediations:
       - /insights/remediations
 
 rhel:
-  name: Cloud Management Services
+  title: Cloud Management Services
   frontend:
     sub_apps:
       - id: dashboard
@@ -215,20 +215,20 @@ rhel:
   top_level: true
 
 settings-hybrid:
-  name: Settings
+  title: Settings
   frontend:
     sub_apps:
       - id: sources
-        name: Catalog Sources
+        title: Catalog Sources
         reload: settings/sources
       - id: cost-management-sources
-        name: Cost Management Sources
+        title: Cost Management Sources
         reload: cost-management/sources
       - id: rbac
     suppress_id: true
 
 settings-insights:
-  name: Settings
+  title: Settings
   disabled_on_stable: true
   frontend:
     sub_apps:
@@ -237,14 +237,14 @@ settings-insights:
     suppress_id: true
 
 sources:
-  name: Discovered Inventory
+  title: Discovered Inventory
   api:
     versions:
       - v1
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
-    name: Sources
+    title: Sources
     paths:
       - /insights/settings/sources
       - /hybrid/settings/sources
@@ -259,19 +259,19 @@ storybook:
       - /docs/storybook
 
 tower-analytics:
-  name: Ansible Tower Analytics
+  title: Ansible Tower Analytics
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
-  name: Vulnerability Management
+  title: Vulnerability Management
   api:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
-    name: Vulnerability
+    title: Vulnerability
     paths:
       - /rhel/vulnerability

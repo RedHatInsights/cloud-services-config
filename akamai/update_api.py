@@ -40,9 +40,9 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     # If global path prefix exists, modify paths on landing page rules.
     if global_path_prefix != "":
         for rule in rules:
-            if rule["behaviors"][0]["name"] == "failAction":
+            if rule["behaviors"][0]["title"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
-            if rule["criteria"][0]["name"] == "path":
+            if rule["criteria"][0]["title"] == "path":
                 rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
 
     # Create a template object to copy from (reduces number of read/write ops)
@@ -53,7 +53,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
     for key, app in master_config.items():
         if "frontend" in app and "paths" in app["frontend"]:
             app_rule = copy.deepcopy(rule_template)
-            app_rule["name"] = "/" + key
+            app_rule["title"] = "/" + key
             app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, key)
             for frontend_path in app["frontend"]["paths"]:
                 values = [global_path_prefix + frontend_path]
@@ -81,13 +81,13 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
     # Iterate through the configurations for each environment
     for env in master_config_list:
         parent_rule = copy.deepcopy(parent_rule_template)
-        parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
+        parent_rule["title"] = "{} (AUTO-GENERATED)".format(env["title"])
         parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF" if ("prefix" not in env or env["prefix"] == "") else "MATCHES_ONE_OF"
         if ("prefix" not in env or env["prefix"] == ""):
             parent_rule["criteria"][0]["options"]["values"].append("/api")
             parent_rule["criteria"][0]["options"]["values"].append("/api/*")
             # Each env should exclude matches for other envs.
-            for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
+            for nomatch in (x for x in master_config_list if (x != env["title"] and "prefix" in x and x["prefix"] != "")):
                 parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
         else:
             parent_rule["criteria"][0]["options"]["values"].append(env["prefix"] + "/*")
@@ -169,7 +169,7 @@ def main():
     cs_config_list = []
     for env in environments:
         cs_config_list.append({
-            "name": env,
+            "title": env,
             "branch": environments[env]["branch"],
             "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
             "config": generateConfigForBranch(environments[env]["branch"])
