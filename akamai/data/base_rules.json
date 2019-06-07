@@ -214,54 +214,7 @@
                 "criteria": [],
                 "criteriaMustSatisfy": "all",
                 "name": "Cloud Services Prerelease",
-                "children": [
-                    {
-                        "behaviors": [
-                            {
-                                "name": "edgeSideIncludes",
-                                "options": {
-                                    "enableViaHttp": false,
-                                    "enabled": true,
-                                    "i18nStatus": false,
-                                    "detectInjection": false,
-                                    "passSetCookie": false,
-                                    "passClientIp": false
-                                }
-                            },
-                            {
-                                "name": "gzipResponse",
-                                "options": {
-                                    "behavior": "ORIGIN_RESPONSE"
-                                }
-                            },
-                            {
-                                "name": "modifyOutgoingResponseHeader",
-                                "options": {
-                                    "action": "ADD",
-                                    "standardAddHeaderName": "OTHER",
-                                    "headerValue": "1",
-                                    "customHeaderName": "x-fms-debug-esi"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "contentType",
-                                "options": {
-                                    "matchWildcard": true,
-                                    "values": [
-                                        "text/html*"
-                                    ],
-                                    "matchOperator": "IS_ONE_OF",
-                                    "matchCaseSensitive": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all",
-                        "name": "ESI",
-                        "children": []
-                    }
-                ]
+                "children": []
             },
             {
                 "behaviors": [
@@ -354,7 +307,8 @@
                         "name": "path",
                         "options": {
                             "values": [
-                                "/api/*"
+                                "/api/*",
+                                "/api"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false
