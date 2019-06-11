@@ -90,6 +90,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
             for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
                 parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
         else:
+            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"])
             parent_rule["criteria"][0]["options"]["values"].append(env["prefix"] + "/*")
             
         parent_rule["children"] = createRulesForEnv(env["config"], env["prefix"])
