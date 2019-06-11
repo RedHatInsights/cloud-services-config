@@ -401,52 +401,6 @@
             {
                 "behaviors": [
                     {
-                        "name": "responseCookie",
-                        "options": {
-                            "defaultPath": false,
-                            "domain": "cloud.redhat.com",
-                            "secure": true,
-                            "expires": "NEVER",
-                            "enabled": true,
-                            "cookieName": "x-rh-insights-alpha",
-                            "value": "flipmodesquadisthegreatest",
-                            "path": "/",
-                            "type": "FIXED",
-                            "defaultDomain": false
-                        }
-                    },
-                    {
-                        "name": "redirect",
-                        "options": {
-                            "queryString": "IGNORE",
-                            "destinationHostname": "SAME_AS_REQUEST",
-                            "destinationPath": "OTHER",
-                            "destinationPathOther": "/",
-                            "responseCode": 307,
-                            "mobileDefaultChoice": "DEFAULT",
-                            "destinationProtocol": "HTTPS"
-                        }
-                    }
-                ],
-                "criteria": [
-                    {
-                        "name": "path",
-                        "options": {
-                            "values": [
-                                "/0b3e491aaeaa09936652d9df8c43b318"
-                            ],
-                            "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
-                        }
-                    }
-                ],
-                "criteriaMustSatisfy": "all",
-                "name": "Set Cloud Cookie",
-                "children": []
-            },
-            {
-                "behaviors": [
-                    {
                         "name": "http2",
                         "options": {
                             "enabled": ""

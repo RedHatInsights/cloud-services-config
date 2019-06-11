@@ -43,6 +43,8 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             if rule["behaviors"][0]["name"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
             if rule["criteria"][0]["name"] == "path":
+                if rule["criteria"][0]["options"]["values"][0] == "/":
+                    rule["criteria"][0]["options"]["values"].append(global_path_prefix)
                 rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
 
     # Create a template object to copy from (reduces number of read/write ops)
@@ -88,6 +90,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
             parent_rule["criteria"][0]["options"]["values"].append("/api/*")
             # Each env should exclude matches for other envs.
             for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
+                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"])
                 parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
         else:
             parent_rule["criteria"][0]["options"]["values"].append(env["prefix"])
