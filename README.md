@@ -16,6 +16,7 @@ Here is some example configuration that demonstrates the structure, using all re
     channel: '#some-slack-channel'
     description: App Title is a cool app that does business things for its users.
     deployment_repo: https://github.com/app-deployment-repo-url
+    disabled_on_prod: true
     disabled_on_stable: true
     docs: https://link.to.docs.com/docs
     frontend:
@@ -66,7 +67,7 @@ For example, let's say your app `ex_app_id` is a sub-app of `parent_app`, which 
 
 ### app_id.frontend.sub_apps
 If your app is a parent to any other apps, those apps should be listed here. 
-Also, if your app has a parent app, or is listed under one of the top-level bundles (i.e. Insights, RHEL, Hybrid, etc), you should add your app to the appropriate sub_apps list.
+Also, if your app has a parent app, or is listed under one of the top-level bundles (e.g. Insights, RHEL, Hybrid), you should add your app to the appropriate sub_apps list.
 
 ### app_id.frontend.reload
 This property is almost never needed, and will likely be deprecated. This property is commonly used for Settings apps, and tells Chrome where to navigate on reload.
@@ -83,6 +84,9 @@ This is the ID of the slack channel on ansible.slack.com that you want automatic
 
 ### app_id.description
 This is a description of your app's purpose or functionalities, which is used by some other apps.
+
+### app_id.disabled_on_prod
+If set to `true`, this app will only exist in pre-prod environments (e.g. CI, QA).
 
 ### app_id.disabled_on_stable
 If set to `true`, this app will only exist in `beta`.
