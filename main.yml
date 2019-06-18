@@ -97,3 +97,7 @@ vulnerability:
   frontend_paths:
   - /rhel/vulnerability
 
+migration-analytics:
+  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
+  frontend_paths:
+  - /migration-analytics
