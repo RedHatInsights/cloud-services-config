@@ -209,11 +209,19 @@
                         "options": {
                             "behavior": "ALWAYS"
                         }
+                    },
+                    {
+                        "name": "cacheError",
+                        "options": {
+                            "enabled": true,
+                            "ttl": "10m",
+                            "preserveStale": true
+                        }
                     }
                 ],
                 "criteria": [],
                 "criteriaMustSatisfy": "all",
-                "name": "Cloud Services Prerelease",
+                "name": "Cloud Services Frontend",
                 "children": []
             },
             {
