@@ -82,12 +82,12 @@ Also, if your app has a parent app, or is listed under one of the top-level bund
 
 #### app_id.frontend.reload
 
-This property is almost never needed, and will likely be deprecated. This property is commonly used for Settings apps, and tells Chrome where to navigate on reload.
+If your app will be located under some other app, but isn't managed by that app, you can use this property to override the automatic generation of the URL.
+This property is commonly used for Settings apps, and tells Chrome's navigation the actual URL of your app.
 
 #### app_id.frontend.suppress_id
 
-This property is almost never needed, and will likely be deprecated. This property is used if the app isn't a real app on disk, and only exists for navigation purposes. 
-This removes the app ID on the frontend so that the nav bar works as expected.
+This property is used if the app isn't a real app on disk, and only exists for navigation purposes. This removes the app ID on the frontend so that the nav bar works as expected.
 
 ### Other Optional Properties
 
