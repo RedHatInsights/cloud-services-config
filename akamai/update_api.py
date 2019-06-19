@@ -53,7 +53,7 @@ def createRulesForEnv(master_config, global_path_prefix=""):
 
     # Creates rules for all the apps that follow a pattern.
     for key, app in master_config.items():
-        if "frontend" in app and "paths" in app["frontend"]:
+        if "frontend" in app and "paths" in app["frontend"] and not ("disabled_on_prod" in app and app["disabled_on_prod"]):
             app_rule = copy.deepcopy(rule_template)
             app_rule["name"] = "/" + key
             app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, key)

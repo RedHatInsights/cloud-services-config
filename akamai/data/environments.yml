@@ -2,5 +2,5 @@ Stable:
   branch: master
 
 Beta:
-  branch: beta
+  branch: master
   prefix: /beta
