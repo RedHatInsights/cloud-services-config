@@ -286,7 +286,7 @@ migration-analytics:
   disabled_on_stable: true
   frontend:
     paths:
-      - /migration-analytics
+      - /apps/migration-analytics
   git_repo: https://github.com/project-xavier/xavier-ui
   mailing_list: migration-analytics-devel@redhat.com
   top_level: true
