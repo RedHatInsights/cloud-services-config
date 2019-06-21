@@ -275,3 +275,18 @@ vulnerability:
     title: Vulnerability
     paths:
       - /rhel/vulnerability
+
+migration-analytics:
+  title: Migration Analytics
+  api:
+    versions:
+      - v1
+  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
+  disabled_on_prod: true
+  disabled_on_stable: true
+  frontend:
+    paths:
+      - /apps/migration-analytics
+  git_repo: https://github.com/project-xavier/xavier-ui
+  mailing_list: migration-analytics-devel@redhat.com
+  top_level: true
