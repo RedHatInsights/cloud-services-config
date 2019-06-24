@@ -405,6 +405,34 @@
                         "children": []
                     },
                     {
+                        "name": "/api",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "mustRevalidate": false,
+                                    "behavior": "MAX_AGE",
+                                    "ttl": "1h"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "values": [
+                                        "/api",
+                                        "/api/"
+                                    ],
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
                         "behaviors": [
                             {
                                 "name": "origin",
