@@ -161,6 +161,20 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
+migration-analytics:
+  title: Migration Analytics
+  api:
+    versions:
+      - v1
+  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
+  disabled_on_prod: true
+  disabled_on_stable: true
+  frontend:
+    paths:
+      - /apps/migration-analytics
+  git_repo: https://github.com/project-xavier/xavier-ui
+  mailing_list: migration-analytics-devel@redhat.com
+
 openshift:
   title: OpenShift (UHC)
   api:
@@ -258,6 +272,13 @@ storybook:
     paths:
       - /docs/storybook
 
+temp:
+  title: Temporary Bundle
+  frontend:
+    sub_apps:
+      - id: migration-analytics
+  top_level: true
+
 tower-analytics:
   title: Ansible Tower Analytics
   api:
@@ -275,18 +296,3 @@ vulnerability:
     title: Vulnerability
     paths:
       - /rhel/vulnerability
-
-migration-analytics:
-  title: Migration Analytics
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  disabled_on_prod: true
-  disabled_on_stable: true
-  frontend:
-    paths:
-      - /apps/migration-analytics
-  git_repo: https://github.com/project-xavier/xavier-ui
-  mailing_list: migration-analytics-devel@redhat.com
-  top_level: true
