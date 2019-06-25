@@ -171,7 +171,7 @@ migration-analytics:
   disabled_on_stable: true
   frontend:
     paths:
-      - /apps/migration-analytics
+      - /migration-analytics
   git_repo: https://github.com/project-xavier/xavier-ui
   mailing_list: migration-analytics-devel@redhat.com
 
@@ -275,6 +275,8 @@ storybook:
 staging:
   title: Staging Bundle
   frontend:
+    paths:
+      - /staging
     sub_apps:
       - id: migration-analytics
   top_level: true
