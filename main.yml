@@ -272,8 +272,8 @@ storybook:
     paths:
       - /docs/storybook
 
-temp:
-  title: Temporary Bundle
+staging:
+  title: Staging Bundle
   frontend:
     sub_apps:
       - id: migration-analytics
