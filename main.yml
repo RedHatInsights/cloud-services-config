@@ -228,6 +228,21 @@ rhel:
       - id: remediations
   top_level: true
 
+ruledev:
+  title: Rule Development
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/ruledev-frontend-build
+  frontend:
+    title: Rule Development
+    paths:
+      - /ruledev
+    sub_apps:
+      - id: 'ruledev'
+        title: Home
+        default: true
+        group: ruledev
+  top_level: true
+
 settings-hybrid:
   title: Settings
   frontend:
