@@ -233,15 +233,8 @@ ruledev:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/ruledev-frontend-build
   frontend:
-    title: Rule Development
     paths:
-      - /ruledev
-    sub_apps:
-      - id: 'ruledev'
-        title: Home
-        default: true
-        group: ruledev
-  top_level: true
+      - /staging/ruledev
 
 settings-hybrid:
   title: Settings
@@ -292,6 +285,7 @@ staging:
   frontend:
     sub_apps:
       - id: migration-analytics
+      - id: ruledev
   top_level: true
 
 tower-analytics:
