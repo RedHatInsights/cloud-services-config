@@ -72,8 +72,7 @@ If you want the name of your app to appear differently on the frontend, set this
 
 #### app_id.frontend.paths
 
-This is the list of paths where your app will be located. These paths are appended to the end of the paths of its parent apps (if any).
-For example, let's say your app `ex_app_id` is a sub-app of `parent_app`, which has a frontend path of `/parent-app`. If you add a frontend path of `/ex-app`, your app will be available at `/parent-app/ex-app`.
+This is the list of URL paths where your app will be located.
 
 #### app_id.frontend.sub_apps
 
