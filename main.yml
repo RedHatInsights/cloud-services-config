@@ -108,8 +108,7 @@ hooks:
   frontend:
     title: Hooks
     paths:
-      - /insights/settings/hooks
-    reload: settings/hooks
+      - /settings/hooks
 
 hybrid:
   title: Hybrid Cloud Management Services
@@ -228,6 +227,13 @@ rhel:
       - id: remediations
   top_level: true
 
+settings:
+  title: Cloud Services Settings
+  frontend:
+    sub_apps:
+      - id: hooks
+  top_level: true
+
 ruledev:
   title: Rule Development
   channel: '#flip-mode-squad'
@@ -254,7 +260,6 @@ settings-insights:
   disabled_on_stable: true
   frontend:
     sub_apps:
-      - id: hooks
       - id: sources
     suppress_id: true
 
