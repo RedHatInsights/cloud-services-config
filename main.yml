@@ -9,6 +9,13 @@ approval:
       - /hybrid/catalog/approval
     reload: catalog/approval
 
+api:
+  title: Api docs
+  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
+  frontend:
+    paths:
+      - /docs/api
+
 catalog:
   title: Catalog
   api:
@@ -87,7 +94,16 @@ dashboard:
     paths:
       - /rhel
       - /rhel/dashboard
-  
+
+docs:
+  title: Cloud Services documentation
+  channel: '#flip-mode-squad'
+  frontend:
+    sub_apps:
+      - id: api
+        default: true
+  top_level: true
+
 drift:
   title: Configuration Drift
   api:
