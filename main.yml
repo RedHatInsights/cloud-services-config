@@ -236,6 +236,9 @@ settings:
 
 ruledev:
   title: Rule Development
+  api:
+    versions:
+      - v1
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/ruledev-frontend-build
   frontend:
