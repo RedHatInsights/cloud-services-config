@@ -341,6 +341,14 @@
                     {
                         "name": "modifyOutgoingRequestHeader",
                         "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
                             "headerValue": "cloud.redhat.com",
