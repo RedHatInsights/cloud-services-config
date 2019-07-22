@@ -39,7 +39,6 @@ catalog:
 chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
-  git_repo: https://github.com/RedHatInsights/insights-chrome
 
 compliance:
   title: Compliance
@@ -50,7 +49,6 @@ compliance:
   frontend:
     paths:
       - /rhel/compliance
-  git_repo: https://github.com/RedHatInsights/compliance-frontend
 
 cost-management:
   title: Cost Management
@@ -96,7 +94,6 @@ dashboard:
     paths:
       - /rhel
       - /rhel/dashboard
-  git_repo: https://github.com/RedHatInsights/insights-dashboard
 
 docs:
   title: Cloud Services documentation
@@ -106,7 +103,6 @@ docs:
       - id: api
         default: true
   top_level: true
-  git_repo: https://github.com/RedHatInsights/drift-frontend
 
 drift:
   title: Configuration Drift
@@ -118,7 +114,6 @@ drift:
     title: System Comparison
     paths:
       - /rhel/drift
-  git_repo: https://github.com/RedHatInsights/drift-frontend
 
 hooks:
   title: Web Hooks Service
@@ -130,7 +125,6 @@ hooks:
     title: Hooks
     paths:
       - /settings/hooks
-  git_repo: https://github.com/RedHatInsights/notifications-frontend
 
 hybrid:
   title: Hybrid Cloud Management Services
@@ -163,7 +157,6 @@ insights:
       - id: inventory
       - id: remediations
       - id: settings-insights
-  git_repo: https://github.com/RedHatInsights/insights-advisor-frontend
   top_level: true
 
 inventory:
@@ -178,12 +171,10 @@ inventory:
     paths:
       - /rhel/inventory
       - /insights/inventory
-  git_repo: https://github.com/RedHatInsights/insights-inventory-frontend
 
 landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
-  git_repo: https://github.com/RedHatInsights/landing-page-frontend
 
 migration-analytics:
   title: Migration Analytics
@@ -226,7 +217,6 @@ rbac:
     paths:
       - /hybrid/settings/rbac
     reload: settings/rbac
-  git_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 remediations:
   title: Remediations
@@ -239,7 +229,6 @@ remediations:
     paths:
       - /rhel/remediations
       - /insights/remediations
-  git_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
 rhel:
   title: Cloud Management Services
@@ -271,7 +260,6 @@ ruledev:
   frontend:
     paths:
       - /staging/ruledev
-  git_repo: https://github.com/RedHatInsights/ruledev-frontend
 
 settings-hybrid:
   title: Settings
@@ -315,7 +303,6 @@ storybook:
   frontend:
     paths:
       - /docs/storybook
-  git_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
 staging:
   title: Staging Bundle
@@ -346,7 +333,6 @@ tower-analytics:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
-  git_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 vulnerability:
   title: Vulnerability Management
@@ -358,4 +344,3 @@ vulnerability:
     title: Vulnerability
     paths:
       - /rhel/vulnerability
-  git_repo: https://github.com/RedHatInsights/vulnerability-ui
