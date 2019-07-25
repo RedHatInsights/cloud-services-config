@@ -176,20 +176,6 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
-migration-analytics:
-  title: Migration Analytics
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  disabled_on_prod: true
-  disabled_on_stable: true
-  frontend:
-    paths:
-      - /staging/migration-analytics
-  git_repo: https://github.com/project-xavier/xavier-ui
-  mailing_list: migration-analytics-devel@redhat.com
-
 openshift:
   title: OpenShift (UHC)
   api:
@@ -274,14 +260,6 @@ settings-hybrid:
       - id: rbac
     suppress_id: true
 
-settings-insights:
-  title: Settings
-  disabled_on_stable: true
-  frontend:
-    sub_apps:
-      - id: sources
-    suppress_id: true
-
 sources:
   title: Discovered Inventory
   api:
@@ -312,20 +290,6 @@ staging:
       - id: ruledev
       - id: subscription-reporting
   top_level: true
-
-subscription-reporting:
-  title: Subscription Reporting
-  api:
-    versions:
-      - v1
-  channel: '#subscriptions'
-  deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
-  disabled_on_prod: true
-  disabled_on_stable: true
-  frontend:
-    paths:
-      - /staging/subscription-reporting
-  git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 tower-analytics:
   title: Ansible Tower Analytics
