@@ -9,7 +9,7 @@ approval:
       - /hybrid/catalog/approval
     reload: catalog/approval
 
-api:
+api-docs:
   title: API documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
@@ -96,12 +96,12 @@ dashboard:
       - /rhel
       - /rhel/dashboard
 
-docs:
+cs-docs:
   title: Documentation
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: api
+      - id: api-docs
         default: true
   top_level: true
 
