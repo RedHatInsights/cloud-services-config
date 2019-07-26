@@ -116,34 +116,36 @@ def activateVersion(version_number, env="STAGING"):
     }
     body["propertyVersion"] = version_number
     body["network"] = env
+    print("Temporarily skipping activation for debug reasons.")
+    print("If you expected this to activate, please re-enable the activateVersion code in update_api.py.")
     print("API - Activating version {} on {}...".format(version_number, env))
     response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
     err = False
 
     # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
     # Acknowledging these warnings in the request body will allow the activation to work.
-    if "activationLink" in response:
-        print("Wow, first try! Version {} activated on {}.".format(version_number, env))
-    elif "status" in response and response["status"] == 400 and "warnings" in response:
-        warnings = []
-        for w in response["warnings"]:
-            warnings.append(w["messageId"])
-        body["acknowledgeWarnings"] = warnings
-        print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    # if "activationLink" in response:
+    #     print("Wow, first try! Version {} activated on {}.".format(version_number, env))
+    # elif "status" in response and response["status"] == 400 and "warnings" in response:
+    #     warnings = []
+    #     for w in response["warnings"]:
+    #         warnings.append(w["messageId"])
+    #     body["acknowledgeWarnings"] = warnings
+    #     print("API - First activation request gave warnings. Acknowledging...")
+    #     response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
-        # If it fails again, give up.
-        if "activationLink" in response:
-            print("Success! Version {} activated on {}.".format(version_number, env))
-        else:
-            err = True
-            print("Something went wrong while acknowledging warnings. Here's the response we got:")     
-    else:
-        err = True
-        print("Something went wrong on the first activation attempt. Here's the response we got:")
-    if err:
-        print(json.dumps(response))
-        print("The activaction failed. Please check out the above response to see what happened.") 
+    #     # If it fails again, give up.
+    #     if "activationLink" in response:
+    #         print("Success! Version {} activated on {}.".format(version_number, env))
+    #     else:
+    #         err = True
+    #         print("Something went wrong while acknowledging warnings. Here's the response we got:")     
+    # else:
+    #     err = True
+    #     print("Something went wrong on the first activation attempt. Here's the response we got:")
+    # if err:
+    #     print(json.dumps(response))
+    #     print("The activaction failed. Please check out the above response to see what happened.") 
 
 def generateExclusions(frontend_path, config):
     exclusions = []
