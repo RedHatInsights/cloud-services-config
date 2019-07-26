@@ -157,6 +157,9 @@ insights:
         title: Overview
         default: true
         group: insights
+      - id: topics
+        title: Topics
+        group: insights
       - id: rules
         title: Rules
         group: insights
