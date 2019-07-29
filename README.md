@@ -4,7 +4,7 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it in. 
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it in.
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
 ```yml
