@@ -171,7 +171,7 @@ def main():
     util.initEdgeGridAuth()
 
     # Get the Cloud Services config files (main source of truth) for all configured releases
-    releases = util.getYMLFromFile("./releases.yml")
+    releases = util.getYMLFromFile("../releases.yml")
     cs_config_list = []
     for env in releases:
         cs_config_list.append({
