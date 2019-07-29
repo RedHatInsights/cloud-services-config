@@ -118,9 +118,9 @@ def activateVersion(version_number, env="STAGING"):
     body["network"] = env
     print("Temporarily skipping activation for debug reasons.")
     print("If you expected this to activate, please re-enable the activateVersion code in update_api.py.")
-    print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
-    err = False
+    # print("API - Activating version {} on {}...".format(version_number, env))
+    # response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    # err = False
 
     # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
     # Acknowledging these warnings in the request body will allow the activation to work.
@@ -178,7 +178,7 @@ def main():
             "name": env,
             "branch": environments[env]["branch"],
             "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
-            "config": generateConfigForBranch(environments[env]["prefix"])
+            "config": generateConfigForBranch(environments[env]["prefix"] if "prefix" in environments[env] else "")
         })
 
     # Create a new version based off of the active Prod version
