@@ -46,7 +46,7 @@ node {
           ssh-add \"$privateKeyFile\"
           cp $AKAMAI_HOST_KEY ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
-          rsync -arv -e \"ssh -2\" main.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/main.yml
+          rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
         """
       }
     }

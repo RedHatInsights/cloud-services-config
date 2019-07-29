@@ -155,8 +155,8 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(branch):
-    config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/master/main.yml".format(branch))
+def generateConfigForBranch(prefix):
+    config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(prefix))
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
@@ -178,7 +178,7 @@ def main():
             "name": env,
             "branch": environments[env]["branch"],
             "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
-            "config": generateConfigForBranch(environments[env]["branch"])
+            "config": generateConfigForBranch(environments[env]["prefix"])
         })
 
     # Create a new version based off of the active Prod version
