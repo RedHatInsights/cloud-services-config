@@ -80,7 +80,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
     
-    # Iterate through the configurations for each environment
+    # Iterate through the configurations for each release
     for env in master_config_list:
         parent_rule = copy.deepcopy(parent_rule_template)
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
@@ -170,15 +170,15 @@ def main():
     # Authenticate with EdgeGrid
     util.initEdgeGridAuth()
 
-    # Get the Cloud Services config files (main source of truth) for all configured environments
-    environments = util.getYMLFromFile("./data/environments.yml")
+    # Get the Cloud Services config files (main source of truth) for all configured releases
+    releases = util.getYMLFromFile("./releases.yml")
     cs_config_list = []
-    for env in environments:
+    for env in releases:
         cs_config_list.append({
             "name": env,
-            "branch": environments[env]["branch"],
-            "prefix": environments[env]["prefix"] if "prefix" in environments[env] else "",
-            "config": generateConfigForBranch(environments[env]["prefix"] if "prefix" in environments[env] else "")
+            "branch": releases[env]["branch"],
+            "prefix": releases[env]["prefix"] if "prefix" in releases[env] else "",
+            "config": generateConfigForBranch(releases[env]["prefix"] if "prefix" in releases[env] else "")
         })
 
     # Create a new version based off of the active Prod version
