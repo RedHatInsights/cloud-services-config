@@ -84,6 +84,8 @@ cost-management:
         title: OpenShift details
       - id: aws
         title: Cloud details
+      - id: cost-models
+        title: Cost model details
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
