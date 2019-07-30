@@ -96,7 +96,7 @@ dashboard:
       - /rhel
       - /rhel/dashboard
 
-cs-docs:
+docs:
   title: Documentation
   channel: '#flip-mode-squad'
   frontend:
