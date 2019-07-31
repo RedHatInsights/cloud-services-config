@@ -51,6 +51,10 @@ compliance:
     paths:
       - /rhel/compliance
 
+config:
+  title: Cloud Services Config
+  deployment_repo: https://github.com/RedHatInsights/cloud-services-config
+
 cost-management:
   title: Cost Management
   api:
