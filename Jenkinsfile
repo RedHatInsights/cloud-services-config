@@ -17,6 +17,36 @@ node {
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./update_api.py $EDGERC"
         }
+
+        withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
+                      keyFileVariable: "privateKeyFile",
+                      passphraseVariable: "",
+                      usernameVariable: "")]) {
+
+          String APP_NAME = "__APP_NAME__"
+          String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
+
+          if (BRANCH == "prod-stable") {
+            PREFIX = ""
+          } else if (BRANCH == "prod-beta") {
+            PREFIX = "beta/"
+          } else {
+            error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
+          }
+
+          AKAMAI_BASE_PATH = "822386"
+          AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
+
+          configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
+            sh """
+              eval `ssh-agent`
+              ssh-add \"$privateKeyFile\"
+              cp $AKAMAI_HOST_KEY ~/.ssh/known_hosts
+              chmod 600 ~/.ssh/known_hosts
+              rsync -arv -e \"ssh -2\" main.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            """
+          }
+        }
       }
     }
   }
