@@ -9,12 +9,13 @@ approval:
       - /hybrid/catalog/approval
     reload: catalog/approval
 
-api:
-  title: Api docs
+api-docs:
+  title: API documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
     paths:
       - /docs/api
+      - /docs
 
 catalog:
   title: Catalog
@@ -50,6 +51,10 @@ compliance:
     paths:
       - /rhel/compliance
 
+config:
+  title: Cloud Services Config
+  deployment_repo: https://github.com/RedHatInsights/cloud-services-config
+
 cost-management:
   title: Cost Management
   api:
@@ -83,6 +88,8 @@ cost-management:
         title: OpenShift details
       - id: aws
         title: Cloud details
+      - id: cost-models
+        title: Cost model details
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
@@ -96,11 +103,11 @@ dashboard:
       - /rhel/dashboard
 
 docs:
-  title: Cloud Services documentation
+  title: Documentation
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: api
+      - id: api-docs
         default: true
   top_level: true
 
