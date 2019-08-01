@@ -320,19 +320,18 @@ staging:
       - id: subscription-reporting
   top_level: true
 
-subscription-reporting:
+subscriptions:
   title: Subscription Reporting
   api:
     versions:
       - v1
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
-  disabled_on_prod: true
-  disabled_on_stable: true
   frontend:
     paths:
-      - /staging/subscription-reporting
+      - /subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+  top_level: true
 
 tower-analytics:
   title: Ansible Tower Analytics
