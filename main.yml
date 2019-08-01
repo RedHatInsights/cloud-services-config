@@ -100,7 +100,7 @@ dashboard:
       - /rhel/dashboard
 
 docs:
-  title: Cloud Services documentation
+  title: Documentation
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
