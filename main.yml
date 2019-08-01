@@ -313,10 +313,9 @@ staging:
     sub_apps:
       - id: migration-analytics
       - id: ruledev
-      - id: subscription-reporting
   top_level: true
 
-subscription-reporting:
+subscriptions:
   title: Subscription Reporting
   api:
     versions:
@@ -325,8 +324,9 @@ subscription-reporting:
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   frontend:
     paths:
-      - /staging/subscription-reporting
+      - /subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+  top_level: true
 
 tower-analytics:
   title: Ansible Tower Analytics
