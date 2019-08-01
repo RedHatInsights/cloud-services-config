@@ -153,9 +153,8 @@ insights:
     paths:
       - /insights
     sub_apps:
-      - id: actions
+      - id: overview
         title: Overview
-        default: true
         group: insights
       - id: rules
         title: Rules
