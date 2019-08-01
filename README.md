@@ -4,7 +4,8 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it in. 
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. If you also want your app to exist in the stable environments, you must create another PR to merge it into the `ci-stable` branch.
+
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
 ```yml
@@ -17,8 +18,6 @@ Here is some example configuration that demonstrates the structure, using all re
     channel: '#some-slack-channel'
     description: App Title is a cool app that does business things for its users.
     deployment_repo: https://github.com/app-deployment-repo-url
-    disabled_on_prod: true
-    disabled_on_stable: true
     docs: https://link.to.docs.com/docs
     frontend:
         title: App Title Override
@@ -99,14 +98,6 @@ This is the ID of the slack channel on ansible.slack.com that you want automatic
 #### app_id.description
 
 This is a description of your app's purpose or functionalities, which is used by some other apps.
-
-#### app_id.disabled_on_prod
-
-If set to `true`, this app will only exist in pre-prod environments (e.g. CI, QA).
-
-#### app_id.disabled_on_stable
-
-If set to `true`, this app will only exist in `beta`.
 
 #### app_id.docs
 
