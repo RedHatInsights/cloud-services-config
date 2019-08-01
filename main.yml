@@ -189,8 +189,6 @@ migration-analytics:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  disabled_on_prod: true
-  disabled_on_stable: true
   frontend:
     paths:
       - /staging/migration-analytics
@@ -283,7 +281,6 @@ settings-hybrid:
 
 settings-insights:
   title: Settings
-  disabled_on_stable: true
   frontend:
     sub_apps:
       - id: sources
