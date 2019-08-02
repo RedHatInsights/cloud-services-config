@@ -1,3 +1,11 @@
+api-docs:
+  title: API documentation
+  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
+  frontend:
+    paths:
+      - /docs/api
+      - /docs
+      
 approval:
   title: Approval
   api:
@@ -8,14 +16,6 @@ approval:
     paths:
       - /hybrid/catalog/approval
     reload: catalog/approval
-
-api-docs:
-  title: API documentation
-  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
-  frontend:
-    paths:
-      - /docs/api
-      - /docs
 
 catalog:
   title: Catalog
