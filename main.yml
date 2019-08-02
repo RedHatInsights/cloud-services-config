@@ -1,11 +1,3 @@
-api-docs:
-  title: API documentation
-  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
-  frontend:
-    paths:
-      - /docs/api
-      - /docs
-      
 approval:
   title: Approval
   api:
@@ -16,6 +8,14 @@ approval:
     paths:
       - /hybrid/catalog/approval
     reload: catalog/approval
+
+api-docs:
+  title: API documentation
+  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
+  frontend:
+    paths:
+      - /docs/api
+      - /docs
 
 catalog:
   title: Catalog
@@ -315,18 +315,6 @@ staging:
       - id: ruledev
       - id: subscription-reporting
   top_level: true
-
-subscription-reporting:
-  title: Subscription Reporting
-  api:
-    versions:
-      - v1
-  channel: '#subscriptions'
-  deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
-  frontend:
-    paths:
-      - /staging/subscription-reporting
-  git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 tower-analytics:
   title: Ansible Tower Analytics
