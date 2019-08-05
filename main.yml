@@ -228,7 +228,7 @@ remediations:
   api:
     versions:
       - v1
-  channel: '#flip-mode-squad'
+  channel: '#insights-remediations'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
     paths:
