@@ -11,6 +11,7 @@ approval:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
@@ -22,6 +23,7 @@ catalog:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#insights-svc-portal'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
@@ -209,6 +211,9 @@ migration-analytics:
   api:
     versions:
       - v1
+    tags:
+      - value: "experimental"
+        title: "Experimental API"
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
   frontend:
     paths:
@@ -238,6 +243,7 @@ rbac:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
     title: User Access Management
@@ -282,6 +288,9 @@ ruledev:
   api:
     versions:
       - v1
+    tags:
+      - value: "experimental"
+        title: "Experimental API"
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/ruledev-frontend-build
   frontend:
@@ -313,6 +322,7 @@ sources:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
@@ -343,6 +353,9 @@ subscriptions:
   api:
     versions:
       - v1
+    tags:
+      - value: "experimental"
+        title: "Experimental API"
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   frontend:
