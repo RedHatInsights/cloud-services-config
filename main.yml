@@ -1,3 +1,11 @@
+api-docs:
+  title: API documentation
+  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
+  frontend:
+    paths:
+      - /docs/api
+      - /docs
+      
 approval:
   title: Approval
   api:
@@ -8,14 +16,6 @@ approval:
     paths:
       - /hybrid/catalog/approval
     reload: catalog/approval
-
-api-docs:
-  title: API documentation
-  deployment_repo: https://github.com/RedHatInsights/api-frontend-build
-  frontend:
-    paths:
-      - /docs/api
-      - /docs
 
 catalog:
   title: Catalog
@@ -154,9 +154,8 @@ insights:
     paths:
       - /insights
     sub_apps:
-      - id: actions
+      - id: overview
         title: Overview
-        default: true
         group: insights
       - id: rules
         title: Rules
@@ -324,6 +323,7 @@ subscription-reporting:
       - v1
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
+  disabled_on_prod: true
   frontend:
     paths:
       - /staging/subscription-reporting
