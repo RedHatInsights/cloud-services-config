@@ -313,20 +313,19 @@ staging:
     sub_apps:
       - id: migration-analytics
       - id: ruledev
-      - id: subscription-reporting
+      - id: subscriptions
   top_level: true
 
-subscription-reporting:
+subscriptions:
   title: Subscription Reporting
   api:
     versions:
       - v1
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
-  disabled_on_prod: true
   frontend:
     paths:
-      - /staging/subscription-reporting
+      - /subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 tower-analytics:
