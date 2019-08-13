@@ -323,10 +323,9 @@ subscriptions:
       - v1
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
-  disabled_on_prod: true
   frontend:
     paths:
-      - /staging/subscriptions
+      - /subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 tower-analytics:
