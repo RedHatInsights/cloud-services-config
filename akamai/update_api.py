@@ -120,8 +120,8 @@ def activateVersion(version_number, env="STAGING"):
     response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
     err = False
 
-    If there are any warnings in the property, it'll return a status 400 with a list of warnings.
-    Acknowledging these warnings in the request body will allow the activation to work.
+    # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
+    # Acknowledging these warnings in the request body will allow the activation to work.
     if "activationLink" in response:
         print("Wow, first try! Version {} activated on {}.".format(version_number, env))
     elif "status" in response and response["status"] == 400 and "warnings" in response:
