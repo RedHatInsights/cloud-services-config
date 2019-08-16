@@ -175,6 +175,21 @@ migration-analytics:
   git_repo: https://github.com/project-xavier/xavier-ui
   mailing_list: migration-analytics-devel@redhat.com
 
+migrations:
+  title: Migration Services
+  api:
+    versions:
+      - v1
+  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
+  frontend:
+    title: Migration
+    paths:
+      - /migrations
+      - /migrations/migration-analytics
+    sub_apps:
+      -id: migration-analytics
+  top_level: true
+
 openshift:
   title: OpenShift (UHC)
   api:
