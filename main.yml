@@ -118,9 +118,15 @@ drift:
       - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
-    title: System Comparison
+    title: Drift Analysis
     paths:
       - /rhel/drift
+    sub_apps:
+      - id: ''
+        title: System Comparison
+        default: true
+      - id: baselines
+        title: Baselines
 
 hooks:
   title: Web Hooks Service
