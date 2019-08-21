@@ -161,6 +161,20 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
+migrations:
+  title: Migrations
+  api: 
+    versions:
+      - v1
+  frontend: 
+    title: Migrations
+    sub_apps:
+      - id: migration-analytics
+        title: Migration Analytics
+        group: migrations
+        default: true
+  top_level: true
+
 migration-analytics:
   title: Migration Analytics
   api:
@@ -171,24 +185,10 @@ migration-analytics:
   disabled_on_stable: true
   frontend:
     paths:
-      - /staging/migration-analytics
-  git_repo: https://github.com/project-xavier/xavier-ui
-  mailing_list: migration-analytics-devel@redhat.com
-
-migrations:
-  title: Migration Services
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  frontend:
-    title: Migration
-    paths:
       - /migrations
       - /migrations/migration-analytics
-    sub_apps:
-      -id: migration-analytics
-  top_level: true
+  git_repo: https://github.com/project-xavier/xavier-ui
+  mailing_list: migration-analytics-devel@redhat.com
 
 openshift:
   title: OpenShift (UHC)
