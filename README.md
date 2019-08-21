@@ -100,7 +100,7 @@ This is the ID of the slack channel on ansible.slack.com that you want automatic
 
 This is a description of your app's purpose or functionalities, which is used by some other apps.
 
-#### app_id.disabled_on_stable
+#### app_id.disabled_on_prod
 
 Setting this value to `true` will disable the app from deploying to Prod (and appearing in Prod). This applies to both `stable` and `beta` releases.
 
