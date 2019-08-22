@@ -333,7 +333,7 @@ subscriptions:
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 topological-inventory:
-  title: Topological inventory
+  title: Topological Inventory
   api:
     versions:
       - v1.0
