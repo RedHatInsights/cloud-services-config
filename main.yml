@@ -191,6 +191,18 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
+migrations:
+  title: Migrations
+  api: 
+    versions:
+      - v1
+  frontend: 
+    title: Migrations
+    sub_apps:
+      - id: migration-analytics
+        default: true
+  top_level: true
+
 migration-analytics:
   title: Migration Analytics
   api:
@@ -199,7 +211,8 @@ migration-analytics:
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
   frontend:
     paths:
-      - /staging/migration-analytics
+      - /migrations
+      - /migrations/migration-analytics
   git_repo: https://github.com/project-xavier/xavier-ui
   mailing_list: migration-analytics-devel@redhat.com
 
@@ -320,7 +333,6 @@ staging:
   title: Staging Bundle
   frontend:
     sub_apps:
-      - id: migration-analytics
       - id: ruledev
       - id: subscriptions
   top_level: true
