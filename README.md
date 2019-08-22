@@ -4,7 +4,8 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it in. 
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. Once you've verified that it works as expected in `ci-beta` and need it moved to `qa-beta`, notify the #flip-mode-squad channel on Ansible Slack; you can do the same to get your app on `prod-beta` and any of the `stable` branches.
+
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
 ```yml
@@ -18,7 +19,6 @@ Here is some example configuration that demonstrates the structure, using all re
     description: App Title is a cool app that does business things for its users.
     deployment_repo: https://github.com/app-deployment-repo-url
     disabled_on_prod: true
-    disabled_on_stable: true
     docs: https://link.to.docs.com/docs
     frontend:
         title: App Title Override
@@ -72,8 +72,7 @@ If you want the name of your app to appear differently on the frontend, set this
 
 #### app_id.frontend.paths
 
-This is the list of paths where your app will be located. These paths are appended to the end of the paths of its parent apps (if any).
-For example, let's say your app `ex_app_id` is a sub-app of `parent_app`, which has a frontend path of `/parent-app`. If you add a frontend path of `/ex-app`, your app will be available at `/parent-app/ex-app`.
+This is the list of URL paths where your app will be located.
 
 #### app_id.frontend.sub_apps
 
@@ -103,11 +102,7 @@ This is a description of your app's purpose or functionalities, which is used by
 
 #### app_id.disabled_on_prod
 
-If set to `true`, this app will only exist in pre-prod environments (e.g. CI, QA).
-
-#### app_id.disabled_on_stable
-
-If set to `true`, this app will only exist in `beta`.
+Setting this value to `true` will disable the app from deploying to Prod (and appearing in Prod). This applies to both `stable` and `beta` releases.
 
 #### app_id.docs
 
