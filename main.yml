@@ -170,8 +170,6 @@ migrations:
     title: Migrations
     sub_apps:
       - id: migration-analytics
-        title: Migration Analytics
-        group: migrations
         default: true
   top_level: true
 
@@ -291,7 +289,6 @@ staging:
   title: Staging Bundle
   frontend:
     sub_apps:
-      - id: migration-analytics
   top_level: true
 
 tower-analytics:
