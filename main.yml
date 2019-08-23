@@ -145,6 +145,7 @@ hybrid:
     sub_apps:
       - id: catalog
       - id: cost-management
+      - id: topological-inventory
       - id: settings-hybrid
   top_level: true
 
@@ -348,6 +349,17 @@ subscriptions:
     paths:
       - /staging/subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+
+topological-inventory:
+  title: Topological Inventory
+  api:
+    versions:
+      - v1.0
+  channel: '#insights_topology_svc'
+  deployment_repo: https://github.com/RedHatInsights/topological-inventory-frontend-build
+  frontend:
+    paths:
+      - /hybrid/topological-inventory
 
 tower-analytics:
   title: Ansible Tower Analytics
