@@ -62,6 +62,7 @@ cost-management:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   description: >
@@ -135,6 +136,7 @@ hooks:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
   frontend:
     title: Hooks
@@ -196,9 +198,6 @@ landing:
 
 migrations:
   title: Migrations
-  api: 
-    versions:
-      - v1
   frontend: 
     title: Migrations
     sub_apps:
@@ -211,6 +210,9 @@ migration-analytics:
   api:
     versions:
       - v1
+    isBeta: true
+    alias:
+      - xavier
     tags:
       - value: "experimental"
         title: "Experimental API"
@@ -288,6 +290,7 @@ ruledev:
   api:
     versions:
       - v1
+    isBeta: true
     tags:
       - value: "experimental"
         title: "Experimental API"
@@ -356,6 +359,7 @@ subscriptions:
     tags:
       - value: "experimental"
         title: "Experimental API"
+    isBeta: true
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   frontend:
@@ -368,6 +372,7 @@ topological-inventory:
   api:
     versions:
       - v1.0
+    isBeta: true
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/topological-inventory-frontend-build
   frontend:
@@ -379,6 +384,7 @@ tower-analytics:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
 
 vulnerability:
