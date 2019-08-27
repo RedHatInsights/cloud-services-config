@@ -201,14 +201,15 @@ migrations:
   api:
     versions:
       - v1
-    isBeta: true
     alias:
       - xavier
     tags:
       - value: "experimental"
         title: "Experimental API"
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  frontend: 
+  frontend:
+    paths:
+      - /migrations
     sub_apps:
       - id: migration-analytics
         title: Migration Analytics
