@@ -1,7 +1,6 @@
 ansible:
   title: Ansible
   frontend:
-    title: Ansible
     sub_apps:
       - id: automation-hub
         default: true
