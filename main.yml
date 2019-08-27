@@ -209,7 +209,7 @@ migrations:
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
   frontend:
     paths:
-      - /insights
+      - /migrations
     sub_apps:
       - id: migration-analytics
         title: Migration Analytics
