@@ -198,6 +198,14 @@ landing:
 
 migrations:
   title: Migrations
+  frontend:
+    sub_apps:
+      - id: migration-analytics
+        default: true
+  top_level: true
+
+migration-analytics:
+  title: Migration Analytics
   api:
     versions:
       - v1
@@ -210,14 +218,9 @@ migrations:
   frontend:
     paths:
       - /migrations
-    sub_apps:
-      - id: migration-analytics
-        title: Migration Analytics
-        group: migrations
-        default: true
+      - /migrations/migration-analytics
   git_repo: https://github.com/project-xavier/xavier-ui
   mailing_list: migration-analytics-devel@redhat.com
-  top_level: true
 
 openshift:
   title: OpenShift (UHC)
