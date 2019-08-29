@@ -28,6 +28,7 @@ approval:
 
 automation-hub:
   title: Automation Hub
+  deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
   frontend:
     paths:
       - /ansible
