@@ -106,7 +106,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
 # Makes an API call to activate the specified version on the specified environment.
 def activateVersion(version_number, env="STAGING"):
     # "notifyEmails" is unfortunately required for this API call.
-    # TODO: Find a better email for this and release me from this torture
+    # TODO: Set this to the team email list once that exists
     body = {
         "note": "Auto-generated activation",
         "useFastFallback": "false",
@@ -166,6 +166,7 @@ def generateConfigForBranch(branch):
 
 def main():
     # Authenticate with EdgeGrid
+    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
     util.initEdgeGridAuth()
 
     # Get the Cloud Services config files (main source of truth) for all configured environments
