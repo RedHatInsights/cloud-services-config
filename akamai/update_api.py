@@ -166,7 +166,7 @@ def generateConfigForBranch(branch):
 
 def main():
     # Authenticate with EdgeGrid
-    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
+    # TODO: Change this authentication to get rid of the httpie & httpie-edgegrid dependencies. Apprently there's a vulnerability in httpie.
     util.initEdgeGridAuth()
 
     # Get the Cloud Services config files (main source of truth) for all configured environments
