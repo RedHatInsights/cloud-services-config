@@ -4,6 +4,7 @@ ansible:
     sub_apps:
       - id: automation-hub
         default: true
+      - id: tower-analytics
   top_level: true
 
 api-docs:
@@ -394,7 +395,7 @@ topological-inventory:
       - /hybrid/topological-inventory
 
 tower-analytics:
-  title: Ansible Tower Analytics
+  title: Tower Analytics
   api:
     versions:
       - v1
