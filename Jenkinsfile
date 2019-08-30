@@ -2,7 +2,7 @@
 import groovy.json.JsonSlurper
 
 node {
-  stage ("deploy") {
+  stage ("activate on staging") {
     // Use image with python 3.6
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
       checkout scm
@@ -18,6 +18,15 @@ node {
           sh "python3 ./update_api.py $EDGERC"
         }
       }
+    }
+  }
+  stage ("run akamai staging smoke tests") {
+    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+      git url: 'https://github.com/RedHatInsights/akamai-smoke-test.git',
+        credentialsId: 'jenkins-qa-bot',
+        branch: 'master'
+      sh "git pull origin master"
+      sh "sh run_stage.sh"
     }
   }
 }
