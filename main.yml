@@ -396,12 +396,15 @@ topological-inventory:
       - /hybrid/topological-inventory
 
 tower-analytics:
-  title: Tower Analytics
+  title: Automation Analytics
   api:
     versions:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  frontend:
+    paths:
+      - /ansible/automation-analytics
 
 vulnerability:
   title: Vulnerability Management
