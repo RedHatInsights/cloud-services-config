@@ -2,7 +2,7 @@
 import groovy.json.JsonSlurper
 
 node {
-  stage ("deploy") {
+  stage ("activate on staging") {
     // Use image with python 3.6
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
       checkout scm
@@ -44,7 +44,7 @@ node {
         sh """
           eval `ssh-agent`
           ssh-add \"$privateKeyFile\"
-          cp $AKAMAI_HOST_KEY ~/.ssh/known_hosts
+          cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
         """
