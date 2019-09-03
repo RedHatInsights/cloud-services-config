@@ -44,7 +44,7 @@ node {
         sh """
           eval `ssh-agent`
           ssh-add \"$privateKeyFile\"
-          cp \"$AKAMAI_HOST_KEY\" \"~/.ssh/known_hosts\"
+          cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
         """
