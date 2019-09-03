@@ -57,6 +57,7 @@ node {
         credentialsId: 'jenkins-qa-bot',
         branch: 'master'
       sh "git pull origin master"
+      sh "sh prep.sh"
       sh "sh run_stage.sh"
     }
   }
