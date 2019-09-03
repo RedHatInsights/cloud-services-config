@@ -122,17 +122,6 @@ drift:
     paths:
       - /rhel/drift
 
-hooks:
-  title: Web Hooks Service
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
-  frontend:
-    title: Hooks
-    paths:
-      - /settings/hooks
-
 hybrid:
   title: Hybrid Cloud Management Services
   frontend:
@@ -233,13 +222,6 @@ rhel:
       - id: drift
       - id: inventory
       - id: remediations
-  top_level: true
-
-settings:
-  title: Cloud Services Settings
-  frontend:
-    sub_apps:
-      - id: hooks
   top_level: true
 
 ruledev:
