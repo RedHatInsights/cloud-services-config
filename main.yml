@@ -5,7 +5,6 @@ ansible:
       - id: automation-analytics
         default: true
       - id: automation-hub
-        default: true
   top_level: true
 
 api-docs:
