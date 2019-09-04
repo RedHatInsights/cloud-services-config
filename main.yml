@@ -1,10 +1,13 @@
 ansible:
-  title: Ansible
+  title: Red Hat Ansible Automation
   frontend:
     sub_apps:
-      - id: automation-hub
+      - id: automation-analytics
+        title: Analytics
         default: true
-      - id: tower-analytics
+      - id: automation-hub
+        title: Hub
+        default: true
   top_level: true
 
 api-docs:
@@ -27,12 +30,23 @@ approval:
       - /hybrid/catalog/approval
     reload: catalog/approval
 
+automation-analytics:
+  title: Automation Analytics
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  frontend:
+    paths:
+      - /ansible
+      - /ansible/automation-analytics
+
 automation-hub:
   title: Automation Hub
   deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
   frontend:
     paths:
-      - /ansible
       - /ansible/automation-hub
   git_repo: https://github.com/ansible/ansible-hub-ui
 
@@ -395,16 +409,6 @@ topological-inventory:
     paths:
       - /hybrid/topological-inventory
 
-tower-analytics:
-  title: Automation Analytics
-  api:
-    versions:
-      - v1
-    isBeta: true
-  deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
-  frontend:
-    paths:
-      - /ansible/automation-analytics
 
 vulnerability:
   title: Vulnerability Management
