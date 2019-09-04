@@ -3,10 +3,8 @@ ansible:
   frontend:
     sub_apps:
       - id: automation-analytics
-        title: Analytics
         default: true
       - id: automation-hub
-        title: Hub
         default: true
   top_level: true
 
@@ -31,7 +29,7 @@ approval:
     reload: catalog/approval
 
 automation-analytics:
-  title: Automation Analytics
+  title: Analytics
   api:
     versions:
       - v1
@@ -43,7 +41,7 @@ automation-analytics:
       - /ansible/automation-analytics
 
 automation-hub:
-  title: Automation Hub
+  title: Hub
   deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
   frontend:
     paths:
