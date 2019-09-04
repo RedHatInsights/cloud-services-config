@@ -7,7 +7,6 @@ ansible:
         default: true
       - id: automation-hub
         title: Hub
-        default: true
   top_level: true
 
 api-docs:
