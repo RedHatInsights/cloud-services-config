@@ -3,8 +3,10 @@ ansible:
   frontend:
     sub_apps:
       - id: automation-analytics
+        title: Analytics
         default: true
       - id: automation-hub
+        title: Hub
         default: true
   top_level: true
 
