@@ -252,7 +252,7 @@ migration-analytics:
   mailing_list: migration-analytics-devel@redhat.com
 
 openshift:
-  title: OpenShift (UHC)
+  title: OpenShift (OCM)
   api:
     versions:
       - v1
@@ -262,7 +262,7 @@ openshift:
     paths:
       - /openshift
     sub_apps:
-      - id: clusters
+      - id: ''
         title: Clusters
         default: true
   top_level: true
