@@ -51,8 +51,8 @@ node {
       }
     }
   }
-  
-  docker.withRegistry('docker-registry.upshift.redhat.com') {
+
+  docker.withRegistry('https://docker-registry.upshift.redhat.com') {
     docker.image('insights-qe/iqe-tests:latest').inside {
       stage ("run akamai staging smoke tests") {
         sh "IQE_AKAMAI_CERTIFI=true iqe tests plugin akamai -s -k 'prod and not hashes and not beta'"
