@@ -52,7 +52,7 @@ node {
     }
   }
   stage ("run akamai staging smoke tests") {
-    docker.image('docker-registry.upshift.redhat.com/insights-qe/iqe-tests:latest').{ c ->
+    docker.image('docker-registry.upshift.redhat.com/insights-qe/iqe-tests:latest') { c ->
       sh "IQE_AKAMAI_CERTIFI=true iqe tests plugin akamai -s -k 'prod and not hashes and not beta'"
     }
   }
