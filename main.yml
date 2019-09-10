@@ -52,7 +52,7 @@ automation-hub:
         title: Collections
         default: true
       - id: partners
-        title: partners
+        title: Partners
       - id: my-namespaces
         title: My Namespaces
       - id: my-imports
