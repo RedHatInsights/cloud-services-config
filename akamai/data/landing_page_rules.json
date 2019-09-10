@@ -146,6 +146,45 @@
         "children": []
     },
     {
+        "name": "/robots.txt",
+        "children": [],
+        "behaviors": [
+            {
+                "name": "failAction",
+                "options": {
+                    "contentPath": "/apps/landing/robots.txt",
+                    "enabled": true,
+                    "actionType": "RECREATED_CO",
+                    "contentCustomPath": true,
+                    "contentHostname": "cloud.redhat.com",
+                    "preserveQueryString": false
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "path",
+                "options": {
+                    "values": [
+                        "/robots.txt"
+                    ],
+                    "matchOperator": "MATCHES_ONE_OF",
+                    "matchCaseSensitive": false
+                }
+            },
+            {
+                "name": "matchResponseCode",
+                "options": {
+                    "values": [
+                        "404"
+                    ],
+                    "matchOperator": "IS_ONE_OF"
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "all"
+    },
+    {
         "behaviors": [
             {
                 "name": "failAction",
