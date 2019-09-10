@@ -28,7 +28,6 @@ approval:
     paths:
       - /hybrid/catalog/approval
       - /ansible/catalog/approval
-    reload: catalog/approval
 
 automation-analytics:
   title: Analytics
@@ -373,6 +372,7 @@ sources:
       - /insights/settings/sources
       - /hybrid/settings/sources
       - /hybrid/sources
+      - /ansible/settings/sources
     reload: settings/sources
 
 storybook:
