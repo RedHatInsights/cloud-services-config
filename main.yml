@@ -60,6 +60,7 @@ catalog:
   frontend:
     paths:
       - /hybrid/catalog
+      - /ansible/catalog
     sub_apps:
       - id: portfolios
         title: Portfolios
