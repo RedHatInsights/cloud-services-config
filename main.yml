@@ -5,6 +5,8 @@ ansible:
       - id: automation-analytics
         default: true
       - id: automation-hub
+      - id: catalog
+      - id: settings-ansible
   top_level: true
 
 api-docs:
@@ -25,6 +27,7 @@ approval:
   frontend:
     paths:
       - /hybrid/catalog/approval
+      - /ansible/catalog/approval
     reload: catalog/approval
 
 automation-analytics:
@@ -278,6 +281,7 @@ rbac:
     title: User Access Management
     paths:
       - /hybrid/settings/rbac
+      - /ansible/settings/rbac
     reload: settings/rbac
 
 remediations:
@@ -327,12 +331,20 @@ ruledev:
     paths:
       - /staging/ruledev
 
+settings-ansible:
+  title: Settings
+  frontend:
+    sub_apps:
+      - id: sources
+        reload: settings/sources
+      - id: rbac
+    suppress_id: true
+
 settings-hybrid:
   title: Settings
   frontend:
     sub_apps:
       - id: sources
-        title: Catalog Sources
         reload: settings/sources
       - id: cost-management-sources
         title: Cost Management Sources
