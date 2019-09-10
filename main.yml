@@ -335,6 +335,7 @@ settings-ansible:
   frontend:
     sub_apps:
       - id: sources
+        reload: settings/sources
       - id: rbac
     suppress_id: true
 
