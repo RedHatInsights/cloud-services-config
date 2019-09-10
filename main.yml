@@ -30,7 +30,7 @@ approval:
       - /ansible/catalog/approval
 
 automation-analytics:
-  title: Analytics
+  title: Automation Analytics
   api:
     versions:
       - v1
