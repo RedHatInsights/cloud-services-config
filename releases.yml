@@ -1,0 +1,6 @@
+Stable:
+  branch: prod-stable
+
+Beta:
+  branch: prod-beta
+  prefix: /beta
