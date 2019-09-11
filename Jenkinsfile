@@ -51,13 +51,4 @@ node {
       }
     }
   }
-  stage ("run akamai staging smoke tests") {
-    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
-      git url: 'https://github.com/RedHatInsights/akamai-smoke-test.git',
-        credentialsId: 'jenkins-qa-bot',
-        branch: 'master'
-      sh "git pull origin master"
-      sh "sh run_stage.sh"
-    }
-  }
 }
