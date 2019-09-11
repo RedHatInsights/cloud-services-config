@@ -172,7 +172,7 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
 openshift:
-  title: OpenShift (UHC)
+  title: OpenShift (OCM)
   api:
     versions:
       - v1
@@ -182,7 +182,7 @@ openshift:
     paths:
       - /openshift
     sub_apps:
-      - id: clusters
+      - id: ''
         title: Clusters
         default: true
   top_level: true
