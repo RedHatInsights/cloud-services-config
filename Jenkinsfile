@@ -53,7 +53,7 @@ node {
   }
 
   stage ("run akamai staging smoke tests") {
-    openShift.withNode(image: "docker-registry.upshift.redhat.com/insights-qe/iqe-tests:latest") {
+    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "IQE_AKAMAI_CERTIFI=true iqe tests plugin akamai -s -k 'prod and not hashes and not beta'"
     }
   }
