@@ -218,7 +218,6 @@ insights:
         group: insights
       - id: inventory
       - id: remediations
-      - id: settings-insights
   top_level: true
 
 inventory:
