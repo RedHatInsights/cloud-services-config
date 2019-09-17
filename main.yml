@@ -1,5 +1,5 @@
 ansible:
-  title: Red Hat Ansible Automation
+  title: Red Hat Ansible Automation Platform
   frontend:
     sub_apps:
       - id: automation-analytics
