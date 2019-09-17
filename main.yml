@@ -121,7 +121,7 @@ cost-management:
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
     paths:
-      - /hybrid/settings/cost-management-sources
+      - /hybrid/settings/cost-management/sources
       - /hybrid/cost-management
     sub_apps:
       - id: ''
