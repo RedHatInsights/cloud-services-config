@@ -218,7 +218,6 @@ insights:
         group: insights
       - id: inventory
       - id: remediations
-      - id: settings-insights
   top_level: true
 
 inventory:
@@ -319,13 +318,6 @@ rhel:
       - id: remediations
   top_level: true
 
-settings:
-  title: Cloud Services Settings
-  frontend:
-    sub_apps:
-      - id: hooks
-  top_level: true
-
 ruledev:
   title: Rule Development
   api:
@@ -360,13 +352,6 @@ settings-hybrid:
         title: Cost Management Sources
         reload: cost-management/sources
       - id: rbac
-    suppress_id: true
-
-settings-insights:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
     suppress_id: true
 
 sources:
