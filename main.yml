@@ -1,5 +1,5 @@
 ansible:
-  title: Red Hat Ansible Automation
+  title: Red Hat Ansible Automation Platform
   frontend:
     sub_apps:
       - id: automation-analytics
@@ -30,7 +30,7 @@ approval:
       - /ansible/catalog/approval
 
 automation-analytics:
-  title: Analytics
+  title: Automation Analytics
   api:
     versions:
       - v1
@@ -121,7 +121,7 @@ cost-management:
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
     paths:
-      - /hybrid/settings/cost-management-sources
+      - /hybrid/settings/cost-management/sources
       - /hybrid/cost-management
     sub_apps:
       - id: ''
@@ -348,7 +348,7 @@ settings-hybrid:
     sub_apps:
       - id: sources
         reload: settings/sources
-      - id: cost-management-sources
+      - id: cost-management/sources
         title: Cost Management Sources
         reload: cost-management/sources
       - id: rbac
