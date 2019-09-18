@@ -356,7 +356,7 @@ settings-hybrid:
     sub_apps:
       - id: sources
         reload: settings/sources
-      - id: cost-management-sources
+      - id: cost-management/sources
         title: Cost Management Sources
         reload: cost-management/sources
       - id: rbac
