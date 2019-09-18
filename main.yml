@@ -213,6 +213,9 @@ insights:
       - id: rules
         title: Rules
         group: insights
+      - id: topics
+        title: Topics
+        group: insights
       - id: inventory
       - id: remediations
   top_level: true
