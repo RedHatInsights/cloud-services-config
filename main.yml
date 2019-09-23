@@ -211,12 +211,15 @@ insights:
       - id: overview
         title: Overview
         group: insights
+        reload: overview
       - id: rules
         title: Rules
         group: insights
+        reload: rules
       - id: topics
         title: Topics
         group: insights
+        reload: topics
       - id: inventory
       - id: remediations
       - id: settings-insights
