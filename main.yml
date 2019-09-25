@@ -278,9 +278,11 @@ openshift:
     sub_apps:
       - id: ''
         title: Clusters
+        group: openshift
         default: true
       - id: subscriptions
         title: Subscriptions
+        group: openshift
   top_level: true
 
 rbac:
