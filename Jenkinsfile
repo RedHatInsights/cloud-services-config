@@ -54,9 +54,8 @@ node {
 
   stage ("run akamai staging smoke tests") {
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
-      sh "sleep 30m"
       sh "iqe plugin install akamai"
-      sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -k 'prod and not hashes and not beta'"
+      sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m 'prod and not hashes and not beta'"
     }
   }
 }
