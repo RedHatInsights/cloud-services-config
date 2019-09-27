@@ -141,14 +141,6 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
 
-migrations:
-  title: Migrations
-  frontend:
-    sub_apps:
-      - id: migration-analytics
-        default: true
-  top_level: true
-
 openshift:
   title: OpenShift (OCM)
   api:
