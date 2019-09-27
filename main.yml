@@ -1,14 +1,3 @@
-ansible:
-  title: Red Hat Ansible Automation Platform
-  frontend:
-    sub_apps:
-      - id: automation-analytics
-        default: true
-      - id: automation-hub
-      - id: catalog
-      - id: settings-ansible
-  top_level: true
-
 api-docs:
   title: API documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
