@@ -31,8 +31,10 @@ node {
 
       if (BRANCH == "prod-stable") {
         PREFIX = ""
+        TESTSTR = "'stage and not hashes and not beta'"
       } else if (BRANCH == "prod-beta") {
         PREFIX = "beta/"
+        TESTSTR = "'stage and not hashes and not stable'"
       } else {
         error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
       }
@@ -52,10 +54,18 @@ node {
     }
   }
 
+  // TODO: Wait until new property version is active
+
   stage ("run akamai staging smoke tests") {
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
       sh "iqe plugin install akamai"
-      sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m 'prod and not hashes and not beta'"
+      // TODO: Change the IQE test command based on which branch this is running for
+      sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m '${TESTSTR}'"
     }
   }
+
+  // TODO: If previous stage failed, roll back changes
+  // Save the old .yml files from prod beforehand so you can replace them here
+  // Activate the version that was active before this build started
+
 }

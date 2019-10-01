@@ -1,8 +1,9 @@
 import copy
 import json
 import re
-import update_api_utilties as util
 import sys
+import time
+import update_api_utilties as util
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env="PRODUCTION"):
@@ -134,7 +135,7 @@ def activateVersion(version_number, env="STAGING"):
 
         # If it fails again, give up.
         if "activationLink" in response:
-            print("Success! Version {} activated on {}.".format(version_number, env))
+            print("Version {} beginning activation on {}.".format(version_number, env))
         else:
             err = True
             print("Something went wrong while acknowledging warnings. Here's the response we got:")     
@@ -164,6 +165,15 @@ def generateConfigForBranch(prefix):
     
     return config
 
+def waitForActiveVersion(version_number, env="STAGING"):
+    print("Waiting for version {} to finish activating...".format(version_number))
+    active_version = ""
+    while active_version != version_number:
+        time.sleep(5)
+        active_version = getLatestVersionNumber(env)
+        print("Property active in {} is v{}".format(env, active_version))
+    print("Success! Property v{} now active on {}.".format(active_version, env))
+    
 def main():
     # Authenticate with EdgeGrid
     # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
@@ -188,6 +198,9 @@ def main():
 
     # Activate on STAGING
     activateVersion(new_version_number, "STAGING")
+
+    # Wait for new version to be active
+    waitForActiveVersion(int(new_version_number))
 
 if __name__== "__main__":
     main()
