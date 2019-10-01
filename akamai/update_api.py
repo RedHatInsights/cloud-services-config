@@ -168,9 +168,13 @@ def generateConfigForBranch(prefix):
 def waitForActiveVersion(version_number, env="STAGING"):
     print("Waiting for version {} to finish activating...".format(version_number))
     active_version = ""
+    timeout = 20
     while active_version != version_number:
         time.sleep(5)
         active_version = getLatestVersionNumber(env)
+        timeout -= 1
+        if(timeout == 0):
+            sys.exit("Retried too many times! New version not activated.")
         print("Property active in {} is v{}".format(env, active_version))
     print("Success! Property v{} now active on {}.".format(active_version, env))
     
