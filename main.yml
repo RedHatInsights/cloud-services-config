@@ -155,8 +155,6 @@ openshift:
       - id: ''
         title: Clusters
         default: true
-      - id: subscriptions
-        title: Subscriptions
   top_level: true
 
 rbac:
