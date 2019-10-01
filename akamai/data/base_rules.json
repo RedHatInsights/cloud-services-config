@@ -468,7 +468,7 @@
                                 "name": "path",
                                 "options": {
                                     "values": [
-                                        "/api/static*"
+                                        "/api/v1/static*"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
                                     "matchCaseSensitive": false
@@ -476,7 +476,7 @@
                             }
                         ],
                         "criteriaMustSatisfy": "all",
-                        "name": "/api/static",
+                        "name": "/api/v1/static",
                         "children": []
                     }
                 ]
