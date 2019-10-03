@@ -3,6 +3,8 @@ import groovy.json.JsonSlurper
 
 node {
   stage ("create backup for old YAML files") {
+    String APP_NAME = "__APP_NAME__"
+    String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
       TESTSTR = "'stage and not hashes and not beta'"
@@ -39,9 +41,6 @@ node {
                   keyFileVariable: "privateKeyFile",
                   passphraseVariable: "",
                   usernameVariable: "")]) {
-
-      String APP_NAME = "__APP_NAME__"
-      String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
 
       AKAMAI_BASE_PATH = "822386"
       AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
