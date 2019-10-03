@@ -2,6 +2,20 @@
 import groovy.json.JsonSlurper
 
 node {
+  stage ("create backup for old YAML files") {
+    if (BRANCH == "prod-stable") {
+      PREFIX = ""
+      TESTSTR = "'stage and not hashes and not beta'"
+    } else if (BRANCH == "prod-beta") {
+      PREFIX = "beta/"
+      TESTSTR = "'stage and not hashes and not stable'"
+    } else {
+      error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
+    }
+    sh "wget -O main.yml.bak https://cloud.redhat.com/${PREFIX}config/main.yml"
+    sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
+  }
+
   stage ("activate on staging") {
     // Use image with python 3.6
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
@@ -29,16 +43,6 @@ node {
       String APP_NAME = "__APP_NAME__"
       String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
 
-      if (BRANCH == "prod-stable") {
-        PREFIX = ""
-        TESTSTR = "'stage and not hashes and not beta'"
-      } else if (BRANCH == "prod-beta") {
-        PREFIX = "beta/"
-        TESTSTR = "'stage and not hashes and not stable'"
-      } else {
-        error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
-      }
-
       AKAMAI_BASE_PATH = "822386"
       AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
 
@@ -57,12 +61,28 @@ node {
   stage ("run akamai staging smoke tests") {
     openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
       sh "iqe plugin install akamai"
-      sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m '${TESTSTR}'"
+      try {
+        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m '${TESTSTR}'"
+      } catch(e) {
+        // If the tests don't all pass, roll back changes:
+        // Re-upload the old main.yml files
+        configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
+          sh "rm main.yml"
+          sh "cp main.yml.bak main.yml"
+          sh "rm releases.yml"
+          sh "cp releases.yml.bak releases.yml"
+          sh """
+            eval `ssh-agent`
+            ssh-add \"$privateKeyFile\"
+            cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
+            chmod 600 ~/.ssh/known_hosts
+            rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          """
+        }
+        
+        // Activate previous version of Akamai property
+        // TODO: Roll back property version
+      }
     }
   }
-
-  // TODO: If previous stage failed, roll back changes
-  // Save the old .yml files from prod beforehand so you can replace them here
-  // Activate the version that was active before this build started
-
 }
