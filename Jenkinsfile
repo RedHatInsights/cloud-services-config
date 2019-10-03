@@ -58,11 +58,12 @@ node {
   }
 
   stage ("run akamai staging smoke tests") {
-    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
-      sh "iqe plugin install akamai"
-      try {
+    try {
+      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
+        sh "iqe plugin install akamai"
         sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m \"${TESTSTR}\""
-      } catch(e) {
+      }
+    } catch(e) {
         // If the tests don't all pass, roll back changes:
         // Re-upload the old main.yml files
         configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
@@ -78,9 +79,19 @@ node {
             rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
           """
         }
-        
-        // Activate previous version of Akamai property
-        // TODO: Roll back property version
+        openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+        // cd into akamai folder
+        dir("akamai") {
+          // Use secret .edgerc file
+          withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
+            sh "set -e"
+            sh "rm -rf venv || true"
+            sh "python3 -m venv venv"
+            sh "source ./venv/bin/activate"
+            sh "pip3 install --user -r ./requirements.txt"
+            sh "python3 ./rollback.py $EDGERC"
+          }
+        }
       }
     }
   }
