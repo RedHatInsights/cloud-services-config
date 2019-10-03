@@ -71,13 +71,18 @@ node {
           sh "cp main.yml.bak main.yml"
           sh "rm releases.yml"
           sh "cp releases.yml.bak releases.yml"
-          sh """
-            eval `ssh-agent`
-            ssh-add \"$privateKeyFile\"
-            cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
-            chmod 600 ~/.ssh/known_hosts
-            rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
-          """
+          withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
+                  keyFileVariable: "privateKeyFile",
+                  passphraseVariable: "",
+                  usernameVariable: "")]) {
+            sh """
+              eval `ssh-agent`
+              ssh-add \"$privateKeyFile\"
+              cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
+              chmod 600 ~/.ssh/known_hosts
+              rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            """
+          }
         }
         openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
         // cd into akamai folder
