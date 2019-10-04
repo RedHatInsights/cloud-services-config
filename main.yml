@@ -26,7 +26,6 @@ approval:
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
-      - /hybrid/catalog/approval
       - /ansible/catalog/approval
     reload: catalog/approval
 
@@ -66,11 +65,10 @@ catalog:
     versions:
       - v1
     isBeta: true
-  channel: '#insights-svc-portal'
+  channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
     paths:
-      - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
       - id: portfolios
@@ -190,7 +188,6 @@ hybrid:
   title: Hybrid Cloud Management Services
   frontend:
     sub_apps:
-      - id: catalog
       - id: cost-management
       - id: topological-inventory
       - id: settings-hybrid
