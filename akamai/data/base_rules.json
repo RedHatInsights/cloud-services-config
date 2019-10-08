@@ -2708,8 +2708,13 @@
                                 "name": "requestHeader",
                                 "options": {
                                     "headerName": "x-rh-insights-pentest",
-                                    "matchOperator": "DOES_NOT_EXIST",
-                                    "matchWildcardName": false
+                                    "matchOperator": "IS_ONE_OF",
+                                    "matchWildcardName": false,
+                                    "values": [
+                                        "enabled"
+                                    ],
+                                    "matchWildcardValue": false,
+                                    "matchCaseSensitiveValue": true
                                 }
                             }
                         ],
