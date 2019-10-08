@@ -8,6 +8,14 @@
                 "matchOperator": "",
                 "matchCaseSensitive": false
             }
+        },
+        {
+            "name": "requestHeader",
+            "options": {
+                "headerName": "x-rh-insights-pentest",
+                "matchOperator": "DOES_NOT_EXIST",
+                "matchWildcardName": false
+            }
         }
     ],
     "criteriaMustSatisfy": "all",
