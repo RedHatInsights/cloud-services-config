@@ -16,7 +16,7 @@ api-docs:
     paths:
       - /docs/api
       - /docs
-      
+
 approval:
   title: Approval
   api:
@@ -26,7 +26,6 @@ approval:
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
-      - /hybrid/catalog/approval
       - /ansible/catalog/approval
     reload: catalog/approval
 
@@ -66,16 +65,17 @@ catalog:
     versions:
       - v1
     isBeta: true
-  channel: '#insights-svc-portal'
+  channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
     paths:
-      - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
+      - id: products
+        title: Products
+        default: true
       - id: portfolios
         title: Portfolios
-        default: true
       - id: platforms
         title: Platforms
       - id: orders
@@ -109,15 +109,15 @@ cost-management:
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   description: >
-    Cost Management is an application that provides users a view of their 
-    enterprise cost. Cost Management allows users to evaluate the cost on 
-    infrastructures like Amazon Web Services (AWS) across multiple *master* 
-    accounts, breaking down to service usage, compute usage, and storage 
-    allocation. Details can also be broken down utilizing tagging to view 
-    data attributed to project or cost center assignments. Cost Management 
-    also allows users to breakdown cost at the platform level by associating 
-    cost with OpenShift clusters, nodes, and the projects running their. Cost 
-    can be determined by deriving it from the underlying infrastructure (like 
+    Cost Management is an application that provides users a view of their
+    enterprise cost. Cost Management allows users to evaluate the cost on
+    infrastructures like Amazon Web Services (AWS) across multiple *master*
+    accounts, breaking down to service usage, compute usage, and storage
+    allocation. Details can also be broken down utilizing tagging to view
+    data attributed to project or cost center assignments. Cost Management
+    also allows users to breakdown cost at the platform level by associating
+    cost with OpenShift clusters, nodes, and the projects running their. Cost
+    can be determined by deriving it from the underlying infrastructure (like
     AWS) or deriving it based on a user set of rates.
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
@@ -171,8 +171,10 @@ drift:
       - id: ''
         title: System Comparison
         default: true
+        reload: drift
       - id: baselines
         title: Baselines
+        reload: drift/baselines
 
 hooks:
   title: Web Hooks Service
@@ -190,7 +192,6 @@ hybrid:
   title: Hybrid Cloud Management Services
   frontend:
     sub_apps:
-      - id: catalog
       - id: cost-management
       - id: topological-inventory
       - id: settings-hybrid
