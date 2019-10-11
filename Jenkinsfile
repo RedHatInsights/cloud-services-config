@@ -1,4 +1,4 @@
-@Library("github.com/RedHatInsights/insights-pipeline-lib") _
+@Library("github.com/RedHatInsights/insights-pipeline-lib@v1.0") _
 import groovy.json.JsonSlurper
 
 node {
