@@ -3120,7 +3120,7 @@
                             "forwardHostHeader": "ORIGIN_HOSTNAME",
                             "originSni": true,
                             "verificationMode": "CUSTOM",
-                            "hostname": "api-gateway.1b13.insights.openshiftapps.com",
+                            "hostname": "api-gateway-qa.5a9f.insights-dev.openshiftapps.com",
                             "compress": true,
                             "trueClientIpHeader": "True-Client-IP",
                             "httpPort": 80,
@@ -3133,7 +3133,7 @@
                             "customValidCnValues": [
                                 "{{Origin Hostname}}",
                                 "{{Forward Host Header}}",
-                                "*.1b13.insights.openshiftapps.com"
+                                "*.5a9f.insights-dev.openshiftapps.com"
                             ],
                             "originCertsToHonor": "COMBO",
                             "standardCertificateAuthorities": [
