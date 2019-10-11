@@ -73,9 +73,11 @@ catalog:
       - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
+      - id: products
+        title: Products
+        default: true
       - id: portfolios
         title: Portfolios
-        default: true
       - id: platforms
         title: Platforms
       - id: orders
