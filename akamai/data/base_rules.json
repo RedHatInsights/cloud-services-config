@@ -1345,14 +1345,13 @@
                                 }
                             },
                             {
-                                "name": "requestHeader",
+                                "name": "requestCookie",
                                 "options": {
-                                    "headerName": "x-rh-insights-pentest",
-                                    "matchOperator": "IS_ONE_OF",
+                                    "cookieName": "x-rh-insights-pentest",
+                                    "matchOperator": "IS",
+                                    "value": "flipmodesquad",
                                     "matchWildcardName": false,
-                                    "values": [
-                                        "enabled"
-                                    ],
+                                    "matchCaseSensitiveName": true,
                                     "matchWildcardValue": false,
                                     "matchCaseSensitiveValue": true
                                 }
@@ -2705,14 +2704,13 @@
                                 }
                             },
                             {
-                                "name": "requestHeader",
+                                "name": "requestCookie",
                                 "options": {
-                                    "headerName": "x-rh-insights-pentest",
-                                    "matchOperator": "IS_ONE_OF",
+                                    "cookieName": "x-rh-insights-pentest",
+                                    "matchOperator": "IS",
+                                    "value": "flipmodesquad",
                                     "matchWildcardName": false,
-                                    "values": [
-                                        "enabled"
-                                    ],
+                                    "matchCaseSensitiveName": true,
                                     "matchWildcardValue": false,
                                     "matchCaseSensitiveValue": true
                                 }
@@ -2867,11 +2865,12 @@
                         }
                     },
                     {
-                        "name": "requestHeader",
+                        "name": "requestCookie",
                         "options": {
-                            "headerName": "x-rh-insights-pentest",
+                            "cookieName": "x-rh-insights-pentest",
                             "matchOperator": "DOES_NOT_EXIST",
-                            "matchWildcardName": false
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
                         }
                     }
                 ],
@@ -2977,14 +2976,6 @@
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
                                     "matchCaseSensitive": false
-                                }
-                            },
-                            {
-                                "name": "requestHeader",
-                                "options": {
-                                    "headerName": "x-rh-insights-pentest",
-                                    "matchOperator": "DOES_NOT_EXIST",
-                                    "matchWildcardName": false
                                 }
                             }
                         ],
@@ -3248,16 +3239,61 @@
                         }
                     },
                     {
-                        "name": "requestHeader",
+                        "name": "requestCookie",
                         "options": {
-                            "headerName": "x-rh-insights-pentest",
-                            "matchOperator": "IS_ONE_OF",
+                            "cookieName": "x-rh-insights-pentest",
+                            "matchOperator": "IS",
+                            "value": "flipmodesquad",
                             "matchWildcardName": false,
-                            "values": [
-                                "enabled"
-                            ],
+                            "matchCaseSensitiveName": true,
                             "matchWildcardValue": false,
                             "matchCaseSensitiveValue": true
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "Set Cloud Cookie",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "responseCookie",
+                        "options": {
+                            "cookieName": "x-rh-insights-pentest",
+                            "enabled": true,
+                            "type": "FIXED",
+                            "defaultDomain": false,
+                            "defaultPath": false,
+                            "expires": "NEVER",
+                            "secure": false,
+                            "value": "flipmodesquad",
+                            "domain": "cloud.redhat.com",
+                            "path": "/"
+                        }
+                    },
+                    {
+                        "name": "redirect",
+                        "options": {
+                            "mobileDefaultChoice": "DEFAULT",
+                            "destinationProtocol": "HTTPS",
+                            "destinationHostname": "SAME_AS_REQUEST",
+                            "destinationPath": "OTHER",
+                            "queryString": "APPEND",
+                            "responseCode": 307,
+                            "destinationPathOther": "/"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "values": [
+                                "/0b3e491aaeaa09936552d9df8c43b318"
+                            ],
+                            "matchCaseSensitive": false
                         }
                     }
                 ],
