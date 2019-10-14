@@ -10,11 +10,12 @@
             }
         },
         {
-            "name": "requestHeader",
+            "name": "requestCookie",
             "options": {
-                "headerName": "x-rh-insights-pentest",
+                "cookieName": "x-rh-insights-pentest",
                 "matchOperator": "DOES_NOT_EXIST",
-                "matchWildcardName": false
+                "matchWildcardName": false,
+                "matchCaseSensitiveName": true
             }
         }
     ],
