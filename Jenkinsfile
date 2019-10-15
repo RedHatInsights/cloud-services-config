@@ -61,7 +61,7 @@ node {
     try {
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m -k ${TESTSTR}"
+        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -k ${TESTSTR}"
       }
     } catch(e) {
         // If the tests don't all pass, roll back changes:
