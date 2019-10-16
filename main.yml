@@ -42,8 +42,8 @@ automation-analytics:
       - /ansible/automation-analytics
     sub_apps:
       - id: ''
-          title: Clusters
-          default: true
+        title: Clusters
+        default: true
       - id: organization-statistics
         title: Organization Statistics
 
