@@ -44,8 +44,8 @@ automation-analytics:
       - id: ''
           title: Clusters
           default: true
-        - id: organization-statistics
-          title: Organization Statistics
+      - id: organization-statistics
+        title: Organization Statistics
 
 automation-hub:
   title: Automation Hub
