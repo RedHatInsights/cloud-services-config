@@ -40,6 +40,12 @@ automation-analytics:
     paths:
       - /ansible
       - /ansible/automation-analytics
+    sub_apps:
+      - id: ''
+        title: Clusters
+        default: true
+      - id: organization-statistics
+        title: Organization Statistics
 
 automation-hub:
   title: Automation Hub
