@@ -44,15 +44,12 @@ def createRulesForEnv(master_config, global_path_prefix=""):
         for rule in rules:
             if rule["behaviors"][0]["name"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
-            if rule["criteria"][0]["name"] == "path":
-                if rule["criteria"][0]["options"]["values"][0] == "/":
-                    rule["criteria"][0]["options"]["values"].append(global_path_prefix)
-                rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
-            if len(rule["criteria"]) > 1:
-                if rule["criteria"][1]["name"] == "path":
-                    if rule["criteria"][1]["options"]["values"][0] == "/":
-                        rule["criteria"][1]["options"]["values"].append(global_path_prefix)
-                    rule["criteria"][1]["options"]["values"][0] = global_path_prefix + rule["criteria"][1]["options"]["values"][0]
+            for x in range(len(rule["criteria"])):
+                if rule["criteria"][x]["name"] == "path":
+                    for y in range(len(rule["criteria"][x]["options"]["values"])):
+                        if rule["criteria"][x]["options"]["values"][y] == "/":
+                            rule["criteria"][x]["options"]["values"].append(global_path_prefix)
+                        rule["criteria"][x]["options"]["values"][y] = global_path_prefix + rule["criteria"][x]["options"]["values"][y]
 
     # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
