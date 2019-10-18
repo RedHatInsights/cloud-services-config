@@ -64,15 +64,6 @@
                 }
             },
             {
-                "name": "matchResponseCode",
-                "options": {
-                    "values": [
-                        "404"
-                    ],
-                    "matchOperator": "IS_ONE_OF"
-                }
-            },
-            {
                 "name": "path",
                 "options": {
                     "values": [
