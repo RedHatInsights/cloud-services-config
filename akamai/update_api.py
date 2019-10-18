@@ -9,6 +9,7 @@ import update_api_utilties as util
 def getLatestVersionNumber(env="PRODUCTION"):
     print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
+    print(data)
     return data["versions"]["items"][0]["propertyVersion"]
 
 # Creates a new version of the property in Akamai,
@@ -47,6 +48,11 @@ def createRulesForEnv(master_config, global_path_prefix=""):
                 if rule["criteria"][0]["options"]["values"][0] == "/":
                     rule["criteria"][0]["options"]["values"].append(global_path_prefix)
                 rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
+            if len(rule["criteria"]) > 1:
+                if rule["criteria"][1]["name"] == "path":
+                    if rule["criteria"][1]["options"]["values"][0] == "/":
+                        rule["criteria"][1]["options"]["values"].append(global_path_prefix)
+                    rule["criteria"][1]["options"]["values"][0] = global_path_prefix + rule["criteria"][1]["options"]["values"][0]
 
     # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
