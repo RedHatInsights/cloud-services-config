@@ -108,6 +108,7 @@ config:
 
 cost-management:
   title: Cost Management
+  top_level: true
   api:
     versions:
       - v1
@@ -128,8 +129,7 @@ cost-management:
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
     paths:
-      - /hybrid/settings/cost-management/sources
-      - /hybrid/cost-management
+      - /cost-management
     sub_apps:
       - id: ''
         title: Overview
@@ -142,6 +142,7 @@ cost-management:
         title: Cloud details
       - id: cost-models
         title: Cost model details
+      - id: settings-cost-management
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
@@ -193,15 +194,6 @@ hooks:
     title: Hooks
     paths:
       - /settings/hooks
-
-hybrid:
-  title: Hybrid Cloud Management Services
-  frontend:
-    sub_apps:
-      - id: cost-management
-      - id: topological-inventory
-      - id: settings-hybrid
-  top_level: true
 
 insights:
   title: Insights
@@ -302,7 +294,7 @@ rbac:
   frontend:
     title: User Access Management
     paths:
-      - /hybrid/settings/rbac
+      - /cost-management/settings/rbac
       - /ansible/settings/rbac
     reload: settings/rbac
 
@@ -362,12 +354,10 @@ settings-ansible:
       - id: rbac
     suppress_id: true
 
-settings-hybrid:
+settings-cost-management:
   title: Settings
   frontend:
     sub_apps:
-      - id: sources
-        reload: settings/sources
       - id: cost-management/sources
         title: Cost Management Sources
         reload: cost-management/sources
@@ -393,8 +383,6 @@ sources:
     title: Sources
     paths:
       - /insights/settings/sources
-      - /hybrid/settings/sources
-      - /hybrid/sources
       - /ansible/settings/sources
     reload: settings/sources
 
@@ -428,19 +416,6 @@ subscriptions:
     paths:
       - /staging/subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
-
-topological-inventory:
-  title: Topological Inventory
-  api:
-    versions:
-      - v1.0
-    isBeta: true
-  channel: '#insights_topology_svc'
-  deployment_repo: https://github.com/RedHatInsights/topological-inventory-frontend-build
-  frontend:
-    paths:
-      - /hybrid/topological-inventory
-
 
 vulnerability:
   title: Vulnerability Management
