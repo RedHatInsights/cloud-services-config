@@ -3111,7 +3111,7 @@
                             "forwardHostHeader": "ORIGIN_HOSTNAME",
                             "originSni": true,
                             "verificationMode": "CUSTOM",
-                            "hostname": "api-gateway-qa.5a9f.insights-dev.openshiftapps.com",
+                            "hostname": "apicast-3scale-gateway.apps.pen-test.rhorchata.com",
                             "compress": true,
                             "trueClientIpHeader": "True-Client-IP",
                             "httpPort": 80,
@@ -3124,7 +3124,7 @@
                             "customValidCnValues": [
                                 "{{Origin Hostname}}",
                                 "{{Forward Host Header}}",
-                                "*.5a9f.insights-dev.openshiftapps.com"
+                                "*.apps.pen-test.rhorchata.com"
                             ],
                             "originCertsToHonor": "COMBO",
                             "standardCertificateAuthorities": [
@@ -3198,7 +3198,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "c0290a96032d1124d643abc277a2d658",
+                            "headerValue": "aa3f91228822ee68240bb2cbf2f660d7",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
