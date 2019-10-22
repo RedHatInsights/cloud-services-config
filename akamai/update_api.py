@@ -115,48 +115,6 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
     print("API - Updating rule tree...")
     response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),rules_tree))
 
-# Makes an API call to activate the specified version on the specified environment.
-def activateVersion(version_number, env="STAGING"):
-    # "notifyEmails" is unfortunately required for this API call.
-    # TODO: Set this to the team email list once that exists
-    body = {
-        "note": "Auto-generated activation",
-        "useFastFallback": "false",
-        "notifyEmails": [
-            "aprice@redhat.com"
-        ]
-    }
-    body["propertyVersion"] = version_number
-    body["network"] = env
-    print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
-    err = False
-
-    # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
-    # Acknowledging these warnings in the request body will allow the activation to work.
-    if "activationLink" in response:
-        print("Wow, first try! Version {} activated on {}.".format(version_number, env))
-    elif "status" in response and response["status"] == 400 and "warnings" in response:
-        warnings = []
-        for w in response["warnings"]:
-            warnings.append(w["messageId"])
-        body["acknowledgeWarnings"] = warnings
-        print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
-
-        # If it fails again, give up.
-        if "activationLink" in response:
-            print("Version {} beginning activation on {}.".format(version_number, env))
-        else:
-            err = True
-            print("Something went wrong while acknowledging warnings. Here's the response we got:")     
-    else:
-        err = True
-        print("Something went wrong on the first activation attempt. Here's the response we got:")
-    if err:
-        print(json.dumps(response))
-        print("The activaction failed. Please check out the above response to see what happened.") 
-
 def generateExclusions(frontend_path, config):
     exclusions = []
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"] and frontend_path not in config[x]["frontend"]["paths"]):
@@ -212,7 +170,7 @@ def main():
     updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
 
     # Activate on STAGING
-    activateVersion(new_version_number, "STAGING")
+    util.activateVersion(new_version_number, "STAGING")
 
     # Wait for new version to be active
     waitForActiveVersion(int(new_version_number))
