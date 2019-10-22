@@ -12,12 +12,8 @@ def getLatestVersionNumber(env):
     return data["versions"]["items"][0]["propertyVersion"]
 
 # Creates a new version of the property in Akamai,
-# which is based off of the latest active version in Production.
-def createNewVersion():
-    property_env = "PRODUCTION"
-    if len(sys.argv) > 2:
-        property_env = sys.argv[2]
-    
+# which is based off of the latest active version in the given environment.
+def createNewVersion(property_env="STAGING"):
     # Get the number of the latest prod version to use as a base
     previous_version = getLatestVersionNumber(property_env)
 
@@ -137,7 +133,7 @@ def generateConfigForBranch(prefix):
 def waitForActiveVersion(version_number, env="STAGING"):
     print("Waiting for version {} to finish activating...".format(version_number))
     active_version = ""
-    timeout = 40
+    timeout = 360
     while active_version != version_number:
         time.sleep(5)
         active_version = getLatestVersionNumber(env)
@@ -163,17 +159,22 @@ def main():
             "config": generateConfigForBranch(releases[env]["prefix"] if "prefix" in releases[env] else "")
         })
 
+    if len(sys.argv) > 2:
+        property_env = sys.argv[2]
+    else:
+        property_env = "STAGING"
+
     # Create a new version based off of the active Prod version
-    new_version_number = createNewVersion()
+    new_version_number = createNewVersion(property_env)
 
     # Update the rules JSON using the CS configuration as a reference
     updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
 
     # Activate on STAGING
-    util.activateVersion(new_version_number, "STAGING")
+    util.activateVersion(new_version_number, property_env)
 
     # Wait for new version to be active
-    waitForActiveVersion(int(new_version_number))
+    waitForActiveVersion(int(new_version_number), property_env)
 
 if __name__== "__main__":
     main()
