@@ -31,7 +31,9 @@ node {
           sh "python3 -m venv venv"
           sh "source ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./update_api.py $EDGERC"
+          sh "python3 ./update_api.py $EDGERC STAGING"
+          // Save contents of previousversion.txt as a variable
+          String PREVIOUSVERSION = readFile('previousversion.txt').trim()
         }
       }
     }
@@ -94,7 +96,8 @@ node {
             sh "python3 -m venv venv"
             sh "source ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./rollback.py $EDGERC"
+            // TODO: This isn't coded yet
+            sh "python3 ./rollback.py $EDGERC ${PREVIOUSVERSION}"
           }
         }
       }

@@ -6,7 +6,7 @@ import time
 import update_api_utilties as util
 
 # Makes an API call requesting the latest version data for the property.
-def getLatestVersionNumber(env="PRODUCTION"):
+def getLatestVersionNumber(env):
     print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
     print(data)
@@ -15,13 +15,22 @@ def getLatestVersionNumber(env="PRODUCTION"):
 # Creates a new version of the property in Akamai,
 # which is based off of the latest active version in Production.
 def createNewVersion():
+    property_env = "PRODUCTION"
+    if len(sys.argv) > 2:
+        property_env = sys.argv[2]
+    
     # Get the number of the latest prod version to use as a base
-    latest_prod_version = getLatestVersionNumber("PRODUCTION")
+    previous_version = getLatestVersionNumber(property_env)
+
+    # Save this number for later: create a file that contains the latest version number
+    with open("previousversion.txt", "w") as f:
+        f.write(previous_version)
+
     body = {
-        "createFromVersion": latest_prod_version
+        "createFromVersion": previous_version
     }
     
-    print("API - Creating new version based on v{}".format(latest_prod_version))
+    print("API - Creating new version based on v{}".format(previous_version))
     response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
     new_version = 0
