@@ -19,8 +19,8 @@ def main():
     print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning rollback to previous version in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(environment))
     print("Rolling back to v{}".format(rollback_version))
 
-    # Activate on STAGING
-    util.activateVersion(rollback_version, "STAGING")
+    # Activate on given env
+    util.activateVersion(rollback_version, environment)
 
 
 if __name__== "__main__":
