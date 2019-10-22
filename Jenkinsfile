@@ -66,27 +66,27 @@ node {
         sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -k ${TESTSTR}"
       }
     } catch(e) {
-        // If the tests don't all pass, roll back changes:
-        // Re-upload the old main.yml files
-        configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
-          sh "rm main.yml"
-          sh "cp main.yml.bak main.yml"
-          sh "rm releases.yml"
-          sh "cp releases.yml.bak releases.yml"
-          withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
-                  keyFileVariable: "privateKeyFile",
-                  passphraseVariable: "",
-                  usernameVariable: "")]) {
-            sh """
-              eval `ssh-agent`
-              ssh-add \"$privateKeyFile\"
-              cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
-              chmod 600 ~/.ssh/known_hosts
-              rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
-            """
-          }
+      // If the tests don't all pass, roll back changes:
+      // Re-upload the old main.yml files
+      configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
+        sh "rm main.yml"
+        sh "cp main.yml.bak main.yml"
+        sh "rm releases.yml"
+        sh "cp releases.yml.bak releases.yml"
+        withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
+                keyFileVariable: "privateKeyFile",
+                passphraseVariable: "",
+                usernameVariable: "")]) {
+          sh """
+            eval `ssh-agent`
+            ssh-add \"$privateKeyFile\"
+            cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
+            chmod 600 ~/.ssh/known_hosts
+            rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          """
         }
-        openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+      }
+      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
         // cd into akamai folder
         dir("akamai") {
           // Use secret .edgerc file

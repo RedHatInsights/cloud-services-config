@@ -9,7 +9,6 @@ import update_api_utilties as util
 def getLatestVersionNumber(env):
     print("API - Getting version of latest activation in {}...".format(env))
     data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
-    print(data)
     return data["versions"]["items"][0]["propertyVersion"]
 
 # Creates a new version of the property in Akamai,
