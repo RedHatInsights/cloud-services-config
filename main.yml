@@ -134,14 +134,19 @@ cost-management:
       - id: ''
         title: Overview
         default: true
+        group: cost-management
       - id: ocp-on-aws
         title: OpenShift on cloud details
+        group: cost-management
       - id: ocp
         title: OpenShift details
+        group: cost-management
       - id: aws
         title: Cloud details
+        group: cost-management
       - id: cost-models
         title: Cost model details
+        group: cost-management
       - id: settings-cost-management
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
@@ -358,7 +363,7 @@ settings-cost-management:
   title: Settings
   frontend:
     sub_apps:
-      - id: cost-management/sources
+      - id: cost-management-sources
         title: Cost Management Sources
         reload: cost-management/sources
       - id: rbac
