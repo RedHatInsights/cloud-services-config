@@ -133,9 +133,9 @@ def generateConfigForBranch(prefix):
 def waitForActiveVersion(version_number, env="STAGING"):
     print("Waiting for version {} to finish activating...".format(version_number))
     active_version = ""
-    timeout = 360
+    timeout = 180
     while active_version != version_number:
-        time.sleep(5)
+        time.sleep(10)
         active_version = getLatestVersionNumber(env)
         timeout -= 1
         if(timeout == 0):
