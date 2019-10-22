@@ -96,7 +96,7 @@ node {
             sh "python3 -m venv venv"
             sh "source ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./rollback.py $EDGERC ${PREVIOUSVERSION}"
+            sh "python3 ./rollback.py $EDGERC ${PREVIOUSVERSION} STAGING"
           }
         }
       }

@@ -7,11 +7,16 @@ def main():
     # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
     util.initEdgeGridAuth()
 
-    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning rollback to previous version! <<<<<<<<<<<<<<<<<<<<<<<<")
     if len(sys.argv) > 2:
         rollback_version = sys.argv[2]
     else:
-        rollback_version = -1
+        sys.exit("Rollback failed: no rollback version number specified")
+    if len(sys.argv) > 3:
+        environment = sys.argv[3]
+    else:
+        environment = "STAGING"
+    
+    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning rollback to previous version in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(environment))
     print("Rolling back to v{}".format(rollback_version))
 
     # Activate on STAGING
