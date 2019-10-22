@@ -24,7 +24,7 @@ def createNewVersion():
 
     # Save this number for later: create a file that contains the latest version number
     with open("previousversion.txt", "w") as f:
-        f.write(previous_version)
+        f.write(str(previous_version))
 
     body = {
         "createFromVersion": previous_version
