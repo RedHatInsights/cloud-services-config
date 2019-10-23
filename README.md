@@ -132,3 +132,56 @@ For more information on the Akamai API, read the [property manager docs](https:/
 ## Build Process
 
 This repository has a webhook that automatically builds a [Jenkins job](https://jenkins-jenkins.5a9f.insights-dev.openshiftapps.com/job/akamai-config-deployer/) on every push. To configure this webhook, check the project's [webhook settings](https://github.com/RedHatInsights/cloud-services-config/settings/hooks)
+
+## Testing your changes locally
+
+Testing local changes is straightforward. First, add a line like this to your insights-proxy spandx config:
+
+```diff
+--- a/profiles/local-frontend.js
++++ b/profiles/local-frontend.js
+@@ -9,5 +9,6 @@ routes[`/beta/${SECTION}/${APP_ID}`] = { host: `http://localhost:${FRONTEND_PORT
+ routes[`/${SECTION}/${APP_ID}`]      = { host: `http://localhost:${FRONTEND_PORT}` };
+ routes[`/beta/apps/${APP_ID}`]       = { host: `http://localhost:${FRONTEND_PORT}` };
+ routes[`/apps/${APP_ID}`]            = { host: `http://localhost:${FRONTEND_PORT}` };
++routes[`/beta/config`]            = { host: `http://localhost:8889` };
+
+ module.exports = { routes };
+```
+
+Restart your insights-proxy to pick up the change.
+
+Create a `beta/config` directory inside of `cloud-services-config` and copy `main.yml` to it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
+
+```
+$ npx http-server -p 8889
+npx: installed 25 in 2.484s
+Starting up http-server, serving ./
+Available on:
+  http://127.0.0.1:8889
+  http://192.168.0.25:8889
+  http://10.10.122.158:8889
+Hit CTRL-C to stop the server
+[Tue Nov 05 2019 09:50:55 GMT-0500 (Eastern Standard Time)] "GET /beta/config/main.yml" "Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:69.0) Gecko/20100
+101 Firefox/69.0"
+```
+
+Before you go developing, make sure you can make a simple change and see it in the web UI. Try renaming "Dashboard" to "XDashboardX". To do this, make an edit to `main.yml` similar to this (make sure you are editing the one in `beta/config`):
+
+```diff
+diff --git a/main.yml b/main.yml
+index 090fd7e..a680d06 100644
+--- a/main.yml
++++ b/main.yml
+@@ -152,7 +152,7 @@ cost-management:
+   mailing_list: cost-mgmt@redhat.com
+
+ dashboard:
+-  title: Dashboard
++  title: XDashboardX
+   channel: '#flip-mode-squad'
+   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
+   frontend:
+```
+
+Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on "https://ci.foo.redhat.com:1337" and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
