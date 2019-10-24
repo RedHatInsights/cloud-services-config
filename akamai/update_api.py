@@ -135,7 +135,10 @@ def waitForActiveVersion(version_number, env="STAGING"):
     timeout = 180
     while active_version != version_number:
         time.sleep(10)
-        active_version = util.getLatestVersionNumber(env)
+        try:
+            active_version = util.getLatestVersionNumber(env)
+        except:
+            print("Failed to retrieve current version")
         timeout -= 1
         if(timeout == 0):
             sys.exit("Retried too many times! New version not activated.")
