@@ -36,7 +36,10 @@ node {
           sh "python3 ./update_api.py $EDGERC STAGING"
           // Save contents of previousversion.txt as a variable
           String PREVIOUSVERSION = readFile('previousversion.txt').trim()
-          print("STAGING rollback version is v" + PREVIOUSVERSION)
+          print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
+          // Save contents of newversion.txt as a variable
+          String NEWVERSION = readFile('newversion.txt').trim()
+          print("STAGING NEWVERSION version is v" + NEWVERSION)
         }
       }
     }
@@ -99,7 +102,7 @@ node {
             sh "python3 -m venv venv"
             sh "source ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./rollback.py $EDGERC ${PREVIOUSVERSION} STAGING"
+            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} STAGING"
           }
         }
       }
@@ -122,10 +125,10 @@ node {
           sh "python3 -m venv venv"
           sh "source ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./update_api.py $EDGERC PRODUCTION"
+          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
           // Save contents of previousversion.txt as a variable
           String PREVIOUSVERSION = readFile('previousversion.txt').trim()
-          print("PRODUCTION rollback version is v" + PREVIOUSVERSION)
+          print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)
         }
       }
     }
@@ -188,7 +191,7 @@ node {
             sh "python3 -m venv venv"
             sh "source ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./rollback.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
+            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
           }
         }
       }

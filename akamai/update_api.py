@@ -5,17 +5,12 @@ import sys
 import time
 import update_api_utilties as util
 
-# Makes an API call requesting the latest version data for the property.
-def getLatestVersionNumber(env):
-    print("API - Getting version of latest activation in {}...".format(env))
-    data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
-    return data["versions"]["items"][0]["propertyVersion"]
 
 # Creates a new version of the property in Akamai,
 # which is based off of the latest active version in the given environment.
 def createNewVersion(property_env="STAGING"):
     # Get the number of the latest prod version to use as a base
-    previous_version = getLatestVersionNumber(property_env)
+    previous_version = util.getLatestVersionNumber(property_env)
 
     # Save this number for later: create a file that contains the latest version number
     with open("previousversion.txt", "w") as f:
@@ -33,6 +28,10 @@ def createNewVersion(property_env="STAGING"):
     if m:
         new_version = m.group(1)
     print("Version {} created.".format(new_version))
+
+    # Save this number for later: create a file that contains the new version number
+    with open("newversion.txt", "w") as f:
+        f.write(str(new_version))
     return new_version
 
 # Creates a list of rules in the correct Akamai PM structure based on
@@ -136,7 +135,7 @@ def waitForActiveVersion(version_number, env="STAGING"):
     timeout = 180
     while active_version != version_number:
         time.sleep(10)
-        active_version = getLatestVersionNumber(env)
+        active_version = util.getLatestVersionNumber(env)
         timeout -= 1
         if(timeout == 0):
             sys.exit("Retried too many times! New version not activated.")
@@ -170,7 +169,7 @@ def main():
     # Update the rules JSON using the CS configuration as a reference
     updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
 
-    # Activate on STAGING
+    # Activate version
     util.activateVersion(new_version_number, property_env)
 
     # Wait for new version to be active

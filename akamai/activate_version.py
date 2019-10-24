@@ -16,11 +16,15 @@ def main():
     else:
         environment = "STAGING"
     
-    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning rollback to previous version in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(environment))
-    print("Rolling back to v{}".format(rollback_version))
+    previous_version = util.getLatestVersionNumber(environment)
+    with open("previousversion.txt", "w") as f:
+        f.write(str(previous_version))
+
+    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning activation in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(environment))
+    print("Activating v{}".format(version_to_activate))
 
     # Activate on given env
-    util.activateVersion(rollback_version, environment)
+    util.activateVersion(version_to_activate, environment)
 
 
 if __name__== "__main__":
