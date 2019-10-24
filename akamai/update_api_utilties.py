@@ -19,6 +19,12 @@ def getJSONFromFile(path):
 def getYMLFromUrl(url):
     return yaml.safe_load(s.get(url).content.decode('utf-8'))
 
+# Makes an API call requesting the latest version data for the property.
+def getLatestVersionNumber(env):
+    print("API - Getting version of latest activation in {}...".format(env))
+    data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
+    return data["versions"]["items"][0]["propertyVersion"]
+
 # Makes an API call to activate the specified version on the specified environment.
 def activateVersion(version_number, env="STAGING"):
     # "notifyEmails" is unfortunately required for this API call.
