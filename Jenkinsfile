@@ -35,10 +35,10 @@ node {
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./update_api.py $EDGERC STAGING"
           // Save contents of previousversion.txt as a variable
-          String PREVIOUSVERSION = readFile('previousversion.txt').trim()
+          PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
           // Save contents of newversion.txt as a variable
-          String NEWVERSION = readFile('newversion.txt').trim()
+          NEWVERSION = readFile('newversion.txt').trim()
           print("STAGING NEWVERSION version is v" + NEWVERSION)
         }
       }
@@ -127,7 +127,7 @@ node {
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
           // Save contents of previousversion.txt as a variable
-          String PREVIOUSVERSION = readFile('previousversion.txt').trim()
+          PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)
         }
       }
