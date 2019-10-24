@@ -15,6 +15,7 @@ api:
   frontend:
     paths:
       - /docs/api
+      - /docs/api-docs
 
 approval:
   title: Approval
