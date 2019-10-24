@@ -8,9 +8,9 @@ def main():
     util.initEdgeGridAuth()
 
     if len(sys.argv) > 2:
-        rollback_version = sys.argv[2]
+        version_to_activate = sys.argv[2]
     else:
-        sys.exit("Rollback failed: no rollback version number specified")
+        sys.exit("Activation failed: no property version number specified")
     if len(sys.argv) > 3:
         environment = sys.argv[3]
     else:
