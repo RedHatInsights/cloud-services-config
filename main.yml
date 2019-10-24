@@ -9,7 +9,7 @@ ansible:
       - id: settings-ansible
   top_level: true
 
-api-docs:
+api:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
@@ -289,7 +289,7 @@ openshift:
         group: openshift
   top_level: true
 
-product-docs:
+product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
   frontend:
