@@ -108,6 +108,11 @@ node {
       }
       // If STAGING has errors
       currentBuild.result = 'ABORTED'
+      mail body: "Smoke tests failed in Staging. Failed build is here: ${env.BUILD_URL}" ,
+            from: 'csc-jenkins@redhat.com',
+            replyTo: 'aprice@redhat.com',
+            subject: 'CSC build: STAGING smoke tests failed',
+            to: 'aprice@redhat.com'
       error('Smoke tests failed in STAGING. Will not activate on PRODUCTION.')
     }
   }
@@ -197,6 +202,11 @@ node {
       }
       // If PRODUCTION has errors
       currentBuild.result = 'ABORTED'
+      mail body: "Smoke tests failed in production. Failed build is here: ${env.BUILD_URL}" ,
+            from: 'csc-jenkins@redhat.com',
+            replyTo: 'aprice@redhat.com',
+            subject: 'CSC build: PROD smoke tests failed',
+            to: 'aprice@redhat.com'
       error('Smoke tests failed in PRODUCTION. All changes have been rolled back.')
     }
   }
