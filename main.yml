@@ -9,7 +9,7 @@ ansible:
       - id: settings-ansible
   top_level: true
 
-api-docs:
+api:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
@@ -164,9 +164,9 @@ docs:
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: product-docs
+      - id: product
         default: true
-      - id: api-docs
+      - id: api
   top_level: true
 
 drift:
@@ -289,13 +289,21 @@ openshift:
         group: openshift
   top_level: true
 
-product-docs:
+product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
   frontend:
     paths:
       - /docs/product
       - /docs
+    sub_apps:
+      - id: insights
+        title: Insights
+        default: true
+        reload: product/insights
+      - id: cloud-management-services
+        title: Cloud Management Services
+        reload: product/cloud-management-services
 
 rbac:
   title: Role-based Access Control
