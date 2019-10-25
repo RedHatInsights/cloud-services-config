@@ -300,8 +300,10 @@ product:
       - id: insights
         title: Insights
         default: true
+        reload: product/insights
       - id: cloud-management-services
         title: Cloud Management Services
+        reload: product/cloud-management-services
 
 rbac:
   title: Role-based Access Control
