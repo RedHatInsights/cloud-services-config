@@ -76,8 +76,13 @@ This is the list of URL paths where your app will be located.
 
 #### app_id.frontend.sub_apps
 
-If your app is a parent to any other apps, those apps should be listed here. 
-Also, if your app has a parent app, or is listed under one of the top-level bundles (e.g. Insights, RHEL, Hybrid), you should add your app to the appropriate sub_apps list.
+If your app is a parent to any other apps, those apps should be listed here. Also, if your app has a parent app, or is listed under one of the top-level bundles (e.g. Insights, RHEL, Hybrid), you should add your app to the appropriate sub_apps list.
+
+Here are some notes on defining the items in sub_apps:
+
+- If you specify the title field, the sub-app will be self-contained, and it will not look up the app's ID elsewhere in the config.
+- If the title is specified, the sub-app's path will be determined by its ID.
+- If the title is not specified, the ID will be used to find the app's details in the rest of the config.
 
 #### app_id.frontend.reload
 
