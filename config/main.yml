@@ -9,7 +9,7 @@ ansible:
       - id: settings-ansible
   top_level: true
 
-api-docs:
+api:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
@@ -166,8 +166,7 @@ docs:
     sub_apps:
       - id: product
         default: true
-      - id: api-docs
-        reload: docs/api
+      - id: api
   top_level: true
 
 drift:
@@ -301,10 +300,8 @@ product:
       - id: insights
         title: Insights
         default: true
-        reload: product/insights
       - id: cloud-management-services
         title: Cloud Management Services
-        reload: product/cloud-management-services
 
 rbac:
   title: Role-based Access Control

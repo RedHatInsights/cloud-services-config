@@ -9,7 +9,7 @@ ansible:
       - id: settings-ansible
   top_level: true
 
-api-docs:
+api:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
@@ -166,8 +166,7 @@ docs:
     sub_apps:
       - id: product
         default: true
-      - id: api-docs
-        reload: docs/api
+      - id: api
   top_level: true
 
 drift:
