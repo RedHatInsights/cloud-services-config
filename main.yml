@@ -15,7 +15,6 @@ api:
   frontend:
     paths:
       - /docs/api
-      - /docs/api-docs
 
 approval:
   title: Approval
@@ -165,9 +164,9 @@ docs:
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: product-docs
+      - id: product
         default: true
-      - id: api-docs
+      - id: api
   top_level: true
 
 drift:
@@ -297,6 +296,16 @@ product:
     paths:
       - /docs/product
       - /docs
+    sub_apps:
+      - id: 'product-insights'
+        title: Insights
+        group: product
+        default: true
+        reload: product/insights
+      - id: product-cloud-management-services
+        title: Cloud Management Services
+        group: product
+        reload: product/cloud-management-services
 
 rbac:
   title: Role-based Access Control
