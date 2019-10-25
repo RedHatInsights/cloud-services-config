@@ -297,15 +297,11 @@ product:
       - /docs/product
       - /docs
     sub_apps:
-      - id: 'product-insights'
+      - id: insights
         title: Insights
-        group: product
         default: true
-        reload: product/insights
-      - id: product-cloud-management-services
+      - id: cloud-management-services
         title: Cloud Management Services
-        group: product
-        reload: product/cloud-management-services
 
 rbac:
   title: Role-based Access Control
