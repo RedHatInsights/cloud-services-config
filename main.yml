@@ -15,6 +15,7 @@ api-docs:
   frontend:
     paths:
       - /docs/api
+      - /docs
 
 approval:
   title: Approval
@@ -164,10 +165,9 @@ docs:
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: product
-        default: true
       - id: api-docs
         reload: docs/api
+        default: true
   top_level: true
 
 drift:
@@ -294,9 +294,6 @@ product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
   frontend:
-    paths:
-      - /docs/product
-      - /docs
     sub_apps:
       - id: insights
         title: Insights
