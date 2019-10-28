@@ -3198,7 +3198,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "aa3f91228822ee68240bb2cbf2f660d7",
+                            "headerValue": "be9c8cb1c0f4f710313d6410b30b6ff9",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
