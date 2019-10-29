@@ -9,12 +9,13 @@ ansible:
       - id: settings-ansible
   top_level: true
 
-api:
+api-docs:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
     paths:
       - /docs/api
+      - /docs
 
 approval:
   title: Approval
@@ -164,9 +165,9 @@ docs:
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
-      - id: product
+      - id: api-docs
+        reload: docs/api
         default: true
-      - id: api
   top_level: true
 
 drift:
@@ -293,9 +294,6 @@ product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
   frontend:
-    paths:
-      - /docs/product
-      - /docs
     sub_apps:
       - id: insights
         title: Insights
