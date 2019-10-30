@@ -201,6 +201,12 @@ hooks:
     paths:
       - /settings/hooks
 
+ingress:
+  title: Ingress
+  api:
+    versions:
+      - v1
+
 insights:
   title: Insights
   api:
