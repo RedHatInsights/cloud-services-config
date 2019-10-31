@@ -1348,12 +1348,9 @@
                                 "name": "requestCookie",
                                 "options": {
                                     "cookieName": "x-rh-insights-pentest",
-                                    "matchOperator": "IS",
-                                    "value": "flipmodesquad",
+                                    "matchOperator": "EXISTS",
                                     "matchWildcardName": false,
-                                    "matchCaseSensitiveName": true,
-                                    "matchWildcardValue": false,
-                                    "matchCaseSensitiveValue": true
+                                    "matchCaseSensitiveName": true
                                 }
                             }
                         ],
@@ -1648,7 +1645,7 @@
                                         "options": {
                                             "values": [
                                                 "/beta/docs/storybook",
-                                                "/docs/storybook/"
+                                                "/beta/docs/storybook/"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
@@ -1675,7 +1672,7 @@
                                         "options": {
                                             "keepQueryString": true,
                                             "matchMultiple": false,
-                                            "targetPath": "/pentest/apps/storybook/",
+                                            "targetPath": "/apps/storybook/",
                                             "match": "/docs/",
                                             "behavior": "REPLACE"
                                         }
@@ -1696,8 +1693,9 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/docs/storybook",
-                                                "/docs/storybook/"
+                                                "/beta/docs/",
+                                                "/beta/docs/storybook",
+                                                "/beta/docs/storybook/"
                                             ],
                                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
@@ -1780,8 +1778,6 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/hybrid/catalog/approval",
-                                                "/beta/hybrid/catalog/approval/*",
                                                 "/beta/ansible/catalog/approval",
                                                 "/beta/ansible/catalog/approval/*"
                                             ],
@@ -1923,8 +1919,6 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/hybrid/catalog",
-                                                "/beta/hybrid/catalog/*",
                                                 "/beta/ansible/catalog",
                                                 "/beta/ansible/catalog/*"
                                             ],
@@ -1945,8 +1939,6 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/hybrid/catalog/approval",
-                                                "/beta/hybrid/catalog/approval/*",
                                                 "/beta/ansible/catalog/approval",
                                                 "/beta/ansible/catalog/approval/*"
                                             ],
@@ -2018,10 +2010,8 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/hybrid/settings/cost-management/sources",
-                                                "/beta/hybrid/settings/cost-management/sources/*",
-                                                "/beta/hybrid/cost-management",
-                                                "/beta/hybrid/cost-management/*"
+                                                "/beta/cost-management",
+                                                "/beta/cost-management/*"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
@@ -2034,6 +2024,17 @@
                                                 "404"
                                             ],
                                             "matchOperator": "IS_ONE_OF"
+                                        }
+                                    },
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/beta/cost-management/settings/rbac",
+                                                "/beta/cost-management/settings/rbac/*"
+                                            ],
+                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                            "matchCaseSensitive": false
                                         }
                                     }
                                 ],
@@ -2380,8 +2381,8 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/hybrid/settings/rbac",
-                                                "/beta/hybrid/settings/rbac/*",
+                                                "/beta/cost-management/settings/rbac",
+                                                "/beta/cost-management/settings/rbac/*",
                                                 "/beta/ansible/settings/rbac",
                                                 "/beta/ansible/settings/rbac/*"
                                             ],
@@ -2506,10 +2507,6 @@
                                             "values": [
                                                 "/beta/insights/settings/sources",
                                                 "/beta/insights/settings/sources/*",
-                                                "/beta/hybrid/settings/sources",
-                                                "/beta/hybrid/settings/sources/*",
-                                                "/beta/hybrid/sources",
-                                                "/beta/hybrid/sources/*",
                                                 "/beta/ansible/settings/sources",
                                                 "/beta/ansible/settings/sources/*"
                                             ],
@@ -2610,46 +2607,6 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/topological-inventory",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/topological-inventory/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/hybrid/topological-inventory",
-                                                "/beta/hybrid/topological-inventory/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "/vulnerability",
                                 "children": [],
                                 "behaviors": [
@@ -2707,12 +2664,9 @@
                                 "name": "requestCookie",
                                 "options": {
                                     "cookieName": "x-rh-insights-pentest",
-                                    "matchOperator": "IS",
-                                    "value": "flipmodesquad",
+                                    "matchOperator": "EXISTS",
                                     "matchWildcardName": false,
-                                    "matchCaseSensitiveName": true,
-                                    "matchWildcardValue": false,
-                                    "matchCaseSensitiveValue": true
+                                    "matchCaseSensitiveName": true
                                 }
                             }
                         ],
