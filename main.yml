@@ -1,11 +1,22 @@
+ansible:
+  title: Red Hat Ansible Automation Platform
+  frontend:
+    sub_apps:
+      - id: automation-analytics
+        default: true
+      - id: automation-hub
+      - id: catalog
+      - id: settings-ansible
+  top_level: true
+
 api-docs:
-  title: API documentation
+  title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
     paths:
       - /docs/api
       - /docs
-      
+
 approval:
   title: Approval
   api:
@@ -15,8 +26,44 @@ approval:
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
-      - /hybrid/catalog/approval
       - /ansible/catalog/approval
+    reload: catalog/approval
+
+automation-analytics:
+  title: Automation Analytics
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  frontend:
+    paths:
+      - /ansible
+      - /ansible/automation-analytics
+    sub_apps:
+      - id: ''
+        title: Clusters
+        default: true
+      - id: organization-statistics
+        title: Organization Statistics
+
+automation-hub:
+  title: Automation Hub
+  deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
+  frontend:
+    paths:
+      - /ansible/automation-hub
+    sub_apps:
+      - id: ''
+        title: Collections
+        default: true
+      - id: partners
+        title: Partners
+      - id: my-namespaces
+        title: My Namespaces
+      - id: my-imports
+        title: My Imports
+  git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
   title: Catalog
@@ -24,16 +71,17 @@ catalog:
     versions:
       - v1
     isBeta: true
-  channel: '#insights-svc-portal'
+  channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
     paths:
-      - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
+      - id: products
+        title: Products
+        default: true
       - id: portfolios
         title: Portfolios
-        default: true
       - id: platforms
         title: Platforms
       - id: orders
@@ -73,6 +121,7 @@ docs:
   frontend:
     sub_apps:
       - id: api-docs
+        reload: docs/api
         default: true
   top_level: true
 
@@ -106,6 +155,12 @@ hooks:
     title: Hooks
     paths:
       - /settings/hooks
+
+ingress:
+  title: Ingress
+  api:
+    versions:
+      - v1
 
 insights:
   title: Insights
@@ -179,7 +234,7 @@ rbac:
   frontend:
     title: User Access Management
     paths:
-      - /hybrid/settings/rbac
+      - /cost-management/settings/rbac
       - /ansible/settings/rbac
     reload: settings/rbac
 
@@ -244,8 +299,6 @@ sources:
     title: Sources
     paths:
       - /insights/settings/sources
-      - /hybrid/settings/sources
-      - /hybrid/sources
       - /ansible/settings/sources
     reload: settings/sources
 
