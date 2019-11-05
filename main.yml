@@ -5,8 +5,6 @@ ansible:
       - id: automation-analytics
         default: true
       - id: automation-hub
-      - id: catalog
-      - id: settings-ansible
   top_level: true
 
 api-docs:
@@ -64,29 +62,6 @@ automation-hub:
       - id: my-imports
         title: My Imports
   git_repo: https://github.com/ansible/ansible-hub-ui
-
-catalog:
-  title: Catalog
-  api:
-    versions:
-      - v1
-    isBeta: true
-  channel: '#insights-catalog'
-  deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend:
-    paths:
-      - /ansible/catalog
-    sub_apps:
-      - id: products
-        title: Products
-        default: true
-      - id: portfolios
-        title: Portfolios
-      - id: platforms
-        title: Platforms
-      - id: orders
-        title: Orders
-      - id: approval
 
 chrome:
   channel: '#flip-mode-squad'
@@ -277,15 +252,6 @@ ruledev:
   frontend:
     paths:
       - /staging/ruledev
-
-settings-ansible:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
-        reload: settings/sources
-      - id: rbac
-    suppress_id: true
 
 sources:
   title: Discovered Inventory
