@@ -1,25 +1,26 @@
 import copy
 import json
 import re
-import update_api_utilties as util
 import sys
+import time
+import update_api_utilties as util
 
-# Makes an API call requesting the latest version data for the property.
-def getLatestVersionNumber(env="PRODUCTION"):
-    print("API - Getting version of latest activation in {}...".format(env))
-    data = json.loads(util.akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
-    return data["versions"]["items"][0]["propertyVersion"]
 
 # Creates a new version of the property in Akamai,
-# which is based off of the latest active version in Production.
-def createNewVersion():
+# which is based off of the latest active version in the given environment.
+def createNewVersion(property_env="STAGING"):
     # Get the number of the latest prod version to use as a base
-    latest_prod_version = getLatestVersionNumber("PRODUCTION")
+    previous_version = util.getLatestVersionNumber(property_env)
+
+    # Save this number for later: create a file that contains the latest version number
+    with open("previousversion.txt", "w") as f:
+        f.write(str(previous_version))
+
     body = {
-        "createFromVersion": latest_prod_version
+        "createFromVersion": previous_version
     }
     
-    print("API - Creating new version based on v{}".format(latest_prod_version))
+    print("API - Creating new version based on v{}".format(previous_version))
     response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
 
     new_version = 0
@@ -27,6 +28,10 @@ def createNewVersion():
     if m:
         new_version = m.group(1)
     print("Version {} created.".format(new_version))
+
+    # Save this number for later: create a file that contains the new version number
+    with open("newversion.txt", "w") as f:
+        f.write(str(new_version))
     return new_version
 
 # Creates a list of rules in the correct Akamai PM structure based on
@@ -42,10 +47,12 @@ def createRulesForEnv(master_config, global_path_prefix=""):
         for rule in rules:
             if rule["behaviors"][0]["name"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
-            if rule["criteria"][0]["name"] == "path":
-                if rule["criteria"][0]["options"]["values"][0] == "/":
-                    rule["criteria"][0]["options"]["values"].append(global_path_prefix)
-                rule["criteria"][0]["options"]["values"][0] = global_path_prefix + rule["criteria"][0]["options"]["values"][0]
+            for x in range(len(rule["criteria"])):
+                if rule["criteria"][x]["name"] == "path":
+                    for y in range(len(rule["criteria"][x]["options"]["values"])):
+                        if rule["criteria"][x]["options"]["values"][y] == "/":
+                            rule["criteria"][x]["options"]["values"].append(global_path_prefix)
+                        rule["criteria"][x]["options"]["values"][y] = global_path_prefix + rule["criteria"][x]["options"]["values"][y]
 
     # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
@@ -103,48 +110,6 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
     print("API - Updating rule tree...")
     response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),rules_tree))
 
-# Makes an API call to activate the specified version on the specified environment.
-def activateVersion(version_number, env="STAGING"):
-    # "notifyEmails" is unfortunately required for this API call.
-    # TODO: Set this to the team email list once that exists
-    body = {
-        "note": "Auto-generated activation",
-        "useFastFallback": "false",
-        "notifyEmails": [
-            "aprice@redhat.com"
-        ]
-    }
-    body["propertyVersion"] = version_number
-    body["network"] = env
-    print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
-    err = False
-
-    # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
-    # Acknowledging these warnings in the request body will allow the activation to work.
-    if "activationLink" in response:
-        print("Wow, first try! Version {} activated on {}.".format(version_number, env))
-    elif "status" in response and response["status"] == 400 and "warnings" in response:
-        warnings = []
-        for w in response["warnings"]:
-            warnings.append(w["messageId"])
-        body["acknowledgeWarnings"] = warnings
-        print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
-
-        # If it fails again, give up.
-        if "activationLink" in response:
-            print("Success! Version {} activated on {}.".format(version_number, env))
-        else:
-            err = True
-            print("Something went wrong while acknowledging warnings. Here's the response we got:")     
-    else:
-        err = True
-        print("Something went wrong on the first activation attempt. Here's the response we got:")
-    if err:
-        print(json.dumps(response))
-        print("The activaction failed. Please check out the above response to see what happened.") 
-
 def generateExclusions(frontend_path, config):
     exclusions = []
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"] and frontend_path not in config[x]["frontend"]["paths"]):
@@ -164,6 +129,22 @@ def generateConfigForBranch(prefix):
     
     return config
 
+def waitForActiveVersion(version_number, env="STAGING"):
+    print("Waiting for version {} to finish activating...".format(version_number))
+    active_version = ""
+    timeout = 180
+    while active_version != version_number:
+        time.sleep(10)
+        try:
+            active_version = util.getLatestVersionNumber(env)
+        except:
+            print("Failed to retrieve current version")
+        timeout -= 1
+        if(timeout == 0):
+            sys.exit("Retried too many times! New version not activated.")
+        print("Property active in {} is v{}".format(env, active_version))
+    print("Success! Property v{} now active on {}.".format(active_version, env))
+    
 def main():
     # Authenticate with EdgeGrid
     # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
@@ -180,14 +161,22 @@ def main():
             "config": generateConfigForBranch(releases[env]["prefix"] if "prefix" in releases[env] else "")
         })
 
+    if len(sys.argv) > 2:
+        property_env = sys.argv[2]
+    else:
+        property_env = "STAGING"
+
     # Create a new version based off of the active Prod version
-    new_version_number = createNewVersion()
+    new_version_number = createNewVersion(property_env)
 
     # Update the rules JSON using the CS configuration as a reference
     updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
 
-    # Activate on STAGING
-    activateVersion(new_version_number, "STAGING")
+    # Activate version
+    util.activateVersion(new_version_number, property_env)
+
+    # Wait for new version to be active
+    waitForActiveVersion(int(new_version_number), property_env)
 
 if __name__== "__main__":
     main()
