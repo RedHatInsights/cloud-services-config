@@ -1,11 +1,11 @@
 api-docs:
-  title: API documentation
+  title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
     paths:
       - /docs/api
       - /docs
-      
+
 approval:
   title: Approval
   api:
@@ -15,8 +15,8 @@ approval:
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
-      - /hybrid/catalog/approval
       - /ansible/catalog/approval
+    reload: catalog/approval
 
 catalog:
   title: Catalog
@@ -73,6 +73,7 @@ docs:
   frontend:
     sub_apps:
       - id: api-docs
+        reload: docs/api
         default: true
   top_level: true
 
@@ -106,6 +107,12 @@ hooks:
     title: Hooks
     paths:
       - /settings/hooks
+
+ingress:
+  title: Ingress
+  api:
+    versions:
+      - v1
 
 insights:
   title: Insights
@@ -179,7 +186,7 @@ rbac:
   frontend:
     title: User Access Management
     paths:
-      - /hybrid/settings/rbac
+      - /cost-management/settings/rbac
       - /ansible/settings/rbac
     reload: settings/rbac
 
@@ -244,8 +251,6 @@ sources:
     title: Sources
     paths:
       - /insights/settings/sources
-      - /hybrid/settings/sources
-      - /hybrid/sources
       - /ansible/settings/sources
     reload: settings/sources
 
