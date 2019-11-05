@@ -67,6 +67,7 @@
                 "name": "path",
                 "options": {
                     "values": [
+                        "/docs/",
                         "/docs/storybook",
                         "/docs/storybook/"
                     ],
