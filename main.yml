@@ -344,6 +344,7 @@ rhel:
       - id: vulnerability
       - id: compliance
       - id: drift
+      - id: patch
       - id: inventory
       - id: remediations
   top_level: true
@@ -452,3 +453,17 @@ vulnerability:
     title: Vulnerability
     paths:
       - /rhel/vulnerability
+
+patch:
+  title: System Patch Manager
+  api:
+    versions:
+      - v1
+    isBeta: true
+  channel: '#team-patchman'
+  deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
+  frontend:
+    title: System Patch Manager
+    paths:
+      - /rhel/patch
+  git_repo: https://github.com/RedHatInsights/patchman-ui
