@@ -424,7 +424,6 @@ staging:
   frontend:
     sub_apps:
       - id: ruledev
-      - id: subscriptions
   top_level: true
 
 subscriptions:
@@ -432,15 +431,13 @@ subscriptions:
   api:
     versions:
       - v1
-    tags:
-      - value: "experimental"
-        title: "Experimental API"
     isBeta: true
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
+  top_level: true
   frontend:
     paths:
-      - /staging/subscriptions
+      - /subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 vulnerability:
