@@ -319,9 +319,7 @@ rbac:
   frontend:
     title: User Access Management
     paths:
-      - /cost-management/settings/rbac
-      - /ansible/settings/rbac
-    reload: settings/rbac
+      - /settings/rbac
 
 remediations:
   title: Remediations
@@ -352,8 +350,17 @@ settings:
   title: Cloud Services Settings
   frontend:
     sub_apps:
+      - id: ''
+        default: true
+        title: 'User Preferences'
       - id: hooks
+      - id: sources
+      - id: rbac
   top_level: true
+  isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  paths:
+  - /settings
 
 ruledev:
   title: Rule Development
@@ -407,9 +414,7 @@ sources:
   frontend:
     title: Sources
     paths:
-      - /insights/settings/sources
-      - /ansible/settings/sources
-    reload: settings/sources
+      - /settings/sources
 
 storybook:
   channel: '#flip-mode-squad'
