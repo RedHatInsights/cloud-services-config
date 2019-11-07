@@ -347,12 +347,12 @@ rhel:
   top_level: true
 
 settings:
-  title: Cloud Services Settings
+  title: Settings
   frontend:
     sub_apps:
       - id: ''
         default: true
-        title: 'User Preferences'
+        title: 'General'
       - id: hooks
       - id: sources
       - id: rbac
@@ -360,7 +360,7 @@ settings:
   isBeta: true
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   paths:
-  - /settings
+    - /settings
 
 ruledev:
   title: Rule Development
