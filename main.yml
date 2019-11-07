@@ -356,11 +356,23 @@ settings:
       - id: hooks
       - id: sources
       - id: rbac
+      - id: sites
   top_level: true
   isBeta: true
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   paths:
     - /settings
+
+sites:
+  title: Applications
+  frontend:
+    sub_apps:
+      - id: insights
+        title: Insights
+  isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  paths:
+    - /settings/sites
 
 ruledev:
   title: Rule Development
