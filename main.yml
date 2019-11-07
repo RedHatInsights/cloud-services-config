@@ -176,20 +176,6 @@ openshift:
         group: openshift
   top_level: true
 
-rbac:
-  title: Role-based Access Control
-  api:
-    versions:
-      - v1
-    isBeta: true
-  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
-  frontend:
-    title: User Access Management
-    paths:
-      - /cost-management/settings/rbac
-      - /ansible/settings/rbac
-    reload: settings/rbac
-
 remediations:
   title: Remediations
   api:
