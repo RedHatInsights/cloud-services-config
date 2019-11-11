@@ -61,8 +61,6 @@ automation-hub:
         title: Partners
       - id: my-namespaces
         title: My Namespaces
-      - id: my-imports
-        title: My Imports
   git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
