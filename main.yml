@@ -349,7 +349,6 @@ rhel:
 settings:
   title: Settings
   top_level: true
-  isBeta: true
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
@@ -365,7 +364,6 @@ settings:
 
 applications:
   title: Applications
-  isBeta: true
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
