@@ -6,7 +6,6 @@ ansible:
         default: true
       - id: automation-hub
       - id: catalog
-      - id: settings-ansible
   top_level: true
 
 api-docs:
@@ -228,7 +227,6 @@ insights:
         group: insights
       - id: inventory
       - id: remediations
-      - id: settings-insights
   top_level: true
 
 inventory:
@@ -359,7 +357,7 @@ settings:
       - id: rbac
       - id: applications
     paths:
-      - /settings/applications
+      - /settings
 
 applications:
   title: Applications
@@ -386,15 +384,6 @@ ruledev:
     paths:
       - /staging/ruledev
 
-settings-ansible:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
-        reload: settings/sources
-      - id: rbac
-    suppress_id: true
-
 settings-cost-management:
   title: Settings
   frontend:
@@ -402,14 +391,6 @@ settings-cost-management:
       - id: cost-management-sources
         title: Cost Management Sources
         reload: cost-management/sources
-      - id: rbac
-    suppress_id: true
-
-settings-insights:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
     suppress_id: true
 
 sources:
