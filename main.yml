@@ -439,11 +439,11 @@ subscriptions:
     paths:
       - /subscriptions
     sub_apps:
-      - id: subscriptions-rhel
+      - id: rhel-sw
         default: true
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
-subscriptions-rhel:
+rhel-sw:
   title: Red Hat Enterprise Linux
   frontend:
     sub_apps:
