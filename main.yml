@@ -441,7 +441,6 @@ subscriptions:
     sub_apps:
       - id: subscriptions-rhel
         default: true
-        title: rhel
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 subscriptions-rhel:
