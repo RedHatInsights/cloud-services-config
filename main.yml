@@ -427,7 +427,7 @@ staging:
   top_level: true
 
 subscriptions:
-  title: Subscription Reporting
+  title: Subscription Watch
   api:
     versions:
       - v1
@@ -438,7 +438,27 @@ subscriptions:
   frontend:
     paths:
       - /subscriptions
+    sub_apps:
+      - id: subscriptions-rhel
+        default: true
+        title: rhel
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+
+subscriptions-rhel:
+  title: Red Hat Enterprise Linux
+  frontend:
+    sub_apps:
+      - id: all
+        title: All
+        default: true
+      - id: arm
+        title: ARM
+      - id: ibmpower
+        title: IBM Power
+      - id: ibmz
+        title: IBM Z systems
+      - id: x86
+        title: x86
 
 vulnerability:
   title: Vulnerability Management
