@@ -2765,7 +2765,8 @@
                             "values": [
                                 "/status",
                                 "/build/*",
-                                "/img/*"
+                                "/img/*",
+                                "/fonts/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false
