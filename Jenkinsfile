@@ -7,12 +7,12 @@ node {
     String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
-      STAGETESTSTR = "\'stage and not hashes and not beta\'"
-      PRODTESTSTR = "\'prod and not hashes and not beta\'"
+      STAGETESTSTR = "\'stage and stable\'"
+      PRODTESTSTR = "\'prod and stable\'"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
-      STAGETESTSTR = "\'stage and not hashes and not stable\'"
-      PRODTESTSTR = "\'prod and not hashes and not stable\'"
+      STAGETESTSTR = "\'stage and beta\'"
+      PRODTESTSTR = "\'prod and beta\'"
     } else {
       error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
     }
