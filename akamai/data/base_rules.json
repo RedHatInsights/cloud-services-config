@@ -2819,6 +2819,31 @@
                         "criteriaMustSatisfy": "all"
                     },
                     {
+                        "name": "Enable Web Sockets",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "webSockets",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "values": [
+                                        "/api/receptor/*"
+                                    ],
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
                         "name": "/api",
                         "children": [],
                         "behaviors": [
