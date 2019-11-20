@@ -69,7 +69,7 @@ node {
     try {
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s --collect-only -m ${STAGETESTSTR}"
+        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m ${STAGETESTSTR}"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
@@ -163,7 +163,7 @@ node {
     try {
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s --collect-only -m ${PRODTESTSTR}"
+        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s -m ${PRODTESTSTR}"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
