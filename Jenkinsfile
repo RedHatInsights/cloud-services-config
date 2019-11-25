@@ -7,12 +7,14 @@ node {
     String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
-      STAGETESTSTR = "\'stage and not hashes and not beta\'"
-      PRODTESTSTR = "\'prod and not hashes and not beta\'"
+      STAGETESTSTR = "\'stage and stable\'"
+      PRODTESTSTR = "\'prod and stable\'"
+      RELEASESTR = "stable"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
-      STAGETESTSTR = "\'stage and not hashes and not stable\'"
-      PRODTESTSTR = "\'prod and not hashes and not stable\'"
+      STAGETESTSTR = "\'stage and beta\'"
+      PRODTESTSTR = "\'prod and beta\'"
+      RELEASESTR = "beta"
     } else {
       error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
     }
@@ -69,7 +71,7 @@ node {
     try {
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s --collect-only -m ${STAGETESTSTR}"
+        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
@@ -163,7 +165,7 @@ node {
     try {
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
         sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true ENV_FOR_DYNACONF=prod iqe tests plugin akamai -s --collect-only -m ${PRODTESTSTR}"
+        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
