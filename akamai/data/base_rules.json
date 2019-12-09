@@ -3173,12 +3173,13 @@
                         }
                     },
                     {
-                        "name": "modifyOutgoingRequestHeader",
+                        "name": "rewriteUrl",
                         "options": {
-                            "action": "ADD",
-                            "standardAddHeaderName": "OTHER",
-                            "headerValue": "/api/openshift",
-                            "customHeaderName": "X-Base"
+                            "behavior": "REGEX_REPLACE",
+                            "keepQueryString": true,
+                            "matchMultiple": true,
+                            "matchRegex": "\\/api\\/openshift",
+                            "targetRegex": "/api"
                         }
                     }
                 ],
