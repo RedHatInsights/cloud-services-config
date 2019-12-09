@@ -95,6 +95,7 @@ node {
         }
       }
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+        checkout scm
         // cd into akamai folder
         dir("akamai") {
           // Use secret .edgerc file
@@ -189,6 +190,7 @@ node {
         }
       }
       openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+        checkout scm
         // cd into akamai folder
         dir("akamai") {
           // Use secret .edgerc file
