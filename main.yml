@@ -278,7 +278,6 @@ settings:
     sub_apps:
       - id: applications
         default: true
-
     paths:
       - /settings
 
