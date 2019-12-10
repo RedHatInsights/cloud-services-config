@@ -270,6 +270,28 @@ settings-ansible:
       - id: rbac
     suppress_id: true
 
+settings:
+  title: Settings
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  frontend:
+    sub_apps:
+      - id: applications
+        default: true
+
+    paths:
+      - /settings
+
+applications:
+  title: Applications
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  frontend:
+    sub_apps:
+      - id: insights
+        title: Insights
+    paths:
+      - /settings/applications
+
 sources:
   title: Discovered Inventory
   api:
