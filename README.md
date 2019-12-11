@@ -70,6 +70,10 @@ The following properties are used if your app has a frontend:
 
 If you want the name of your app to appear differently on the frontend, set this property to override it.
 
+#### app_id.frontend.app_base
+
+If you want this app to use the same codebase as another existing app, set this value to the ID of that app.
+
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
