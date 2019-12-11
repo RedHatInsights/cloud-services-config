@@ -33,7 +33,7 @@ node {
           sh "set -e"
           sh "rm -rf venv || true"
           sh "python3 -m venv venv"
-          sh "source ./venv/bin/activate"
+          sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./update_api.py $EDGERC STAGING"
           // Save contents of previousversion.txt as a variable
@@ -103,7 +103,7 @@ node {
             sh "set -e"
             sh "rm -rf venv || true"
             sh "python3 -m venv venv"
-            sh "source ./venv/bin/activate"
+            sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
             sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} STAGING"
           }
@@ -131,7 +131,7 @@ node {
           sh "set -e"
           sh "rm -rf venv || true"
           sh "python3 -m venv venv"
-          sh "source ./venv/bin/activate"
+          sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
           // Save contents of previousversion.txt as a variable
@@ -198,7 +198,7 @@ node {
             sh "set -e"
             sh "rm -rf venv || true"
             sh "python3 -m venv venv"
-            sh "source ./venv/bin/activate"
+            sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
             sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
           }
