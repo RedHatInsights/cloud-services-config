@@ -361,7 +361,7 @@ settings:
 
 applications:
   title: Applications
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  app_base: settings
   frontend:
     sub_apps:
       - id: insights
