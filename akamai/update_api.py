@@ -63,7 +63,8 @@ def createRulesForEnv(master_config, global_path_prefix=""):
         if "frontend" in app and "paths" in app["frontend"] and not ("disabled_on_prod" in app and app["disabled_on_prod"]):
             app_rule = copy.deepcopy(rule_template)
             app_rule["name"] = "/" + key
-            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, key)
+            app_path = app["app_base"] if "app_base" in app else key
+            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app_path)
             for frontend_path in app["frontend"]["paths"]:
                 values = [global_path_prefix + frontend_path]
                 values += [global_path_prefix + frontend_path + "/*"]
