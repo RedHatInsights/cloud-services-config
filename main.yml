@@ -361,8 +361,8 @@ settings:
 
 applications:
   title: Applications
-  app_base: settings
   frontend:
+    app_base: settings
     sub_apps:
       - id: insights
         title: Insights
