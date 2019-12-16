@@ -16,6 +16,16 @@ api-docs:
       - /docs/api
       - /docs
 
+applications:
+  title: Applications
+  frontend:
+    app_base: settings
+    sub_apps:
+      - id: insights
+        title: Insights
+    paths:
+      - /settings/applications
+
 approval:
   title: Approval
   api:
@@ -292,6 +302,20 @@ openshift:
         group: openshift
   top_level: true
 
+patch:
+  title: System Patch Manager
+  api:
+    versions:
+      - v1
+    isBeta: true
+  channel: '#team-patchman'
+  deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
+  frontend:
+    title: System Patch Manager
+    paths:
+      - /rhel/patch
+  git_repo: https://github.com/RedHatInsights/patchman-ui
+
 product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
@@ -343,31 +367,21 @@ rhel:
       - id: remediations
   top_level: true
 
-settings:
-  title: Settings
-  top_level: true
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+rhel-sw:
+  title: Red Hat Enterprise Linux
   frontend:
     sub_apps:
-      - id: ''
+      - id: all
+        title: All
         default: true
-        title: 'General'
-      - id: hooks
-      - id: sources
-      - id: rbac
-      - id: applications
-    paths:
-      - /settings
-
-applications:
-  title: Applications
-  frontend:
-    app_base: settings
-    sub_apps:
-      - id: insights
-        title: Insights
-    paths:
-      - /settings/applications
+      - id: arm
+        title: ARM
+      - id: ibmpower
+        title: IBM Power
+      - id: ibmz
+        title: IBM Z systems
+      - id: x86
+        title: x86
 
 ruledev:
   title: Rule Development
@@ -383,6 +397,22 @@ ruledev:
   frontend:
     paths:
       - /staging/ruledev
+
+settings:
+  title: Settings
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  frontend:
+    sub_apps:
+      - id: ''
+        default: true
+        title: 'General'
+      - id: hooks
+      - id: sources
+      - id: rbac
+      - id: applications
+    paths:
+      - /settings
 
 settings-cost-management:
   title: Settings
@@ -406,19 +436,19 @@ sources:
     paths:
       - /settings/sources
 
-storybook:
-  channel: '#flip-mode-squad'
-  deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
-  frontend:
-    paths:
-      - /docs/storybook
-
 staging:
   title: Staging Bundle
   frontend:
     sub_apps:
       - id: ruledev
   top_level: true
+
+storybook:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
+  frontend:
+    paths:
+      - /docs/storybook
 
 subscriptions:
   title: Subscription Watch
@@ -437,22 +467,6 @@ subscriptions:
         default: true
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
-rhel-sw:
-  title: Red Hat Enterprise Linux
-  frontend:
-    sub_apps:
-      - id: all
-        title: All
-        default: true
-      - id: arm
-        title: ARM
-      - id: ibmpower
-        title: IBM Power
-      - id: ibmz
-        title: IBM Z systems
-      - id: x86
-        title: x86
-
 vulnerability:
   title: Vulnerability Management
   api:
@@ -463,17 +477,3 @@ vulnerability:
     title: Vulnerability
     paths:
       - /rhel/vulnerability
-
-patch:
-  title: System Patch Manager
-  api:
-    versions:
-      - v1
-    isBeta: true
-  channel: '#team-patchman'
-  deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
-  frontend:
-    title: System Patch Manager
-    paths:
-      - /rhel/patch
-  git_repo: https://github.com/RedHatInsights/patchman-ui
