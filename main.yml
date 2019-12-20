@@ -15,6 +15,16 @@ api-docs:
       - /docs/api
       - /docs
 
+applications:
+  title: Applications
+  frontend:
+    app_base: settings
+    sub_apps:
+      - id: insights
+        title: Insights
+    paths:
+      - /settings/applications
+      
 approval:
   title: Approval
   api:
@@ -270,6 +280,17 @@ settings-ansible:
       - id: rbac
     suppress_id: true
 
+settings:
+  title: Settings
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  frontend:
+    sub_apps:
+      - id: applications
+        default: true
+    paths:
+      - /settings
+
 sources:
   title: Discovered Inventory
   api:
@@ -285,13 +306,6 @@ sources:
       - /ansible/settings/sources
     reload: settings/sources
 
-storybook:
-  channel: '#flip-mode-squad'
-  deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
-  frontend:
-    paths:
-      - /docs/storybook
-
 staging:
   title: Staging Bundle
   frontend:
@@ -299,6 +313,13 @@ staging:
       - id: ruledev
       - id: subscriptions
   top_level: true
+
+storybook:
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/insights-frontend-storybook-build
+  frontend:
+    paths:
+      - /docs/storybook
 
 subscriptions:
   title: Subscription Reporting
