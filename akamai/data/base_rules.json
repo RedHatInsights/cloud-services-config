@@ -1348,6 +1348,9 @@
                                     "values": [
                                         "/api",
                                         "/api/*",
+                                        "/mirror/openshift",
+                                        "/mirror/openshift/*",
+                                        "/wss/*",
                                         "/beta",
                                         "/beta/*"
                                     ],
@@ -2765,7 +2768,8 @@
                             "values": [
                                 "/status",
                                 "/build/*",
-                                "/img/*"
+                                "/img/*",
+                                "/fonts/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false
@@ -3029,6 +3033,17 @@
                         }
                     },
                     {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/api/openshift/*",
+                                "/api/openshift"
+                            ],
+                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    },
+                    {
                         "name": "requestCookie",
                         "options": {
                             "cookieName": "x-rh-insights-pentest",
@@ -3047,7 +3062,466 @@
                     }
                 ],
                 "criteriaMustSatisfy": "all"
-            },            
+            },
+            {
+                "name": "OpenShift API",
+                "children": [
+                    {
+                        "name": "API Allow Methods",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "allowPatch",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPost",
+                                "options": {
+                                    "enabled": true,
+                                    "allowWithoutContentLength": true
+                                }
+                            },
+                            {
+                                "name": "allHttpInCacheHierarchy",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowDelete",
+                                "options": {
+                                    "allowBody": true,
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPut",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [],
+                        "criteriaMustSatisfy": "all"
+                    }
+                ],
+                "behaviors": [
+                    {
+                        "name": "origin",
+                        "options": {
+                            "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                            "forwardHostHeader": "ORIGIN_HOSTNAME",
+                            "originSni": true,
+                            "verificationMode": "CUSTOM",
+                            "hostname": "api.openshift.com",
+                            "compress": true,
+                            "trueClientIpHeader": "True-Client-IP",
+                            "httpPort": 80,
+                            "enableTrueClientIp": true,
+                            "httpsPort": 443,
+                            "trueClientIpClientSetting": false,
+                            "originType": "CUSTOMER",
+                            "ports": "",
+                            "originCertificate": "",
+                            "customValidCnValues": [
+                                "{{Origin Hostname}}",
+                                "{{Forward Host Header}}",
+                                "*.openshift.com"
+                            ],
+                            "originCertsToHonor": "COMBO",
+                            "standardCertificateAuthorities": [
+                                "akamai-permissive"
+                            ],
+                            "customCertificateAuthorities": [
+                                {
+                                    "subjectCN": "Let's Encrypt Authority X3",
+                                    "subjectAlternativeNames": [],
+                                    "subjectRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "issuerRDNs": {
+                                        "CN": "DST Root CA X3",
+                                        "O": "Digital Signature Trust Co."
+                                    },
+                                    "notBefore": 1458232846000,
+                                    "notAfter": 1615999246000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EFq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8SMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0Z8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWAa6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 1.3298795840390664e+37,
+                                    "version": 3,
+                                    "sha1Fingerprint": "e6a3b45b062d509b3382282d196efe97d5956ccb",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIEkjCCA3qgAwIBAgIQCgFBQgAAAVOFc2oLheynCDANBgkqhkiG9w0BAQsFADA/\nMSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT\nDkRTVCBSb290IENBIFgzMB4XDTE2MDMxNzE2NDA0NloXDTIxMDMxNzE2NDA0Nlow\nSjELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxIzAhBgNVBAMT\nGkxldCdzIEVuY3J5cHQgQXV0aG9yaXR5IFgzMIIBIjANBgkqhkiG9w0BAQEFAAOC\nAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EF\nq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8\nSMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0\nZ8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWA\na6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj\n/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQABo4IBfTCCAXkwEgYDVR0T\nAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwfwYIKwYBBQUHAQEEczBxMDIG\nCCsGAQUFBzABhiZodHRwOi8vaXNyZy50cnVzdGlkLm9jc3AuaWRlbnRydXN0LmNv\nbTA7BggrBgEFBQcwAoYvaHR0cDovL2FwcHMuaWRlbnRydXN0LmNvbS9yb290cy9k\nc3Ryb290Y2F4My5wN2MwHwYDVR0jBBgwFoAUxKexpHsscfrb4UuQdf/EFWCFiRAw\nVAYDVR0gBE0wSzAIBgZngQwBAgEwPwYLKwYBBAGC3xMBAQEwMDAuBggrBgEFBQcC\nARYiaHR0cDovL2Nwcy5yb290LXgxLmxldHNlbmNyeXB0Lm9yZzA8BgNVHR8ENTAz\nMDGgL6AthitodHRwOi8vY3JsLmlkZW50cnVzdC5jb20vRFNUUk9PVENBWDNDUkwu\nY3JsMB0GA1UdDgQWBBSoSmpjBH3duubRObemRWXv86jsoTANBgkqhkiG9w0BAQsF\nAAOCAQEA3TPXEfNjWDjdGBX7CVW+dla5cEilaUcne8IkCJLxWh9KEik3JHRRHGJo\nuM2VcGfl96S8TihRzZvoroed6ti6WqEBmtzw3Wodatg+VyOeph4EYpr/1wXKtx8/\nwApIvJSwtmVi4MFU5aMqrSDE6ea73Mj2tcMyo5jMd6jmeWUHK8so/joWUoHOUgwu\nX4Po1QYz+3dszkDqMp4fklxBwXRsW10KXzPMTZ+sOPAveyxindmjkW8lGy+QsRlG\nPfZ+G6Z6h7mjem0Y+iWlkYcV4PIWL1iwBi8saCbGS5jN2p8M+X+Q7UNKEkROb3N6\nKOqkqm57TH2H3eDJAkSnh6/DNFu0Qg==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": true,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:5996"
+                                }
+                            ],
+                            "customCertificates": []
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "rewriteUrl",
+                        "options": {
+                            "behavior": "REGEX_REPLACE",
+                            "keepQueryString": true,
+                            "matchMultiple": true,
+                            "matchRegex": "\\/api\\/openshift",
+                            "targetRegex": "/api"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/api/openshift",
+                                "/api/openshift/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    },
+                    {
+                        "name": "requestCookie",
+                        "options": {
+                            "cookieName": "x-rh-insights-pentest",
+                            "matchOperator": "DOES_NOT_EXIST",
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
+                        }
+                    },
+                    {
+                        "name": "requestHeader",
+                        "options": {
+                            "headerName": "x-rh-insights-pentest",
+                            "matchOperator": "DOES_NOT_EXIST",
+                            "matchWildcardName": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "OpenShift Mirror",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "origin",
+                        "options": {
+                            "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                            "forwardHostHeader": "ORIGIN_HOSTNAME",
+                            "originSni": true,
+                            "verificationMode": "CUSTOM",
+                            "hostname": "mirror.openshift.com",
+                            "compress": true,
+                            "trueClientIpHeader": "True-Client-IP",
+                            "httpPort": 80,
+                            "enableTrueClientIp": true,
+                            "httpsPort": 443,
+                            "trueClientIpClientSetting": false,
+                            "originType": "CUSTOMER",
+                            "ports": "",
+                            "originCertificate": "",
+                            "customValidCnValues": [
+                                "{{Origin Hostname}}",
+                                "{{Forward Host Header}}",
+                                "*.openshift.com"
+                            ],
+                            "originCertsToHonor": "COMBO",
+                            "standardCertificateAuthorities": [
+                                "akamai-permissive"
+                            ],
+                            "customCertificateAuthorities": [
+                                {
+                                    "subjectCN": "Let's Encrypt Authority X3",
+                                    "subjectAlternativeNames": [],
+                                    "subjectRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "issuerRDNs": {
+                                        "CN": "DST Root CA X3",
+                                        "O": "Digital Signature Trust Co."
+                                    },
+                                    "notBefore": 1458232846000,
+                                    "notAfter": 1615999246000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EFq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8SMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0Z8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWAa6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 1.3298795840390664e+37,
+                                    "version": 3,
+                                    "sha1Fingerprint": "e6a3b45b062d509b3382282d196efe97d5956ccb",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIEkjCCA3qgAwIBAgIQCgFBQgAAAVOFc2oLheynCDANBgkqhkiG9w0BAQsFADA/\nMSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT\nDkRTVCBSb290IENBIFgzMB4XDTE2MDMxNzE2NDA0NloXDTIxMDMxNzE2NDA0Nlow\nSjELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxIzAhBgNVBAMT\nGkxldCdzIEVuY3J5cHQgQXV0aG9yaXR5IFgzMIIBIjANBgkqhkiG9w0BAQEFAAOC\nAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EF\nq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8\nSMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0\nZ8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWA\na6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj\n/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQABo4IBfTCCAXkwEgYDVR0T\nAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwfwYIKwYBBQUHAQEEczBxMDIG\nCCsGAQUFBzABhiZodHRwOi8vaXNyZy50cnVzdGlkLm9jc3AuaWRlbnRydXN0LmNv\nbTA7BggrBgEFBQcwAoYvaHR0cDovL2FwcHMuaWRlbnRydXN0LmNvbS9yb290cy9k\nc3Ryb290Y2F4My5wN2MwHwYDVR0jBBgwFoAUxKexpHsscfrb4UuQdf/EFWCFiRAw\nVAYDVR0gBE0wSzAIBgZngQwBAgEwPwYLKwYBBAGC3xMBAQEwMDAuBggrBgEFBQcC\nARYiaHR0cDovL2Nwcy5yb290LXgxLmxldHNlbmNyeXB0Lm9yZzA8BgNVHR8ENTAz\nMDGgL6AthitodHRwOi8vY3JsLmlkZW50cnVzdC5jb20vRFNUUk9PVENBWDNDUkwu\nY3JsMB0GA1UdDgQWBBSoSmpjBH3duubRObemRWXv86jsoTANBgkqhkiG9w0BAQsF\nAAOCAQEA3TPXEfNjWDjdGBX7CVW+dla5cEilaUcne8IkCJLxWh9KEik3JHRRHGJo\nuM2VcGfl96S8TihRzZvoroed6ti6WqEBmtzw3Wodatg+VyOeph4EYpr/1wXKtx8/\nwApIvJSwtmVi4MFU5aMqrSDE6ea73Mj2tcMyo5jMd6jmeWUHK8so/joWUoHOUgwu\nX4Po1QYz+3dszkDqMp4fklxBwXRsW10KXzPMTZ+sOPAveyxindmjkW8lGy+QsRlG\nPfZ+G6Z6h7mjem0Y+iWlkYcV4PIWL1iwBi8saCbGS5jN2p8M+X+Q7UNKEkROb3N6\nKOqkqm57TH2H3eDJAkSnh6/DNFu0Qg==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": true,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:12204"
+                                }
+                            ],
+                            "customCertificates": []
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "rewriteUrl",
+                        "options": {
+                            "behavior": "REGEX_REPLACE",
+                            "keepQueryString": true,
+                            "matchMultiple": true,
+                            "matchRegex": "\\/mirror\\/openshift",
+                            "targetRegex": "/"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/mirror/openshift",
+                                "/mirror/openshift/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    },
+                    {
+                        "name": "requestCookie",
+                        "options": {
+                            "cookieName": "x-rh-insights-pentest",
+                            "matchOperator": "DOES_NOT_EXIST",
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
+                        }
+                    },
+                    {
+                        "name": "requestHeader",
+                        "options": {
+                            "headerName": "x-rh-insights-pentest",
+                            "matchOperator": "DOES_NOT_EXIST",
+                            "matchWildcardName": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "WSS",
+                "children": [
+                    {
+                        "name": "WSS Allow Methods",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "allowPatch",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPost",
+                                "options": {
+                                    "enabled": true,
+                                    "allowWithoutContentLength": true
+                                }
+                            },
+                            {
+                                "name": "allHttpInCacheHierarchy",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowDelete",
+                                "options": {
+                                    "allowBody": true,
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPut",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [],
+                        "criteriaMustSatisfy": "all"
+                    }
+                ],
+                "behaviors": [
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "customHeaderName": "if-none-match",
+                            "standardPassHeaderName": "OTHER"
+                        }
+                    },
+                    {
+                        "name": "origin",
+                        "options": {
+                            "cacheKeyHostname": "ORIGIN_HOSTNAME",
+                            "forwardHostHeader": "ORIGIN_HOSTNAME",
+                            "originSni": true,
+                            "verificationMode": "CUSTOM",
+                            "hostname": "api-gateway.1b13.insights.openshiftapps.com",
+                            "compress": true,
+                            "trueClientIpHeader": "True-Client-IP",
+                            "httpPort": 80,
+                            "enableTrueClientIp": true,
+                            "httpsPort": 443,
+                            "trueClientIpClientSetting": false,
+                            "originType": "CUSTOMER",
+                            "ports": "",
+                            "originCertificate": "",
+                            "customValidCnValues": [
+                                "{{Origin Hostname}}",
+                                "{{Forward Host Header}}",
+                                "*.1b13.insights.openshiftapps.com"
+                            ],
+                            "originCertsToHonor": "COMBO",
+                            "standardCertificateAuthorities": [
+                                "akamai-permissive"
+                            ],
+                            "customCertificateAuthorities": [
+                                {
+                                    "subjectCN": "Let's Encrypt Authority X3",
+                                    "subjectAlternativeNames": [],
+                                    "subjectRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "issuerRDNs": {
+                                        "CN": "DST Root CA X3",
+                                        "O": "Digital Signature Trust Co."
+                                    },
+                                    "notBefore": 1458232846000,
+                                    "notAfter": 1615999246000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EFq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8SMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0Z8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWAa6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 1.3298795840390664e+37,
+                                    "version": 3,
+                                    "sha1Fingerprint": "e6a3b45b062d509b3382282d196efe97d5956ccb",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIEkjCCA3qgAwIBAgIQCgFBQgAAAVOFc2oLheynCDANBgkqhkiG9w0BAQsFADA/\nMSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT\nDkRTVCBSb290IENBIFgzMB4XDTE2MDMxNzE2NDA0NloXDTIxMDMxNzE2NDA0Nlow\nSjELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxIzAhBgNVBAMT\nGkxldCdzIEVuY3J5cHQgQXV0aG9yaXR5IFgzMIIBIjANBgkqhkiG9w0BAQEFAAOC\nAQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EF\nq6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8\nSMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0\nZ8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWA\na6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj\n/PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQABo4IBfTCCAXkwEgYDVR0T\nAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwfwYIKwYBBQUHAQEEczBxMDIG\nCCsGAQUFBzABhiZodHRwOi8vaXNyZy50cnVzdGlkLm9jc3AuaWRlbnRydXN0LmNv\nbTA7BggrBgEFBQcwAoYvaHR0cDovL2FwcHMuaWRlbnRydXN0LmNvbS9yb290cy9k\nc3Ryb290Y2F4My5wN2MwHwYDVR0jBBgwFoAUxKexpHsscfrb4UuQdf/EFWCFiRAw\nVAYDVR0gBE0wSzAIBgZngQwBAgEwPwYLKwYBBAGC3xMBAQEwMDAuBggrBgEFBQcC\nARYiaHR0cDovL2Nwcy5yb290LXgxLmxldHNlbmNyeXB0Lm9yZzA8BgNVHR8ENTAz\nMDGgL6AthitodHRwOi8vY3JsLmlkZW50cnVzdC5jb20vRFNUUk9PVENBWDNDUkwu\nY3JsMB0GA1UdDgQWBBSoSmpjBH3duubRObemRWXv86jsoTANBgkqhkiG9w0BAQsF\nAAOCAQEA3TPXEfNjWDjdGBX7CVW+dla5cEilaUcne8IkCJLxWh9KEik3JHRRHGJo\nuM2VcGfl96S8TihRzZvoroed6ti6WqEBmtzw3Wodatg+VyOeph4EYpr/1wXKtx8/\nwApIvJSwtmVi4MFU5aMqrSDE6ea73Mj2tcMyo5jMd6jmeWUHK8so/joWUoHOUgwu\nX4Po1QYz+3dszkDqMp4fklxBwXRsW10KXzPMTZ+sOPAveyxindmjkW8lGy+QsRlG\nPfZ+G6Z6h7mjem0Y+iWlkYcV4PIWL1iwBi8saCbGS5jN2p8M+X+Q7UNKEkROb3N6\nKOqkqm57TH2H3eDJAkSnh6/DNFu0Qg==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": true,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:26612"
+                                }
+                            ],
+                            "customCertificates": []
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-issuer"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-cn"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "c0290a96032d1124d643abc277a2d658",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "cloud.redhat.com",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "webSockets",
+                        "options": {
+                            "enabled": true
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/wss/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
             {
                 "name": "PenTest API (Cookie)",
                 "children": [
