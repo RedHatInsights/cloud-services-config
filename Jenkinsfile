@@ -1,4 +1,4 @@
-@Library("github.com/RedHatInsights/insights-pipeline-lib@v1.3") _
+@Library("github.com/RedHatInsights/insights-pipeline-lib") _
 import groovy.json.JsonSlurper
 
 node {
@@ -24,7 +24,7 @@ node {
 
   stage ("activate on staging") {
     // Use image with python 3.6
-    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+    openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
       // cd into akamai folder
       dir("akamai") {
@@ -33,7 +33,7 @@ node {
           sh "set -e"
           sh "rm -rf venv || true"
           sh "python3 -m venv venv"
-          sh "source ./venv/bin/activate"
+          sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./update_api.py $EDGERC STAGING"
           // Save contents of previousversion.txt as a variable
@@ -69,7 +69,7 @@ node {
 
   stage ("run akamai staging smoke tests") {
     try {
-      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
+      openShiftUtils.withNode {
         sh "iqe plugin install akamai"
         sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
       }
@@ -94,7 +94,8 @@ node {
           """
         }
       }
-      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+      openShiftUtils.withNode(image: "python:3.6-slim") {
+        checkout scm
         // cd into akamai folder
         dir("akamai") {
           // Use secret .edgerc file
@@ -102,7 +103,7 @@ node {
             sh "set -e"
             sh "rm -rf venv || true"
             sh "python3 -m venv venv"
-            sh "source ./venv/bin/activate"
+            sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
             sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} STAGING"
           }
@@ -121,7 +122,7 @@ node {
 
   stage ("activate on production") {
     // Use image with python 3.6
-    openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+    openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
       // cd into akamai folder
       dir("akamai") {
@@ -130,7 +131,7 @@ node {
           sh "set -e"
           sh "rm -rf venv || true"
           sh "python3 -m venv venv"
-          sh "source ./venv/bin/activate"
+          sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
           sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
           // Save contents of previousversion.txt as a variable
@@ -163,7 +164,7 @@ node {
 
   stage ("run akamai production smoke tests") {
     try {
-      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-iqe:latest") {
+      openShiftUtils.withNode {
         sh "iqe plugin install akamai"
         sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
       }
@@ -188,7 +189,8 @@ node {
           """
         }
       }
-      openShift.withNode(image: "docker-registry.default.svc:5000/jenkins/jenkins-slave-base-centos7-python36:latest") {
+      openShiftUtils.withNode(image: "python:3.6-slim") {
+        checkout scm
         // cd into akamai folder
         dir("akamai") {
           // Use secret .edgerc file
@@ -196,7 +198,7 @@ node {
             sh "set -e"
             sh "rm -rf venv || true"
             sh "python3 -m venv venv"
-            sh "source ./venv/bin/activate"
+            sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
             sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
           }
