@@ -362,7 +362,6 @@ rhel:
       - id: vulnerability
       - id: compliance
       - id: drift
-      - id: patch
       - id: inventory
       - id: remediations
   top_level: true
