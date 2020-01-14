@@ -142,8 +142,8 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: ocp-on-aws
-        title: OpenShift on cloud details
+      - id: ocp-cloud
+        title: OpenShift cloud infrastructure details
         group: cost-management
       - id: ocp
         title: OpenShift details
@@ -152,7 +152,7 @@ cost-management:
         title: Cloud details
         group: cost-management
       - id: cost-models
-        title: Cost model details
+        title: Cost model
         group: cost-management
       - id: settings-cost-management
   git_repo: https://github.com/project-koku/
