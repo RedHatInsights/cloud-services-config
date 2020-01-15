@@ -464,6 +464,8 @@ subscriptions:
     sub_apps:
       - id: rhel-sw
         default: true
+      - id: openshift-sw
+        title: Red Hat OpenShift
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 vulnerability:
