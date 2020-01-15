@@ -152,7 +152,7 @@ cost-management:
         title: Cloud details
         group: cost-management
       - id: cost-models
-        title: Cost model
+        title: Cost models
         group: cost-management
       - id: settings-cost-management
   git_repo: https://github.com/project-koku/
