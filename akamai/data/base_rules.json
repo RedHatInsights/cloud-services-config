@@ -3693,10 +3693,40 @@
                                     "canBeLeaf": true,
                                     "canBeCA": true,
                                     "selfSigned": false,
-                                    "$$hashKey": "object:7081"
+                                    "$$hashKey": "object:2387"
                                 }
                             ],
-                            "customCertificates": []
+                            "customCertificates": [
+                                {
+                                    "subjectCN": "api.pen-test.rhorchata.com",
+                                    "subjectAlternativeNames": [
+                                        "*.apps.pen-test.rhorchata.com",
+                                        "api.pen-test.rhorchata.com"
+                                    ],
+                                    "subjectRDNs": {
+                                        "CN": "api.pen-test.rhorchata.com"
+                                    },
+                                    "issuerRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "notBefore": 1579270053000,
+                                    "notAfter": 1587046053000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H513m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6jctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aFCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSSfjZDLwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 4.127220497061571e+41,
+                                    "version": 3,
+                                    "sha1Fingerprint": "fdbbceca7320f51b56647764d52272c15efc0add",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIFizCCBHOgAwIBAgISBLzhj2x97d79yPX1YCGCaGvaMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0yMDAxMTcxNDA3MzNaFw0y\nMDA0MTYxNDA3MzNaMCUxIzAhBgNVBAMTGmFwaS5wZW4tdGVzdC5yaG9yY2hhdGEu\nY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H5\n13m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJ\nFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ\n++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6j\nctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aF\nCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSS\nfjZDLwIDAQABo4ICjjCCAoowDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQKqUhuDyEQ\nzY7XeGpuAcV5XI/LTDAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBv\nBggrBgEFBQcBAQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5s\nZXRzZW5jcnlwdC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMEQGA1UdEQQ9MDuCHSouYXBwcy5wZW4tdGVzdC5yaG9y\nY2hhdGEuY29tghphcGkucGVuLXRlc3QucmhvcmNoYXRhLmNvbTBMBgNVHSAERTBD\nMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpodHRwOi8v\nY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQQGCisGAQQB1nkCBAIEgfUEgfIA8AB3APCV\npFnyANGCQBAtL5OIjq1L/h1H45nh0DSmsKiqjrJzAAABb7QLi9IAAAQDAEgwRgIh\nALiQ0V1+py1xeeuxkwaU4ibEfEXiTADJGf30yf0EwbCdAiEAzXI29Gda5/hdOLai\nJzTV9CgzN5C3J+6XKubyqp6Pb6oAdQAHt1wb5X1o//Gwxh0jFce65ld8V5S3au68\nYToaadOiHAAAAW+0C4v7AAAEAwBGMEQCIBrTo9P6oWd12D6CpiNpAtiZFm0peGSd\npzEtoWRDMdBiAiBf5F5P2IQpunJOfGFCNf8DtUX8d8R1Cdhbp0PvoyP1+zANBgkq\nhkiG9w0BAQsFAAOCAQEAFASUNgypuSe6ARk9v4b5o49/aWQwxUU0u2i99GvdHaTS\nQHclIVgZp7Dq1U7gYzs0PvE9WWFALZ+I/h4vRUuVSCCmnrdiA/2RG3jnmN6H1v+6\nIz2VNuVI+CmPHdnw6nn9QFdR60TUpBqNX8fkxRxYAD/6M2g/9UJ5olMrSpKln/7i\ncMjvWZxPu16kvQt9pXyM5UAsvOy/I+b1cY244/y1Kdn9JkRMOObl8eAGYAprsRIe\nQu503QyouzMsc1nER/5AxEIDKFdTQknqj8pFC8sPRbiQzV/Vnn7jM1sLm5kwQ/cF\nJP66aziKs9CHxKkDx8UkEq01N7QOyE1Oy4svNG1zmA==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": false,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:2398"
+                                }
+                            ]
                         }
                     },
                     {
@@ -3959,10 +3989,40 @@
                                     "canBeLeaf": true,
                                     "canBeCA": true,
                                     "selfSigned": false,
-                                    "$$hashKey": "object:17259"
+                                    "$$hashKey": "object:3704"
                                 }
                             ],
-                            "customCertificates": []
+                            "customCertificates": [
+                                {
+                                    "subjectCN": "api.pen-test.rhorchata.com",
+                                    "subjectAlternativeNames": [
+                                        "*.apps.pen-test.rhorchata.com",
+                                        "api.pen-test.rhorchata.com"
+                                    ],
+                                    "subjectRDNs": {
+                                        "CN": "api.pen-test.rhorchata.com"
+                                    },
+                                    "issuerRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "notBefore": 1579270053000,
+                                    "notAfter": 1587046053000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H513m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6jctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aFCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSSfjZDLwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 4.127220497061571e+41,
+                                    "version": 3,
+                                    "sha1Fingerprint": "fdbbceca7320f51b56647764d52272c15efc0add",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIFizCCBHOgAwIBAgISBLzhj2x97d79yPX1YCGCaGvaMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0yMDAxMTcxNDA3MzNaFw0y\nMDA0MTYxNDA3MzNaMCUxIzAhBgNVBAMTGmFwaS5wZW4tdGVzdC5yaG9yY2hhdGEu\nY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H5\n13m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJ\nFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ\n++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6j\nctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aF\nCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSS\nfjZDLwIDAQABo4ICjjCCAoowDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQKqUhuDyEQ\nzY7XeGpuAcV5XI/LTDAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBv\nBggrBgEFBQcBAQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5s\nZXRzZW5jcnlwdC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMEQGA1UdEQQ9MDuCHSouYXBwcy5wZW4tdGVzdC5yaG9y\nY2hhdGEuY29tghphcGkucGVuLXRlc3QucmhvcmNoYXRhLmNvbTBMBgNVHSAERTBD\nMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpodHRwOi8v\nY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQQGCisGAQQB1nkCBAIEgfUEgfIA8AB3APCV\npFnyANGCQBAtL5OIjq1L/h1H45nh0DSmsKiqjrJzAAABb7QLi9IAAAQDAEgwRgIh\nALiQ0V1+py1xeeuxkwaU4ibEfEXiTADJGf30yf0EwbCdAiEAzXI29Gda5/hdOLai\nJzTV9CgzN5C3J+6XKubyqp6Pb6oAdQAHt1wb5X1o//Gwxh0jFce65ld8V5S3au68\nYToaadOiHAAAAW+0C4v7AAAEAwBGMEQCIBrTo9P6oWd12D6CpiNpAtiZFm0peGSd\npzEtoWRDMdBiAiBf5F5P2IQpunJOfGFCNf8DtUX8d8R1Cdhbp0PvoyP1+zANBgkq\nhkiG9w0BAQsFAAOCAQEAFASUNgypuSe6ARk9v4b5o49/aWQwxUU0u2i99GvdHaTS\nQHclIVgZp7Dq1U7gYzs0PvE9WWFALZ+I/h4vRUuVSCCmnrdiA/2RG3jnmN6H1v+6\nIz2VNuVI+CmPHdnw6nn9QFdR60TUpBqNX8fkxRxYAD/6M2g/9UJ5olMrSpKln/7i\ncMjvWZxPu16kvQt9pXyM5UAsvOy/I+b1cY244/y1Kdn9JkRMOObl8eAGYAprsRIe\nQu503QyouzMsc1nER/5AxEIDKFdTQknqj8pFC8sPRbiQzV/Vnn7jM1sLm5kwQ/cF\nJP66aziKs9CHxKkDx8UkEq01N7QOyE1Oy4svNG1zmA==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": false,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:3715"
+                                }
+                            ]
                         }
                     },
                     {
