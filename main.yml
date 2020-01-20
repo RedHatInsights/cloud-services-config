@@ -110,16 +110,13 @@ compliance:
     paths:
       - /rhel/compliance
     sub_apps:
-      - id: ''
+      - id:
         title: Reports
         default: true
-        reload: compliance
       - id: policies
         title: Policies
-        reload: compliance/policies
       - id: systems
         title: Systems
-        reload: compliance/systems
 
 config:
   title: Cloud Services Config
