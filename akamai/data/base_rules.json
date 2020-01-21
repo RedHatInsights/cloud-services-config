@@ -3506,6 +3506,22 @@
                         "options": {
                             "enabled": true
                         }
+                    },
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "standardPassHeaderName": "OTHER",
+                            "customHeaderName": "Connection"
+                        }
+                    },
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "standardPassHeaderName": "OTHER",
+                            "customHeaderName": "Upgrade"
+                        }
                     }
                 ],
                 "criteria": [
