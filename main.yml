@@ -163,7 +163,8 @@ custom-policies:
   channel: '#cloudservices-custom-policies'
   deployment_repo: https://github.com/RedHatInsights/custom-policies-ui-frontend-build
   frontend:
-    paths: /staging/custom-policies
+    paths: 
+      - /staging/custom-policies
 
 dashboard:
   title: Dashboard
