@@ -4,7 +4,7 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for all beta branches is kept in sync, so changes will be automatically merged up through `qa-beta` and `prod-beta`. When you need config added to another environment (`ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment, and feel free to ping #forum-cloudservices-sre on Slack for assistance.
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync, so changes to `ci-beta` will automatically be merged into `nightly-beta` and `qa-beta`. When you need this config added to another environment (`prod-beta`, `ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment. If you have any concerns about this process, feel free to ping #forum-cloudservices-sre on Slack for assistance.
 
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
