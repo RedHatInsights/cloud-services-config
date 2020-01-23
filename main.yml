@@ -104,10 +104,19 @@ compliance:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     paths:
       - /rhel/compliance
+    sub_apps:
+      - id: ''
+        title: Reports
+        default: true
+      - id: policies
+        title: Policies
+      - id: systems
+        title: Systems
 
 config:
   title: Cloud Services Config
