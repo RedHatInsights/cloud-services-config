@@ -154,6 +154,7 @@ cost-management:
       - id: cost-models
         title: Cost models
         group: cost-management
+      - id: settings-cost-management
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
@@ -419,6 +420,15 @@ settings:
       - id: applications
     paths:
       - /settings
+
+settings-cost-management:
+  title: Settings
+  frontend:
+    sub_apps:
+      - id: cost-management-sources
+        title: Cost Management Sources
+        reload: cost-management/sources
+    suppress_id: true
 
 sources:
   title: Discovered Inventory
