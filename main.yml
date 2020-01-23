@@ -69,8 +69,6 @@ automation-hub:
         title: Partners
       - id: my-namespaces
         title: My Namespaces
-      - id: my-imports
-        title: My Imports
   git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
@@ -230,6 +228,18 @@ openshift:
         title: Subscriptions
         group: openshift
   top_level: true
+  
+rbac:
+  title: Role-based Access Control
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  frontend:
+    title: User Access Management
+    paths:
+      - /settings/rbac
 
 remediations:
   title: Remediations
@@ -286,8 +296,9 @@ settings:
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
-      - id: applications
+      - id: rbac
         default: true
+      - id: applications
     paths:
       - /settings
 
