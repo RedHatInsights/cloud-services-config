@@ -162,7 +162,7 @@ Restart your insights-proxy to pick up the change.
 
 Create a `beta/config` directory inside of `cloud-services-config` and copy `main.yml` to it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
 
-```
+```text
 $ npx http-server -p 8889
 npx: installed 25 in 2.484s
 Starting up http-server, serving ./
@@ -193,4 +193,4 @@ index 090fd7e..a680d06 100644
    frontend:
 ```
 
-Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on "https://ci.foo.redhat.com:1337" and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
+Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on <https://ci.foo.redhat.com:1337> and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
