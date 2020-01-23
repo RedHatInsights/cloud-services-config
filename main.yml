@@ -110,7 +110,7 @@ compliance:
     paths:
       - /rhel/compliance
     sub_apps:
-      - id:
+      - id: ''
         title: Reports
         default: true
       - id: policies
