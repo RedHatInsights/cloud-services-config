@@ -346,14 +346,13 @@ product:
         reload: product/cloud-management-services
 
 rbac:
-  title: User Access
+  title: User access
   api:
     versions:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    title: User access
     paths:
       - /settings/rbac
     sub_apps:
