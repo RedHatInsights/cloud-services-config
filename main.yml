@@ -362,8 +362,8 @@ rbac:
         default: true
       - id: roles
         title: Roles
-      - id: Users
-        title: users
+      - id: users
+        title: Users
 
 remediations:
   title: Remediations
