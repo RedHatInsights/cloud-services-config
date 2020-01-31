@@ -54,7 +54,7 @@ automation-analytics:
         title: Clusters
         default: true
       - id: organization-statistics
-        title: Organization Statistics
+        title: Organization statistics
 
 automation-hub:
   title: Automation Hub
@@ -69,7 +69,7 @@ automation-hub:
       - id: partners
         title: Partners
       - id: my-namespaces
-        title: My Namespaces
+        title: My namespaces
   git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
