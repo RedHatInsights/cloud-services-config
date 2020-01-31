@@ -346,7 +346,7 @@ product:
         reload: product/cloud-management-services
 
 rbac:
-  title: Role-based Access Control
+  title: User Access
   api:
     versions:
       - v1
@@ -356,6 +356,14 @@ rbac:
     title: User Access Management
     paths:
       - /settings/rbac
+    sub_apps:
+      - id: groups
+        title: Groups
+        default: true
+      - id: roles
+        title: Roles
+      - id: Users
+        title: users
 
 remediations:
   title: Remediations
