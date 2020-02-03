@@ -353,9 +353,17 @@ rbac:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    title: User Access Management
+    title: User access
     paths:
       - /settings/rbac
+    sub_apps:
+      - id: groups
+        title: Groups
+        default: true
+      - id: roles
+        title: Roles
+      - id: users
+        title: Users
 
 remediations:
   title: Remediations
