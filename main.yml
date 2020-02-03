@@ -346,7 +346,7 @@ product:
         reload: product/cloud-management-services
 
 rbac:
-  title: User access
+  title: Role-based Access Control
   api:
     versions:
       - v1
