@@ -253,6 +253,10 @@ insights:
         group: insights
       - id: inventory
       - id: remediations
+      - id: dashboard
+      - id: vulnerability
+      - id: compliance
+      - id: drift
   top_level: true
 
 inventory:
@@ -376,19 +380,6 @@ remediations:
     paths:
       - /rhel/remediations
       - /insights/remediations
-
-rhel:
-  title: Cloud Management Services
-  frontend:
-    sub_apps:
-      - id: dashboard
-        default: true
-      - id: vulnerability
-      - id: compliance
-      - id: drift
-      - id: inventory
-      - id: remediations
-  top_level: true
 
 rhel-sw:
   title: Red Hat Enterprise Linux
