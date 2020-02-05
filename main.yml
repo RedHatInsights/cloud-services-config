@@ -242,6 +242,7 @@ insights:
     paths:
       - /insights
     sub_apps:
+      - id: dashboard
       - id: overview
         title: Overview
         group: insights
@@ -251,12 +252,14 @@ insights:
       - id: topics
         title: Topics
         group: insights
-      - id: inventory
-      - id: remediations
-      - id: dashboard
       - id: vulnerability
       - id: compliance
+      - id: custom-policies
       - id: drift
+      - id: subscriptions
+      - id: patch
+      - id: inventory
+      - id: remediations
   top_level: true
 
 inventory:
