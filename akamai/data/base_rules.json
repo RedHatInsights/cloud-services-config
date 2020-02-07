@@ -571,6 +571,7 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
+                                                "/docs/",
                                                 "/docs/storybook",
                                                 "/docs/storybook/"
                                             ],
@@ -635,6 +636,46 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "/applications",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/apps/settings/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/settings/applications",
+                                                "/settings/applications/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "/approval",
                                 "children": [],
                                 "behaviors": [
@@ -655,10 +696,107 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/hybrid/catalog/approval",
-                                                "/hybrid/catalog/approval/*",
                                                 "/ansible/catalog/approval",
                                                 "/ansible/catalog/approval/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "/automation-analytics",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/apps/automation-analytics/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/ansible",
+                                                "/ansible/*",
+                                                "/ansible/automation-analytics",
+                                                "/ansible/automation-analytics/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    },
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/ansible/catalog/approval",
+                                                "/ansible/catalog/approval/*",
+                                                "/ansible/automation-hub",
+                                                "/ansible/automation-hub/*",
+                                                "/ansible/catalog",
+                                                "/ansible/catalog/*",
+                                                "/ansible/settings/sources",
+                                                "/ansible/settings/sources/*"
+                                            ],
+                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "/automation-hub",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/apps/automation-hub/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/ansible/automation-hub",
+                                                "/ansible/automation-hub/*"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
@@ -697,8 +835,6 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/hybrid/catalog",
-                                                "/hybrid/catalog/*",
                                                 "/ansible/catalog",
                                                 "/ansible/catalog/*"
                                             ],
@@ -719,8 +855,6 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/hybrid/catalog/approval",
-                                                "/hybrid/catalog/approval/*",
                                                 "/ansible/catalog/approval",
                                                 "/ansible/catalog/approval/*"
                                             ],
@@ -1050,48 +1184,6 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/rbac",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/rbac/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/hybrid/settings/rbac",
-                                                "/hybrid/settings/rbac/*",
-                                                "/ansible/settings/rbac",
-                                                "/ansible/settings/rbac/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "/remediations",
                                 "children": [],
                                 "behaviors": [
@@ -1174,6 +1266,63 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "/settings",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/apps/settings/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/settings",
+                                                "/settings/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    },
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/settings/applications",
+                                                "/settings/applications/*",
+                                                "/settings/hooks",
+                                                "/settings/hooks/*",
+                                                "/insights/settings/sources",
+                                                "/insights/settings/sources/*",
+                                                "/ansible/settings/sources",
+                                                "/ansible/settings/sources/*"
+                                            ],
+                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "/sources",
                                 "children": [],
                                 "behaviors": [
@@ -1196,10 +1345,6 @@
                                             "values": [
                                                 "/insights/settings/sources",
                                                 "/insights/settings/sources/*",
-                                                "/hybrid/settings/sources",
-                                                "/hybrid/settings/sources/*",
-                                                "/hybrid/sources",
-                                                "/hybrid/sources/*",
                                                 "/ansible/settings/sources",
                                                 "/ansible/settings/sources/*"
                                             ],
@@ -1686,7 +1831,7 @@
                                         "options": {
                                             "keepQueryString": true,
                                             "matchMultiple": false,
-                                            "targetPath": "/apps/storybook/",
+                                            "targetPath": "/pentest/apps/storybook/",
                                             "match": "/docs/",
                                             "behavior": "REPLACE"
                                         }
@@ -1766,6 +1911,46 @@
                                             ],
                                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "/applications",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/beta/apps/settings/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/beta/settings/applications",
+                                                "/beta/settings/applications/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
                                         }
                                     }
                                 ],
@@ -1859,11 +2044,7 @@
                                                 "/beta/ansible/automation-hub",
                                                 "/beta/ansible/automation-hub/*",
                                                 "/beta/ansible/catalog",
-                                                "/beta/ansible/catalog/*",
-                                                "/beta/ansible/settings/rbac",
-                                                "/beta/ansible/settings/rbac/*",
-                                                "/beta/ansible/settings/sources",
-                                                "/beta/ansible/settings/sources/*"
+                                                "/beta/ansible/catalog/*"
                                             ],
                                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
@@ -2039,16 +2220,45 @@
                                             ],
                                             "matchOperator": "IS_ONE_OF"
                                         }
-                                    },
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "/custom-policies",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/beta/apps/custom-policies/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
                                     {
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/cost-management/settings/rbac",
-                                                "/beta/cost-management/settings/rbac/*"
+                                                "/beta/staging/custom-policies",
+                                                "/beta/staging/custom-policies/*"
                                             ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                            "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
                                         }
                                     }
                                 ],
@@ -2103,6 +2313,8 @@
                                                 "/beta/rhel/drift/*",
                                                 "/beta/rhel/inventory",
                                                 "/beta/rhel/inventory/*",
+                                                "/beta/rhel/patch",
+                                                "/beta/rhel/patch/*",
                                                 "/beta/rhel/remediations",
                                                 "/beta/rhel/remediations/*",
                                                 "/beta/rhel/vulnerability",
@@ -2239,9 +2451,7 @@
                                                 "/beta/insights/inventory",
                                                 "/beta/insights/inventory/*",
                                                 "/beta/insights/remediations",
-                                                "/beta/insights/remediations/*",
-                                                "/beta/insights/settings/sources",
-                                                "/beta/insights/settings/sources/*"
+                                                "/beta/insights/remediations/*"
                                             ],
                                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
@@ -2375,6 +2585,46 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "/patch",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/beta/apps/patch/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/beta/rhel/patch",
+                                                "/beta/rhel/patch/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "/rbac",
                                 "children": [],
                                 "behaviors": [
@@ -2395,10 +2645,8 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/cost-management/settings/rbac",
-                                                "/beta/cost-management/settings/rbac/*",
-                                                "/beta/ansible/settings/rbac",
-                                                "/beta/ansible/settings/rbac/*"
+                                                "/beta/settings/rbac",
+                                                "/beta/settings/rbac/*"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
@@ -2499,6 +2747,63 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "/settings",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "failAction",
+                                        "options": {
+                                            "contentPath": "/pentest/beta/apps/settings/index.html",
+                                            "enabled": true,
+                                            "actionType": "RECREATED_CO",
+                                            "contentCustomPath": true,
+                                            "contentHostname": "cloud.redhat.com",
+                                            "preserveQueryString": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/beta/settings",
+                                                "/beta/settings/*"
+                                            ],
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    },
+                                    {
+                                        "name": "matchResponseCode",
+                                        "options": {
+                                            "values": [
+                                                "404"
+                                            ],
+                                            "matchOperator": "IS_ONE_OF"
+                                        }
+                                    },
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "values": [
+                                                "/beta/settings/applications",
+                                                "/beta/settings/applications/*",
+                                                "/beta/settings/hooks",
+                                                "/beta/settings/hooks/*",
+                                                "/beta/settings/rbac",
+                                                "/beta/settings/rbac/*",
+                                                "/beta/settings/sources",
+                                                "/beta/settings/sources/*"
+                                            ],
+                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "/sources",
                                 "children": [],
                                 "behaviors": [
@@ -2519,10 +2824,8 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/insights/settings/sources",
-                                                "/beta/insights/settings/sources/*",
-                                                "/beta/ansible/settings/sources",
-                                                "/beta/ansible/settings/sources/*"
+                                                "/beta/settings/sources",
+                                                "/beta/settings/sources/*"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
@@ -2601,8 +2904,8 @@
                                         "name": "path",
                                         "options": {
                                             "values": [
-                                                "/beta/staging/subscriptions",
-                                                "/beta/staging/subscriptions/*"
+                                                "/beta/subscriptions",
+                                                "/beta/subscriptions/*"
                                             ],
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "matchCaseSensitive": false
