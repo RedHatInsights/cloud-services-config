@@ -18,8 +18,8 @@ api-docs:
 
 application-settings:
   title: Applications
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
-    deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
     sub_apps:
       - id: insights
         title: Insights
