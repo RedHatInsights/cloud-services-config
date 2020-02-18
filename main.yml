@@ -17,8 +17,8 @@ api-docs:
 
 applications:
   title: Applications
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
-    app_base: settings
     sub_apps:
       - id: insights
         title: Insights
@@ -239,6 +239,7 @@ rbac:
   frontend:
     title: User Access Management
     paths:
+      - /settings
       - /settings/rbac
 
 remediations:
@@ -293,14 +294,11 @@ settings-ansible:
 settings:
   title: Settings
   top_level: true
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
       - id: rbac
         default: true
       - id: applications
-    paths:
-      - /settings
 
 sources:
   title: Discovered Inventory
