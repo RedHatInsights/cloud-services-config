@@ -290,20 +290,14 @@ settings-ansible:
       - id: rbac
     suppress_id: true
 
-settings-bundle:
+settings:
   title: Settings
   top_level: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
       - id: rbac
         default: true
-      - id: settings
-
-settings:
-  title: Settings
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
-  frontend:
-    sub_apps:
       - id: applications
     paths:
       - /settings
