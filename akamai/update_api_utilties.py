@@ -67,6 +67,22 @@ def activateVersion(version_number, env="STAGING"):
         print(json.dumps(response))
         print("The activaction failed. Please check out the above response to see what happened.") 
 
+def waitForActiveVersion(version_number, env="STAGING"):
+    print("Waiting for version {} to finish activating...".format(version_number))
+    active_version = ""
+    timeout = 180
+    while active_version != version_number:
+        time.sleep(10)
+        try:
+            active_version = getLatestVersionNumber(env)
+        except:
+            print("Failed to retrieve current version")
+        timeout -= 1
+        if(timeout == 0):
+            sys.exit("Retried too many times! New version not activated.")
+        print("Property active in {} is v{}".format(env, active_version))
+    print("Success! Property v{} now active on {}.".format(active_version, env))
+
 # Initializes the EdgeGrid auth using the .edgerc file (or some passed-in config).
 def initEdgeGridAuth(path="~/.edgerc"):
     # If the config file was passed in, use that.
