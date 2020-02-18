@@ -15,19 +15,10 @@ api-docs:
       - /docs/api
       - /docs
 
-application-settings:
-  title: Settings
-  frontend:
-    deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
-    sub_apps:
-      - id: ''
-        title: 'General'
-      - id: applications
-
 applications:
   title: Applications
   frontend:
-    app_base: application-settings
+    app_base: settings
     sub_apps:
       - id: insights
         title: Insights
@@ -302,11 +293,14 @@ settings-ansible:
 settings:
   title: Settings
   top_level: true
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
       - id: rbac
         default: true
-      - id: application-settings
+      - id: applications
+    paths:
+      - /settings
 
 sources:
   title: Discovered Inventory
