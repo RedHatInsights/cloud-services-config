@@ -3,6 +3,7 @@ import json
 import os
 import requests
 import sys
+import time
 import yaml
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urllib.parse import urljoin
