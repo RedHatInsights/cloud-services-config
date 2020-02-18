@@ -133,7 +133,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
+          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION true"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)

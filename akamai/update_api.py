@@ -129,22 +129,6 @@ def generateConfigForBranch(prefix):
         config[key]["frontend_exclude"] = exclusions
     
     return config
-
-def waitForActiveVersion(version_number, env="STAGING"):
-    print("Waiting for version {} to finish activating...".format(version_number))
-    active_version = ""
-    timeout = 180
-    while active_version != version_number:
-        time.sleep(10)
-        try:
-            active_version = util.getLatestVersionNumber(env)
-        except:
-            print("Failed to retrieve current version")
-        timeout -= 1
-        if(timeout == 0):
-            sys.exit("Retried too many times! New version not activated.")
-        print("Property active in {} is v{}".format(env, active_version))
-    print("Success! Property v{} now active on {}.".format(active_version, env))
     
 def main():
     # Authenticate with EdgeGrid
@@ -177,7 +161,7 @@ def main():
     util.activateVersion(new_version_number, property_env)
 
     # Wait for new version to be active
-    waitForActiveVersion(int(new_version_number), property_env)
+    util.waitForActiveVersion(int(new_version_number), property_env)
 
 if __name__== "__main__":
     main()
