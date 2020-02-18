@@ -2,9 +2,7 @@ import copy
 import json
 import re
 import sys
-import time
 import update_api_utilties as util
-
 
 # Creates a new version of the property in Akamai,
 # which is based off of the latest active version in the given environment.
