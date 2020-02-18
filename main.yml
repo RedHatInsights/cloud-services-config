@@ -16,10 +16,10 @@ api-docs:
       - /docs/api
       - /docs
 
-applications:
+application-settings:
   title: Applications
   frontend:
-    app_base: settings
+    deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
     sub_apps:
       - id: insights
         title: Insights
@@ -424,18 +424,22 @@ ruledev:
 settings:
   title: Settings
   top_level: true
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
-      - id: ''
+      - id: settings-general
         default: true
-        title: 'General'
       - id: hooks
       - id: sources
       - id: rbac
-      - id: applications
+      - id: application-settings
+
+settings-general:
+  title: General
+  frontend:
+    app_base: application-settings
     paths:
       - /settings
+      - /settings/general
 
 sources:
   title: Discovered Inventory
