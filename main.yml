@@ -17,8 +17,8 @@ api-docs:
 
 applications:
   title: Applications
+  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
-    app_base: settings
     sub_apps:
       - id: insights
         title: Insights
@@ -230,6 +230,19 @@ openshift:
         title: Subscriptions
         group: openshift
   top_level: true
+  
+rbac:
+  title: Role-based Access Control
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  frontend:
+    title: User Access Management
+    paths:
+      - /settings
+      - /settings/rbac
 
 remediations:
   title: Remediations
@@ -283,13 +296,11 @@ settings-ansible:
 settings:
   title: Settings
   top_level: true
-  deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
   frontend:
     sub_apps:
-      - id: applications
+      - id: rbac
         default: true
-    paths:
-      - /settings
+      - id: applications
 
 sources:
   title: Discovered Inventory
