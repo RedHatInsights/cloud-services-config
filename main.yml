@@ -1,3 +1,21 @@
+advisor:
+  title: Advisor
+  api:
+    versions:
+      - v1
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  frontend:
+    paths:
+      - /insights/advisor
+    sub_apps:
+      - id: rules
+        title: Rules
+        group: insights
+      - id: topics
+        title: Topics
+        group: insights
+
 ansible:
   title: Red Hat Ansible Automation Platform
   frontend:
@@ -232,26 +250,12 @@ ingress:
 
 insights:
   title: Insights
-  api:
-    versions:
-      - v1
-  channel: '#advisor'
-  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
     title: Red Hat Insights
-    paths:
-      - /insights
     sub_apps:
       - id: dashboard
-      - id: overview
-        title: Overview
-        group: insights
-      - id: rules
-        title: Rules
-        group: insights
-      - id: topics
-        title: Topics
-        group: insights
+        default: true
+      - id: advisor
       - id: vulnerability
       - id: compliance
       - id: custom-policies
