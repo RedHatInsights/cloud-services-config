@@ -1338,6 +1338,35 @@
                                     }
                                 ],
                                 "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "PenTest /apps",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "rewriteUrl",
+                                        "options": {
+                                            "behavior": "REPLACE",
+                                            "keepQueryString": true,
+                                            "match": "/apps/",
+                                            "targetPath": "/pentest/apps/",
+                                            "matchMultiple": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/apps/*"
+                                            ],
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
                             }
                         ],
                         "behaviors": [],
@@ -2659,7 +2688,36 @@
                                     }
                                 ],
                                 "criteriaMustSatisfy": "all"
-                            }
+                            },
+                            {
+                                "name": "PenTest Beta /apps",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "rewriteUrl",
+                                        "options": {
+                                            "behavior": "REPLACE",
+                                            "keepQueryString": true,
+                                            "match": "/beta/apps/",
+                                            "targetPath": "/pentest/beta/apps/",
+                                            "matchMultiple": false
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/apps/*"
+                                            ],
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            } 
                         ],
                         "behaviors": [],
                         "criteria": [
