@@ -23,6 +23,9 @@ applications:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args: insights
     paths:
       - /settings/applications
 
