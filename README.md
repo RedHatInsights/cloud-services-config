@@ -35,7 +35,8 @@ Here is some example configuration that demonstrates the structure, using all re
                 default: true
                 permissions:
                     method: isOrgAdmin
-                    args: insights
+                    args:
+                        - insights
             -   id: app_id_2
                 title: Another Sub App
         suppress_id: true
@@ -142,7 +143,7 @@ If you want to hide any navigational element based on some chrome's logic, this 
 
 #### permissions.args
 
-If method requires some arguments in order to properly work this is the way how to pass them to it - and array of items.
+If the `permissions.method` requires some arguments in order to properly work, this is how to pass them to it: an array of items.
 
 ## Akamai API Access
 
