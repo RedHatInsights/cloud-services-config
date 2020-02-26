@@ -142,7 +142,7 @@ If you want to hide any navigational element based on some chrome's logic, this 
 
 #### permissions.args
 
-If method requires some arguments in order to properly work this is the way how to pass them to it.
+If method requires some arguments in order to properly work this is the way how to pass them to it - and array of items.
 
 ## Akamai API Access
 
