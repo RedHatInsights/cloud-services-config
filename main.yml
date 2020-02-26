@@ -25,7 +25,8 @@ applications:
         title: Insights
         permissions:
           method: isEntitled
-          args: insights
+          args:
+            - insights
     paths:
       - /settings/applications
 
