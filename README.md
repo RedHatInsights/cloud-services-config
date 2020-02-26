@@ -20,6 +20,9 @@ Here is some example configuration that demonstrates the structure, using all re
     deployment_repo: https://github.com/app-deployment-repo-url
     disabled_on_prod: true
     docs: https://link.to.docs.com/docs
+    permissions:
+        method: isEntitled
+        args: insights
     frontend:
         title: App Title Override
         paths:
@@ -30,6 +33,9 @@ Here is some example configuration that demonstrates the structure, using all re
             -   id: app_id_1
                 title: Some Sub App
                 default: true
+                permissions:
+                    method: isOrgAdmin
+                    args: insights
             -   id: app_id_2
                 title: Another Sub App
         suppress_id: true
@@ -129,6 +135,14 @@ This is the mailing list associated with your project. Used to automate email no
 
 If this is set to `true`, your app will be a top-level app, which is usually reserved for bundles (Insights, RHEL, Hybrid, Openshift, etc).
 Use this if your app does not have a parent app or bundle.
+
+#### permissions.method
+
+If you want to hide any navigational element based on some chrome's logic, this is the right property. This defines the function to be used in order to hide nav item. (Chrome's list of methods)[https://github.com/RedHatInsights/insights-chrome#permissions].
+
+#### permissions.args
+
+If method requires some arguments in order to properly work this is the way how to pass them to it.
 
 ## Akamai API Access
 
