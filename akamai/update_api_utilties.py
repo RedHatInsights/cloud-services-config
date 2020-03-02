@@ -18,7 +18,7 @@ def getJSONFromFile(path):
         return json.load(f)
 
 def getYMLFromUrl(url):
-    return yaml.safe_load(s.get(url).content.decode('utf-8'))
+    return yaml.safe_load(s.get(url, verify=False).content.decode('utf-8'))
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env):
