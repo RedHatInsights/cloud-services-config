@@ -3,7 +3,6 @@ Stable:
 
 Beta:
   branch: prod-beta
-  prefix: /beta
   url_prefix: /beta
   content_path_prefix: /beta
 
@@ -15,6 +14,5 @@ PenTestStable:
 PenTestBeta:
   branch: qa-beta
   cookie_required: True
-  prefix: /beta
   url_prefix: /beta
   content_path_prefix: /pentest/beta
