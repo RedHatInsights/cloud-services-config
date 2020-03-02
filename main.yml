@@ -9,8 +9,8 @@ advisor:
     paths:
       - /insights/advisor
     sub_apps:
-      - id: rules
-        title: Rules
+      - id: recommendations
+        title: Recommendations
       - id: topics
         title: Topics
 
