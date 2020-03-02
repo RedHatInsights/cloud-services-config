@@ -102,7 +102,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
         
         # Update pen-test cookie check, if necessary
         if ("cookie_required" in env and env["cookie_required"]):
-            parent_rule["criteria"][1]["matchOperator"] = "EXISTS"
+            parent_rule["criteria"][1]["options"]["matchOperator"] = "EXISTS"
             
         parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
