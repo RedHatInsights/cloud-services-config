@@ -34,23 +34,23 @@ def createNewVersion(property_env="STAGING"):
 
 # Creates a list of rules in the correct Akamai PM structure based on
 # the master_config (source of truth), and prepends paths with
-# global_path_prefix as appropriate.
-def createRulesForEnv(master_config, global_path_prefix=""):
+# url_path_prefix as appropriate.
+def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix=""):
     # First, add the rules for the landing page.
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
     rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
-    # If global path prefix exists, modify paths on landing page rules.
-    if global_path_prefix != "":
+    # If url path prefix exists, modify paths on landing page & storybook rules.
+    if url_path_prefix != "" or content_path_prefix != "":
         for rule in rules:
             if rule["behaviors"][0]["name"] == "failAction":
-                rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
+                rule["behaviors"][0]["options"]["contentPath"] = content_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
             for x in range(len(rule["criteria"])):
                 if rule["criteria"][x]["name"] == "path":
                     for y in range(len(rule["criteria"][x]["options"]["values"])):
                         if rule["criteria"][x]["options"]["values"][y] == "/":
-                            rule["criteria"][x]["options"]["values"].append(global_path_prefix)
-                        rule["criteria"][x]["options"]["values"][y] = global_path_prefix + rule["criteria"][x]["options"]["values"][y]
+                            rule["criteria"][x]["options"]["values"].append(url_path_prefix)
+                        rule["criteria"][x]["options"]["values"][y] = url_path_prefix + rule["criteria"][x]["options"]["values"][y]
 
     # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
@@ -62,17 +62,17 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             app_rule = copy.deepcopy(rule_template)
             app_rule["name"] = "/" + key
             app_path = app["frontend"]["app_base"] if "app_base" in app["frontend"] else key
-            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app_path)
+            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(content_path_prefix, app_path)
             for frontend_path in app["frontend"]["paths"]:
-                values = [global_path_prefix + frontend_path]
-                values += [global_path_prefix + frontend_path + "/*"]
+                values = [url_path_prefix + frontend_path]
+                values += [url_path_prefix + frontend_path + "/*"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
             if "frontend_exclude" in app and len(app["frontend_exclude"]) > 0:
                 app_criteria = copy.deepcopy(nomatch_template)
                 for nomatch in app["frontend_exclude"]:
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch)
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
+                    app_criteria["options"]["values"].append(url_path_prefix + nomatch)
+                    app_criteria["options"]["values"].append(url_path_prefix + nomatch + "/*")
                 app_rule["criteria"].append(app_criteria)
 
             rules.append(app_rule)
@@ -90,19 +90,21 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
     for env in master_config_list:
         parent_rule = copy.deepcopy(parent_rule_template)
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
-        parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF" if ("prefix" not in env or env["prefix"] == "") else "MATCHES_ONE_OF"
-        if ("prefix" not in env or env["prefix"] == ""):
-            parent_rule["criteria"][0]["options"]["values"].append("/api")
-            parent_rule["criteria"][0]["options"]["values"].append("/api/*")
+        if ("url_prefix" not in env or env["url_prefix"] == ""):
+            parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF"
+            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*"])
             # Each env should exclude matches for other envs.
-            for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
-                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"])
-                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
+            for nomatch in (x for x in master_config_list if (x != env["name"] and "url_prefix" in x and x["url_prefix"] != "")):
+                parent_rule["criteria"][0]["options"]["values"].extend([nomatch["url_prefix"], nomatch["url_prefix"] + "/*"])
         else:
-            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"])
-            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"] + "/*")
+            parent_rule["criteria"][0]["options"]["matchOperator"] = "MATCHES_ONE_OF"
+            parent_rule["criteria"][0]["options"]["values"].extend([env["url_prefix"], env["url_prefix"] + "/*"])
+        
+        # Update pen-test cookie check, if necessary
+        if ("cookie_required" in env and env["cookie_required"]):
+            parent_rule["criteria"][1]["options"]["matchOperator"] = "EXISTS"
             
-        parent_rule["children"] = createRulesForEnv(env["config"], env["prefix"])
+        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     # Update property with this new ruleset
@@ -117,37 +119,47 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(prefix):
-    config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(prefix))
+def generateConfigForBranch(source_branch, url_prefix):
+    # Get main.yml from Prod if we can
+    if source_branch.startswith("prod"):
+        config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(url_prefix))
+    else:
+        # Otherwise, get it from github
+        config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(source_branch))
+
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
         for fe_path in config[key]["frontend"]["paths"]:
             exclusions.extend(generateExclusions(fe_path, config))
         config[key]["frontend_exclude"] = exclusions
-    
     return config
     
 def main():
-    # Authenticate with EdgeGrid
-    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
-    util.initEdgeGridAuth()
-
     # Get the Cloud Services config files (main source of truth) for all configured releases
     releases = util.getYMLFromFile("../releases.yml")
     cs_config_list = []
     for env in releases:
+        source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
+        url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
+        content_path_prefix = releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else ""
+
         cs_config_list.append({
             "name": env,
-            "branch": releases[env]["branch"],
-            "prefix": releases[env]["prefix"] if "prefix" in releases[env] else "",
-            "config": generateConfigForBranch(releases[env]["prefix"] if "prefix" in releases[env] else "")
+            "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
+            "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
+            "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
+            "config": generateConfigForBranch(source_branch, url_prefix)
         })
 
     if len(sys.argv) > 2:
         property_env = sys.argv[2]
     else:
         property_env = "STAGING"
+
+    # Authenticate with EdgeGrid
+    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
+    util.initEdgeGridAuth()
 
     # Create a new version based off of the active Prod version
     new_version_number = createNewVersion(property_env)
