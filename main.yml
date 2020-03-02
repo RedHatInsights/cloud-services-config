@@ -200,6 +200,7 @@ dashboard:
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
     paths:
+      - /insights
       - /rhel
       - /rhel/dashboard
 
