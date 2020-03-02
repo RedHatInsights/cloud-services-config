@@ -34,23 +34,23 @@ def createNewVersion(property_env="STAGING"):
 
 # Creates a list of rules in the correct Akamai PM structure based on
 # the master_config (source of truth), and prepends paths with
-# global_path_prefix as appropriate.
-def createRulesForEnv(master_config, global_path_prefix=""):
+# url_path_prefix as appropriate.
+def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix=""):
     # First, add the rules for the landing page.
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
     rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
-    # If global path prefix exists, modify paths on landing page rules.
-    if global_path_prefix != "":
+    # If global path prefix exists, modify paths on landing page & storybook rules.
+    if url_path_prefix != "":
         for rule in rules:
             if rule["behaviors"][0]["name"] == "failAction":
-                rule["behaviors"][0]["options"]["contentPath"] = global_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
+                rule["behaviors"][0]["options"]["contentPath"] = content_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
             for x in range(len(rule["criteria"])):
                 if rule["criteria"][x]["name"] == "path":
                     for y in range(len(rule["criteria"][x]["options"]["values"])):
                         if rule["criteria"][x]["options"]["values"][y] == "/":
-                            rule["criteria"][x]["options"]["values"].append(global_path_prefix)
-                        rule["criteria"][x]["options"]["values"][y] = global_path_prefix + rule["criteria"][x]["options"]["values"][y]
+                            rule["criteria"][x]["options"]["values"].append(url_path_prefix)
+                        rule["criteria"][x]["options"]["values"][y] = url_path_prefix + rule["criteria"][x]["options"]["values"][y]
 
     # Create a template object to copy from (reduces number of read/write ops)
     rule_template = util.getJSONFromFile("./data/single_rule_template.json")
@@ -62,17 +62,17 @@ def createRulesForEnv(master_config, global_path_prefix=""):
             app_rule = copy.deepcopy(rule_template)
             app_rule["name"] = "/" + key
             app_path = app["frontend"]["app_base"] if "app_base" in app["frontend"] else key
-            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(global_path_prefix, app_path)
+            app_rule["behaviors"][0]["options"]["contentPath"] = "{}/apps/{}/index.html".format(content_path_prefix, app_path)
             for frontend_path in app["frontend"]["paths"]:
-                values = [global_path_prefix + frontend_path]
-                values += [global_path_prefix + frontend_path + "/*"]
+                values = [url_path_prefix + frontend_path]
+                values += [url_path_prefix + frontend_path + "/*"]
                 app_rule["criteria"][0]["options"]["values"].extend(values)
 
             if "frontend_exclude" in app and len(app["frontend_exclude"]) > 0:
                 app_criteria = copy.deepcopy(nomatch_template)
                 for nomatch in app["frontend_exclude"]:
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch)
-                    app_criteria["options"]["values"].append(global_path_prefix + nomatch + "/*")
+                    app_criteria["options"]["values"].append(url_path_prefix + nomatch)
+                    app_criteria["options"]["values"].append(url_path_prefix + nomatch + "/*")
                 app_rule["criteria"].append(app_criteria)
 
             rules.append(app_rule)
@@ -99,8 +99,12 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
         else:
             parent_rule["criteria"][0]["options"]["matchOperator"] = "MATCHES_ONE_OF"
             parent_rule["criteria"][0]["options"]["values"].extend([env["url_prefix"], env["url_prefix"] + "/*"])
+        
+        # Update pen-test cookie check, if necessary
+        if ("cookie_required" in env and env["cookie_required"]):
+            parent_rule["criteria"][1]["matchOperator"] = "EXISTS"
             
-        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"])
+        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     # Update property with this new ruleset
@@ -115,7 +119,7 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(hostname_prefix, url_prefix, content_path_prefix):
+def generateConfigForBranch(hostname_prefix, url_prefix):
     config = util.getYMLFromUrl("https://{}cloud.redhat.com{}/config/main.yml".format(hostname_prefix, url_prefix))
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
@@ -138,7 +142,8 @@ def main():
             "name": env,
             "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
             "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
-            "config": generateConfigForBranch(hostname_prefix, url_prefix, content_path_prefix)
+            "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
+            "config": generateConfigForBranch(hostname_prefix, url_prefix)
         })
 
     if len(sys.argv) > 2:

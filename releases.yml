@@ -11,12 +11,12 @@ Beta:
 PenTestStable:
   source_env: qa
   branch: qa-stable
-  cookie_required: true
+  cookie_required: True
   content_path_prefix: /pentest
 
 PenTestBeta:
   source_env: qa
   branch: qa-beta
-  cookie_required: true
+  cookie_required: True
   url_prefix: /beta
   content_path_prefix: /pentest/beta
