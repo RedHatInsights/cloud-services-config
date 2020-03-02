@@ -128,6 +128,7 @@ compliance:
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     paths:
+      - /insights/compliance
       - /rhel/compliance
     sub_apps:
       - id: ''
@@ -192,6 +193,7 @@ custom-policies:
   deployment_repo: https://github.com/RedHatInsights/custom-policies-ui-frontend-build
   frontend:
     paths: 
+      - /insights/custom-policies
       - /staging/custom-policies
 
 dashboard:
@@ -223,6 +225,7 @@ drift:
   frontend:
     title: Drift Analysis
     paths:
+      - /insights/drift
       - /rhel/drift
     sub_apps:
       - id: ''
@@ -343,6 +346,7 @@ patch:
   frontend:
     title: System Patch Manager
     paths:
+      - /insights/patch
       - /rhel/patch
   git_repo: https://github.com/RedHatInsights/patchman-ui
 
@@ -482,6 +486,7 @@ subscriptions:
   top_level: true
   frontend:
     paths:
+      - /insights/subscriptions
       - /subscriptions
     sub_apps:
       - id: rhel-sw
@@ -499,4 +504,5 @@ vulnerability:
   frontend:
     title: Vulnerability
     paths:
+      - /insights/vulnerability
       - /rhel/vulnerability
