@@ -236,8 +236,8 @@ insights:
       - id: overview
         title: Overview
         group: insights
-      - id: rules
-        title: Rules
+      - id: recommendations
+        title: Recommendations
         group: insights
       - id: topics
         title: Topics
