@@ -129,7 +129,6 @@ compliance:
   frontend:
     paths:
       - /insights/compliance
-      - /rhel/compliance
     sub_apps:
       - id: ''
         title: Reports
@@ -194,7 +193,6 @@ custom-policies:
   frontend:
     paths: 
       - /insights/custom-policies
-      - /staging/custom-policies
 
 dashboard:
   title: Dashboard
@@ -203,8 +201,7 @@ dashboard:
   frontend:
     paths:
       - /insights
-      - /rhel
-      - /rhel/dashboard
+      - /insights/dashboard
 
 docs:
   title: Documentation
@@ -226,7 +223,6 @@ drift:
     title: Drift Analysis
     paths:
       - /insights/drift
-      - /rhel/drift
     sub_apps:
       - id: ''
         title: System Comparison
@@ -282,7 +278,6 @@ inventory:
   frontend:
     title: Inventory
     paths:
-      - /rhel/inventory
       - /insights/inventory
 
 landing:
@@ -347,7 +342,6 @@ patch:
     title: System Patch Manager
     paths:
       - /insights/patch
-      - /rhel/patch
   git_repo: https://github.com/RedHatInsights/patchman-ui
 
 product:
@@ -392,7 +386,6 @@ remediations:
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
     paths:
-      - /rhel/remediations
       - /insights/remediations
 
 rhel-sw:
@@ -505,4 +498,3 @@ vulnerability:
     title: Vulnerability
     paths:
       - /insights/vulnerability
-      - /rhel/vulnerability
