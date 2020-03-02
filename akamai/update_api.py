@@ -40,11 +40,12 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="")
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
     rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
-    # If url path prefix exists, modify paths on landing page & storybook rules.
-    if url_path_prefix != "" or content_path_prefix != "":
-        for rule in rules:
+    # If either url path prefix or content path prefix exists, modify paths on landing page & storybook rules.
+    for rule in rules:
+        if content_path_prefix != "":
             if rule["behaviors"][0]["name"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = content_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
+        if url_path_prefix != "":
             for x in range(len(rule["criteria"])):
                 if rule["criteria"][x]["name"] == "path":
                     for y in range(len(rule["criteria"][x]["options"]["values"])):
