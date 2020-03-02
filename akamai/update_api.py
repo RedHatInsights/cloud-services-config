@@ -90,19 +90,17 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
     for env in master_config_list:
         parent_rule = copy.deepcopy(parent_rule_template)
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
-        parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF" if ("prefix" not in env or env["prefix"] == "") else "MATCHES_ONE_OF"
-        if ("prefix" not in env or env["prefix"] == ""):
-            parent_rule["criteria"][0]["options"]["values"].append("/api")
-            parent_rule["criteria"][0]["options"]["values"].append("/api/*")
+        if ("url_prefix" not in env or env["url_prefix"] == ""):
+            parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF"
+            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*"])
             # Each env should exclude matches for other envs.
-            for nomatch in (x for x in master_config_list if (x != env["name"] and "prefix" in x and x["prefix"] != "")):
-                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"])
-                parent_rule["criteria"][0]["options"]["values"].append(nomatch["prefix"] + "/*")
+            for nomatch in (x for x in master_config_list if (x != env["name"] and "url_prefix" in x and x["url_prefix"] != "")):
+                parent_rule["criteria"][0]["options"]["values"].extend([nomatch["url_prefix"], nomatch["url_prefix"] + "/*"])
         else:
-            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"])
-            parent_rule["criteria"][0]["options"]["values"].append(env["prefix"] + "/*")
+            parent_rule["criteria"][0]["options"]["matchOperator"] = "MATCHES_ONE_OF"
+            parent_rule["criteria"][0]["options"]["values"].extend([env["url_prefix"], env["url_prefix"] + "/*"])
             
-        parent_rule["children"] = createRulesForEnv(env["config"], env["prefix"])
+        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     # Update property with this new ruleset
@@ -117,37 +115,40 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(prefix):
-    config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(prefix))
+def generateConfigForBranch(hostname_prefix, url_prefix, content_path_prefix):
+    config = util.getYMLFromUrl("https://{}cloud.redhat.com{}/config/main.yml".format(hostname_prefix, url_prefix))
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
         for fe_path in config[key]["frontend"]["paths"]:
             exclusions.extend(generateExclusions(fe_path, config))
         config[key]["frontend_exclude"] = exclusions
-    
     return config
     
 def main():
-    # Authenticate with EdgeGrid
-    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
-    util.initEdgeGridAuth()
-
     # Get the Cloud Services config files (main source of truth) for all configured releases
     releases = util.getYMLFromFile("../releases.yml")
     cs_config_list = []
     for env in releases:
+        hostname_prefix = "{}.".format(releases[env]["source_env"]) if ("source_env" in releases[env] and "prod" != releases[env]["source_env"]) else ""
+        url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
+        content_path_prefix = releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else ""
+
         cs_config_list.append({
             "name": env,
-            "branch": releases[env]["branch"],
-            "prefix": releases[env]["prefix"] if "prefix" in releases[env] else "",
-            "config": generateConfigForBranch(releases[env]["prefix"] if "prefix" in releases[env] else "")
+            "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
+            "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
+            "config": generateConfigForBranch(hostname_prefix, url_prefix, content_path_prefix)
         })
 
     if len(sys.argv) > 2:
         property_env = sys.argv[2]
     else:
         property_env = "STAGING"
+
+    # Authenticate with EdgeGrid
+    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
+    util.initEdgeGridAuth()
 
     # Create a new version based off of the active Prod version
     new_version_number = createNewVersion(property_env)

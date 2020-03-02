@@ -1,6 +1,22 @@
 Stable:
+  source_env: prod
   branch: prod-stable
 
 Beta:
+  source_env: prod
   branch: prod-beta
-  prefix: /beta
+  url_prefix: /beta
+  content_path_prefix: /beta
+
+PenTestStable:
+  source_env: qa
+  branch: qa-stable
+  cookie_required: true
+  content_path_prefix: /pentest
+
+PenTestBeta:
+  source_env: qa
+  branch: qa-beta
+  cookie_required: true
+  url_prefix: /beta
+  content_path_prefix: /pentest/beta
