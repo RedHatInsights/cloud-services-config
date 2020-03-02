@@ -7,6 +7,8 @@ def main():
     # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
     util.initEdgeGridAuth()
 
+    waitForActivation = False
+
     if len(sys.argv) > 2:
         version_to_activate = sys.argv[2]
     else:
@@ -15,6 +17,8 @@ def main():
         environment = sys.argv[3]
     else:
         environment = "STAGING"
+    if len(sys.argv) > 4:
+        waitForActivation = (sys.argv[4].lower() == "true")
     
     previous_version = util.getLatestVersionNumber(environment)
     with open("previousversion.txt", "w") as f:
@@ -25,6 +29,10 @@ def main():
 
     # Activate on given env
     util.activateVersion(version_to_activate, environment)
+
+    # Wait, if necessary
+    if waitForActivation:
+        util.waitForActiveVersion(int(version_to_activate), environment)
 
 
 if __name__== "__main__":

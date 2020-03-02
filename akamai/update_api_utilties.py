@@ -3,6 +3,7 @@ import json
 import os
 import requests
 import sys
+import time
 import yaml
 from akamai.edgegrid import EdgeGridAuth, EdgeRc
 from urllib.parse import urljoin
@@ -17,7 +18,71 @@ def getJSONFromFile(path):
         return json.load(f)
 
 def getYMLFromUrl(url):
-    return yaml.safe_load(s.get(url).content.decode('utf-8'))
+    return yaml.safe_load(s.get(url, verify=False).content.decode('utf-8'))
+
+# Makes an API call requesting the latest version data for the property.
+def getLatestVersionNumber(env):
+    print("API - Getting version of latest activation in {}...".format(env))
+    data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
+    return data["versions"]["items"][0]["propertyVersion"]
+
+# Makes an API call to activate the specified version on the specified environment.
+def activateVersion(version_number, env="STAGING"):
+    # "notifyEmails" is unfortunately required for this API call.
+    # TODO: Set this to the team email list once that exists
+    body = {
+        "note": "Auto-generated activation",
+        "useFastFallback": "false",
+        "notifyEmails": [
+            "aprice@redhat.com"
+        ]
+    }
+    body["propertyVersion"] = version_number
+    body["network"] = env
+    print("API - Activating version {} on {}...".format(version_number, env))
+    response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    err = False
+
+    # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
+    # Acknowledging these warnings in the request body will allow the activation to work.
+    if "activationLink" in response:
+        print("Wow, first try! Version {} activated on {}.".format(version_number, env))
+    elif "status" in response and response["status"] == 400 and "warnings" in response:
+        warnings = []
+        for w in response["warnings"]:
+            warnings.append(w["messageId"])
+        body["acknowledgeWarnings"] = warnings
+        print("API - First activation request gave warnings. Acknowledging...")
+        response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+
+        # If it fails again, give up.
+        if "activationLink" in response:
+            print("Version {} beginning activation on {}.".format(version_number, env))
+        else:
+            err = True
+            print("Something went wrong while acknowledging warnings. Here's the response we got:")     
+    else:
+        err = True
+        print("Something went wrong on the first activation attempt. Here's the response we got:")
+    if err:
+        print(json.dumps(response))
+        print("The activaction failed. Please check out the above response to see what happened.") 
+
+def waitForActiveVersion(version_number, env="STAGING"):
+    print("Waiting for version {} to finish activating...".format(version_number))
+    active_version = ""
+    timeout = 180
+    while active_version != version_number:
+        time.sleep(10)
+        try:
+            active_version = getLatestVersionNumber(env)
+        except:
+            print("Failed to retrieve current version")
+        timeout -= 1
+        if(timeout == 0):
+            sys.exit("Retried too many times! New version not activated.")
+        print("Property active in {} is v{}".format(env, active_version))
+    print("Success! Property v{} now active on {}.".format(active_version, env))
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env):
