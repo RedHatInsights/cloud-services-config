@@ -1,3 +1,19 @@
+advisor:
+  title: Advisor
+  api:
+    versions:
+      - v1
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  frontend:
+    paths:
+      - /insights/advisor
+    sub_apps:
+      - id: rules
+        title: Rules
+      - id: topics
+        title: Topics
+
 ansible:
   title: Red Hat Ansible Automation Platform
   frontend:
@@ -236,25 +252,18 @@ ingress:
 
 insights:
   title: Insights
-  api:
-    versions:
-      - v1
-  channel: '#advisor'
-  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
     title: Red Hat Insights
-    paths:
-      - /insights
     sub_apps:
-      - id: overview
-        title: Overview
-        group: insights
-      - id: rules
-        title: Rules
-        group: insights
-      - id: topics
-        title: Topics
-        group: insights
+      - id: dashboard
+        default: true
+      - id: advisor
+      - id: vulnerability
+      - id: compliance
+      - id: custom-policies
+      - id: drift
+      - id: subscriptions
+      - id: patch
       - id: inventory
       - id: remediations
   top_level: true
@@ -380,19 +389,6 @@ remediations:
     paths:
       - /rhel/remediations
       - /insights/remediations
-
-rhel:
-  title: Cloud Management Services
-  frontend:
-    sub_apps:
-      - id: dashboard
-        default: true
-      - id: vulnerability
-      - id: compliance
-      - id: drift
-      - id: inventory
-      - id: remediations
-  top_level: true
 
 rhel-sw:
   title: Red Hat Enterprise Linux
