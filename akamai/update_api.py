@@ -119,8 +119,14 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(hostname_prefix, url_prefix):
-    config = util.getYMLFromUrl("https://{}cloud.redhat.com{}/config/main.yml".format(hostname_prefix, url_prefix))
+def generateConfigForBranch(source_branch, url_prefix):
+    # Get main.yml from Prod if we can
+    if source_branch.startswith("prod"):
+        config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(url_prefix))
+    else:
+        # Otherwise, get it from github
+        config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(source_branch))
+
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
     for key in (x for x in config.keys() if "frontend" in config[x] and "paths" in config[x]["frontend"]):
         exclusions = []
@@ -134,7 +140,7 @@ def main():
     releases = util.getYMLFromFile("../releases.yml")
     cs_config_list = []
     for env in releases:
-        hostname_prefix = "{}.".format(releases[env]["source_env"]) if ("source_env" in releases[env] and "prod" != releases[env]["source_env"]) else ""
+        source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
         url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
         content_path_prefix = releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else ""
 
@@ -143,7 +149,7 @@ def main():
             "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
             "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
             "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
-            "config": generateConfigForBranch(hostname_prefix, url_prefix)
+            "config": generateConfigForBranch(source_branch, url_prefix)
         })
 
     if len(sys.argv) > 2:
