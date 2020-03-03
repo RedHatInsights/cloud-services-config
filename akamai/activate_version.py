@@ -4,7 +4,6 @@ import update_api_utilties as util
 
 def main():
     # Authenticate with EdgeGrid
-    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
     util.initEdgeGridAuth()
 
     waitForActivation = False
