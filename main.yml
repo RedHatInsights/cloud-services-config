@@ -106,11 +106,19 @@ catalog:
     sub_apps:
       - id: products
         title: Products
-        default: true
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:portfolios:create]
       - id: portfolios
         title: Portfolios
+        default: true
       - id: platforms
         title: Platforms
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:portfolios:create]
       - id: orders
         title: Orders
       - id: approval
