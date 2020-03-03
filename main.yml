@@ -106,10 +106,6 @@ catalog:
     sub_apps:
       - id: products
         title: Products
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:portfolios:create]
       - id: portfolios
         title: Portfolios
         default: true
