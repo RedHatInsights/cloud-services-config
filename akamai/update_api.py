@@ -159,7 +159,6 @@ def main():
         property_env = "STAGING"
 
     # Authenticate with EdgeGrid
-    # TODO: Change this authentication to get rid of the httpie dependency. Apprently there's a vulnerability
     util.initEdgeGridAuth()
 
     # Create a new version based off of the active Prod version
