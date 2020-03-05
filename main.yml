@@ -492,6 +492,19 @@ subscriptions:
         title: Red Hat OpenShift
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
 
+user-preferences:
+  title: User preferences
+  deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
+  top_level: true
+  frontend:
+    title: User preferences
+    paths:
+      - /user-preferences
+    sub_apps:
+      - id: email
+        title: Email preferences
+        default: true
+
 vulnerability:
   title: Vulnerability Management
   api:
