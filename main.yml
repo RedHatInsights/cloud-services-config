@@ -336,7 +336,7 @@ openshift:
   top_level: true
 
 patch:
-  title: System Patch Manager
+  title: Patch
   api:
     versions:
       - v1
