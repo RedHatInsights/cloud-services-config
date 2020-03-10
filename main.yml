@@ -3,6 +3,7 @@ advisor:
   api:
     versions:
       - v1
+    apiName: insights
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
