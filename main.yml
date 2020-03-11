@@ -81,15 +81,14 @@ catalog:
     versions:
       - v1
     isBeta: true
-  channel: '#insights-svc-portal'
+  channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
     paths:
-      - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
-      - id: portfolios
-        title: Portfolios
+      - id: products
+        title: products
         default: true
       - id: platforms
         title: Platforms
