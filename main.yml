@@ -243,6 +243,7 @@ rbac:
   frontend:
     title: User access
     paths:
+      - /settings
       - /settings/rbac
     sub_apps:
       - id: groups
@@ -302,14 +303,6 @@ settings:
       - id: rbac
         default: true
       - id: applications
-
-settings-general:
-  title: General
-  frontend:
-    app_base: applications
-    paths:
-      - /settings
-      - /settings/general
 
 sources:
   title: Discovered Inventory
