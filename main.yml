@@ -88,7 +88,7 @@ catalog:
       - /ansible/catalog
     sub_apps:
       - id: products
-        title: products
+        title: Products
         default: true
       - id: platforms
         title: Platforms
