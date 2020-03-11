@@ -23,6 +23,10 @@ applications:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args:
+            - insights
     paths:
       - /settings/applications
 
@@ -337,16 +341,24 @@ product:
         reload: product/cloud-management-services
 
 rbac:
-  title: Role-based Access Control
+  title: User access
   api:
     versions:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    title: User Access Management
+    title: User access
     paths:
       - /settings/rbac
+    sub_apps:
+    - id: groups
+      title: Groups
+      default: true
+    - id: roles
+      title: Roles
+    - id: users
+      title: Users
 
 remediations:
   title: Remediations
