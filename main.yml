@@ -22,6 +22,10 @@ applications:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args:
+            - insights
     paths:
       - /settings/applications
       
@@ -282,23 +286,26 @@ ruledev:
     paths:
       - /staging/ruledev
 
-settings-ansible:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
-        reload: settings/sources
-      - id: rbac
-    suppress_id: true
-
 settings:
   title: Settings
   top_level: true
   frontend:
     sub_apps:
-      - id: rbac
+      - id: general
+        title: General
         default: true
+      - id: hooks
+      - id: sources
+      - id: rbac
       - id: applications
+
+settings-general:
+  title: General
+  frontend:
+    app_base: applications
+    paths:
+      - /settings
+      - /settings/general
 
 sources:
   title: Discovered Inventory
@@ -311,9 +318,7 @@ sources:
   frontend:
     title: Sources
     paths:
-      - /insights/settings/sources
-      - /ansible/settings/sources
-    reload: settings/sources
+      - /settings/sources
 
 staging:
   title: Staging Bundle
