@@ -298,12 +298,9 @@ settings:
   top_level: true
   frontend:
     sub_apps:
-      - id: general
-        title: General
-        default: true
-      - id: hooks
       - id: sources
       - id: rbac
+        default: true
       - id: applications
 
 settings-general:
