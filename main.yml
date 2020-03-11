@@ -50,6 +50,8 @@ applications:
           method: isEntitled
           args:
             - cost-management
+      - id: custom-policies
+        title: Custom Policies
     paths:
       - /settings/applications
 
@@ -199,6 +201,9 @@ cost-management:
 
 custom-policies:
   title: Custom Policies
+  api:
+    versions:
+      - v1
   channel: '#cloudservices-custom-policies'
   deployment_repo: https://github.com/RedHatInsights/custom-policies-ui-frontend-build
   frontend:
