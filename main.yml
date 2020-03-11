@@ -351,6 +351,14 @@ rbac:
     title: User access
     paths:
       - /settings/rbac
+    sub_apps:
+    - id: groups
+      title: Groups
+      default: true
+    - id: roles
+      title: Roles
+    - id: users
+      title: Users
 
 remediations:
   title: Remediations
