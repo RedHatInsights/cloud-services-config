@@ -90,6 +90,8 @@ catalog:
       - id: products
         title: Products
         default: true
+      - id: portfolios
+        title: Portfolios
       - id: platforms
         title: Platforms
       - id: orders
