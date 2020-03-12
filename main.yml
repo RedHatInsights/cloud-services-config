@@ -22,8 +22,11 @@ applications:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args:
+            - insights
     paths:
-      - /settings
       - /settings/applications
       
 approval:
@@ -230,6 +233,27 @@ openshift:
         title: Subscriptions
         group: openshift
   top_level: true
+  
+rbac:
+  title: Role-based Access Control
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  frontend:
+    title: User access
+    paths:
+      - /settings
+      - /settings/rbac
+    sub_apps:
+      - id: groups
+        title: Groups
+        default: true
+      - id: roles
+        title: Roles
+      - id: users
+        title: Users
 
 remediations:
   title: Remediations
@@ -271,22 +295,15 @@ ruledev:
     paths:
       - /staging/ruledev
 
-settings-ansible:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
-        reload: settings/sources
-      - id: rbac
-    suppress_id: true
-
 settings:
   title: Settings
   top_level: true
   frontend:
     sub_apps:
-      - id: applications
+      - id: sources
+      - id: rbac
         default: true
+      - id: applications
 
 sources:
   title: Discovered Inventory
@@ -299,9 +316,7 @@ sources:
   frontend:
     title: Sources
     paths:
-      - /insights/settings/sources
-      - /ansible/settings/sources
-    reload: settings/sources
+      - /settings/sources
 
 staging:
   title: Staging Bundle
