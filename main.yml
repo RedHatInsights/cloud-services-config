@@ -49,7 +49,7 @@ applications:
         permissions:
           method: isEntitled
           args:
-            - cost-management
+            - cost_management
       - id: custom-policies
         title: Custom Policies
     paths:
