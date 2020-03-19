@@ -50,8 +50,6 @@ applications:
           method: isEntitled
           args:
             - cost_management
-      - id: custom-policies
-        title: Custom Policies
     paths:
       - /settings/applications
 
