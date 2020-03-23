@@ -197,16 +197,16 @@ cost-management:
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
-custom-policies:
-  title: Custom Policies
+policies:
+  title: Policies
   api:
     versions:
       - v1
-  channel: '#cloudservices-custom-policies'
-  deployment_repo: https://github.com/RedHatInsights/custom-policies-ui-frontend-build
+  channel: '#cloudservices-policies'
+  deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
-    paths: 
-      - /insights/custom-policies
+    paths:
+      - /insights/policies
 
 dashboard:
   title: Dashboard
@@ -274,7 +274,7 @@ insights:
       - id: advisor
       - id: vulnerability
       - id: compliance
-      - id: custom-policies
+      - id: policies
       - id: drift
       - id: subscriptions
       - id: patch
@@ -472,7 +472,7 @@ staging:
   frontend:
     sub_apps:
       - id: ruledev
-      - id: custom-policies
+      - id: policies
   top_level: true
 
 storybook:
