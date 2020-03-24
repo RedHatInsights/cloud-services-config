@@ -353,7 +353,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
-    title: System Patch Manager
+    title: Patch
     paths:
       - /insights/patch
   git_repo: https://github.com/RedHatInsights/patchman-ui
