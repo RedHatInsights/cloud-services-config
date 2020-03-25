@@ -77,11 +77,13 @@ automation-analytics:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: ''
+      - id: clusters
         title: Clusters
         default: true
       - id: organization-statistics
         title: Organization statistics
+      - id: notifications
+        title: Notifications
 
 automation-hub:
   title: Automation Hub
