@@ -184,20 +184,25 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: ocp-cloud
-        title: OpenShift cloud infrastructure details
-        group: cost-management
-      - id: ocp
-        title: OpenShift details
-        group: cost-management
-      - id: aws
-        title: Cloud details
+      - id: details
         group: cost-management
       - id: cost-models
         title: Cost models
         group: cost-management
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
+
+details:
+  title: Details
+  frontend:
+    paths:
+      - /cost-management/details
+    sub_apps:
+      - id: ocp
+        title: OpenShift
+        default: true
+      - id: infrastructure
+        title: Infrastructure
 
 policies:
   title: Policies
