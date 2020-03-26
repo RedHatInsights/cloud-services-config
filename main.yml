@@ -50,6 +50,7 @@ applications:
           method: isEntitled
           args:
             - cost_management
+          method: isOrgAdmin
     paths:
       - /settings/applications
 
