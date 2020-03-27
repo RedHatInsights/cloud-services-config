@@ -241,12 +241,12 @@ drift:
       - v1
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
-    title: Drift Analysis
+    title: Drift
     paths:
       - /insights/drift
     sub_apps:
       - id: ''
-        title: System Comparison
+        title: Comparison
         default: true
         reload: drift
       - id: baselines
