@@ -237,7 +237,6 @@ migration-analytics:
       - /migrations
       - /migrations/migration-analytics
   git_repo: https://github.com/project-xavier/xavier-ui
-  mailing_list: migration-analytics-devel@redhat.com
 
 openshift:
   title: OpenShift (OCM)
