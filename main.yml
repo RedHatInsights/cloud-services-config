@@ -36,6 +36,10 @@ api-docs:
 applications:
   title: Applications
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  permissions:
+    method: isOrgAdmin
+    apps:
+      - cost-management
   frontend:
     sub_apps:
       - id: insights
@@ -47,7 +51,9 @@ applications:
       - id: cost-management
         title: Cost Management
         permissions:
-          method: isOrgAdmin
+          method: isEntitled
+          args:
+            - cost_management
     paths:
       - /settings/applications
 
