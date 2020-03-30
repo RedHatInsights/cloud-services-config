@@ -21,8 +21,9 @@ Here is some example configuration that demonstrates the structure, using all re
     disabled_on_prod: true
     docs: https://link.to.docs.com/docs
     permissions:
-        method: isEntitled
-        args: insights
+        method: isOrgAdmin
+        apps:
+            - app_id_1
     frontend:
         title: App Title Override
         paths:
@@ -34,7 +35,7 @@ Here is some example configuration that demonstrates the structure, using all re
                 title: Some Sub App
                 default: true
                 permissions:
-                    method: isOrgAdmin
+                    method: isEntitled
                     args:
                         - insights
             -   id: app_id_2
@@ -144,6 +145,10 @@ If you want to hide any navigational element based on some chrome's logic, this 
 #### permissions.args
 
 If the `permissions.method` requires some arguments in order to properly work, this is how to pass them to it: an array of items.
+
+#### permissions.apps
+
+If you want to control visibility for multiple navigation items you can specify one permission per entry and list which apps from `frontend.sub_apps` should be checked.
 
 ## Akamai API Access
 
