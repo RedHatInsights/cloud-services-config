@@ -205,7 +205,7 @@ details:
       - id: ocp
         title: OpenShift
         default: true
-      - id: infrastructure
+      - id: aws
         title: Infrastructure
 
 policies:
