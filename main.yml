@@ -199,8 +199,6 @@ cost-management:
 details:
   title: Details
   frontend:
-    paths:
-      - /cost-management/details
     sub_apps:
       - id: ocp
         title: OpenShift
