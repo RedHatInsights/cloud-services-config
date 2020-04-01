@@ -202,7 +202,6 @@ details:
     sub_apps:
       - id: ocp
         title: OpenShift
-        default: true
       - id: aws
         title: Infrastructure
 
