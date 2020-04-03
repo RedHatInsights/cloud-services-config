@@ -161,13 +161,13 @@ cost-management:
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
-custom-policies:
-  title: Custom Policies
-  channel: '#cloudservices-custom-policies'
-  deployment_repo: https://github.com/RedHatInsights/custom-policies-ui-frontend-build
+policies:
+  title: Policies
+  channel: '#cloudservices-policies'
+  deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
-    paths: 
-      - /staging/custom-policies
+    paths:
+      - /insights/policies
 
 dashboard:
   title: Dashboard
@@ -454,7 +454,6 @@ staging:
   frontend:
     sub_apps:
       - id: ruledev
-      - id: custom-policies
   top_level: true
 
 storybook:
