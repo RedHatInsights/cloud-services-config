@@ -1,3 +1,20 @@
+advisor:
+  title: Advisor
+  api:
+    versions:
+      - v1
+    apiName: insights
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  frontend:
+    paths:
+      - /insights/advisor
+    sub_apps:
+      - id: recommendations
+        title: Recommendations
+      - id: topics
+        title: Topics
+
 ansible:
   title: Red Hat Ansible Automation Platform
   frontend:
@@ -19,6 +36,10 @@ api-docs:
 applications:
   title: Applications
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  permissions:
+    method: isOrgAdmin
+    apps:
+      - cost-management
   frontend:
     sub_apps:
       - id: insights
@@ -27,6 +48,12 @@ applications:
           method: isEntitled
           args:
             - insights
+      - id: cost-management
+        title: Cost Management
+        permissions:
+          method: isEntitled
+          args:
+            - cost_management
     paths:
       - /settings/applications
 
@@ -54,11 +81,13 @@ automation-analytics:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: ''
+      - id: clusters
         title: Clusters
         default: true
       - id: organization-statistics
-        title: Organization Statistics
+        title: Organization statistics
+      - id: notifications
+        title: Notifications
 
 automation-hub:
   title: Automation Hub
@@ -73,11 +102,11 @@ automation-hub:
       - id: partners
         title: Partners
       - id: my-namespaces
-        title: My Namespaces
+        title: My namespaces
   git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
-  title: Catalog
+  title: Automation Services Catalog
   api:
     versions:
       - v1
@@ -90,11 +119,15 @@ catalog:
     sub_apps:
       - id: products
         title: Products
-        default: true
       - id: portfolios
         title: Portfolios
+        default: true
       - id: platforms
         title: Platforms
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:portfolios:create]
       - id: orders
         title: Orders
       - id: approval
@@ -108,10 +141,19 @@ compliance:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     paths:
-      - /rhel/compliance
+      - /insights/compliance
+    sub_apps:
+      - id: ''
+        title: Reports
+        default: true
+      - id: policies
+        title: Policies
+      - id: systems
+        title: Systems
 
 config:
   title: Cloud Services Config
@@ -146,14 +188,7 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: ocp-cloud
-        title: OpenShift cloud infrastructure details
-        group: cost-management
-      - id: ocp
-        title: OpenShift details
-        group: cost-management
-      - id: aws
-        title: Cloud details
+      - id: details
         group: cost-management
       - id: cost-models
         title: Cost models
@@ -161,8 +196,20 @@ cost-management:
   git_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
+details:
+  title: Details
+  frontend:
+    sub_apps:
+      - id: ocp
+        title: OpenShift
+      - id: aws
+        title: Infrastructure
+
 policies:
   title: Policies
+  api:
+    versions:
+      - v1
   channel: '#cloudservices-policies'
   deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
@@ -175,8 +222,8 @@ dashboard:
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
     paths:
-      - /rhel
-      - /rhel/dashboard
+      - /insights
+      - /insights/dashboard
 
 docs:
   title: Documentation
@@ -197,7 +244,7 @@ drift:
   frontend:
     title: Drift
     paths:
-      - /rhel/drift
+      - /insights/drift
     sub_apps:
       - id: ''
         title: Comparison
@@ -227,25 +274,18 @@ ingress:
 
 insights:
   title: Insights
-  api:
-    versions:
-      - v1
-  channel: '#advisor'
-  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
     title: Red Hat Insights
-    paths:
-      - /insights
     sub_apps:
-      - id: overview
-        title: Overview
-        group: insights
-      - id: recommendations
-        title: Recommendations
-        group: insights
-      - id: topics
-        title: Topics
-        group: insights
+      - id: dashboard
+        default: true
+      - id: advisor
+      - id: vulnerability
+      - id: compliance
+      - id: policies
+      - id: drift
+      - id: subscriptions
+      - id: patch
       - id: inventory
       - id: remediations
   top_level: true
@@ -260,7 +300,6 @@ inventory:
   frontend:
     title: Inventory
     paths:
-      - /rhel/inventory
       - /insights/inventory
 
 landing:
@@ -313,7 +352,7 @@ openshift:
   top_level: true
 
 patch:
-  title: System Patch Manager
+  title: Patch
   api:
     versions:
       - v1
@@ -321,9 +360,9 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
-    title: System Patch Manager
+    title: Patch
     paths:
-      - /rhel/patch
+      - /insights/patch
   git_repo: https://github.com/RedHatInsights/patchman-ui
 
 product:
@@ -340,7 +379,7 @@ product:
         reload: product/cloud-management-services
 
 rbac:
-  title: User access
+  title: Role-based Access Control
   api:
     versions:
       - v1
@@ -351,13 +390,13 @@ rbac:
     paths:
       - /settings/rbac
     sub_apps:
-    - id: groups
-      title: Groups
-      default: true
-    - id: roles
-      title: Roles
-    - id: users
-      title: Users
+      - id: groups
+        title: Groups
+        default: true
+      - id: roles
+        title: Roles
+      - id: users
+        title: Users
 
 remediations:
   title: Remediations
@@ -368,21 +407,7 @@ remediations:
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
     paths:
-      - /rhel/remediations
       - /insights/remediations
-
-rhel:
-  title: Cloud Management Services
-  frontend:
-    sub_apps:
-      - id: dashboard
-        default: true
-      - id: vulnerability
-      - id: compliance
-      - id: drift
-      - id: inventory
-      - id: remediations
-  top_level: true
 
 rhel-sw:
   title: Red Hat Enterprise Linux
@@ -454,6 +479,7 @@ staging:
   frontend:
     sub_apps:
       - id: ruledev
+      - id: policies
   top_level: true
 
 storybook:
@@ -468,19 +494,34 @@ subscriptions:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   top_level: true
   frontend:
     paths:
+      - /insights/subscriptions
       - /subscriptions
     sub_apps:
       - id: rhel-sw
         default: true
+        group: subscriptions
       - id: openshift-sw
         title: Red Hat OpenShift
+        group: subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+
+user-preferences:
+  title: User preferences
+  deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
+  top_level: true
+  frontend:
+    title: User preferences
+    paths:
+      - /user-preferences
+    sub_apps:
+      - id: email
+        title: Email preferences
+        default: true
 
 vulnerability:
   title: Vulnerability Management
@@ -491,4 +532,4 @@ vulnerability:
   frontend:
     title: Vulnerability
     paths:
-      - /rhel/vulnerability
+      - /insights/vulnerability
