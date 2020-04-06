@@ -234,7 +234,38 @@
                 ],
                 "criteriaMustSatisfy": "all",
                 "name": "Cloud Services Frontend",
-                "children": []
+                "children": [
+                    {
+                        "name": "Beta RHEL -> Insights",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "rewriteUrl",
+                                "options": {
+                                    "behavior": "REPLACE",
+                                    "keepQueryString": true,
+                                    "match": "/beta/rhel/",
+                                    "targetPath": "/beta/insights/",
+                                    "matchMultiple": false
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "MATCHES_ONE_OF",
+                                    "values": [
+                                        "/beta/rhel",
+                                        "/beta/rhel/*"
+                                    ],
+                                    "matchCaseSensitive": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    }
+                ]
             },
             {
                 "name": "/status",
