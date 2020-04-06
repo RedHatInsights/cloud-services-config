@@ -240,14 +240,33 @@
                         "children": [],
                         "behaviors": [
                             {
-                                "name": "rewriteUrl",
-                                "options": {
-                                    "behavior": "REPLACE",
-                                    "keepQueryString": true,
-                                    "match": "/beta/rhel/",
-                                    "targetPath": "/beta/insights/",
-                                    "matchMultiple": false
-                                }
+                                "name": "Redirect /beta/rhel -> /beta/insights",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "rewriteUrl",
+                                        "options": {
+                                            "behavior": "REGEX_REPLACE",
+                                            "keepQueryString": true,
+                                            "matchMultiple": false,
+                                            "matchRegex": "\\/beta\\/rhel",
+                                            "targetRegex": "\\/beta\\/insights"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/rhel*"
+                                            ],
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
                             }
                         ],
                         "criteria": [
