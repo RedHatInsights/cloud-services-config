@@ -236,40 +236,20 @@
                 "name": "Cloud Services Frontend",
                 "children": [
                     {
-                        "name": "Beta RHEL -> Insights",
+                        "name": "Redirect Beta RHEL -> Insights",
                         "children": [],
                         "behaviors": [
                             {
-                                "name": "Redirect /beta/rhel -> /beta/insights",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/insights"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/rhel",
-                                                "/beta/rhel/*"
-                                            ],
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
+                                "name": "redirect",
+                                "options": {
+                                    "mobileDefaultChoice": "DEFAULT",
+                                    "destinationProtocol": "SAME_AS_REQUEST",
+                                    "destinationHostname": "SAME_AS_REQUEST",
+                                    "destinationPath": "OTHER",
+                                    "queryString": "APPEND",
+                                    "responseCode": 301,
+                                    "destinationPathOther": "/beta/insights"
+                                }
                             }
                         ],
                         "criteria": [
@@ -286,7 +266,7 @@
                             }
                         ],
                         "criteriaMustSatisfy": "all"
-                    }
+                    } 
                 ]
             },
             {
