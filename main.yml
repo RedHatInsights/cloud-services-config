@@ -284,7 +284,6 @@ insights:
       - id: compliance
       - id: policies
       - id: drift
-      - id: subscriptions
       - id: patch
       - id: inventory
       - id: remediations
