@@ -244,13 +244,15 @@
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "rewriteUrl",
+                                        "name": "redirect",
                                         "options": {
-                                            "behavior": "REGEX_REPLACE",
-                                            "keepQueryString": true,
-                                            "matchMultiple": false,
-                                            "matchRegex": "\\/beta\\/rhel",
-                                            "targetRegex": "\\/beta\\/insights"
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights"
                                         }
                                     }
                                 ],
@@ -260,7 +262,8 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/rhel*"
+                                                "/beta/rhel",
+                                                "/beta/rhel/*"
                                             ],
                                             "matchCaseSensitive": false
                                         }
