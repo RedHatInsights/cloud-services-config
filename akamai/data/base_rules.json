@@ -385,7 +385,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/rhel/drift"
+                                                "/beta/rhel/drift*"
                                             ],
                                             "matchCaseSensitive": false
                                         }
