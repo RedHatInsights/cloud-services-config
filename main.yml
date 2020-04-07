@@ -282,9 +282,9 @@ insights:
       - id: advisor
       - id: vulnerability
       - id: compliance
-      - id: policies
-      - id: drift
       - id: patch
+      - id: drift
+      - id: policies
       - id: inventory
       - id: remediations
   top_level: true
