@@ -48,12 +48,14 @@ applications:
           method: isEntitled
           args:
             - insights
+        reload: applications/insights
       - id: cost-management
         title: Cost Management
         permissions:
           method: isEntitled
           args:
             - cost_management
+        reload: applications/cost-management
     paths:
       - /settings/applications
 
