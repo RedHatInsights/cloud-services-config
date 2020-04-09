@@ -204,8 +204,10 @@ details:
     sub_apps:
       - id: ocp
         title: OpenShift
+        group: cost-management
       - id: aws
         title: Infrastructure
+        group: cost-management
 
 policies:
   title: Policies
