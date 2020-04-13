@@ -150,8 +150,8 @@ compliance:
       - id: ''
         title: Reports
         default: true
-      - id: policies
-        title: Policies
+      - id: scappolicies
+        title: SCAP Policies
       - id: systems
         title: Systems
 
