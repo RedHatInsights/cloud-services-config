@@ -88,6 +88,8 @@ automation-analytics:
         default: true
       - id: organization-statistics
         title: Organization statistics
+      - id: automation-calculator
+        title: Automation Calculator
       - id: notifications
         title: Notifications
 
