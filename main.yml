@@ -254,6 +254,10 @@ drift:
         title: Baselines
         reload: drift/baselines
 
+frontend-assets:
+  title: Frontend Assets
+  deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
+
 hooks:
   title: Web Hooks Service
   api:
@@ -387,6 +391,7 @@ rbac:
   frontend:
     title: User access
     paths:
+      - /settings
       - /settings/rbac
     sub_apps:
       - id: groups
@@ -444,21 +449,11 @@ settings:
   top_level: true
   frontend:
     sub_apps:
-      - id: general
-        title: General
+      - id: rbac
         default: true
       - id: hooks
       - id: sources
-      - id: rbac
       - id: applications
-
-settings-general:
-  title: General
-  frontend:
-    app_base: applications
-    paths:
-      - /settings
-      - /settings/general
 
 sources:
   title: Discovered Inventory
