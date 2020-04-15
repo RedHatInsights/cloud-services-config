@@ -1,3 +1,20 @@
+advisor:
+  title: Advisor
+  api:
+    versions:
+      - v1
+    apiName: insights
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  frontend:
+    paths:
+      - /insights/advisor
+    sub_apps:
+      - id: recommendations
+        title: Recommendations
+      - id: topics
+        title: Topics
+
 ansible:
   title: Red Hat Ansible Automation Platform
   frontend:
@@ -107,7 +124,7 @@ compliance:
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     paths:
-      - /rhel/compliance
+      - /insights/compliance
 
 config:
   title: Cloud Services Config
@@ -119,8 +136,8 @@ dashboard:
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
     paths:
-      - /rhel
-      - /rhel/dashboard
+      - /insights
+      - /insights/dashboard
 
 docs:
   title: Documentation
@@ -141,7 +158,7 @@ drift:
   frontend:
     title: Drift
     paths:
-      - /rhel/drift
+      - /insights/drift
     sub_apps:
       - id: ''
         title: Comparison
@@ -171,25 +188,17 @@ ingress:
 
 insights:
   title: Insights
-  api:
-    versions:
-      - v1
-  channel: '#advisor'
-  deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
     title: Red Hat Insights
-    paths:
-      - /insights
     sub_apps:
-      - id: overview
-        title: Overview
-        group: insights
-      - id: rules
-        title: Rules
-        group: insights
-      - id: topics
-        title: Topics
-        group: insights
+      - id: dashboard
+        default: true
+      - id: advisor
+      - id: vulnerability
+      - id: compliance
+      - id: patch
+      - id: drift
+      - id: policies
       - id: inventory
       - id: remediations
   top_level: true
@@ -204,7 +213,6 @@ inventory:
   frontend:
     title: Inventory
     paths:
-      - /rhel/inventory
       - /insights/inventory
 
 landing:
@@ -255,7 +263,32 @@ openshift:
         title: Subscriptions
         group: openshift
   top_level: true
-  
+
+patch:
+  title: Patch
+  api:
+    versions:
+      - v1
+    isBeta: true
+  channel: '#team-patchman'
+  deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
+  frontend:
+    title: Patch
+    paths:
+      - /insights/patch
+  git_repo: https://github.com/RedHatInsights/patchman-ui
+
+policies:
+  title: Policies
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-policies'
+  deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
+  frontend:
+    paths:
+      - /insights/policies
+
 rbac:
   title: Role-based Access Control
   api:
@@ -278,21 +311,7 @@ remediations:
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
     paths:
-      - /rhel/remediations
       - /insights/remediations
-
-rhel:
-  title: Cloud Management Services
-  frontend:
-    sub_apps:
-      - id: dashboard
-        default: true
-      - id: vulnerability
-      - id: compliance
-      - id: drift
-      - id: inventory
-      - id: remediations
-  top_level: true
 
 rhel-sw:
   title: Red Hat Enterprise Linux
@@ -405,4 +424,4 @@ vulnerability:
   frontend:
     title: Vulnerability
     paths:
-      - /rhel/vulnerability
+      - /insights/vulnerability
