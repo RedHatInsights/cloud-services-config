@@ -258,6 +258,7 @@ drift:
       - id: baselines
         title: Baselines
         reload: drift/baselines
+
 frontend-assets:
   title: Frontend Assets
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
