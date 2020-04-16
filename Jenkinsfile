@@ -6,8 +6,8 @@ node {
   properties([disableConcurrentBuilds()])
 
   stage ("create backup for old YAML files") {
-    String APP_NAME = "__APP_NAME__"
-    String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
+    APP_NAME = "__APP_NAME__"
+    BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
       STAGETESTSTR = "\'stage and stable\'"
