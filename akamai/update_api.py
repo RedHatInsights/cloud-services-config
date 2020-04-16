@@ -120,12 +120,14 @@ def generateExclusions(frontend_path, config):
                 exclusions.append(path)
     return exclusions
 
-def generateConfigForBranch(source_branch, url_prefix):
-    # Get main.yml from Prod if we can
-    if source_branch.startswith("prod"):
+def generateConfigForBranch(source_branch, url_prefix, local_branch):
+    # Get main.yml from c.rh.c Prod if we can
+    if source_branch == local_branch:
+        config = util.getYMLFromFile("../main.yml")
+    elif source_branch.startswith("prod"):
         config = util.getYMLFromUrl("https://cloud.redhat.com{}/config/main.yml".format(url_prefix))
     else:
-        # Otherwise, get it from github
+        # Otherwise, get it from github; Jenkins can't talk to our pre-prod envs.
         config = util.getYMLFromUrl("https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/{}/main.yml".format(source_branch))
 
     # For every app in config, check all other apps to see if they have a frontend_path that contains its frontend_paths.
@@ -139,6 +141,14 @@ def generateConfigForBranch(source_branch, url_prefix):
 def main():
     # Get the Cloud Services config files (main source of truth) for all configured releases
     releases = util.getYMLFromFile("../releases.yml")
+
+    # This arg will be either "prod-stable" or "prod-beta", and tells us which release our local main.yml is for.
+    # This guarantees that the newest main.yml is used instead of the one it intends to replace.
+    if len(sys.argv) > 3:
+        local_branch = sys.argv[3]
+    else:
+        local_branch = "prod-stable"
+
     cs_config_list = []
     for env in releases:
         source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
@@ -150,7 +160,7 @@ def main():
             "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
             "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
             "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
-            "config": generateConfigForBranch(source_branch, url_prefix)
+            "config": generateConfigForBranch(source_branch, url_prefix, local_branch)
         })
 
     if len(sys.argv) > 2:
