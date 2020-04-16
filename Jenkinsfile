@@ -38,7 +38,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./update_api.py $EDGERC STAGING"
+          sh "python3 ./update_api.py $EDGERC STAGING $BRANCH"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
