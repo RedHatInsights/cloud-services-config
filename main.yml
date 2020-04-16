@@ -391,7 +391,6 @@ rbac:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
     title: User access
