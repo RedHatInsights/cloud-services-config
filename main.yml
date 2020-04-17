@@ -385,7 +385,6 @@ sources:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
