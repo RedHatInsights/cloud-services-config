@@ -41,7 +41,7 @@ applications:
         title: Insights
     paths:
       - /settings/applications
-      
+
 approval:
   title: Approval
   api:
@@ -125,6 +125,14 @@ compliance:
   frontend:
     paths:
       - /insights/compliance
+    sub_apps:
+      - id: ''
+        title: Reports
+        default: true
+      - id: scappolicies
+        title: SCAP Policies
+      - id: systems
+        title: Systems
 
 config:
   title: Cloud Services Config
