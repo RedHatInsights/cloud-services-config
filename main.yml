@@ -84,7 +84,7 @@ automation-analytics:
         title: Clusters
         default: true
       - id: organization-statistics
-        title: Organization statistics
+        title: Organization Statistics
       - id: notifications
         title: Notifications
 
