@@ -22,9 +22,13 @@ applications:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args:
+            - insights
     paths:
       - /settings/applications
-      
+
 approval:
   title: Approval
   api:
@@ -103,10 +107,19 @@ compliance:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     paths:
-      - /rhel/compliance
+      - /insights/compliance
+    sub_apps:
+      - id: ''
+        title: Reports
+        default: true
+      - id: scappolicies
+        title: SCAP Policies
+      - id: systems
+        title: Systems
 
 config:
   title: Cloud Services Config
