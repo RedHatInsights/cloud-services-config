@@ -73,17 +73,20 @@ automation-analytics:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   frontend:
     paths:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: ''
+      - id: clusters
         title: Clusters
         default: true
       - id: organization-statistics
         title: Organization Statistics
+      - id: notifications
+        title: Notifications
 
 automation-hub:
   title: Automation Hub
