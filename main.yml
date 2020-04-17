@@ -73,7 +73,6 @@ automation-analytics:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   frontend:
     paths:
