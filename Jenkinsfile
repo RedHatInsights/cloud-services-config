@@ -2,9 +2,12 @@
 import groovy.json.JsonSlurper
 
 node {
+  // Only run one build at a time; otherwise they'll fail since you can only have one Akamai activation at a time
+  properties([disableConcurrentBuilds()])
+
   stage ("create backup for old YAML files") {
-    String APP_NAME = "__APP_NAME__"
-    String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
+    APP_NAME = "__APP_NAME__"
+    BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
       STAGETESTSTR = "\'stage and stable\'"
@@ -35,7 +38,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./update_api.py $EDGERC STAGING"
+          sh "python3 ./update_api.py $EDGERC STAGING $BRANCH"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
@@ -133,7 +136,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION"
+          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION true"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)

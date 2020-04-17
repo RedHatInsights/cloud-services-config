@@ -236,48 +236,33 @@
                 "name": "Cloud Services Frontend",
                 "children": [
                     {
-                        "name": "PenTest Stable",
+                        "name": "Redirects",
                         "children": [
                             {
-                                "name": "ESI",
+                                "name": "Beta RHEL",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "edgeSideIncludes",
+                                        "name": "redirect",
                                         "options": {
-                                            "enableViaHttp": false,
-                                            "enabled": true,
-                                            "i18nStatus": false,
-                                            "detectInjection": false,
-                                            "passSetCookie": false,
-                                            "passClientIp": false
-                                        }
-                                    },
-                                    {
-                                        "name": "gzipResponse",
-                                        "options": {
-                                            "behavior": "ORIGIN_RESPONSE"
-                                        }
-                                    },
-                                    {
-                                        "name": "modifyOutgoingResponseHeader",
-                                        "options": {
-                                            "action": "ADD",
-                                            "standardAddHeaderName": "OTHER",
-                                            "headerValue": "1",
-                                            "customHeaderName": "x-fms-debug-esi"
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights"
                                         }
                                     }
                                 ],
                                 "criteria": [
                                     {
-                                        "name": "contentType",
+                                        "name": "path",
                                         "options": {
-                                            "matchWildcard": true,
+                                            "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "text/html*"
+                                                "/beta/rhel"
                                             ],
-                                            "matchOperator": "IS_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -285,49 +270,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "404 Redirect",
+                                "name": "Beta RHEL Dashboard",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/landing/404.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404",
-                                                "000"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "originTimeout",
-                                        "options": {
-                                            "matchOperator": "ORIGIN_TIMED_OUT"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "any"
-                            },
-                            {
-                                "name": "404",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "responseCode",
-                                        "options": {
-                                            "statusCode": 404
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/dashboard"
                                         }
                                     }
                                 ],
@@ -335,10 +290,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/pentest/apps/landing/404.html"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/rhel/dashboard*"
+                                            ],
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -346,18 +301,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/",
+                                "name": "Beta RHEL Vulnerability",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/landing/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/vulnerability"
                                         }
                                     }
                                 ],
@@ -365,216 +321,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/beta/rhel/vulnerability*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/robots.txt",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/landing/robots.txt",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/robots.txt"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/silent-check-sso.html",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/landing/silent-check-sso.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/silent-check-sso.html"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/logout",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/landing/logout.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/logout"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/storybook/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/docs/storybook",
-                                                "/docs/storybook/"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook static",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "rewriteUrl",
-                                        "options": {
-                                            "keepQueryString": true,
-                                            "matchMultiple": false,
-                                            "targetPath": "/pentest/apps/storybook/",
-                                            "match": "/docs/",
-                                            "behavior": "REPLACE"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/docs/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/docs/storybook",
-                                                "/docs/storybook/"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -582,18 +332,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/api-docs",
+                                "name": "Beta RHEL Compliance",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/api-docs/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/compliance"
                                         }
                                     }
                                 ],
@@ -601,33 +352,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/docs/api",
-                                                "/docs/api/*",
-                                                "/docs",
-                                                "/docs/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/beta/rhel/compliance*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/docs/storybook",
-                                                "/docs/storybook/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -635,18 +363,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/approval",
+                                "name": "Beta RHEL Drift",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/approval/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/drift"
                                         }
                                     }
                                 ],
@@ -654,77 +383,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/hybrid/catalog/approval",
-                                                "/hybrid/catalog/approval/*",
-                                                "/ansible/catalog/approval",
-                                                "/ansible/catalog/approval/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/beta/rhel/drift*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/catalog",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/catalog/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/hybrid/catalog",
-                                                "/hybrid/catalog/*",
-                                                "/ansible/catalog",
-                                                "/ansible/catalog/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/hybrid/catalog/approval",
-                                                "/hybrid/catalog/approval/*",
-                                                "/ansible/catalog/approval",
-                                                "/ansible/catalog/approval/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -732,18 +394,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/compliance",
+                                "name": "RHEL",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/compliance/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights"
                                         }
                                     }
                                 ],
@@ -751,81 +414,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/rhel/compliance",
-                                                "/rhel/compliance/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/rhel"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/dashboard",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/dashboard/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/rhel",
-                                                "/rhel/*",
-                                                "/rhel/dashboard",
-                                                "/rhel/dashboard/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/rhel/compliance",
-                                                "/rhel/compliance/*",
-                                                "/rhel/drift",
-                                                "/rhel/drift/*",
-                                                "/rhel/inventory",
-                                                "/rhel/inventory/*",
-                                                "/rhel/remediations",
-                                                "/rhel/remediations/*",
-                                                "/rhel/vulnerability",
-                                                "/rhel/vulnerability/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -833,18 +425,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/drift",
+                                "name": "RHEL Dashboard",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/drift/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/dashboard"
                                         }
                                     }
                                 ],
@@ -852,115 +445,10 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/rhel/drift",
-                                                "/rhel/drift/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/rhel/dashboard*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/hooks",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/hooks/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/settings/hooks",
-                                                "/settings/hooks/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/insights",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/insights/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/insights",
-                                                "/insights/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/insights/inventory",
-                                                "/insights/inventory/*",
-                                                "/insights/remediations",
-                                                "/insights/remediations/*",
-                                                "/insights/settings/sources",
-                                                "/insights/settings/sources/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                                             "matchCaseSensitive": false
                                         }
                                     }
@@ -968,18 +456,19 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/inventory",
+                                "name": "RHEL Vulnerability",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/inventory/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/vulnerability"
                                         }
                                     }
                                 ],
@@ -987,41 +476,30 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/rhel/inventory",
-                                                "/rhel/inventory/*",
-                                                "/insights/inventory",
-                                                "/insights/inventory/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/rhel/vulnerability*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
+                                            "matchCaseSensitive": false
                                         }
                                     }
                                 ],
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/openshift",
+                                "name": "RHEL Compliance",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/openshift/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/compliance"
                                         }
                                     }
                                 ],
@@ -1029,39 +507,30 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/openshift",
-                                                "/openshift/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
                                             "values": [
-                                                "404"
+                                                "/rhel/compliance*"
                                             ],
-                                            "matchOperator": "IS_ONE_OF"
+                                            "matchCaseSensitive": false
                                         }
                                     }
                                 ],
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "/rbac",
+                                "name": "RHEL Drift",
                                 "children": [],
                                 "behaviors": [
                                     {
-                                        "name": "failAction",
+                                        "name": "redirect",
                                         "options": {
-                                            "contentPath": "/pentest/apps/rbac/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/drift"
                                         }
                                     }
                                 ],
@@ -1069,271 +538,11 @@
                                     {
                                         "name": "path",
                                         "options": {
-                                            "values": [
-                                                "/hybrid/settings/rbac",
-                                                "/hybrid/settings/rbac/*",
-                                                "/ansible/settings/rbac",
-                                                "/ansible/settings/rbac/*"
-                                            ],
                                             "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/rhel/drift*"
+                                            ],
                                             "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/remediations",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/remediations/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/rhel/remediations",
-                                                "/rhel/remediations/*",
-                                                "/insights/remediations",
-                                                "/insights/remediations/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/ruledev",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/ruledev/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/staging/ruledev",
-                                                "/staging/ruledev/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/sources",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/sources/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/insights/settings/sources",
-                                                "/insights/settings/sources/*",
-                                                "/hybrid/settings/sources",
-                                                "/hybrid/settings/sources/*",
-                                                "/hybrid/sources",
-                                                "/hybrid/sources/*",
-                                                "/ansible/settings/sources",
-                                                "/ansible/settings/sources/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/storybook/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/docs/storybook",
-                                                "/docs/storybook/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/subscriptions",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/subscriptions/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/staging/subscriptions",
-                                                "/staging/subscriptions/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/vulnerability",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/apps/vulnerability/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/rhel/vulnerability",
-                                                "/rhel/vulnerability/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
                                         }
                                     }
                                 ],
@@ -1341,1349 +550,7 @@
                             }
                         ],
                         "behaviors": [],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "values": [
-                                        "/api",
-                                        "/api/*",
-                                        "/mirror/openshift",
-                                        "/mirror/openshift/*",
-                                        "/wss/*",
-                                        "/beta",
-                                        "/beta/*"
-                                    ],
-                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                    "matchCaseSensitive": false
-                                }
-                            },
-                            {
-                                "name": "requestCookie",
-                                "options": {
-                                    "cookieName": "x-rh-insights-pentest",
-                                    "matchOperator": "EXISTS",
-                                    "matchWildcardName": false,
-                                    "matchCaseSensitiveName": true
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "PenTest Beta",
-                        "children": [
-                            {
-                                "name": "ESI",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "edgeSideIncludes",
-                                        "options": {
-                                            "enableViaHttp": false,
-                                            "enabled": true,
-                                            "i18nStatus": false,
-                                            "detectInjection": false,
-                                            "passSetCookie": false,
-                                            "passClientIp": false
-                                        }
-                                    },
-                                    {
-                                        "name": "gzipResponse",
-                                        "options": {
-                                            "behavior": "ORIGIN_RESPONSE"
-                                        }
-                                    },
-                                    {
-                                        "name": "modifyOutgoingResponseHeader",
-                                        "options": {
-                                            "action": "ADD",
-                                            "standardAddHeaderName": "OTHER",
-                                            "headerValue": "1",
-                                            "customHeaderName": "x-fms-debug-esi"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "contentType",
-                                        "options": {
-                                            "matchWildcard": true,
-                                            "values": [
-                                                "text/html*"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "404 Redirect",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/landing/404.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404",
-                                                "000"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "originTimeout",
-                                        "options": {
-                                            "matchOperator": "ORIGIN_TIMED_OUT"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "any"
-                            },
-                            {
-                                "name": "404",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "responseCode",
-                                        "options": {
-                                            "statusCode": 404
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/pentest/beta/apps/landing/404.html"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/landing/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/",
-                                                "/beta"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/robots.txt",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/landing/robots.txt",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/robots.txt"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/silent-check-sso.html",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/landing/silent-check-sso.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/silent-check-sso.html"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/logout",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/landing/logout.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/logout"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/storybook/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/storybook",
-                                                "/beta/docs/storybook/"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook static",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "rewriteUrl",
-                                        "options": {
-                                            "keepQueryString": true,
-                                            "matchMultiple": false,
-                                            "targetPath": "/apps/storybook/",
-                                            "match": "/docs/",
-                                            "behavior": "REPLACE"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/",
-                                                "/beta/docs/storybook",
-                                                "/beta/docs/storybook/"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/api-docs",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/api-docs/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/api",
-                                                "/beta/docs/api/*",
-                                                "/beta/docs",
-                                                "/beta/docs/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/storybook",
-                                                "/beta/docs/storybook/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/approval",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/approval/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible/catalog/approval",
-                                                "/beta/ansible/catalog/approval/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/automation-analytics",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/automation-analytics/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible",
-                                                "/beta/ansible/*",
-                                                "/beta/ansible/automation-analytics",
-                                                "/beta/ansible/automation-analytics/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible/catalog/approval",
-                                                "/beta/ansible/catalog/approval/*",
-                                                "/beta/ansible/automation-hub",
-                                                "/beta/ansible/automation-hub/*",
-                                                "/beta/ansible/catalog",
-                                                "/beta/ansible/catalog/*",
-                                                "/beta/ansible/settings/rbac",
-                                                "/beta/ansible/settings/rbac/*",
-                                                "/beta/ansible/settings/sources",
-                                                "/beta/ansible/settings/sources/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/automation-hub",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/automation-hub/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible/automation-hub",
-                                                "/beta/ansible/automation-hub/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/catalog",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/catalog/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible/catalog",
-                                                "/beta/ansible/catalog/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/ansible/catalog/approval",
-                                                "/beta/ansible/catalog/approval/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/compliance",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/compliance/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/compliance",
-                                                "/beta/rhel/compliance/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/cost-management",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/cost-management/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/cost-management",
-                                                "/beta/cost-management/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/cost-management/settings/rbac",
-                                                "/beta/cost-management/settings/rbac/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/dashboard",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/dashboard/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel",
-                                                "/beta/rhel/*",
-                                                "/beta/rhel/dashboard",
-                                                "/beta/rhel/dashboard/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/compliance",
-                                                "/beta/rhel/compliance/*",
-                                                "/beta/rhel/drift",
-                                                "/beta/rhel/drift/*",
-                                                "/beta/rhel/inventory",
-                                                "/beta/rhel/inventory/*",
-                                                "/beta/rhel/remediations",
-                                                "/beta/rhel/remediations/*",
-                                                "/beta/rhel/vulnerability",
-                                                "/beta/rhel/vulnerability/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/drift",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/drift/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/drift",
-                                                "/beta/rhel/drift/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/hooks",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/hooks/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/settings/hooks",
-                                                "/beta/settings/hooks/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/insights",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/insights/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/insights",
-                                                "/beta/insights/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    },
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/insights/inventory",
-                                                "/beta/insights/inventory/*",
-                                                "/beta/insights/remediations",
-                                                "/beta/insights/remediations/*",
-                                                "/beta/insights/settings/sources",
-                                                "/beta/insights/settings/sources/*"
-                                            ],
-                                            "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/inventory",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/inventory/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/inventory",
-                                                "/beta/rhel/inventory/*",
-                                                "/beta/insights/inventory",
-                                                "/beta/insights/inventory/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/migration-analytics",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/migration-analytics/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/migrations",
-                                                "/beta/migrations/*",
-                                                "/beta/migrations/migration-analytics",
-                                                "/beta/migrations/migration-analytics/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/openshift",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/openshift/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/openshift",
-                                                "/beta/openshift/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/rbac",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/rbac/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/cost-management/settings/rbac",
-                                                "/beta/cost-management/settings/rbac/*",
-                                                "/beta/ansible/settings/rbac",
-                                                "/beta/ansible/settings/rbac/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/remediations",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/remediations/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/remediations",
-                                                "/beta/rhel/remediations/*",
-                                                "/beta/insights/remediations",
-                                                "/beta/insights/remediations/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/ruledev",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/ruledev/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/staging/ruledev",
-                                                "/beta/staging/ruledev/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/sources",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/sources/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/insights/settings/sources",
-                                                "/beta/insights/settings/sources/*",
-                                                "/beta/ansible/settings/sources",
-                                                "/beta/ansible/settings/sources/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/storybook",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/storybook/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/docs/storybook",
-                                                "/beta/docs/storybook/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/subscriptions",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/subscriptions/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/staging/subscriptions",
-                                                "/beta/staging/subscriptions/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "/vulnerability",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "failAction",
-                                        "options": {
-                                            "contentPath": "/pentest/beta/apps/vulnerability/index.html",
-                                            "enabled": true,
-                                            "actionType": "RECREATED_CO",
-                                            "contentCustomPath": true,
-                                            "contentHostname": "cloud.redhat.com",
-                                            "preserveQueryString": false
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "values": [
-                                                "/beta/rhel/vulnerability",
-                                                "/beta/rhel/vulnerability/*"
-                                            ],
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "matchCaseSensitive": false
-                                        }
-                                    },
-                                    {
-                                        "name": "matchResponseCode",
-                                        "options": {
-                                            "values": [
-                                                "404"
-                                            ],
-                                            "matchOperator": "IS_ONE_OF"
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            }
-                        ],
-                        "behaviors": [],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "values": [
-                                        "/beta",
-                                        "/beta/*"
-                                    ],
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
-                                }
-                            },
-                            {
-                                "name": "requestCookie",
-                                "options": {
-                                    "cookieName": "x-rh-insights-pentest",
-                                    "matchOperator": "EXISTS",
-                                    "matchWildcardName": false,
-                                    "matchCaseSensitiveName": true
-                                }
-                            }
-                        ],
+                        "criteria": [],
                         "criteriaMustSatisfy": "all"
                     }
                 ]
@@ -3693,10 +1560,40 @@
                                     "canBeLeaf": true,
                                     "canBeCA": true,
                                     "selfSigned": false,
-                                    "$$hashKey": "object:7081"
+                                    "$$hashKey": "object:2387"
                                 }
                             ],
-                            "customCertificates": []
+                            "customCertificates": [
+                                {
+                                    "subjectCN": "api.pen-test.rhorchata.com",
+                                    "subjectAlternativeNames": [
+                                        "*.apps.pen-test.rhorchata.com",
+                                        "api.pen-test.rhorchata.com"
+                                    ],
+                                    "subjectRDNs": {
+                                        "CN": "api.pen-test.rhorchata.com"
+                                    },
+                                    "issuerRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "notBefore": 1579270053000,
+                                    "notAfter": 1587046053000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H513m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6jctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aFCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSSfjZDLwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 4.127220497061571e+41,
+                                    "version": 3,
+                                    "sha1Fingerprint": "fdbbceca7320f51b56647764d52272c15efc0add",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIFizCCBHOgAwIBAgISBLzhj2x97d79yPX1YCGCaGvaMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0yMDAxMTcxNDA3MzNaFw0y\nMDA0MTYxNDA3MzNaMCUxIzAhBgNVBAMTGmFwaS5wZW4tdGVzdC5yaG9yY2hhdGEu\nY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H5\n13m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJ\nFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ\n++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6j\nctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aF\nCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSS\nfjZDLwIDAQABo4ICjjCCAoowDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQKqUhuDyEQ\nzY7XeGpuAcV5XI/LTDAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBv\nBggrBgEFBQcBAQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5s\nZXRzZW5jcnlwdC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMEQGA1UdEQQ9MDuCHSouYXBwcy5wZW4tdGVzdC5yaG9y\nY2hhdGEuY29tghphcGkucGVuLXRlc3QucmhvcmNoYXRhLmNvbTBMBgNVHSAERTBD\nMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpodHRwOi8v\nY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQQGCisGAQQB1nkCBAIEgfUEgfIA8AB3APCV\npFnyANGCQBAtL5OIjq1L/h1H45nh0DSmsKiqjrJzAAABb7QLi9IAAAQDAEgwRgIh\nALiQ0V1+py1xeeuxkwaU4ibEfEXiTADJGf30yf0EwbCdAiEAzXI29Gda5/hdOLai\nJzTV9CgzN5C3J+6XKubyqp6Pb6oAdQAHt1wb5X1o//Gwxh0jFce65ld8V5S3au68\nYToaadOiHAAAAW+0C4v7AAAEAwBGMEQCIBrTo9P6oWd12D6CpiNpAtiZFm0peGSd\npzEtoWRDMdBiAiBf5F5P2IQpunJOfGFCNf8DtUX8d8R1Cdhbp0PvoyP1+zANBgkq\nhkiG9w0BAQsFAAOCAQEAFASUNgypuSe6ARk9v4b5o49/aWQwxUU0u2i99GvdHaTS\nQHclIVgZp7Dq1U7gYzs0PvE9WWFALZ+I/h4vRUuVSCCmnrdiA/2RG3jnmN6H1v+6\nIz2VNuVI+CmPHdnw6nn9QFdR60TUpBqNX8fkxRxYAD/6M2g/9UJ5olMrSpKln/7i\ncMjvWZxPu16kvQt9pXyM5UAsvOy/I+b1cY244/y1Kdn9JkRMOObl8eAGYAprsRIe\nQu503QyouzMsc1nER/5AxEIDKFdTQknqj8pFC8sPRbiQzV/Vnn7jM1sLm5kwQ/cF\nJP66aziKs9CHxKkDx8UkEq01N7QOyE1Oy4svNG1zmA==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": false,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:2398"
+                                }
+                            ]
                         }
                     },
                     {
@@ -3959,10 +1856,40 @@
                                     "canBeLeaf": true,
                                     "canBeCA": true,
                                     "selfSigned": false,
-                                    "$$hashKey": "object:17259"
+                                    "$$hashKey": "object:3704"
                                 }
                             ],
-                            "customCertificates": []
+                            "customCertificates": [
+                                {
+                                    "subjectCN": "api.pen-test.rhorchata.com",
+                                    "subjectAlternativeNames": [
+                                        "*.apps.pen-test.rhorchata.com",
+                                        "api.pen-test.rhorchata.com"
+                                    ],
+                                    "subjectRDNs": {
+                                        "CN": "api.pen-test.rhorchata.com"
+                                    },
+                                    "issuerRDNs": {
+                                        "C": "US",
+                                        "CN": "Let's Encrypt Authority X3",
+                                        "O": "Let's Encrypt"
+                                    },
+                                    "notBefore": 1579270053000,
+                                    "notAfter": 1587046053000,
+                                    "sigAlgName": "SHA256WITHRSA",
+                                    "publicKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H513m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6jctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aFCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSSfjZDLwIDAQAB",
+                                    "publicKeyAlgorithm": "RSA",
+                                    "publicKeyFormat": "X.509",
+                                    "serialNumber": 4.127220497061571e+41,
+                                    "version": 3,
+                                    "sha1Fingerprint": "fdbbceca7320f51b56647764d52272c15efc0add",
+                                    "pemEncodedCert": "-----BEGIN CERTIFICATE-----\nMIIFizCCBHOgAwIBAgISBLzhj2x97d79yPX1YCGCaGvaMA0GCSqGSIb3DQEBCwUA\nMEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD\nExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0yMDAxMTcxNDA3MzNaFw0y\nMDA0MTYxNDA3MzNaMCUxIzAhBgNVBAMTGmFwaS5wZW4tdGVzdC5yaG9yY2hhdGEu\nY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz2TPS7mSBn7f+8H5\n13m5NQQonIUpKXuXaARntx9syL/vS4CqFu60bvktA9pdsl1ut2Ik0VGO1uuXdzpJ\nFe0TO2Gk0TlBrjgUUluZCpIILKiY1d6/Fn6C+aLwkwWCraCke/YH0x6X/YAf2IlJ\n++426aoMH/o2VzWm1DQ1bQB0N6RnZieMg8nVAyMD8VSuAFbxtmFcobDPloN6pU6j\nctrjO80HeCrs3kKBpUPKjZprj7PelQ+8iiPAy8aaEkzAgBEePIsTnTwLpH/Ko0aF\nCxTXRge2etNEIKF4G038tEhwCsmhqcVOUgU62/f8ldtng8kVyImoNLAd5998jXSS\nfjZDLwIDAQABo4ICjjCCAoowDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsG\nAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQKqUhuDyEQ\nzY7XeGpuAcV5XI/LTDAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBv\nBggrBgEFBQcBAQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5s\nZXRzZW5jcnlwdC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5s\nZXRzZW5jcnlwdC5vcmcvMEQGA1UdEQQ9MDuCHSouYXBwcy5wZW4tdGVzdC5yaG9y\nY2hhdGEuY29tghphcGkucGVuLXRlc3QucmhvcmNoYXRhLmNvbTBMBgNVHSAERTBD\nMAgGBmeBDAECATA3BgsrBgEEAYLfEwEBATAoMCYGCCsGAQUFBwIBFhpodHRwOi8v\nY3BzLmxldHNlbmNyeXB0Lm9yZzCCAQQGCisGAQQB1nkCBAIEgfUEgfIA8AB3APCV\npFnyANGCQBAtL5OIjq1L/h1H45nh0DSmsKiqjrJzAAABb7QLi9IAAAQDAEgwRgIh\nALiQ0V1+py1xeeuxkwaU4ibEfEXiTADJGf30yf0EwbCdAiEAzXI29Gda5/hdOLai\nJzTV9CgzN5C3J+6XKubyqp6Pb6oAdQAHt1wb5X1o//Gwxh0jFce65ld8V5S3au68\nYToaadOiHAAAAW+0C4v7AAAEAwBGMEQCIBrTo9P6oWd12D6CpiNpAtiZFm0peGSd\npzEtoWRDMdBiAiBf5F5P2IQpunJOfGFCNf8DtUX8d8R1Cdhbp0PvoyP1+zANBgkq\nhkiG9w0BAQsFAAOCAQEAFASUNgypuSe6ARk9v4b5o49/aWQwxUU0u2i99GvdHaTS\nQHclIVgZp7Dq1U7gYzs0PvE9WWFALZ+I/h4vRUuVSCCmnrdiA/2RG3jnmN6H1v+6\nIz2VNuVI+CmPHdnw6nn9QFdR60TUpBqNX8fkxRxYAD/6M2g/9UJ5olMrSpKln/7i\ncMjvWZxPu16kvQt9pXyM5UAsvOy/I+b1cY244/y1Kdn9JkRMOObl8eAGYAprsRIe\nQu503QyouzMsc1nER/5AxEIDKFdTQknqj8pFC8sPRbiQzV/Vnn7jM1sLm5kwQ/cF\nJP66aziKs9CHxKkDx8UkEq01N7QOyE1Oy4svNG1zmA==\n-----END CERTIFICATE-----\n",
+                                    "canBeLeaf": true,
+                                    "canBeCA": false,
+                                    "selfSigned": false,
+                                    "$$hashKey": "object:3715"
+                                }
+                            ]
                         }
                     },
                     {

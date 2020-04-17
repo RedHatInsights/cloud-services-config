@@ -3,4 +3,16 @@ Stable:
 
 Beta:
   branch: prod-beta
-  prefix: /beta
+  url_prefix: /beta
+  content_path_prefix: /beta
+
+PenTestStable:
+  branch: qa-stable
+  cookie_required: True
+  content_path_prefix: /pentest
+
+PenTestBeta:
+  branch: qa-beta
+  cookie_required: True
+  url_prefix: /beta
+  content_path_prefix: /pentest/beta
