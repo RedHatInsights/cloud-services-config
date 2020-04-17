@@ -73,7 +73,6 @@ automation-analytics:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   frontend:
     paths:
@@ -149,7 +148,6 @@ cost-management:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   description: >
@@ -307,7 +305,6 @@ patch:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
@@ -419,7 +416,6 @@ subscriptions:
     tags:
       - value: "experimental"
         title: "Experimental API"
-    isBeta: true
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   frontend:
