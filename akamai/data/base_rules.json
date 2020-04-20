@@ -487,6 +487,37 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "Beta Insights Topics",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/advisor/topics"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/insights/topics*"
+                                            ],
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "RHEL",
                                 "children": [],
                                 "behaviors": [
@@ -727,6 +758,37 @@
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
                                                 "/insights/rules*"
+                                            ],
+                                            "matchCaseSensitive": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Insights Topics",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/advisor/topics"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/insights/topics*"
                                             ],
                                             "matchCaseSensitive": false
                                         }
