@@ -35,10 +35,24 @@ api-docs:
 applications:
   title: Applications
   deployment_repo: https://github.com/RedHatInsights/settings-frontend-build
+  permissions:
+    method: isOrgAdmin
+    apps:
+      - cost-management
   frontend:
     sub_apps:
       - id: insights
         title: Insights
+        permissions:
+          method: isEntitled
+          args:
+            - insights
+      - id: cost-management
+        title: Cost Management
+        permissions:
+          method: isEntitled
+          args:
+            - cost_management
     paths:
       - /settings/applications
 
@@ -59,18 +73,20 @@ automation-analytics:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   frontend:
     paths:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: ''
+      - id: clusters
         title: Clusters
         default: true
       - id: organization-statistics
         title: Organization Statistics
+      - id: notifications
+        title: Notifications
+
 
 automation-hub:
   title: Automation Hub
@@ -86,8 +102,6 @@ automation-hub:
         title: Partners
       - id: my-namespaces
         title: My Namespaces
-      - id: my-imports
-        title: My Imports
   git_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
@@ -96,16 +110,17 @@ catalog:
     versions:
       - v1
     isBeta: true
-  channel: '#insights-svc-portal'
+  channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
     paths:
-      - /hybrid/catalog
       - /ansible/catalog
     sub_apps:
+      - id: products
+        title: Products
+        default: true
       - id: portfolios
         title: Portfolios
-        default: true
       - id: platforms
         title: Platforms
       - id: orders
@@ -137,6 +152,51 @@ compliance:
 config:
   title: Cloud Services Config
   deployment_repo: https://github.com/RedHatInsights/cloud-services-config
+
+cost-management:
+  title: Cost Management
+  top_level: true
+  api:
+    versions:
+      - v1
+  channel: '#koku'
+  deployment_repo: https://github.com/RedHatInsights/cost-management-build
+  description: >
+    Cost Management is an application that provides users a view of their
+    enterprise cost. Cost Management allows users to evaluate the cost on
+    infrastructures like Amazon Web Services (AWS) across multiple *master*
+    accounts, breaking down to service usage, compute usage, and storage
+    allocation. Details can also be broken down utilizing tagging to view
+    data attributed to project or cost center assignments. Cost Management
+    also allows users to breakdown cost at the platform level by associating
+    cost with OpenShift clusters, nodes, and the projects running their. Cost
+    can be determined by deriving it from the underlying infrastructure (like
+    AWS) or deriving it based on a user set of rates.
+  docs: https://koku.readthedocs.io/en/latest/
+  frontend:
+    paths:
+      - /cost-management
+    sub_apps:
+      - id: ''
+        title: Overview
+        default: true
+        group: cost-management
+      - id: details
+        group: cost-management
+      - id: cost-models
+        title: Cost Models
+        group: cost-management
+  git_repo: https://github.com/project-koku/
+  mailing_list: cost-mgmt@redhat.com
+
+details:
+  title: Details
+  frontend:
+    sub_apps:
+      - id: ocp
+        title: OpenShift
+      - id: aws
+        title: Infrastructure
 
 dashboard:
   title: Dashboard
@@ -175,6 +235,10 @@ drift:
       - id: baselines
         title: Baselines
         reload: drift/baselines
+
+frontend-assets:
+  title: Frontend Assets
+  deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
 
 hooks:
   title: Web Hooks Service
@@ -277,7 +341,6 @@ patch:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
@@ -304,10 +367,18 @@ rbac:
       - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    title: User Access Management
+    title: User access
     paths:
       - /settings
       - /settings/rbac
+    sub_apps:
+      - id: groups
+        title: Groups
+        default: true
+      - id: roles
+        title: Roles
+      - id: users
+        title: Users
 
 remediations:
   title: Remediations
@@ -351,15 +422,6 @@ ruledev:
     paths:
       - /staging/ruledev
 
-settings-ansible:
-  title: Settings
-  frontend:
-    sub_apps:
-      - id: sources
-        reload: settings/sources
-      - id: rbac
-    suppress_id: true
-
 settings:
   title: Settings
   top_level: true
@@ -367,6 +429,7 @@ settings:
     sub_apps:
       - id: rbac
         default: true
+      - id: sources
       - id: applications
 
 sources:
@@ -374,22 +437,18 @@ sources:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#insights_topology_svc'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
     title: Sources
     paths:
-      - /insights/settings/sources
-      - /ansible/settings/sources
-    reload: settings/sources
+      - /settings/sources
 
 staging:
   title: Staging Bundle
   frontend:
     sub_apps:
       - id: ruledev
-      - id: subscriptions
   top_level: true
 
 storybook:
@@ -421,6 +480,19 @@ subscriptions:
         title: Red Hat OpenShift
         group: subscriptions
   git_repo: https://github.com/RedHatInsights/curiosity-frontend
+
+user-preferences:
+  title: User Preferences
+  deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
+  top_level: true
+  frontend:
+    title: User preferences
+    paths:
+      - /user-preferences
+    sub_apps:
+      - id: email
+        title: Email preferences
+        default: true
 
 vulnerability:
   title: Vulnerability Management
