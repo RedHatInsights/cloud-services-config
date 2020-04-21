@@ -28,7 +28,7 @@ def getPropertyIDForEnv(env):
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(crc_env, akamai_env):
-    print("API - Getting version of latest activation in {}...".format(env))
+    print("API - Getting version of latest activation in {}...".format(akamai_env))
     data = json.loads(akamaiGet("/papi/v1/properties/{}/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(crc_env, akamai_env)))
     return data["versions"]["items"][0]["propertyVersion"]
 
