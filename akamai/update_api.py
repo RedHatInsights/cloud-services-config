@@ -109,7 +109,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     print("Rules tree for crc env {} version {}:".format(crc_env, version_number))
-    print(rules_tree)
+    print(json.dumps(rules_tree))
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
