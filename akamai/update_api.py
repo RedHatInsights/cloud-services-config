@@ -81,7 +81,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="")
     return rules
 
 # Makes an API call which updates the property version with a new rule tree.
-def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env):
+def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
     rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
@@ -107,6 +107,9 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env):
             
         parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
+
+    print("Rules tree for crc env {} version {}:".format(crc_env, version_number))
+    print(rules_tree)
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
