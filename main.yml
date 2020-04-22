@@ -84,8 +84,6 @@ automation-analytics:
         default: true
       - id: organization-statistics
         title: Organization Statistics
-      - id: notifications
-        title: Notifications
 
 automation-hub:
   title: Automation Hub
