@@ -85,6 +85,10 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
     print("Creating new ruleset based on list of master configs...")
     rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
+    if crc_env == "prod":
+        # Add in the client cert custom rule
+        rules_tree["rules"]["children"][13]["children"][1]["behaviors"][0] = util.getJSONFromFile("./data/client_certificate.json")
+
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
     
     # Iterate through the configurations for each release
