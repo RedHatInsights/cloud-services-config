@@ -108,12 +108,11 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
-    print("Rules tree for crc env {} version {}:".format(crc_env, version_number))
-    print(json.dumps(rules_tree))
-
     # Update property with this new ruleset
     print("API - Updating rule tree...")
     response = json.loads(util.akamaiPut("/papi/v1/properties/{}/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(util.getPropertyIDForEnv(crc_env), version_number),rules_tree))
+    print("Response:")
+    print(json.dumps(response))
 
 def generateExclusions(frontend_path, config):
     exclusions = []
