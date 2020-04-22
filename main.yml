@@ -41,8 +41,8 @@ applications:
       - cost-management
   frontend:
     sub_apps:
-      - id: insights
-        title: Insights
+      - id: advisor
+        title: Advisor
         permissions:
           method: isEntitled
           args:
