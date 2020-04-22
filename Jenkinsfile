@@ -36,52 +36,26 @@ node {
     sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
   }
 
-  stage ("activate on Akamai staging") {
-    parallel stage: {
-      // Use image with python 3.6
-      openShiftUtils.withNode(image: "python:3.6-slim") {
-        checkout scm
-        // cd into akamai folder
-        dir("akamai") {
-          // Use secret .edgerc file
-          withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
-            sh "set -e"
-            sh "rm -rf venv || true"
-            sh "python3 -m venv venv"
-            sh ". ./venv/bin/activate"
-            sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
-            // Save contents of previousversion.txt as a variable
-            PREVIOUSVERSION = readFile('previousversion.txt').trim()
-            print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
-            // Save contents of newversion.txt as a variable
-            NEWVERSION = readFile('newversion.txt').trim()
-            print("STAGING NEWVERSION version is v" + NEWVERSION)
-          }
-        }
-      }
-    },
-    prod: {
-      // Use image with python 3.6
-      openShiftUtils.withNode(image: "python:3.6-slim") {
-        checkout scm
-        // cd into akamai folder
-        dir("akamai") {
-          // Use secret .edgerc file
-          withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
-            sh "set -e"
-            sh "rm -rf venv || true"
-            sh "python3 -m venv venv"
-            sh ". ./venv/bin/activate"
-            sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
-            // Save contents of previousversion.txt as a variable
-            PREVIOUSVERSION = readFile('previousversion.txt').trim()
-            print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
-            // Save contents of newversion.txt as a variable
-            NEWVERSION = readFile('newversion.txt').trim()
-            print("STAGING NEWVERSION version is v" + NEWVERSION)
-          }
+  stage ("build & activate on Akamai staging") {
+    // Use image with python 3.6
+    openShiftUtils.withNode(image: "python:3.6-slim") {
+      checkout scm
+      // cd into akamai folder
+      dir("akamai") {
+        // Use secret .edgerc file
+        withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
+          sh "set -e"
+          sh "rm -rf venv || true"
+          sh "python3 -m venv venv"
+          sh ". ./venv/bin/activate"
+          sh "pip3 install --user -r ./requirements.txt"
+          sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
+          // Save contents of previousversion.txt as a variable
+          PREVIOUSVERSION = readFile('previousversion.txt').trim()
+          print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)
+          // Save contents of newversion.txt as a variable
+          NEWVERSION = readFile('newversion.txt').trim()
+          print("STAGING NEWVERSION version is v" + NEWVERSION)
         }
       }
     }
@@ -173,7 +147,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION true"
+          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION prod true"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)

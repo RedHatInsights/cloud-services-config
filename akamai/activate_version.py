@@ -12,26 +12,33 @@ def main():
         version_to_activate = sys.argv[2]
     else:
         sys.exit("Activation failed: no property version number specified")
+    
     if len(sys.argv) > 3:
-        environment = sys.argv[3]
+        aka_env = sys.argv[3]
     else:
-        environment = "STAGING"
+        aka_env = "STAGING"
+    
     if len(sys.argv) > 4:
+        crc_env = sys.argv[4]
+    else:
+        crc_env = "stage"
+    
+    if len(sys.argv) > 5:
         waitForActivation = (sys.argv[4].lower() == "true")
     
-    previous_version = util.getLatestVersionNumber(environment)
+    previous_version = util.getLatestVersionNumber(crc_env, aka_env)
     with open("previousversion.txt", "w") as f:
         f.write(str(previous_version))
 
-    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning activation in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(environment))
+    print(">>>>>>>>>>>>>>>>>>>>>>>> Beginning activation for {} in {}! <<<<<<<<<<<<<<<<<<<<<<<<".format(crc_env, aka_env))
     print("Activating v{}".format(version_to_activate))
 
     # Activate on given env
-    util.activateVersion(version_to_activate, environment)
+    util.activateVersion(version_to_activate, aka_env, crc_env)
 
     # Wait, if necessary
     if waitForActivation:
-        util.waitForActiveVersion(int(version_to_activate), environment)
+        util.waitForActiveVersion(int(version_to_activate), aka_env, crc_env)
 
 
 if __name__== "__main__":
