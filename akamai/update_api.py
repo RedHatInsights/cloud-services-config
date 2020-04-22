@@ -6,9 +6,9 @@ import update_api_utilties as util
 
 # Creates a new version of the property in Akamai,
 # which is based off of the latest active version in the given environment.
-def createNewVersion(property_env="STAGING"):
+def createNewVersion(crc_env="stage", property_env="STAGING"):
     # Get the number of the latest prod version to use as a base
-    previous_version = util.getLatestVersionNumber(property_env)
+    previous_version = util.getLatestVersionNumber(crc_env, property_env)
 
     # Save this number for later: create a file that contains the latest version number
     with open("previousversion.txt", "w") as f:
@@ -19,7 +19,7 @@ def createNewVersion(property_env="STAGING"):
     }
     
     print("API - Creating new version based on v{}".format(previous_version))
-    response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    response_content = json.loads(util.akamaiPost("/papi/v1/properties/{}/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(util.getPropertyIDForEnv(crc_env)),body))
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -81,7 +81,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="")
     return rules
 
 # Makes an API call which updates the property version with a new rule tree.
-def updatePropertyRulesUsingConfig(version_number, master_config_list):
+def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env):
     print("Creating new ruleset based on list of master configs...")
     rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
@@ -110,7 +110,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list):
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
-    response = json.loads(util.akamaiPut("/papi/v1/properties/prp_516561/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(version_number),rules_tree))
+    response = json.loads(util.akamaiPut("/papi/v1/properties/{}/versions/{}/rules?contractId=ctr_3-1MMN3Z&groupId=grp_134508&validateRules=true&validateMode=full".format(util.getPropertyIDForEnv(crc_env), version_number),rules_tree))
 
 def generateExclusions(frontend_path, config):
     exclusions = []
@@ -144,10 +144,15 @@ def main():
 
     # This arg will be either "prod-stable" or "prod-beta", and tells us which release our local main.yml is for.
     # This guarantees that the newest main.yml is used instead of the one it intends to replace.
-    if len(sys.argv) > 3:
-        local_branch = sys.argv[3]
+    if len(sys.argv) > 4:
+        local_branch = sys.argv[4]
     else:
         local_branch = "prod-stable"
+
+    if len(sys.argv) > 3:
+        crc_env = sys.argv[3]
+    else:
+        crc_env = "stage"
 
     cs_config_list = []
     for env in releases:
@@ -172,16 +177,16 @@ def main():
     util.initEdgeGridAuth()
 
     # Create a new version based off of the active Prod version
-    new_version_number = createNewVersion(property_env)
+    new_version_number = createNewVersion(crc_env, property_env)
 
     # Update the rules JSON using the CS configuration as a reference
-    updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
+    updatePropertyRulesUsingConfig(new_version_number, cs_config_list, crc_env)
 
     # Activate version
-    util.activateVersion(new_version_number, property_env)
+    util.activateVersion(new_version_number, property_env, crc_env)
 
     # Wait for new version to be active
-    util.waitForActiveVersion(int(new_version_number), property_env)
+    util.waitForActiveVersion(int(new_version_number), property_env, crc_env)
 
 if __name__== "__main__":
     main()
