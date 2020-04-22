@@ -134,7 +134,7 @@ node {
     }
   }
 
-  stage ("activate on production") {
+  stage ("activate on akamai production") {
     // Use image with python 3.6
     openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
@@ -147,7 +147,7 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION prod true"
+          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION $ENVSTR true"
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)
