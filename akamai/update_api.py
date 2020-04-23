@@ -40,7 +40,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
     
     if crc_env == "stage":
-        rules.extend(util.getJSONFromFileWithReplacements("./data/storybook_rules.json", "cloud.redhat.com", "cloud.stage.redhat.com"))
+        rules.extend(util.getJSONFromFileWithReplacements("./data/storybook_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
     else:
         rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
@@ -59,7 +59,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 
     # Create a template object to copy from (reduces number of read/write ops)
     if crc_env == "stage":
-        rule_template = util.getJSONFromFileWithReplacements("./data/single_rule_template.json", "cloud.redhat.com", "cloud.stage.redhat.com")
+        rule_template = util.getJSONFromFileWithReplacements("./data/single_rule_template.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\"")
     else:
         rule_template = util.getJSONFromFile("./data/single_rule_template.json")
     nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
@@ -91,7 +91,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
     if crc_env == "stage":
-        rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", "cloud.redhat.com", "cloud.stage.redhat.com")
+        rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\"")
     else:
         rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
