@@ -20,7 +20,7 @@ def getJSONFromFile(path):
 def getJSONFromFileWithReplacements(path, search_str, replace_str):
     with open(path, "r") as f:
         replaced_json = f.read().replace(search_str, replace_str)
-        return replaced_json
+        return json.loads(replaced_json)
 
 def getYMLFromUrl(url):
     return yaml.safe_load(s.get(url, verify=False).content.decode('utf-8'))
