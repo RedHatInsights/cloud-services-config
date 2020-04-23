@@ -97,7 +97,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
-    
+
     # Iterate through the configurations for each release
     for env in master_config_list:
         parent_rule = copy.deepcopy(parent_rule_template)
@@ -167,16 +167,20 @@ def main():
     else:
         crc_env = "stage"
 
+    crc_env_prefix = ""
+    if crc_env == "stage":
+        crc_env_prefix = "/stage"
+
     cs_config_list = []
     for env in releases:
         source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
         url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
-        content_path_prefix = releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else ""
+        content_path_prefix = crc_env_prefix + releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else crc_env_prefix
 
         cs_config_list.append({
             "name": env,
-            "url_prefix": releases[env]["url_prefix"] if "url_prefix" in releases[env] else "",
-            "content_path_prefix": releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else "",
+            "url_prefix": url_prefix
+            "content_path_prefix": content_path_prefix,
             "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
             "config": generateConfigForBranch(source_branch, url_prefix, local_branch)
         })
