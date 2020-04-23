@@ -39,7 +39,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
     # First, add the rules for the landing page.
 
     if crc_env == "stage":
-        rules = util.getJSONFromFileWithReplacements("./data/landing_page_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
+        rules = util.getJSONFromFileWithReplacements("./data/landing_page_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\"")
         rules.extend(util.getJSONFromFileWithReplacements("./data/storybook_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
     else:
         rules = util.getJSONFromFile("./data/landing_page_rules.json")
