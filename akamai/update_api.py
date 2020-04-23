@@ -35,10 +35,14 @@ def createNewVersion(crc_env="stage", property_env="STAGING"):
 # Creates a list of rules in the correct Akamai PM structure based on
 # the master_config (source of truth), and prepends paths with
 # url_path_prefix as appropriate.
-def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix=""):
+def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="", crc_env = "stage"):
     # First, add the rules for the landing page.
     rules = util.getJSONFromFile("./data/landing_page_rules.json")
-    rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
+    
+    if crc_env = "stage":
+        rules.extend(util.getJSONFromFileWithReplacements("./data/storybook_rules.json", "cloud.redhat.com", "cloud.stage.redhat.com"))
+    else:
+        rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
     # If either url path prefix or content path prefix exists, modify paths on landing page & storybook rules.
     for rule in rules:
@@ -54,7 +58,10 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="")
                         rule["criteria"][x]["options"]["values"][y] = url_path_prefix + rule["criteria"][x]["options"]["values"][y]
 
     # Create a template object to copy from (reduces number of read/write ops)
-    rule_template = util.getJSONFromFile("./data/single_rule_template.json")
+    if crc_env = "stage":
+        rule_template = util.getJSONFromFileWithReplacements("./data/single_rule_template.json", "cloud.redhat.com", "cloud.stage.redhat.com")
+    else:
+        rule_template = util.getJSONFromFile("./data/single_rule_template.json")
     nomatch_template = util.getJSONFromFile("./data/no_match_criteria.json")
 
     # Creates rules for all the apps that follow a pattern.
@@ -83,7 +90,10 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="")
 # Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
-    rules_tree = util.getJSONFromFile("./data/base_rules.json")
+    if crc_env = "stage":
+        rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", "cloud.redhat.com", "cloud.stage.redhat.com")
+    else:
+        rules_tree = util.getJSONFromFile("./data/base_rules.json")
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
     
@@ -105,7 +115,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         if ("cookie_required" in env and env["cookie_required"]):
             parent_rule["criteria"][1]["options"]["matchOperator"] = "EXISTS"
             
-        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"])
+        parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"], crc_env)
         rules_tree["rules"]["children"][2]["children"].append(parent_rule)
 
     # Update property with this new ruleset
