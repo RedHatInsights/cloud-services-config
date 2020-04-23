@@ -37,11 +37,12 @@ def createNewVersion(crc_env="stage", property_env="STAGING"):
 # url_path_prefix as appropriate.
 def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="", crc_env = "stage"):
     # First, add the rules for the landing page.
-    rules = util.getJSONFromFile("./data/landing_page_rules.json")
-    
+
     if crc_env == "stage":
+        rules = util.getJSONFromFileWithReplacements("./data/landing_page_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
         rules.extend(util.getJSONFromFileWithReplacements("./data/storybook_rules.json", "\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
     else:
+        rules = util.getJSONFromFile("./data/landing_page_rules.json")
         rules.extend(util.getJSONFromFile("./data/storybook_rules.json"))
 
     # If either url path prefix or content path prefix exists, modify paths on landing page & storybook rules.
