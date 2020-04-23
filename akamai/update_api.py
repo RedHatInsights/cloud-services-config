@@ -179,7 +179,7 @@ def main():
 
         cs_config_list.append({
             "name": env,
-            "url_prefix": url_prefix
+            "url_prefix": url_prefix,
             "content_path_prefix": content_path_prefix,
             "cookie_required": releases[env]["cookie_required"] if "cookie_required" in releases[env] else False,
             "config": generateConfigForBranch(source_branch, url_prefix, local_branch)
