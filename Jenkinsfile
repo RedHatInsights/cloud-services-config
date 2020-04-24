@@ -47,7 +47,7 @@ node {
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
           string(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
           string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
-          string(credentialsId: "rhcs-certauth-secret", variable: 'CERTAUTHSECRET')
+          string(credentialsId: "rhcs-prod-certauth-secret", variable: 'CERTAUTHSECRET')
         ]) {
           sh "set -e"
           sh "rm -rf venv || true"
