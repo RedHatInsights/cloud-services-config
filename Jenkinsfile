@@ -45,9 +45,9 @@ node {
         // Use secret .edgerc file
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
-          file(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
-          file(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
-          file(credentialsId: "rhcs-certauth-secret", variable: 'CERTAUTHSECRET')
+          string(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
+          string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
+          string(credentialsId: "rhcs-certauth-secret", variable: 'CERTAUTHSECRET')
         ]) {
           sh "set -e"
           sh "rm -rf venv || true"
