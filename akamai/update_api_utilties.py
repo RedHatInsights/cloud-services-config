@@ -20,6 +20,7 @@ def getJSONFromFile(path):
 def getJSONFromFileWithReplacements(path, replacements):
     with open(path, "r") as f:
         for (k, v) in replacements:
+            print("Replacing {} with {}".format(k,v))
             replaced_json = f.read().replace(k, v)
         return json.loads(replaced_json)
 
