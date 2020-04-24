@@ -17,9 +17,10 @@ def getJSONFromFile(path):
     with open(path, "r") as f:
         return json.load(f)
 
-def getJSONFromFileWithReplacements(path, search_str, replace_str):
+def getJSONFromFileWithReplacements(path, replacements):
     with open(path, "r") as f:
-        replaced_json = f.read().replace(search_str, replace_str)
+        for (k, v) in replacements:
+            replaced_json = f.read().replace(k, v)
         return json.loads(replaced_json)
 
 def getYMLFromUrl(url):
@@ -31,7 +32,7 @@ def getPropertyIDForEnv(env):
     else:
         return "prp_516561"
 
-def get_env_variable(var_name):
+def getEnvVar(var_name):
     return os.environ[name]
 
 # Makes an API call requesting the latest version data for the property.
