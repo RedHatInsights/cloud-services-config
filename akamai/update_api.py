@@ -101,6 +101,9 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
 
     rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", replacements)
 
+    if crc_env == "stage":
+        rules_tree["rules"]["children"].insert(0, util.getJSONFromFile("./data/pre_prod_lockdown.json"))
+
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
 
     # Iterate through the configurations for each release
