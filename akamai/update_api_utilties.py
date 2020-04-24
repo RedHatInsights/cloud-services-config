@@ -22,6 +22,7 @@ def getJSONFromFileWithReplacements(path, replacements):
         for (k, v) in replacements:
             print("Replacing {} with {}".format(k,v))
             replaced_json = f.read().replace(k, v)
+        print(replaced_json)
         return json.loads(replaced_json)
 
 def getYMLFromUrl(url):
