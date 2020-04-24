@@ -43,13 +43,26 @@ node {
       // cd into akamai folder
       dir("akamai") {
         // Use secret .edgerc file
-        withCredentials([file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC')]) {
+        withCredentials([
+          file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
+          file(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
+          file(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
+          file(credentialsId: "rhcs-certauth-secret", variable: 'CERTAUTHSECRET')
+        ]) {
           sh "set -e"
           sh "rm -rf venv || true"
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
+
+          withEnv([
+            "PRODGATEWAYSECRET=$PRODGATEWAYSECRET",
+            "PENTESTGATEWAYSECRET=$PENTESTGATEWAYSECRET",
+            "CERTAUTHSECRET=$CERTAUTHSECRET",
+          ]) {
+            sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
+          }
+
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("STAGING PREVIOUSVERSION version is v" + PREVIOUSVERSION)

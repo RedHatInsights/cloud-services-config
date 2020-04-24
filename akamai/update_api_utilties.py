@@ -31,6 +31,9 @@ def getPropertyIDForEnv(env):
     else:
         return "prp_516561"
 
+def get_env_variable(var_name):
+    return os.environ[name]
+
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(crc_env, akamai_env):
     print("API - Getting version of latest activation in {}...".format(akamai_env))
