@@ -33,7 +33,7 @@ def getPropertyIDForEnv(env):
         return "prp_516561"
 
 def getEnvVar(var_name):
-    return os.environ[name]
+    return os.environ[var_name]
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(crc_env, akamai_env):
