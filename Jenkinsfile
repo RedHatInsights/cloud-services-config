@@ -2,9 +2,6 @@
 import groovy.json.JsonSlurper
 
 node {
-  // Only run one build at a time; otherwise they'll fail since you can only have one Akamai activation at a time
-  properties([disableConcurrentBuilds()])
-
   stage ("create backup for old YAML files") {
     APP_NAME = "__APP_NAME__"
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
@@ -13,11 +10,25 @@ node {
       STAGETESTSTR = "\'stage and stable\'"
       PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
+      ENVSTR = "prod"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
       STAGETESTSTR = "\'stage and beta\'"
       PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
+      ENVSTR = "prod"
+    } else if (BRANCH == "stage-stable") {
+      PREFIX = ""
+      STAGETESTSTR = "\'stage and stable\'"
+      PRODTESTSTR = "\'prod and stable\'"
+      RELEASESTR = "stable"
+      ENVSTR = "stage"
+    } else if (BRANCH == "stage-beta") {
+      PREFIX = "beta/"
+      STAGETESTSTR = "\'stage and beta\'"
+      PRODTESTSTR = "\'prod and beta\'"
+      RELEASESTR = "beta"
+      ENVSTR = "stage"
     } else {
       error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
     }
@@ -25,7 +36,7 @@ node {
     sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
   }
 
-  stage ("activate on staging") {
+  stage ("build & activate on Akamai staging") {
     // Use image with python 3.6
     openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
