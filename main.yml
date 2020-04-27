@@ -88,8 +88,6 @@ automation-analytics:
         default: true
       - id: organization-statistics
         title: Organization Statistics
-      - id: notifications
-        title: Notifications
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 
