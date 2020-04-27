@@ -1,0 +1,43 @@
+{
+    "name": "Pre-prod lockdown",
+    "children": [
+        {
+            "name": "Network List Access Control",
+            "children": [],
+            "behaviors": [
+                {
+                    "name": "denyAccess",
+                    "options": {
+                        "reason": "pre-prod-lockdown-deny-reason",
+                        "enabled": false
+                    }
+                }
+            ],
+            "criteria": [
+                {
+                    "name": "matchAdvanced",
+                    "options": {
+                        "description": "Network List Match",
+                        "openXml": "<match:client.ip2 check-ips=\"both\" list-names=\"NL_27979_REDHATNETWORKADDRESSLIS\" result=\"true\">",
+                        "closeXml": "</match:client.ip2>"
+                    },
+                    "uuid": "39710d1d-b1c7-4244-a2d9-853d314e0f40"
+                }
+            ],
+            "uuid": "6641f3ad-edc2-46be-a983-ce96e06d676d",
+            "criteriaMustSatisfy": "all"
+        }
+    ],
+    "behaviors": [
+        {
+            "name": "denyAccess",
+            "options": {
+                "reason": "pre-prod-lockdown-deny-reason",
+                "enabled": true
+            }
+        }
+    ],
+    "criteria": [],
+    "criteriaMustSatisfy": "all",
+    "uuid": "56c16c25-ff8f-4a95-bab7-af30e7bc1e18"
+}
