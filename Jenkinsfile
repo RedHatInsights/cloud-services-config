@@ -2,6 +2,9 @@
 import groovy.json.JsonSlurper
 
 node {
+  // Only run one build at a time; otherwise they'll fail since you can only have one Akamai activation at a time
+  properties([disableConcurrentBuilds()])
+
   stage ("create backup for old YAML files") {
     APP_NAME = "__APP_NAME__"
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
