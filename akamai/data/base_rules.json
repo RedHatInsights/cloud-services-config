@@ -573,7 +573,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "c0290a96032d1124d643abc277a2d658",
+                            "headerValue": "<<prod-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
@@ -1055,7 +1055,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "c0290a96032d1124d643abc277a2d658",
+                            "headerValue": "<<prod-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
@@ -1347,7 +1347,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "be9c8cb1c0f4f710313d6410b30b6ff9",
+                            "headerValue": "<<pentest-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
@@ -1643,7 +1643,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "be9c8cb1c0f4f710313d6410b30b6ff9",
+                            "headerValue": "<<pentest-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
                         }
                     },
@@ -1867,7 +1867,7 @@
                                 "options": {
                                     "action": "ADD",
                                     "standardAddHeaderName": "OTHER",
-                                    "headerValue": "7f7438422b80a9acd34f5b61322455ef",
+                                    "headerValue": "<<certauth-gateway-secret>>",
                                     "customHeaderName": "x-rh-insights-certauth-secret"
                                 }
                             }
