@@ -33,7 +33,7 @@ Here is some example configuration that demonstrates the structure, using all re
             -   id: app_id_2
                 title: Another Sub App
         suppress_id: true
-    git_repo: https://github.com/app-development-repo-url
+    source_repo: https://github.com/app-development-repo-url
     mailing_list: app-title@redhat.com
     top_level: false
 ```
@@ -117,7 +117,7 @@ Setting this value to `true` will disable the app from deploying to Prod (and ap
 
 This is the link to your app's documentation.
 
-#### app_id.git_repo
+#### app_id.source_repo
 
 This is the URL of the development (not deployment) repo for your app, i.e. the one you commit to.
 
