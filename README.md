@@ -4,7 +4,7 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for all beta branches is kept in sync, so changes will be automatically merged up through `qa-beta` and `prod-beta`. When you need config added to another environment (`ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment, and feel free to ping #forum-cloudservices-sre on Slack for assistance.
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync, so changes to `ci-beta` will automatically be merged into `nightly-beta` and `qa-beta`. When you need this config added to another environment (`prod-beta`, `ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment. If you have any concerns about this process, feel free to ping #forum-cloudservices-sre on Slack for assistance.
 
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
@@ -162,7 +162,7 @@ Restart your insights-proxy to pick up the change.
 
 Create a `beta/config` directory inside of `cloud-services-config` and copy `main.yml` to it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
 
-```
+```text
 $ npx http-server -p 8889
 npx: installed 25 in 2.484s
 Starting up http-server, serving ./
@@ -193,4 +193,4 @@ index 090fd7e..a680d06 100644
    frontend:
 ```
 
-Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on "https://ci.foo.redhat.com:1337" and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
+Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on <https://ci.foo.redhat.com:1337> and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
