@@ -17,8 +17,24 @@ def getJSONFromFile(path):
     with open(path, "r") as f:
         return json.load(f)
 
+def getJSONFromFileWithReplacements(path, replacements):
+    with open(path, "r") as f:
+        replaced_json = f.read()
+        for (k, v) in replacements:
+            replaced_json = replaced_json.replace(k, v)
+        return json.loads(replaced_json)
+
 def getYMLFromUrl(url):
     return yaml.safe_load(s.get(url, verify=False).content.decode('utf-8'))
+
+def getPropertyIDForEnv(env):
+    if env == "stage":
+        return "prp_614339"
+    else:
+        return "prp_516561"
+
+def getEnvVar(var_name):
+    return os.environ[var_name]
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(env):
