@@ -14,6 +14,7 @@ advisor:
         title: Recommendations
       - id: topics
         title: Topics
+  source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
 
 ansible:
   title: Red Hat Ansible Automation Platform
@@ -31,6 +32,7 @@ api-docs:
     paths:
       - /docs/api
       - /docs
+  source_repo: https://github.com/RedHatInsights/api-frontend
 
 applications:
   title: Applications
@@ -55,6 +57,7 @@ applications:
             - cost_management
     paths:
       - /settings/applications
+  source_repo: https://github.com/RedHatInsights/settings-frontend
 
 approval:
   title: Approval
@@ -67,6 +70,7 @@ approval:
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
+  source_repo: https://github.com/RedHatInsights/approval-ui
 
 automation-analytics:
   title: Automation Analytics
@@ -86,6 +90,7 @@ automation-analytics:
         title: Organization Statistics
       - id: notifications
         title: Notifications
+  source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 
 automation-hub:
@@ -101,8 +106,8 @@ automation-hub:
       - id: partners
         title: Partners
       - id: my-namespaces
-        title: My Namespaces
-  git_repo: https://github.com/ansible/ansible-hub-ui
+        title: My namespaces
+  source_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
   title: Catalog
@@ -126,10 +131,12 @@ catalog:
       - id: orders
         title: Orders
       - id: approval
+  source_repo: https://github.com/RedHatInsights/catalog-ui
 
 chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
+  source_repo: https://github.com/RedHatInsights/insights-chrome
 
 compliance:
   title: Compliance
@@ -148,10 +155,12 @@ compliance:
         title: SCAP Policies
       - id: systems
         title: Systems
+  source_repo: https://github.com/RedHatInsights/compliance-frontend
 
 config:
   title: Cloud Services Config
   deployment_repo: https://github.com/RedHatInsights/cloud-services-config
+  source_repo: https://github.com/RedHatInsights/cloud-services-config
 
 cost-management:
   title: Cost Management
@@ -186,7 +195,7 @@ cost-management:
       - id: cost-models
         title: Cost Models
         group: cost-management
-  git_repo: https://github.com/project-koku/
+  source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
 details:
@@ -206,6 +215,7 @@ dashboard:
     paths:
       - /insights
       - /insights/dashboard
+  source_repo: https://github.com/RedHatInsights/insights-dashboard
 
 docs:
   title: Documentation
@@ -235,10 +245,12 @@ drift:
       - id: baselines
         title: Baselines
         reload: drift/baselines
+  source_repo: https://github.com/RedHatInsights/drift-frontend
 
 frontend-assets:
   title: Frontend Assets
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
+  source_repo: https://github.com/RedHatInsights/frontend-assets
 
 hooks:
   title: Web Hooks Service
@@ -251,6 +263,7 @@ hooks:
     title: Hooks
     paths:
       - /settings/hooks
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 ingress:
   title: Ingress
@@ -286,10 +299,12 @@ inventory:
     title: Inventory
     paths:
       - /insights/inventory
+  source_repo: https://github.com/RedHatInsights/insights-inventory-frontend
 
 landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
+  source_repo: https://github.com/RedHatInsights/landing-page-frontend
 
 migrations:
   title: Migrations
@@ -314,7 +329,7 @@ migration-analytics:
     paths:
       - /migrations
       - /migrations/migration-analytics
-  git_repo: https://github.com/project-xavier/xavier-ui
+  source_repo: https://github.com/project-xavier/xavier-ui
 
 openshift:
   title: OpenShift (OCM)
@@ -334,6 +349,7 @@ openshift:
       - id: subscriptions
         title: Subscriptions
         group: openshift
+  source_repo: 
   top_level: true
 
 patch:
@@ -347,7 +363,7 @@ patch:
     title: Patch
     paths:
       - /insights/patch
-  git_repo: https://github.com/RedHatInsights/patchman-ui
+  source_repo: https://github.com/RedHatInsights/patchman-ui
 
 policies:
   title: Policies
@@ -359,6 +375,7 @@ policies:
   frontend:
     paths:
       - /insights/policies
+  source_repo: https://github.com/RedHatInsights/policies-ui-frontend
 
 rbac:
   title: Role-based Access Control
@@ -379,6 +396,7 @@ rbac:
         title: Roles
       - id: users
         title: Users
+  source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 remediations:
   title: Remediations
@@ -390,6 +408,7 @@ remediations:
   frontend:
     paths:
       - /insights/remediations
+  source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
 rhel-sw:
   title: Red Hat Enterprise Linux
@@ -421,6 +440,7 @@ ruledev:
   frontend:
     paths:
       - /staging/ruledev
+  source_repo: https://github.com/RedHatInsights/ruledev-frontend
 
 settings:
   title: Settings
@@ -443,6 +463,7 @@ sources:
     title: Sources
     paths:
       - /settings/sources
+  source_repo: https://github.com/RedHatInsights/sources-ui
 
 staging:
   title: Staging Bundle
@@ -457,6 +478,7 @@ storybook:
   frontend:
     paths:
       - /docs/storybook
+  source_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
 subscriptions:
   title: Subscription Watch
@@ -479,7 +501,7 @@ subscriptions:
       - id: openshift-sw
         title: Red Hat OpenShift
         group: subscriptions
-  git_repo: https://github.com/RedHatInsights/curiosity-frontend
+  source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 user-preferences:
   title: User Preferences
@@ -493,6 +515,7 @@ user-preferences:
       - id: email
         title: Email preferences
         default: true
+  source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
 vulnerability:
   title: Vulnerability Management
@@ -504,3 +527,4 @@ vulnerability:
     title: Vulnerability
     paths:
       - /insights/vulnerability
+  source_repo: https://github.com/RedHatInsights/vulnerability-ui
