@@ -50,12 +50,14 @@ applications:
           method: isEntitled
           args:
             - insights
+        reload: applications/insights
       - id: cost-management
         title: Cost Management
         permissions:
           method: isEntitled
           args:
             - cost_management
+        reload: applications/cost-management
     paths:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
@@ -214,6 +216,7 @@ details:
       - id: ocp
         title: OpenShift
       - id: aws
+        default: true
         title: Infrastructure
 
 policies:
@@ -249,7 +252,7 @@ docs:
   top_level: true
 
 drift:
-  title: Configuration Drift
+  title: Drift
   api:
     versions:
       - v1
