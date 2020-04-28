@@ -35,6 +35,13 @@ node {
     } else {
       error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
     }
+
+    if (ENVSTR == "prod") {
+      AKAMAI_APP_PATH = "/822386/${PREFIX}config"
+    } else {
+      AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
+    }
+
     sh "wget -O main.yml.bak https://cloud.redhat.com/${PREFIX}config/main.yml"
     sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
   }
@@ -49,7 +56,7 @@ node {
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
           file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
-          string(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
+          string(credentialsId: "rhcs-$ENVSTR-gateway-secret", variable: 'GATEWAYSECRET'),
           string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
           string(credentialsId: "rhcs-prod-certauth-secret", variable: 'CERTAUTHSECRET')
         ]) {
@@ -60,7 +67,7 @@ node {
           sh "pip3 install --user -r ./requirements.txt"
 
           withEnv([
-            "PRODGATEWAYSECRET=$PRODGATEWAYSECRET",
+            "GATEWAYSECRET=$GATEWAYSECRET",
             "PENTESTGATEWAYSECRET=$PENTESTGATEWAYSECRET",
             "CERTAUTHSECRET=$CERTAUTHSECRET",
             "EDGERCPATH=$EDGERC",
@@ -84,9 +91,6 @@ node {
                   keyFileVariable: "privateKeyFile",
                   passphraseVariable: "",
                   usernameVariable: "")]) {
-
-      AKAMAI_BASE_PATH = "822386"
-      AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
 
       configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
         sh """
@@ -187,9 +191,6 @@ node {
                   keyFileVariable: "privateKeyFile",
                   passphraseVariable: "",
                   usernameVariable: "")]) {
-
-      AKAMAI_BASE_PATH = "822386"
-      AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
 
       configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
         sh """
