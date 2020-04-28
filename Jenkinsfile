@@ -48,6 +48,7 @@ node {
         // Use secret .edgerc file
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
+          file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
           string(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
           string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
           string(credentialsId: "rhcs-prod-certauth-secret", variable: 'CERTAUTHSECRET')
@@ -62,8 +63,10 @@ node {
             "PRODGATEWAYSECRET=$PRODGATEWAYSECRET",
             "PENTESTGATEWAYSECRET=$PENTESTGATEWAYSECRET",
             "CERTAUTHSECRET=$CERTAUTHSECRET",
+            "EDGERCPATH=$EDGERC",
+            "GATEWAYORIGINJSON=$GATEWAYORIGINJSON"
           ]) {
-            sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
+            sh "python3 ./update_api.py STAGING $ENVSTR $BRANCH"
           }
 
           // Save contents of previousversion.txt as a variable
@@ -135,7 +138,11 @@ node {
             sh "python3 -m venv venv"
             sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} STAGING"
+            withEnv([
+              "EDGERCPATH=$EDGERC"
+            ]) {
+              sh "python3 ./activate_version.py ${PREVIOUSVERSION} STAGING"
+            }
           }
         }
       }
@@ -163,7 +170,11 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION $ENVSTR true"
+          withEnv([
+            "EDGERCPATH=$EDGERC"
+          ]) {
+            sh "python3 ./activate_version.py ${NEWVERSION} PRODUCTION $ENVSTR true"
+          }
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)
@@ -230,7 +241,11 @@ node {
             sh "python3 -m venv venv"
             sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
+            withEnv([
+              "EDGERCPATH=$EDGERC"
+            ]) {
+              sh "python3 ./activate_version.py ${PREVIOUSVERSION} PRODUCTION"
+            }
           }
         }
       }

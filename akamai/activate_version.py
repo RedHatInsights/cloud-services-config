@@ -8,22 +8,22 @@ def main():
 
     waitForActivation = False
 
-    if len(sys.argv) > 2:
-        version_to_activate = sys.argv[2]
+    if len(sys.argv) > 1:
+        version_to_activate = sys.argv[1]
     else:
         sys.exit("Activation failed: no property version number specified")
     
-    if len(sys.argv) > 3:
-        aka_env = sys.argv[3]
+    if len(sys.argv) > 2:
+        aka_env = sys.argv[2]
     else:
         aka_env = "STAGING"
     
-    if len(sys.argv) > 4:
-        crc_env = sys.argv[4]
+    if len(sys.argv) > 3:
+        crc_env = sys.argv[3]
     else:
         crc_env = "stage"
     
-    if len(sys.argv) > 5:
+    if len(sys.argv) > 4:
         waitForActivation = (sys.argv[4].lower() == "true")
     
     previous_version = util.getLatestVersionNumber(crc_env, aka_env)
