@@ -92,7 +92,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
     replacements = [
-        ("<<prod-gateway-secret>>", util.getEnvVar("PRODGATEWAYSECRET")),
+        ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")))
