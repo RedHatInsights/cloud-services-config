@@ -62,7 +62,15 @@
             }
         ],
         "uuid": "default",
-        "variables": [],
+        "variables": [
+            {
+                "name": "PMUSER_IS_PROD",
+                "value": "TRUE",
+                "description": "",
+                "hidden": false,
+                "sensitive": false
+            }
+        ],
         "advancedOverride": "<assign:variable>\n    <name>DROP_TRANSFER_ENCODING_CONTENT_LENGTH_OPT_OUT</name>\n    <value>true</value>\n</assign:variable>",
         "comments": "The behaviors in the Default Rule apply to all requests for the property hostname(s) unless another rule overrides the Default Rule settings.",
         "children": [
