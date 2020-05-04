@@ -97,13 +97,8 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")))
     ]
-    if crc_env == "stage":
-        replacements.append(("\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
 
-    rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", replacements)
-
-    if crc_env == "stage":
-        rules_tree["rules"]["children"].insert(0, util.getJSONFromFile("./data/pre_prod_lockdown.json"))
+    rules_tree = util.getJSONFromFileWithReplacements("./data/{}/base_rules.json".format(crc_env), replacements)
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
 
