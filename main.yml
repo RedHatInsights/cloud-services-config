@@ -64,7 +64,6 @@ approval:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     paths:
@@ -114,7 +113,6 @@ catalog:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
