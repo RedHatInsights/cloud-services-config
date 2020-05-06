@@ -108,7 +108,7 @@ automation-hub:
   source_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
-  title: Catalog
+  title: Automation Services Catalog
   api:
     versions:
       - v1
@@ -120,11 +120,15 @@ catalog:
     sub_apps:
       - id: products
         title: Products
-        default: true
       - id: portfolios
         title: Portfolios
+        default: true
       - id: platforms
         title: Platforms
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:portfolios:create]
       - id: orders
         title: Orders
       - id: approval
