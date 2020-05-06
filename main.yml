@@ -411,7 +411,7 @@ rbac:
       - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
   frontend:
-    title: User access
+    title: User Access
     paths:
       - /settings
       - /settings/rbac
@@ -532,16 +532,16 @@ subscriptions:
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 user-preferences:
-  title: User preferences
+  title: User Preferences
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
   top_level: true
   frontend:
-    title: User preferences
+    title: User Preferences
     paths:
       - /user-preferences
     sub_apps:
       - id: email
-        title: Email preferences
+        title: Email Preferences
         default: true
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
