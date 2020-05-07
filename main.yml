@@ -93,7 +93,7 @@ automation-analytics:
       - id: organization-statistics
         title: Organization statistics
       - id: automation-calculator
-        title: Automation Calculator
+        title: Automation calculator
       - id: notifications
         title: Notifications
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
