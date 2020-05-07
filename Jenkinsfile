@@ -6,26 +6,47 @@ node {
   properties([disableConcurrentBuilds()])
 
   stage ("create backup for old YAML files") {
-    String APP_NAME = "__APP_NAME__"
-    String BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
+    APP_NAME = "__APP_NAME__"
+    BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
       STAGETESTSTR = "\'stage and stable\'"
       PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
+      ENVSTR = "prod"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
       STAGETESTSTR = "\'stage and beta\'"
       PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
+      ENVSTR = "prod"
+    } else if (BRANCH == "stage-stable") {
+      PREFIX = ""
+      STAGETESTSTR = "\'stage and stable\'"
+      PRODTESTSTR = "\'prod and stable\'"
+      RELEASESTR = "stable"
+      ENVSTR = "stage"
+    } else if (BRANCH == "stage-beta") {
+      PREFIX = "beta/"
+      STAGETESTSTR = "\'stage and beta\'"
+      PRODTESTSTR = "\'prod and beta\'"
+      RELEASESTR = "beta"
+      ENVSTR = "stage"
     } else {
       error "Invalid branch name: we only support prod-beta/prod-stable, but we got ${BRANCH}"
     }
+
+    if (ENVSTR == "prod") {
+      AKAMAI_APP_PATH = "/822386/${PREFIX}config"
+    } else {
+      AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
+    }
+
     sh "wget -O main.yml.bak https://cloud.redhat.com/${PREFIX}config/main.yml"
     sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
   }
 
-  stage ("activate on staging") {
+  stage ("build & activate on Akamai staging") {
     // Use image with python 3.6
     openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
@@ -34,7 +55,8 @@ node {
         // Use secret .edgerc file
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
-          string(credentialsId: "rhcs-prod-gateway-secret", variable: 'PRODGATEWAYSECRET'),
+          file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
+          string(credentialsId: "rhcs-$ENVSTR-gateway-secret", variable: 'GATEWAYSECRET'),
           string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
           string(credentialsId: "rhcs-prod-certauth-secret", variable: 'CERTAUTHSECRET')
         ]) {
@@ -45,11 +67,13 @@ node {
           sh "pip3 install --user -r ./requirements.txt"
 
           withEnv([
-            "PRODGATEWAYSECRET=$PRODGATEWAYSECRET",
+            "GATEWAYSECRET=$GATEWAYSECRET",
             "PENTESTGATEWAYSECRET=$PENTESTGATEWAYSECRET",
             "CERTAUTHSECRET=$CERTAUTHSECRET",
+            "EDGERCPATH=$EDGERC",
+            "GATEWAYORIGINJSON=$GATEWAYORIGINJSON"
           ]) {
-            sh "python3 ./update_api.py $EDGERC STAGING $ENVSTR $BRANCH"
+            sh "python3 ./update_api.py STAGING $ENVSTR $BRANCH"
           }
 
           // Save contents of previousversion.txt as a variable
@@ -67,9 +91,6 @@ node {
                   keyFileVariable: "privateKeyFile",
                   passphraseVariable: "",
                   usernameVariable: "")]) {
-
-      AKAMAI_BASE_PATH = "822386"
-      AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
 
       configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
         sh """
@@ -121,7 +142,11 @@ node {
             sh "python3 -m venv venv"
             sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} STAGING"
+            withEnv([
+              "EDGERCPATH=$EDGERC"
+            ]) {
+              sh "python3 ./activate_version.py ${PREVIOUSVERSION} STAGING"
+            }
           }
         }
       }
@@ -149,7 +174,11 @@ node {
           sh "python3 -m venv venv"
           sh ". ./venv/bin/activate"
           sh "pip3 install --user -r ./requirements.txt"
-          sh "python3 ./activate_version.py $EDGERC ${NEWVERSION} PRODUCTION $ENVSTR true"
+          withEnv([
+            "EDGERCPATH=$EDGERC"
+          ]) {
+            sh "python3 ./activate_version.py ${NEWVERSION} PRODUCTION $ENVSTR true"
+          }
           // Save contents of previousversion.txt as a variable
           PREVIOUSVERSION = readFile('previousversion.txt').trim()
           print("PRODUCTION PREVIOUSVERSION is v" + PREVIOUSVERSION)
@@ -162,9 +191,6 @@ node {
                   keyFileVariable: "privateKeyFile",
                   passphraseVariable: "",
                   usernameVariable: "")]) {
-
-      AKAMAI_BASE_PATH = "822386"
-      AKAMAI_APP_PATH = "/${AKAMAI_BASE_PATH}/${PREFIX}config"
 
       configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
         sh """
@@ -216,7 +242,11 @@ node {
             sh "python3 -m venv venv"
             sh ". ./venv/bin/activate"
             sh "pip3 install --user -r ./requirements.txt"
-            sh "python3 ./activate_version.py $EDGERC ${PREVIOUSVERSION} PRODUCTION"
+            withEnv([
+              "EDGERCPATH=$EDGERC"
+            ]) {
+              sh "python3 ./activate_version.py ${PREVIOUSVERSION} PRODUCTION"
+            }
           }
         }
       }
