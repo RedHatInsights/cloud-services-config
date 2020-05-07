@@ -37,13 +37,13 @@ def getEnvVar(var_name):
     return os.environ[var_name]
 
 # Makes an API call requesting the latest version data for the property.
-def getLatestVersionNumber(env):
-    print("API - Getting version of latest activation in {}...".format(env))
-    data = json.loads(akamaiGet("/papi/v1/properties/prp_516561/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(env)))
+def getLatestVersionNumber(crc_env, akamai_env):
+    print("API - Getting version of latest activation in {}...".format(akamai_env))
+    data = json.loads(akamaiGet("/papi/v1/properties/{}/versions/latest?activatedOn={}&contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(getPropertyIDForEnv(crc_env), akamai_env)))
     return data["versions"]["items"][0]["propertyVersion"]
 
 # Makes an API call to activate the specified version on the specified environment.
-def activateVersion(version_number, env="STAGING"):
+def activateVersion(version_number, env="STAGING", crc_env="stage"):
     # "notifyEmails" is unfortunately required for this API call.
     # TODO: Set this to the team email list once that exists
     body = {
@@ -56,7 +56,7 @@ def activateVersion(version_number, env="STAGING"):
     body["propertyVersion"] = version_number
     body["network"] = env
     print("API - Activating version {} on {}...".format(version_number, env))
-    response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    response = json.loads(akamaiPost("/papi/v1/properties/{}/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(getPropertyIDForEnv(crc_env)),body))
     err = False
 
     # If there are any warnings in the property, it'll return a status 400 with a list of warnings.
@@ -69,7 +69,7 @@ def activateVersion(version_number, env="STAGING"):
             warnings.append(w["messageId"])
         body["acknowledgeWarnings"] = warnings
         print("API - First activation request gave warnings. Acknowledging...")
-        response = json.loads(akamaiPost("/papi/v1/properties/prp_516561/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+        response = json.loads(akamaiPost("/papi/v1/properties/{}/activations?contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(getPropertyIDForEnv(crc_env)),body))
 
         # If it fails again, give up.
         if "activationLink" in response:
@@ -84,14 +84,14 @@ def activateVersion(version_number, env="STAGING"):
         print(json.dumps(response))
         print("The activaction failed. Please check out the above response to see what happened.") 
 
-def waitForActiveVersion(version_number, env="STAGING"):
+def waitForActiveVersion(version_number, env="STAGING", crc_env="stage"):
     print("Waiting for version {} to finish activating...".format(version_number))
     active_version = ""
     timeout = 180
     while active_version != version_number:
         time.sleep(10)
         try:
-            active_version = getLatestVersionNumber(env)
+            active_version = getLatestVersionNumber(crc_env, env)
         except:
             print("Failed to retrieve current version")
         timeout -= 1
