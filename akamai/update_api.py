@@ -93,7 +93,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
     print("Creating new ruleset based on list of master configs...")
     frontend_rule_index = 3 if ("stage"==crc_env) else 2
     replacements = [
-        ("<<prod-gateway-secret>>", util.getEnvVar("PRODGATEWAYSECRET")),
+        ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")))
@@ -162,13 +162,13 @@ def main():
 
     # This arg will be either "prod-stable" or "prod-beta", and tells us which release our local main.yml is for.
     # This guarantees that the newest main.yml is used instead of the one it intends to replace.
-    if len(sys.argv) > 4:
-        local_branch = sys.argv[4]
+    if len(sys.argv) > 3:
+        local_branch = sys.argv[3]
     else:
         local_branch = "prod-stable"
 
-    if len(sys.argv) > 3:
-        crc_env = sys.argv[3]
+    if len(sys.argv) > 2:
+        crc_env = sys.argv[2]
     else:
         crc_env = "stage"
 
@@ -190,8 +190,8 @@ def main():
             "config": generateConfigForBranch(source_branch, url_prefix, local_branch)
         })
 
-    if len(sys.argv) > 2:
-        property_env = sys.argv[2]
+    if len(sys.argv) > 1:
+        property_env = sys.argv[1]
     else:
         property_env = "STAGING"
 

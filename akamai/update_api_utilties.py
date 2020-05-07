@@ -24,6 +24,10 @@ def getJSONFromFileWithReplacements(path, replacements):
             replaced_json = replaced_json.replace(k, v)
         return json.loads(replaced_json)
 
+def readFileAsString(path):
+    with open(path, "r") as f:
+        return f.read()
+
 def getYMLFromUrl(url):
     return yaml.safe_load(s.get(url, verify=False).content.decode('utf-8'))
 
@@ -34,7 +38,10 @@ def getPropertyIDForEnv(env):
         return "prp_516561"
 
 def getEnvVar(var_name):
-    return os.environ[var_name]
+    var_value = ""
+    if var_name in os.environ:
+        var_value = os.environ[var_name]
+    return var_value
 
 # Makes an API call requesting the latest version data for the property.
 def getLatestVersionNumber(crc_env, akamai_env):
@@ -102,25 +109,25 @@ def waitForActiveVersion(version_number, env="STAGING", crc_env="stage"):
 
 # Initializes the EdgeGrid auth using the .edgerc file (or some passed-in config).
 def initEdgeGridAuth(path="~/.edgerc"):
-    # If the config file was passed in, use that.
-    if len(sys.argv) > 1:
-        path = sys.argv[1]
+    # If the config file is defined in the env vars, use that
+    edgerc_path = getEnvVar("EDGERCPATH")
+    if edgerc_path != "":
+        path = edgerc_path
     config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
 
-    # TODO: We might actually be able to authenticate without EdgeGridAuth,
-    # which would reduce the number of dependencies.
     s.auth = EdgeGridAuth(
         client_token=config.get("default", "client_token"),
         client_secret=config.get("default", "client_secret"),
         access_token=config.get("default", "access_token")
     )
 
-# Gets the hostname from the .edgerc file (or some passed-in config).
+# Gets the hostname from the .edgerc file.
 def getHostFromConfig(path="~/.edgerc"):
-    # If the config file was passed in, use that.
-    if len(sys.argv) > 1:
-        path = sys.argv[1]
+    # If the edgerc path was set as an env var, use that.
+    edgerc_path = getEnvVar("EDGERCPATH")
+    if edgerc_path != "":
+        path = edgerc_path
     config = configparser.RawConfigParser()
     config.read(os.path.expanduser(path))
     return config.get("default", "host")
