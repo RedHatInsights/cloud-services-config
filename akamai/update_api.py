@@ -6,9 +6,9 @@ import update_api_utilties as util
 
 # Creates a new version of the property in Akamai,
 # which is based off of the latest active version in the given environment.
-def createNewVersion(property_env="STAGING"):
+def createNewVersion(crc_env="stage", property_env="STAGING"):
     # Get the number of the latest prod version to use as a base
-    previous_version = util.getLatestVersionNumber(property_env)
+    previous_version = util.getLatestVersionNumber(crc_env, property_env)
 
     # Save this number for later: create a file that contains the latest version number
     with open("previousversion.txt", "w") as f:
@@ -19,7 +19,7 @@ def createNewVersion(property_env="STAGING"):
     }
     
     print("API - Creating new version based on v{}".format(previous_version))
-    response_content = json.loads(util.akamaiPost("/papi/v1/properties/prp_516561/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508",body))
+    response_content = json.loads(util.akamaiPost("/papi/v1/properties/{}/versions?contractId=ctr_3-1MMN3Z&groupId=grp_134508".format(util.getPropertyIDForEnv(crc_env)),body))
 
     new_version = 0
     m = re.search('versions\/(.+?)\?contractId', response_content["versionLink"])
@@ -91,20 +91,15 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 # Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
-    frontend_rule_index = 2
+    frontend_rule_index = 3 if ("stage"==crc_env) else 2
     replacements = [
-        ("<<prod-gateway-secret>>", util.getEnvVar("PRODGATEWAYSECRET")),
+        ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
-        ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET"))
+        ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
+        ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")))
     ]
-    if crc_env == "stage":
-        replacements.append(("\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
-        frontend_rule_index = 3
 
-    rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", replacements)
-
-    if crc_env == "stage":
-        rules_tree["rules"]["children"].insert(0, util.getJSONFromFile("./data/pre_prod_lockdown.json"))
+    rules_tree = util.getJSONFromFileWithReplacements("./data/{}/base_rules.json".format(crc_env), replacements)
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
 
@@ -172,8 +167,8 @@ def main():
     else:
         local_branch = "prod-stable"
 
-    if len(sys.argv) > 3:
-        crc_env = sys.argv[3]
+    if len(sys.argv) > 2:
+        crc_env = sys.argv[2]
     else:
         crc_env = "stage"
 
@@ -195,8 +190,8 @@ def main():
             "config": generateConfigForBranch(source_branch, url_prefix, local_branch)
         })
 
-    if len(sys.argv) > 2:
-        property_env = sys.argv[2]
+    if len(sys.argv) > 1:
+        property_env = sys.argv[1]
     else:
         property_env = "STAGING"
 
@@ -204,16 +199,16 @@ def main():
     util.initEdgeGridAuth()
 
     # Create a new version based off of the active Prod version
-    new_version_number = createNewVersion(property_env)
+    new_version_number = createNewVersion(crc_env, property_env)
 
     # Update the rules JSON using the CS configuration as a reference
-    updatePropertyRulesUsingConfig(new_version_number, cs_config_list)
+    updatePropertyRulesUsingConfig(new_version_number, cs_config_list, crc_env)
 
     # Activate version
-    util.activateVersion(new_version_number, property_env)
+    util.activateVersion(new_version_number, property_env, crc_env)
 
     # Wait for new version to be active
-    util.waitForActiveVersion(int(new_version_number), property_env)
+    util.waitForActiveVersion(int(new_version_number), property_env, crc_env)
 
 if __name__== "__main__":
     main()
