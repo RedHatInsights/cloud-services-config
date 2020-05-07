@@ -91,20 +91,15 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 # Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
-    frontend_rule_index = 2
+    frontend_rule_index = 3 if ("stage"==crc_env) else 2
     replacements = [
         ("<<prod-gateway-secret>>", util.getEnvVar("PRODGATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
-        ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET"))
+        ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
+        ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")))
     ]
-    if crc_env == "stage":
-        replacements.append(("\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
-        frontend_rule_index = 3
 
-    rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", replacements)
-
-    if crc_env == "stage":
-        rules_tree["rules"]["children"].insert(0, util.getJSONFromFile("./data/pre_prod_lockdown.json"))
+    rules_tree = util.getJSONFromFileWithReplacements("./data/{}/base_rules.json".format(crc_env), replacements)
 
     parent_rule_template = util.getJSONFromFile("./data/base_env_rule.json")
 
