@@ -91,6 +91,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 # Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
+    frontend_rule_index = 2
     replacements = [
         ("<<prod-gateway-secret>>", util.getEnvVar("PRODGATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
@@ -98,6 +99,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
     ]
     if crc_env == "stage":
         replacements.append(("\"cloud.redhat.com\"", "\"cloud.stage.redhat.com\""))
+        frontend_rule_index = 3
 
     rules_tree = util.getJSONFromFileWithReplacements("./data/base_rules.json", replacements)
 
@@ -125,7 +127,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
             parent_rule["criteria"][1]["options"]["matchOperator"] = "EXISTS"
             
         parent_rule["children"] = createRulesForEnv(env["config"], env["url_prefix"], env["content_path_prefix"], crc_env)
-        rules_tree["rules"]["children"][2]["children"].append(parent_rule)
+        rules_tree["rules"]["children"][frontend_rule_index]["children"].append(parent_rule)
 
     # Update property with this new ruleset
     print("API - Updating rule tree...")
