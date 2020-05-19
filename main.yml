@@ -149,7 +149,7 @@ compliance:
     paths:
       - /insights/compliance
     sub_apps:
-      - id: ''
+      - id: reports
         title: Reports
         default: true
       - id: scappolicies
