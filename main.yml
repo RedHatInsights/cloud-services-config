@@ -88,6 +88,10 @@ automation-analytics:
         default: true
       - id: organization-statistics
         title: Organization Statistics
+      - id: automation-calculator
+        title: Automation calculator
+      - id: notifications
+        title: Notifications
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
