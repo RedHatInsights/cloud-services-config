@@ -233,7 +233,7 @@
                         "name": "path",
                         "options": {
                             "values": [
-                                "/status"
+                                "/beta/status"
                             ],
                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
                             "matchCaseSensitive": false
@@ -879,7 +879,7 @@
                             "behavior": "REGEX_REPLACE",
                             "matchMultiple": true,
                             "keepQueryString": true,
-                            "matchRegex": "\\/status",
+                            "matchRegex": "\\/beta\\/status",
                             "targetRegex": "/"
                         }
                     }
@@ -889,7 +889,7 @@
                         "name": "path",
                         "options": {
                             "values": [
-                                "/status",
+                                "/beta/status",
                                 "/build/*",
                                 "/img/*",
                                 "/fonts/*"
