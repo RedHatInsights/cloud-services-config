@@ -227,7 +227,7 @@ docs:
   frontend:
     sub_apps:
       - id: api-docs
-        reload: docs/api
+        reload: api
         default: true
   top_level: true
 
