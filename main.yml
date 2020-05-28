@@ -50,7 +50,7 @@ applications:
           method: isEntitled
           args:
             - insights
-        reload: applications/insights
+        reload: applications/advisor
       - id: cost-management
         title: Cost Management
         permissions:
