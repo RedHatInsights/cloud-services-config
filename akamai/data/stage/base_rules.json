@@ -915,6 +915,34 @@
                 "criteriaMustSatisfy": "all"
             },
             {
+                "name": "App Paths",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "rewriteUrl",
+                        "options": {
+                            "behavior": "PREPEND",
+                            "keepQueryString": true,
+                            "targetPathPrepend": "/stage/"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/apps/*",
+                                "/beta/apps/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
                 "name": "API",
                 "children": [
                     {
