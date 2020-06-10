@@ -12,6 +12,8 @@ advisor:
     sub_apps:
       - id: recommendations
         title: Recommendations
+      - id: systems
+        title: Systems
       - id: topics
         title: Topics
   source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
