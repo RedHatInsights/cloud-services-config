@@ -1068,7 +1068,7 @@
                             "forwardHostHeader": "ORIGIN_HOSTNAME",
                             "originSni": true,
                             "verificationMode": "CUSTOM",
-                            "hostname": "api-gateway-stage.apps.crc-stage-01.p5t7.p1.openshiftapps.com",
+                            "hostname": "api-gateway-stage.apps.crc-stg-01.o4v9.p1.openshiftapps.com",
                             "compress": true,
                             "trueClientIpHeader": "True-Client-IP",
                             "httpPort": 80,
@@ -1081,7 +1081,7 @@
                             "customValidCnValues": [
                                 "{{Origin Hostname}}",
                                 "{{Forward Host Header}}",
-                                "*.apps.crc-stage-01.p5t7.p1.openshiftapps.com"
+                                "*.apps.crc-stg-01.o4v9.p1.openshiftapps.com"
                             ],
                             "originCertsToHonor": "COMBO",
                             "standardCertificateAuthorities": [
@@ -1499,7 +1499,7 @@
                             "forwardHostHeader": "ORIGIN_HOSTNAME",
                             "originSni": true,
                             "verificationMode": "CUSTOM",
-                            "hostname": "api-gateway-stage.apps.crc-stage-01.p5t7.p1.openshiftapps.com",
+                            "hostname": "api-gateway-stage.apps.crc-stg-01.o4v9.p1.openshiftapps.com",
                             "compress": true,
                             "trueClientIpHeader": "True-Client-IP",
                             "httpPort": 80,
@@ -1512,7 +1512,7 @@
                             "customValidCnValues": [
                                 "{{Origin Hostname}}",
                                 "{{Forward Host Header}}",
-                                "*.apps.crc-stage-01.p5t7.p1.openshiftapps.com"
+                                "*.apps.crc-stg-01.o4v9.p1.openshiftapps.com"
                             ],
                             "originCertsToHonor": "COMBO",
                             "standardCertificateAuthorities": [
