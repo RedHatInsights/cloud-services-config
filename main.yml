@@ -344,7 +344,7 @@ migration-analytics:
   title: Migration Analytics
   api:
     versions:
-      - v1
+      - v1.0
     alias:
       - xavier
     tags:
