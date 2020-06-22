@@ -544,9 +544,16 @@ vulnerability:
   api:
     versions:
       - v1
+  channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
     title: Vulnerability
     paths:
       - /insights/vulnerability
+    sub_apps:
+      - id: cves
+        title: CVEs
+        default: true
+      - id: systems
+        title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
