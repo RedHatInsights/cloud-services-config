@@ -542,6 +542,16 @@ subscriptions:
         group: subscriptions
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
+topology:
+  title: Topological inventory
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/topological-inventory-frontend-build
+  frontend:
+    title: Topological inventory
+    paths:
+      - /settings/topology
+  source_repo: https://github.com/RedHatInsights/topological-inventory-frontend
+
 user-preferences:
   title: User Preferences
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
