@@ -3,6 +3,7 @@
     "options": {
         "values": [],
         "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-        "matchCaseSensitive": false
+        "matchCaseSensitive": false,
+        "normalize": false
     }
 }
