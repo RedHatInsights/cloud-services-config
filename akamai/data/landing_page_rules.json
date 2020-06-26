@@ -98,7 +98,8 @@
                         "/apps/landing/404.html"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             }
         ],
@@ -128,7 +129,8 @@
                         "/"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
@@ -169,7 +171,8 @@
                         "/robots.txt"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
@@ -208,7 +211,8 @@
                         "/silent-check-sso.html"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
@@ -245,7 +249,8 @@
                         "/logout"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
