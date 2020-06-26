@@ -96,11 +96,11 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
-        ("<<rhorchata-origin-json>>", util.readFileAsString(util.getEnvVar("RHORCHATAORIGINJSON")),
-        ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON")),
-        ("<<pentest-gateway-origin-json>>", util.readFileAsString(util.getEnvVar("PENTESTGATEWAYORIGINJSON")),
-        ("<<gateway-origin-v4-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINV4JSON")),
-        ("<<openshift-origin-json>>", util.readFileAsString(util.getEnvVar("OPENSHIFTORIGINJSON")),
+        ("<<rhorchata-origin-json>>", util.readFileAsString(util.getEnvVar("RHORCHATAORIGINJSON"))),
+        ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON"))),
+        ("<<pentest-gateway-origin-json>>", util.readFileAsString(util.getEnvVar("PENTESTGATEWAYORIGINJSON"))),
+        ("<<gateway-origin-v4-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINV4JSON"))),
+        ("<<openshift-origin-json>>", util.readFileAsString(util.getEnvVar("OPENSHIFTORIGINJSON"))),
         ("<<openshift-origin-mirror-json>>", util.readFileAsString(util.getEnvVar("OPENSHIFTORIGINMIRRORJSON")))
     ]
 
