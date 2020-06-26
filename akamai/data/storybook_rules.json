@@ -22,7 +22,8 @@
                         "/docs/storybook/"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
@@ -60,7 +61,8 @@
                         "/docs/*"
                     ],
                     "matchOperator": "MATCHES_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             },
             {
@@ -72,7 +74,8 @@
                         "/docs/storybook/"
                     ],
                     "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                    "matchCaseSensitive": false
+                    "matchCaseSensitive": false,
+                    "normalize": false
                 }
             }
         ],

@@ -18,7 +18,8 @@
             "options": {
                 "values": [],
                 "matchOperator": "MATCHES_ONE_OF",
-                "matchCaseSensitive": false
+                "matchCaseSensitive": false,
+                "normalize": false
             }
         },
         {
