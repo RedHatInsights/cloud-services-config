@@ -56,6 +56,10 @@ node {
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
           file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
+          file(credentialsId: "rhcs-openshift-origin-json", variable: 'OPENSHIFTORIGINJSON'),
+          file(credentialsId: "rhcs-openshift-mirror-origin-json", variable: 'OPENSHIFTORIGINMIRRORJSON'),
+          file(credentialsId: "rhcs-rhorchata-origin-json", variable: 'RHORCHATAORIGINJSON'),
+          file(credentialsId: "rhcs-pentest-gateway-origin-json", variable: 'PENTESTGATEWAYORIGINJSON'),
           string(credentialsId: "rhcs-$ENVSTR-gateway-secret", variable: 'GATEWAYSECRET'),
           string(credentialsId: "rhcs-pentest-gateway-secret", variable: 'PENTESTGATEWAYSECRET'),
           string(credentialsId: "rhcs-prod-certauth-secret", variable: 'CERTAUTHSECRET')
