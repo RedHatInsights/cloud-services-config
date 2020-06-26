@@ -236,7 +236,8 @@
                                 "/beta/status"
                             ],
                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     }
                 ],
@@ -271,7 +272,8 @@
                                             "values": [
                                                 "/beta/rhel"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -302,7 +304,8 @@
                                             "values": [
                                                 "/beta/rhel/dashboard*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -333,7 +336,8 @@
                                             "values": [
                                                 "/beta/rhel/vulnerability*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -364,7 +368,8 @@
                                             "values": [
                                                 "/beta/rhel/compliance*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -395,7 +400,8 @@
                                             "values": [
                                                 "/beta/rhel/drift*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -426,7 +432,8 @@
                                             "values": [
                                                 "/beta/rhel/remediations*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -457,7 +464,8 @@
                                             "values": [
                                                 "/beta/rhel/inventory*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -488,7 +496,8 @@
                                             "values": [
                                                 "/beta/insights/rules*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -519,7 +528,8 @@
                                             "values": [
                                                 "/beta/insights/topics*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -550,7 +560,8 @@
                                             "values": [
                                                 "/rhel"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -581,7 +592,8 @@
                                             "values": [
                                                 "/rhel/dashboard*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -612,7 +624,8 @@
                                             "values": [
                                                 "/rhel/vulnerability*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -643,7 +656,8 @@
                                             "values": [
                                                 "/rhel/compliance*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -674,7 +688,8 @@
                                             "values": [
                                                 "/rhel/drift*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -705,7 +720,8 @@
                                             "values": [
                                                 "/rhel/remediations*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -736,7 +752,8 @@
                                             "values": [
                                                 "/rhel/inventory*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -767,7 +784,8 @@
                                             "values": [
                                                 "/insights/rules*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -798,7 +816,8 @@
                                             "values": [
                                                 "/insights/topics*"
                                             ],
-                                            "matchCaseSensitive": false
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
                                         }
                                     }
                                 ],
@@ -838,7 +857,8 @@
                                 "/fonts/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     }
                 ],
@@ -909,7 +929,8 @@
                                         "/api/"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -947,7 +968,8 @@
                                         "/api/v1/static*"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -1038,7 +1060,8 @@
                                 "/api"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -1049,7 +1072,8 @@
                                 "/api/openshift"
                             ],
                             "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -1392,7 +1416,8 @@
                                 "/api/openshift/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -1446,7 +1471,8 @@
                                 "/mirror/openshift/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -1602,7 +1628,8 @@
                                 "/wss/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     }
                 ],
@@ -1673,7 +1700,8 @@
                                         "/api/"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -1711,7 +1739,8 @@
                                         "/api/v1/static*"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -1802,7 +1831,8 @@
                                 "/api"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -1882,7 +1912,8 @@
                                         "/api/"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -1920,7 +1951,8 @@
                                         "/api/v1/static*"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -2011,7 +2043,8 @@
                                 "/api"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     },
                     {
@@ -2065,7 +2098,8 @@
                             "values": [
                                 "/0b3e491aaeaa09936552d9df8c43b318"
                             ],
-                            "matchCaseSensitive": false
+                            "matchCaseSensitive": false,
+                            "normalize": false
                         }
                     }
                 ],
@@ -2257,7 +2291,8 @@
                                         "/RHClientCertTestPage"
                                     ],
                                     "matchOperator": "MATCHES_ONE_OF",
-                                    "matchCaseSensitive": false
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
