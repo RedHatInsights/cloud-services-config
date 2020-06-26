@@ -1201,7 +1201,7 @@
                             "standardPassHeaderName": "OTHER"
                         }
                     },
-                    <<gateway-origin-json-v4>>,
+                    <<gateway-origin-v4-json>>,
                     {
                         "name": "modifyOutgoingRequestHeader",
                         "options": {
