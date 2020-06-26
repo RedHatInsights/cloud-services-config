@@ -6,7 +6,8 @@
             "options": {
                 "values": [],
                 "matchOperator": "",
-                "matchCaseSensitive": false
+                "matchCaseSensitive": false,
+                "normalize": false
             }
         },
         {
