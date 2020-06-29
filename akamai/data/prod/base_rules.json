@@ -1094,11 +1094,12 @@
                         }
                     },
                     {
-                        "name": "requestHeader",
+                        "name": "requestCookie",
                         "options": {
-                            "headerName": "x-rh-prod-v4",
+                            "cookieName": "x-rh-prod-v4",
                             "matchOperator": "DOES_NOT_EXIST",
-                            "matchWildcardName": false
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
                         }
                     }
                 ],
@@ -1334,11 +1335,12 @@
                         }
                     },
                     {
-                        "name": "requestHeader",
+                        "name": "requestCookie",
                         "options": {
-                            "headerName": "x-rh-prod-v4",
+                            "cookieName": "x-rh-prod-v4",
                             "matchOperator": "EXISTS",
-                            "matchWildcardName": false
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
                         }
                     }
                 ],
@@ -2059,7 +2061,7 @@
                 "criteriaMustSatisfy": "all"
             },
             {
-                "name": "Set Cloud Cookie",
+                "name": "Set Pentest Cookie",
                 "children": [],
                 "behaviors": [
                     {
@@ -2097,6 +2099,54 @@
                             "matchOperator": "MATCHES_ONE_OF",
                             "values": [
                                 "/0b3e491aaeaa09936552d9df8c43b318"
+                            ],
+                            "matchCaseSensitive": false,
+                            "normalize": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "Set Prodv4 Cookie",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "responseCookie",
+                        "options": {
+                            "cookieName": "x-rh-prod-v4",
+                            "enabled": true,
+                            "type": "FIXED",
+                            "defaultDomain": false,
+                            "defaultPath": false,
+                            "expires": "NEVER",
+                            "secure": false,
+                            "value": "1",
+                            "domain": "cloud.redhat.com",
+                            "path": "/"
+                        }
+                    },
+                    {
+                        "name": "redirect",
+                        "options": {
+                            "mobileDefaultChoice": "DEFAULT",
+                            "destinationProtocol": "HTTPS",
+                            "destinationHostname": "OTHER",
+                            "destinationPath": "OTHER",
+                            "queryString": "IGNORE",
+                            "responseCode": 307,
+                            "destinationPathOther": "/",
+                            "destinationHostnameOther": "cloud.redhat.com"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "values": [
+                                "/yOM53v3hTsaKDZJoVAtZ7r2or79PuzWI"
                             ],
                             "matchCaseSensitive": false,
                             "normalize": false
