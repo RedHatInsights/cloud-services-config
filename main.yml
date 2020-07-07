@@ -278,19 +278,6 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
-hooks:
-  title: Web Hooks Service
-  api:
-    versions:
-      - v1
-    isBeta: true
-  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
-  frontend:
-    title: Hooks
-    paths:
-      - /settings/hooks
-  source_repo: https://github.com/RedHatInsights/notifications-frontend
-
 ingress:
   title: Ingress
   api:
@@ -487,7 +474,6 @@ settings:
     sub_apps:
       - id: rbac
         default: true
-      - id: hooks
       - id: sources
       - id: applications
 
