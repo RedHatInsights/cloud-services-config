@@ -347,7 +347,7 @@ migration-analytics:
 my-user-access:
   title: My user access
   channel: '#platform-experience'
-  deployment_repo: https://github.com/RedHatInsights/insights-rbac-ui
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy
   frontend:
     paths:
       - /settings
