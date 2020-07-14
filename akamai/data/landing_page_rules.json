@@ -266,5 +266,33 @@
         "criteriaMustSatisfy": "all",
         "name": "/logout",
         "children": []
+    },
+    {
+        "name": "/apps",
+        "children": [],
+        "behaviors": [
+            {
+                "name": "rewriteUrl",
+                "options": {
+                    "keepQueryString": true,
+                    "behavior": "PREPEND",
+                    "targetPathPrepend": "/"
+                }
+            }
+        ],
+        "criteria": [
+            {
+                "name": "path",
+                "options": {
+                    "values": [
+                        "/apps/*"
+                    ],
+                    "matchOperator": "MATCHES_ONE_OF",
+                    "matchCaseSensitive": false,
+                    "normalize": false
+                }
+            }
+        ],
+        "criteriaMustSatisfy": "all"
     }
 ]
