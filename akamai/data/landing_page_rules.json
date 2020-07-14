@@ -276,7 +276,7 @@
                 "options": {
                     "keepQueryString": true,
                     "behavior": "PREPEND",
-                    "targetPathPrepend": "/"
+                    "targetPathPrepend": "/pentest/"
                 }
             }
         ],
