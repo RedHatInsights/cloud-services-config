@@ -47,6 +47,8 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 
     # If either url path prefix or content path prefix exists, modify paths on landing page & storybook rules.
     for rule in rules:
+        if rule["behaviors"][0]["name"] == "rewriteUrl" and rule["behaviors"][0]["options"]["behavior"] == "PREPEND" and "pentest" not in content_path_prefix:
+            rules.remove(rule)
         if content_path_prefix != "":
             if rule["behaviors"][0]["name"] == "failAction":
                 rule["behaviors"][0]["options"]["contentPath"] = content_path_prefix + rule["behaviors"][0]["options"]["contentPath"]
