@@ -139,6 +139,12 @@ catalog:
           method: hasPermissions
           args:
             - [catalog:portfolios:create]
+      - id: order_processes
+        title: Order processes
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:order_processes:read]
       - id: orders
         title: Orders
       - id: approval
