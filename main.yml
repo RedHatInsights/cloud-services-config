@@ -139,7 +139,7 @@ catalog:
           method: hasPermissions
           args:
             - [catalog:portfolios:create]
-      - id: order_processes
+      - id: order-processes
         title: Order processes
         permissions:
           method: hasPermissions
