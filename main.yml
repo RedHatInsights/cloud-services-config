@@ -356,6 +356,9 @@ openshift:
       - id: subscriptions
         title: Subscriptions
         group: openshift
+      - id: overview
+        title: Overview
+        group: openshift
   source_repo: 
   top_level: true
 
