@@ -2220,7 +2220,7 @@
                         "name": "hostname",
                         "options": {
                             "values": [
-                                "cloud.redhat.com"
+                                "cert.cloud.redhat.com"
                             ],
                             "matchOperator": "IS_ONE_OF"
                         }
@@ -2329,7 +2329,7 @@
                                 "name": "hostname",
                                 "options": {
                                     "values": [
-                                        "cloud.redhat.com"
+                                        "cert.cloud.redhat.com"
                                     ],
                                     "matchOperator": "IS_ONE_OF"
                                 }
