@@ -1633,6 +1633,164 @@
                             "matchCaseSensitive": false,
                             "normalize": false
                         }
+                    },
+                    {
+                        "name": "requestCookie",
+                        "options": {
+                            "cookieName": "x-rh-prod-v4",
+                            "matchOperator": "DOES_NOT_EXIST",
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "WSS (v4)",
+                "children": [
+                    {
+                        "name": "WSS Allow Methods",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "allowPatch",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPost",
+                                "options": {
+                                    "enabled": true,
+                                    "allowWithoutContentLength": true
+                                }
+                            },
+                            {
+                                "name": "allHttpInCacheHierarchy",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowDelete",
+                                "options": {
+                                    "allowBody": true,
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPut",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [],
+                        "criteriaMustSatisfy": "all"
+                    }
+                ],
+                "behaviors": [
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "customHeaderName": "if-none-match",
+                            "standardPassHeaderName": "OTHER"
+                        }
+                    },
+                    <<gateway-origin-v4-json>>,
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-issuer"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-cn"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "<<prod-gateway-secret>>",
+                            "customHeaderName": "x-rh-insights-gateway-secret"
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "cloud.redhat.com",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "webSockets",
+                        "options": {
+                            "enabled": true
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/wss/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false,
+                            "normalize": false
+                        }
+                    },
+                    {
+                        "name": "requestCookie",
+                        "options": {
+                            "cookieName": "x-rh-prod-v4",
+                            "matchOperator": "EXISTS",
+                            "matchWildcardName": false,
+                            "matchCaseSensitiveName": true
+                        }
                     }
                 ],
                 "criteriaMustSatisfy": "all"
