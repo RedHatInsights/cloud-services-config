@@ -150,6 +150,13 @@ catalog:
       - id: approval
   source_repo: https://github.com/RedHatInsights/catalog-ui
 
+ccx:
+  title: OpenShift Insights
+  api:
+    versions:
+      - v1
+    apiName: insights-results-aggregator
+
 chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
