@@ -1099,7 +1099,8 @@
                         "options": {
                             "values": [
                                 "/api/*",
-                                "/api"
+                                "/api",
+                                "/r/insights/platform/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false,
