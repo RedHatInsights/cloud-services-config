@@ -248,7 +248,7 @@ policies:
 
 dashboard:
   title: Dashboard
-  channel: '#flip-mode-squad'
+  channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
     paths:
@@ -323,6 +323,7 @@ insights:
       - id: policies
       - id: inventory
       - id: remediations
+      - id: registration
   top_level: true
 
 inventory:
@@ -457,6 +458,15 @@ rbac:
       - id: users
         title: Users
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
+
+registration:
+  title: Register Systems
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/registration-assistant-build
+  frontend:
+    paths:
+      - /insights/registration
+  source_repo: https://github.com/RedHatInsights/registration-assistant/
 
 remediations:
   title: Remediations
