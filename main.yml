@@ -246,6 +246,24 @@ policies:
       - /insights/policies
   source_repo: https://github.com/RedHatInsights/policies-ui-frontend
 
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/integrations
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
+notifications:
+  title: Notifications
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
 dashboard:
   title: Dashboard
   channel: '#advisor'
@@ -521,6 +539,8 @@ settings:
         default: true
       - id: rbac
       - id: sources
+      - id: integrations
+      - id: notifications
       - id: applications
 
 sources:
