@@ -74,18 +74,42 @@
         "comments": "The behaviors in the Default Rule apply to all requests for the property hostname(s) unless another rule overrides the Default Rule settings.",
         "children": [
             {
-                "name": "Pre-prod lockdown",
+                "name": "Pre-prod Lockdown",
                 "children": [],
                 "behaviors": [
                     {
-                        "name": "customBehavior",
+                        "name": "requestControl",
                         "options": {
-                            "behaviorId": "cbe_135470485"
+                            "enabled": true,
+                            "cloudletPolicy": {
+                                "name": "rc_preprod_lockdown"
+                            },
+                            "enableBranded403": true,
+                            "branded403StatusCode": 403,
+                            "netStorage": {
+                                "downloadDomainName": "redhatshared-3-1mmn3z.download.akamai.com",
+                                "cpCode": 890890,
+                                "g2oToken": null
+                            },
+                            "branded403File": "/${env.env}/preprod-lockdown.html",
+                            "brandedDenyCacheTtl": 5
                         }
                     }
                 ],
-                "criteria": [],
-                "criteriaMustSatisfy": "all"
+                "criteria": [
+                    {
+                        "name": "matchVariable",
+                        "options": {
+                            "variableName": "PMUSER_IS_PROD",
+                            "matchOperator": "IS_NOT",
+                            "matchWildcard": false,
+                            "matchCaseSensitive": false,
+                            "variableExpression": "TRUE"
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "comments": "See https://mojo.redhat.com/docs/DOC-1193747"
             },
             {
                 "behaviors": [
