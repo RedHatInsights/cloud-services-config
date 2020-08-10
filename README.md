@@ -15,6 +15,11 @@ Here is some example configuration that demonstrates the structure, using all re
         versions:
             - v1
             - v2
+        subItems:
+            oneApi:
+                title: Some title
+                versions:
+                    - v1
     channel: '#some-slack-channel'
     description: App Title is a cool app that does business things for its users.
     deployment_repo: https://github.com/app-deployment-repo-url
@@ -61,6 +66,14 @@ The following properties are used if your app has an API:
 #### app_id.api.versions
 
 This is the list of API versions your app can use. Since `v1` is the default, you'll usually want at least that one defined.
+
+#### app_id.api.subItems
+
+If your API consists of multiple APIs you can list them in here it has the same signature as `{app_id.api}`.
+
+#### app_id.api.apiName
+
+If your API is accessible on oher URL than `/api/{app_id}/{versions[0]}/openapi.json` you can change this by passing correct name, the URL will look like `/api/{apiName}/{versions[0]}/openapi.json`
 
 ### Frontend Properties
 
