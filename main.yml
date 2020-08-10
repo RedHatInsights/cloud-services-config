@@ -86,6 +86,19 @@ chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
 
+commit-tracker:
+  title: Commit Tracker
+  description: The Commit Tracker Tool
+  disabled_on_prod: true
+  deployment_repo: https://github.com/RedHatInsights/commit-tracker-frontend-build
+  api:
+    versions:
+      -v1
+  frontend:
+    title: Commit Tracker
+    paths:
+      - /internal/commit-tracker
+
 compliance:
   title: Compliance
   api:
