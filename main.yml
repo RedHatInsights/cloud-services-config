@@ -93,11 +93,13 @@ automation-analytics:
         title: Clusters
         default: true
       - id: organization-statistics
-        title: Organization statistics
-      - id: automation-calculator
-        title: Automation calculator
+        title: Organization Statistics
+      - id: job-explorer
+        title: Job Explorer
       - id: notifications
         title: Notifications
+      - id: automation-calculator
+        title: Automation Calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
@@ -431,7 +433,7 @@ openshift:
       - id: overview
         title: Overview
         group: openshift
-  source_repo: 
+  source_repo:
   top_level: true
 
 patch:
