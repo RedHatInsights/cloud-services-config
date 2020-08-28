@@ -93,11 +93,13 @@ automation-analytics:
         title: Clusters
         default: true
       - id: organization-statistics
-        title: Organization statistics
-      - id: automation-calculator
-        title: Automation calculator
+        title: Organization Statistics
+      - id: job-explorer
+        title: Job Explorer
       - id: notifications
         title: Notifications
+      - id: automation-calculator
+        title: Automation Calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
@@ -161,6 +163,19 @@ chrome:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
   source_repo: https://github.com/RedHatInsights/insights-chrome
+
+commit-tracker:
+  title: Commit Tracker
+  description: The Commit Tracker Tool
+  disabled_on_prod: true
+  deployment_repo: https://github.com/RedHatInsights/commit-tracker-frontend-build
+  api:
+    versions:
+      -v1
+  frontend:
+    title: Commit Tracker
+    paths:
+      - /internal/commit-tracker
 
 compliance:
   title: Compliance
@@ -245,6 +260,24 @@ policies:
     paths:
       - /insights/policies
   source_repo: https://github.com/RedHatInsights/policies-ui-frontend
+
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/integrations
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
+notifications:
+  title: Notifications
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 dashboard:
   title: Dashboard
@@ -400,7 +433,7 @@ openshift:
       - id: overview
         title: Overview
         group: openshift
-  source_repo: 
+  source_repo:
   top_level: true
 
 patch:
@@ -521,6 +554,8 @@ settings:
         default: true
       - id: rbac
       - id: sources
+      - id: integrations
+      - id: notifications
       - id: applications
 
 sources:
