@@ -620,6 +620,17 @@ topological-inventory:
       - /settings/topological-inventory
   source_repo: https://github.com/RedHatInsights/topological-inventory-frontend
 
+trust:
+  title: Insights Security
+  channel: '#advisor'
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/trust-frontend-build
+  frontend:
+    title: Insights Security
+    paths:
+      - /security/insights
+  source_repo: https://github.com/RedHatInsights/trust-frontend
+
 user-preferences:
   title: User Preferences
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
