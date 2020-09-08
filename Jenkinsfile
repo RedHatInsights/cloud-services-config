@@ -56,6 +56,7 @@ node {
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
           file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
+          file(credentialsId: "rhcs-$ENVSTR-turnpike-origin-json", variable: 'TURNPIKEORIGINJSON'),
           file(credentialsId: "rhcs-openshift-origin-json", variable: 'OPENSHIFTORIGINJSON'),
           file(credentialsId: "rhcs-openshift-mirror-origin-json", variable: 'OPENSHIFTORIGINMIRRORJSON'),
           file(credentialsId: "rhcs-rhorchata-origin-json", variable: 'RHORCHATAORIGINJSON'),
@@ -75,7 +76,8 @@ node {
             "PENTESTGATEWAYSECRET=$PENTESTGATEWAYSECRET",
             "CERTAUTHSECRET=$CERTAUTHSECRET",
             "EDGERCPATH=$EDGERC",
-            "GATEWAYORIGINJSON=$GATEWAYORIGINJSON"
+            "GATEWAYORIGINJSON=$GATEWAYORIGINJSON",
+            "TURNPIKEORIGINJSON=$TURNPIKEORIGINJSON"
           ]) {
             sh "python3 ./update_api.py STAGING $ENVSTR $BRANCH"
           }
