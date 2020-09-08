@@ -100,6 +100,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<rhorchata-origin-json>>", util.readFileAsString(util.getEnvVar("RHORCHATAORIGINJSON"))),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON"))),
+        ("<<turnpike-origin-json>>", util.readFileAsString(util.getEnvVar("TURNPIKEORIGINJSON"))),
         ("<<pentest-gateway-origin-json>>", util.readFileAsString(util.getEnvVar("PENTESTGATEWAYORIGINJSON"))),
         ("<<openshift-origin-json>>", util.readFileAsString(util.getEnvVar("OPENSHIFTORIGINJSON"))),
         ("<<openshift-origin-mirror-json>>", util.readFileAsString(util.getEnvVar("OPENSHIFTORIGINMIRRORJSON")))
