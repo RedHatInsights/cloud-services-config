@@ -1142,6 +1142,130 @@
                             "matchCaseSensitive": false,
                             "normalize": false
                         }
+                    },
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "matchOperator": "IS_NOT_ONE_OF",
+                            "values": [
+                                "internal.cloud.stage.redhat.com"
+                            ]
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
+                "name": "Turnpike API",
+                "children": [
+                    {
+                        "name": "API Allow Methods",
+                        "children": [],
+                        "behaviors": [
+                            {
+                                "name": "allowPatch",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPost",
+                                "options": {
+                                    "enabled": true,
+                                    "allowWithoutContentLength": true
+                                }
+                            },
+                            {
+                                "name": "allHttpInCacheHierarchy",
+                                "options": {
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowDelete",
+                                "options": {
+                                    "allowBody": true,
+                                    "enabled": true
+                                }
+                            },
+                            {
+                                "name": "allowPut",
+                                "options": {
+                                    "enabled": true
+                                }
+                            }
+                        ],
+                        "criteria": [],
+                        "criteriaMustSatisfy": "all"
+                    }
+                ],
+                "behaviors": [
+                    {
+                        "name": "modifyIncomingRequestHeader",
+                        "options": {
+                            "action": "PASS",
+                            "customHeaderName": "if-none-match",
+                            "standardPassHeaderName": "OTHER"
+                        }
+                    },
+                    <<turnpike-origin-json>>,
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-issuer"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-certauth-cn"
+                        }
+                    },
+                    {
+                        "name": "caching",
+                        "options": {
+                            "behavior": "NO_STORE"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "DELETE",
+                            "standardDeleteHeaderName": "OTHER",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingRequestHeader",
+                        "options": {
+                            "action": "ADD",
+                            "standardAddHeaderName": "OTHER",
+                            "headerValue": "internal.cloud.stage.redhat.com",
+                            "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "matchOperator": "IS_ONE_OF",
+                            "values": [
+                                "internal.cloud.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteriaMustSatisfy": "all"
