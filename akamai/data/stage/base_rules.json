@@ -276,6 +276,16 @@
                             "matchCaseSensitive": false,
                             "normalize": false
                         }
+                    },
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "matchOperator": "IS_NOT_ONE_OF",
+                            "values": [
+                                "internal.cloud.redhat.com",
+                                "internal.cloud.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteriaMustSatisfy": "all",
