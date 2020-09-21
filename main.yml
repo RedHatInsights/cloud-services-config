@@ -338,12 +338,12 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
-imagebuilder:
+image-builder:
   title: Image Builder
   deployment_repo: https://github.com/osbuild/image-builder-frontend-build
   frontend:
     paths:
-      - /insights/imagebuilder
+      - /insights/image-builder
   source_repo: https://github.com/osbuild/image-builder-frontend
 
 ingress:
@@ -368,7 +368,7 @@ insights:
       - id: inventory
       - id: remediations
       - id: registration
-      - id: imagebuilder
+      - id: image-builder
   top_level: true
 
 inventory:
