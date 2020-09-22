@@ -941,6 +941,36 @@
                 "criteriaMustSatisfy": "all"
             },
             {
+                "name": "Temp static assets paths",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "rewriteUrl",
+                        "options": {
+                            "behavior": "REPLACE",
+                            "keepQueryString": true,
+                            "match": "/r/insights/v1/static/",
+                            "targetPath": "/v1/api/static/",
+                            "matchMultiple": false
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "path",
+                        "options": {
+                            "values": [
+                                "/r/insights/v1/static/*"
+                            ],
+                            "matchOperator": "MATCHES_ONE_OF",
+                            "matchCaseSensitive": false,
+                            "normalize": false
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all"
+            },
+            {
                 "name": "API",
                 "children": [
                     {
