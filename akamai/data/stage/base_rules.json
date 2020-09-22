@@ -950,7 +950,7 @@
                             "behavior": "REPLACE",
                             "keepQueryString": true,
                             "match": "/r/insights/v1/static/",
-                            "targetPath": "/v1/api/static/",
+                            "targetPath": "/api/v1/static/",
                             "matchMultiple": false
                         }
                     }
