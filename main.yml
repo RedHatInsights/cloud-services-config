@@ -466,6 +466,8 @@ patch:
         default: true
       - id: systems
         title: Systems
+      - id: packages
+        title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
 
 product:
