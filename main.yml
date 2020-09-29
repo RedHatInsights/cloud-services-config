@@ -479,9 +479,9 @@ product:
         title: Insights
         default: true
         reload: product/insights
-      - id: cloud-management-services
-        title: Cloud Management Services
-        reload: product/cloud-management-services
+      - id: cost-management
+        title: Cost Management
+        reload: product/cost-management
   source_repo: https://github.com/RedHatInsights/docs-frontend
 
 rbac:
