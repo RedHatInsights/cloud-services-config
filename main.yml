@@ -301,7 +301,7 @@ docs:
         reload: api
         default: true
       - id: product
-        reload: docs
+        reload: product
   top_level: true
 
 drift:
