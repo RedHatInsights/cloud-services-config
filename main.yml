@@ -300,6 +300,8 @@ docs:
       - id: api-docs
         reload: api
         default: true
+      - id: product
+        reload: docs
   top_level: true
 
 drift:
