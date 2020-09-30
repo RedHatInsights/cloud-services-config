@@ -301,7 +301,6 @@ docs:
         reload: api
         default: true
       - id: product
-        reload: product
   top_level: true
 
 drift:
@@ -480,10 +479,8 @@ product:
       - id: insights
         title: Insights
         default: true
-        reload: product/insights
       - id: cost-management
         title: Cost Management
-        reload: product/cost-management
   source_repo: https://github.com/RedHatInsights/docs-frontend
 
 rbac:
