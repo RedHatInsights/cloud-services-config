@@ -1587,7 +1587,8 @@
                         "name": "hostname",
                         "options": {
                             "values": [
-                                "cert.cloud.stage.redhat.com"
+                                "cert.cloud.stage.redhat.com",
+                                "mtls.internal.cloud.stage.redhat.com"
                             ],
                             "matchOperator": "IS_ONE_OF"
                         }
@@ -1696,7 +1697,8 @@
                                 "name": "hostname",
                                 "options": {
                                     "values": [
-                                        "cert.cloud.stage.redhat.com"
+                                        "cert.cloud.stage.redhat.com",
+                                        "mtls.internal.cloud.stage.redhat.com"
                                     ],
                                     "matchOperator": "IS_ONE_OF"
                                 }
