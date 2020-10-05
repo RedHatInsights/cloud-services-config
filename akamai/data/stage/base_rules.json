@@ -271,8 +271,8 @@
                         "options": {
                             "matchOperator": "IS_NOT_ONE_OF",
                             "values": [
-                                "internal.cloud.redhat.com",
-                                "internal.cloud.stage.redhat.com"
+                                "internal.cloud.stage.redhat.com",
+                                "mtls.internal.cloud.stage.redhat.com"
                             ]
                         }
                     }
@@ -1143,7 +1143,8 @@
                         "options": {
                             "matchOperator": "IS_NOT_ONE_OF",
                             "values": [
-                                "internal.cloud.stage.redhat.com"
+                                "internal.cloud.stage.redhat.com",
+                                "mtls.internal.cloud.stage.redhat.com"
                             ]
                         }
                     }
@@ -1258,7 +1259,8 @@
                         "options": {
                             "matchOperator": "IS_ONE_OF",
                             "values": [
-                                "internal.cloud.stage.redhat.com"
+                                "internal.cloud.stage.redhat.com",
+                                "mtls.internal.cloud.stage.redhat.com"
                             ]
                         }
                     }
