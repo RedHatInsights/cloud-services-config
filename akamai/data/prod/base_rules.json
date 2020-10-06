@@ -1072,7 +1072,7 @@
                 "criteriaMustSatisfy": "all"
             },
             {
-                "name": "API",
+                "name": "Turnpike API",
                 "children": [
                     {
                         "name": "API Allow Methods",
@@ -1185,7 +1185,7 @@
                         "options": {
                             "action": "ADD",
                             "standardAddHeaderName": "OTHER",
-                            "headerValue": "cloud.redhat.com",
+                            "headerValue": "internal.cloud.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
                         }
                     }
