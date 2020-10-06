@@ -858,6 +858,38 @@
                                     }
                                 ],
                                 "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Insights SAP",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/dashboard#workload=sap"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/insights/sap*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
                             }
                         ],
                         "behaviors": [],
