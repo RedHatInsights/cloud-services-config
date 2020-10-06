@@ -243,8 +243,19 @@ docs:
 drift:
   title: Configuration Drift
   api:
-    versions:
-      - v1
+    subItems:
+      drift:
+        versions:
+          - v1
+        title: Comparison reports
+      system-baseline:
+        versions:
+          - v1
+        title: Baselines
+      historical-system-profiles:
+        versions:
+          - v1
+        title: Historical system profiles
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
     title: Drift
