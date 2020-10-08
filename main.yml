@@ -475,6 +475,8 @@ product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
   frontend:
+    paths:
+      - /docs/product
     sub_apps:
       - id: insights
         title: Insights
