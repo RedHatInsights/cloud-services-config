@@ -90,10 +90,12 @@ automation-analytics:
         default: true
       - id: organization-statistics
         title: Organization Statistics
-      - id: automation-calculator
-        title: Automation calculator
+      - id: job-explorer
+        title: Job Explorer
       - id: notifications
         title: Notifications
+      - id: automation-calculator
+        title: Automation Calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
