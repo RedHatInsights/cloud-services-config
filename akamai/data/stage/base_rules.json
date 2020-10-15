@@ -144,6 +144,33 @@
                 "children": []
             },
             {
+                "name": "Clickjack & XSS Prevention",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "modifyOutgoingResponseHeader",
+                        "options": {
+                            "action": "ADD",
+                            "customHeaderName": "X-Frame-Options",
+                            "headerValue": "SAMEORIGIN",
+                            "standardAddHeaderName": "OTHER"
+                        }
+                    },
+                    {
+                        "name": "modifyOutgoingResponseHeader",
+                        "options": {
+                            "action": "ADD",
+                            "customHeaderName": "X-Content-Type-Options",
+                            "headerValue": "nosniff",
+                            "standardAddHeaderName": "OTHER"
+                        }
+                    }
+                ],
+                "criteria": [],
+                "criteriaMustSatisfy": "all",
+                "comments": "The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a <frame> or <iframe>. Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites."
+            },
+            {
                 "behaviors": [],
                 "name": "Config Manager Legacy: Disable LMA for Old Browsers",
                 "comments": "Replicates Config Manager's 'Last Mile Acceleration': 'Disable for Old Browsers' logic. Config Manger's description: 'Do not use Last Mile Acceleration for the following browsers: MSIE 4, MSIE 5( Mac), and all Mozilla 4. These older browsers incorrectly advertise they support gzip compression.'",
@@ -1743,24 +1770,6 @@
                         "criteria": [],
                         "children": [],
                         "name": "Client Certificate"
-                    },
-                    {
-                        "name": "Clickjack Prevention",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "modifyOutgoingResponseHeader",
-                                "options": {
-                                    "action": "ADD",
-                                    "customHeaderName": "X-Frame-Options",
-                                    "headerValue": "SAMEORIGIN",
-                                    "standardAddHeaderName": "OTHER"
-                                }
-                            }
-                        ],
-                        "criteria": [],
-                        "criteriaMustSatisfy": "all",
-                        "comments": "The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a <frame> or <iframe>. Sites can use this to avoid clickjacking attacks, by ensuring that their content is not embedded into other sites."
                     },
                     {
                         "behaviors": [
