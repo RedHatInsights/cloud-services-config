@@ -93,7 +93,7 @@ def createRulesForEnv(master_config, url_path_prefix="", content_path_prefix="",
 # Makes an API call which updates the property version with a new rule tree.
 def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env = "stage"):
     print("Creating new ruleset based on list of master configs...")
-    frontend_rule_index = 4 if ("stage"==crc_env) else 3
+    frontend_rule_index = 5 if ("stage"==crc_env) else 4
     replacements = [
         ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
