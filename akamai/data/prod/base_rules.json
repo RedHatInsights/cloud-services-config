@@ -122,7 +122,7 @@
                 ],
                 "criteria": [
                     {
-                        "name": "requestHeader",
+                        "name": "responseHeader",
                         "options": {
                             "headerName": "X-Frame-Options",
                             "matchOperator": "DOES_NOT_EXIST",
@@ -149,7 +149,7 @@
                 ],
                 "criteria": [
                     {
-                        "name": "requestHeader",
+                        "name": "responseHeader",
                         "options": {
                             "headerName": "X-Content-Type-Options",
                             "matchOperator": "DOES_NOT_EXIST",
