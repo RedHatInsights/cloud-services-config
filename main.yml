@@ -372,6 +372,14 @@ insights:
       - id: image-builder
   top_level: true
 
+internal:
+  title: Internal
+  top_level: true
+  frontend:
+    sub_apps:
+      id: commit-tracker
+      default: true
+
 inventory:
   title: Managed Inventory
   api:
