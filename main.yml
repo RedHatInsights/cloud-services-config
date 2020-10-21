@@ -454,7 +454,6 @@ openshift:
       - id: overview
         title: Overview
         group: openshift
-  source_repo:
   top_level: true
 
 patch:
