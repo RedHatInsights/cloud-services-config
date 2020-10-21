@@ -377,8 +377,8 @@ internal:
   top_level: true
   frontend:
     sub_apps:
-      id: commit-tracker
-      default: true
+      - id: commit-tracker
+        default: true
 
 inventory:
   title: Managed Inventory
