@@ -116,6 +116,8 @@ automation-hub:
         title: Partners
       - id: my-namespaces
         title: My namespaces
+      - id: repositories
+        title: Repo Management
   source_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
