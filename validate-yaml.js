@@ -18,7 +18,7 @@ const frontendSchema = Joi.object({
         title: Joi.string(),
         group: Joi.string(),
         reload: Joi.string(),
-        permissions: permissionsSchema
+        permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
     }))
 })
 
@@ -47,20 +47,18 @@ const schema = Joi.object({
     source_repo: Joi.string(),
     frontend: frontendSchema,
     top_level: Joi.boolean(),
-    permissions: permissionsSchema
+    permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
 })
 
 const inputfile = 'main.yml';
 const structure = load(fs.readFileSync(inputfile, { encoding: 'utf-8' }));
-
-
 
 async function validate() {
     Object.entries(structure).forEach(async ([ key, value ]) => {
         try {
             const result = await schema.validateAsync(value);
         } catch (error) {
-            console.error(`Erro in ${key} app definition.\n`, error)
+            console.error(`Error in ${key} app definition.\n`, error)
             process.exit(1)
         }
     })
