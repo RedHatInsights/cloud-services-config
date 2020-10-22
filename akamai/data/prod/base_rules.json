@@ -899,7 +899,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/insights/SAP*"
+                                                "/insights/sap*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -931,7 +931,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/insights/SAP*"
+                                                "/beta/insights/sap*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
