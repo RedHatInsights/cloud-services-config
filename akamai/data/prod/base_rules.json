@@ -889,7 +889,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/insights/dashboard#workloads=sap"
+                                            "destinationPathOther": "/insights/dashboard#workloads=SAP"
                                         }
                                     }
                                 ],
@@ -921,7 +921,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/insights/dashboard#workloads=sap"
+                                            "destinationPathOther": "/beta/insights/dashboard#workloads=SAP"
                                         }
                                     }
                                 ],
