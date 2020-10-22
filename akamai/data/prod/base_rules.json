@@ -889,7 +889,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/insights/dashboard#workloads=sap"
+                                            "destinationPathOther": "/insights/dashboard#workloads=SAP"
                                         }
                                     }
                                 ],
@@ -899,7 +899,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/insights/sap*"
+                                                "/insights/SAP*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -921,7 +921,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/insights/dashboard#workloads=sap"
+                                            "destinationPathOther": "/beta/insights/dashboard#workloads=SAP"
                                         }
                                     }
                                 ],
@@ -931,7 +931,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/insights/sap*"
+                                                "/beta/insights/SAP*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
