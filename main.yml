@@ -562,6 +562,16 @@ subscriptions:
         group: subscriptions
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
+trust:
+  title: Insights security
+  channel: '#advisor'
+  top_level: true
+  deployment_repo: https://github.com/RedHatInsights/trust-frontend-build
+  frontend:
+    paths:
+      - /security/insights
+  source_repo: https://github.com/RedHatInsights/trust-frontend
+  
 user-preferences:
   title: User preferences
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
