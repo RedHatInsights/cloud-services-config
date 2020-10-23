@@ -617,6 +617,8 @@ subscriptions:
   api:
     versions:
       - v1
+    alias:
+      - rhsm-subscriptions
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
   top_level: true
