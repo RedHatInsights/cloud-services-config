@@ -266,6 +266,9 @@ policies:
 integrations:
   title: Integrations
   channel: '#cloudservices-notifications'
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
   frontend:
     paths:
