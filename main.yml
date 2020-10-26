@@ -233,7 +233,10 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: details
+      - id: ocp
+        title: OpenShift
+        group: cost-management
+      - id: infrastructure
         group: cost-management
       - id: cost-models
         title: Cost models
@@ -241,15 +244,15 @@ cost-management:
   source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
-details:
-  title: Details
+infrastructure:
+  title: Infrastructure
   frontend:
     sub_apps:
-      - id: ocp
-        title: OpenShift
       - id: aws
+        title: Amazon Web Services
         default: true
-        title: Infrastructure
+      - id: azure
+        title: Microsoft Azure
 
 policies:
   title: Policies
