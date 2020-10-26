@@ -576,6 +576,8 @@ vulnerability:
       - id: cves
         title: CVEs
         default: true
+      - id: reports
+        title: Reports
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
