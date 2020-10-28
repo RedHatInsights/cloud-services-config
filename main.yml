@@ -506,10 +506,21 @@ settings:
   top_level: true
   frontend:
     sub_apps:
-      - id: rbac
+      - id: my-user-access
         default: true
+      - id: rbac
       - id: sources
       - id: applications
+
+my-user-access:
+  title: My user access
+  channel: '#platform-experience'
+  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy
+  frontend:
+    paths:
+      - /settings
+      - /settings/my-user-access
+  source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 sources:
   title: Discovered Inventory
