@@ -436,7 +436,6 @@ rbac:
   frontend:
     title: User access
     paths:
-      - /settings
       - /settings/rbac
     sub_apps:
       - id: groups
