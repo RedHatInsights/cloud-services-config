@@ -373,7 +373,7 @@ my-user-access:
   title: My user access
   channel: '#platform-experience'
   frontend:
-    app-base: rbac
+    app_base: rbac
     paths:
       - /settings
 
