@@ -434,12 +434,11 @@ migration-analytics:
 my-user-access:
   title: My user access
   channel: '#platform-experience'
-  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy
   frontend:
+    app-base: rbac
     paths:
       - /settings
       - /settings/my-user-access
-  source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 openshift:
   title: OpenShift (OCM)
