@@ -376,6 +376,7 @@ my-user-access:
     app_base: rbac
     paths:
       - /settings
+      - /settings/my-user-access
 
 openshift:
   title: OpenShift (OCM)
@@ -518,16 +519,6 @@ settings:
       - id: rbac
       - id: sources
       - id: applications
-
-my-user-access:
-  title: My user access
-  channel: '#platform-experience'
-  deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy
-  frontend:
-    paths:
-      - /settings
-      - /settings/my-user-access
-  source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 sources:
   title: Discovered Inventory
