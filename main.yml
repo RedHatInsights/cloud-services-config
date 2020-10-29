@@ -369,6 +369,14 @@ migration-analytics:
       - /migrations/migration-analytics
   source_repo: https://github.com/project-xavier/xavier-ui
 
+my-user-access:
+  title: My user access
+  channel: '#platform-experience'
+  frontend:
+    app-base: rbac
+    paths:
+      - /settings
+
 openshift:
   title: OpenShift (OCM)
   api:
