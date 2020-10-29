@@ -1003,7 +1003,9 @@
                         "options": {
                             "values": [
                                 "/apps/*",
-                                "/beta/apps/*"
+                                "/beta/apps/*",
+                                "/config/*",
+                                "/beta/config/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false,
