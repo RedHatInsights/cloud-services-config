@@ -44,7 +44,7 @@ node {
     CSC_FETCH_BASE = "https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${BRANCH}"
 
     sh "wget -O main.yml.bak ${CSC_FETCH_BASE}/main.yml"
-    sh "wget -O releases.yml.bak ${BRANCH}/releases.yml"
+    sh "wget -O releases.yml.bak ${CSC_FETCH_BASE}/releases.yml"
   }
 
   stage ("build & activate on Akamai staging") {
