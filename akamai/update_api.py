@@ -185,7 +185,7 @@ def main():
 
     cs_config_list = []
     for env in releases:
-        source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
+        source_branch = releases[env]["branch"].replace("prod", crc_env) if "branch" in releases[env] else ""
         url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
         content_path_prefix = crc_env_prefix + releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else crc_env_prefix
 
