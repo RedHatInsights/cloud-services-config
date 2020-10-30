@@ -6,7 +6,6 @@ node {
   properties([disableConcurrentBuilds()])
 
   stage ("create backup for old YAML files") {
-    APP_NAME = "__APP_NAME__"
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
       PREFIX = ""
@@ -38,12 +37,14 @@ node {
 
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
+      CSC_CONFIG_PATH = "https://cloud.redhat.com/${PREFIX}config"
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
+      CSC_CONFIG_PATH = "https://cloud.redhat.com/${ENVSTR}/${PREFIX}config"
     }
 
-    sh "wget -O main.yml.bak https://cloud.redhat.com/${PREFIX}config/main.yml"
-    sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
+    sh "wget -O main.yml.bak ${CSC_CONFIG_PATH}/main.yml"
+    sh "wget -O releases.yml.bak ${CSC_CONFIG_PATH}/releases.yml"
   }
 
   stage ("build & activate on Akamai staging") {
