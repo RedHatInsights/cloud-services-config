@@ -349,7 +349,7 @@ frontend-assets:
 
 image-builder:
   title: Image Builder
-  deployment_repo: https://github.com/osbuild/image-builder-frontend-build
+  deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
   frontend:
     paths:
       - /insights/image-builder
