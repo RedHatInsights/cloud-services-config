@@ -37,14 +37,14 @@ node {
 
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
-      AKAMAI_CONFIG_PATH = "https://cloud.${PREFIX}.redhat.com/config"
+      CRC_HOSTNAME = "cloud.redhat.com"
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
-      AKAMAI_CONFIG_PATH = "https://cloud.${PREFIX}.redhat.com/${PREFIX}config"
+      CRC_HOSTNAME = "cloud.stage.redhat.com"
     }
 
-    sh "wget -O main.yml.bak ${AKAMAI_CONFIG_PATH}/main.yml"
-    sh "wget -O releases.yml.bak ${AKAMAI_CONFIG_PATH}/releases.yml"
+    sh "wget -O main.yml.bak https://${CRC_HOSTNAME}/${PREFIX}/main.yml"
+    sh "wget -O releases.yml.bak https://${CRC_HOSTNAME}/${PREFIX}/releases.yml"
   }
 
   stage ("build & activate on Akamai staging") {
