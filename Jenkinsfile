@@ -41,10 +41,8 @@ node {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
     }
 
-    CSC_FETCH_BASE = "https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${BRANCH}"
-
-    sh "wget -O main.yml.bak ${CSC_FETCH_BASE}/main.yml"
-    sh "wget -O releases.yml.bak ${CSC_FETCH_BASE}/releases.yml"
+    sh "wget -O main.yml.bak https://cloud.redhat.com/${PREFIX}config/main.yml"
+    sh "wget -O releases.yml.bak https://cloud.redhat.com/${PREFIX}config/releases.yml"
   }
 
   stage ("build & activate on Akamai staging") {
