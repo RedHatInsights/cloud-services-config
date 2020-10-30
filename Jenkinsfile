@@ -37,14 +37,14 @@ node {
 
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
-      CRC_HOSTNAME = "cloud.redhat.com"
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
-      CRC_HOSTNAME = "cloud.stage.redhat.com"
     }
 
-    sh "wget -O main.yml.bak https://${CRC_HOSTNAME}/${PREFIX}/main.yml"
-    sh "wget -O releases.yml.bak https://${CRC_HOSTNAME}/${PREFIX}/releases.yml"
+    CSC_FETCH_BASE = "https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${BRANCH}"
+
+    sh "wget -O main.yml.bak ${CSC_FETCH_BASE}/main.yml"
+    sh "wget -O releases.yml.bak ${BRANCH}/releases.yml"
   }
 
   stage ("build & activate on Akamai staging") {
