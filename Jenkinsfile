@@ -37,10 +37,10 @@ node {
 
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
-      AKAMAI_CONFIG_PATH = "https://cloud.redhat.com/${PREFIX}config"
+      AKAMAI_CONFIG_PATH = "https://cloud.${PREFIX}.redhat.com/config"
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
-      AKAMAI_CONFIG_PATH = "https://cloud.redhat.com/${ENVSTR}/${PREFIX}config"
+      AKAMAI_CONFIG_PATH = "https://cloud.${PREFIX}.redhat.com/${PREFIX}config"
     }
 
     sh "wget -O main.yml.bak ${AKAMAI_CONFIG_PATH}/main.yml"
