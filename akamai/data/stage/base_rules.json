@@ -1735,6 +1735,53 @@
                 ],
                 "children": [
                     {
+                        "name": "mTLS",
+                        "children": [
+                            {
+                                "name": "Require Valid Certificate",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "denyAccess",
+                                        "options": {
+                                            "reason": "mtls-cert-invalid",
+                                            "enabled": true
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "clientCertificate",
+                                        "options": {
+                                            "isCertificatePresent": false
+                                        }
+                                    },
+                                    {
+                                        "name": "clientCertificate",
+                                        "options": {
+                                            "isCertificatePresent": true,
+                                            "isCertificateValid": "INVALID"
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "any"
+                            }
+                        ],
+                        "behaviors": [],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "mtls.internal.cloud.stage.redhat.com"
+                                    ]
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
                         "behaviors": [
                             {
                                 "name": "modifyIncomingRequestHeader",
