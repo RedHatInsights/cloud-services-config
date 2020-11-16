@@ -113,6 +113,8 @@ automation-hub:
         title: My namespaces
       - id: repositories
         title: Repo Management
+      - id: token
+        title: Connect to Hub
   source_repo: https://github.com/ansible/ansible-hub-ui
 
 catalog:
