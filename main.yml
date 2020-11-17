@@ -136,6 +136,12 @@ catalog:
           method: hasPermissions
           args:
             - [catalog:portfolios:create]
+      - id: order-processes
+        title: Order processes
+        permissions:
+          method: hasPermissions
+          args:
+            - [catalog:order_processes:read]
       - id: orders
         title: Orders
       - id: approval
@@ -379,7 +385,7 @@ openshift:
       - id: overview
         title: Overview
         group: openshift
-  source_repo: 
+  source_repo:
   top_level: true
 
 patch:
@@ -557,7 +563,7 @@ trust:
     paths:
       - /security/insights
   source_repo: https://github.com/RedHatInsights/trust-frontend
-  
+
 user-preferences:
   title: User Preferences
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
