@@ -246,52 +246,6 @@ cost-management:
   source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
-infrastructure:
-  title: Infrastructure
-  frontend:
-    sub_apps:
-      - id: aws
-        title: Amazon Web Services
-        default: true
-      - id: azure
-        title: Microsoft Azure
-
-policies:
-  title: Policies
-  api:
-    versions:
-      - v1
-  channel: '#cloudservices-policies'
-  deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
-  frontend:
-    paths:
-      - /insights/policies
-  source_repo: https://github.com/RedHatInsights/policies-ui-frontend
-
-integrations:
-  title: Integrations
-  channel: '#cloudservices-notifications'
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
-  frontend:
-    paths:
-      - /settings/integrations
-  source_repo: https://github.com/RedHatInsights/notifications-frontend
-
-notifications:
-  title: Notifications
-  api:
-    versions:
-      - v1
-  channel: '#cloudservices-notifications'
-  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
-  frontend:
-    paths:
-      - /settings/notifications
-  source_repo: https://github.com/RedHatInsights/notifications-frontend
-
 dashboard:
   title: Dashboard
   channel: '#advisor'
@@ -357,6 +311,16 @@ image-builder:
       - /insights/image-builder
   source_repo: https://github.com/osbuild/image-builder-frontend
 
+infrastructure:
+  title: Infrastructure
+  frontend:
+    sub_apps:
+      - id: aws
+        title: Amazon Web Services
+        default: true
+      - id: azure
+        title: Microsoft Azure
+
 ingress:
   title: Ingress
   api:
@@ -381,6 +345,17 @@ insights:
       - id: remediations
       - id: registration
   top_level: true
+
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  api:
+    versions:
+      - v1
+  frontend:
+    app_base: notifications
+    paths:
+      - /settings/integrations
 
 internal:
   title: Internal
@@ -442,6 +417,18 @@ my-user-access:
       - /settings
       - /settings/my-user-access
 
+notifications:
+  title: Notifications
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
 openshift:
   title: OpenShift (OCM)
   api:
@@ -486,6 +473,18 @@ patch:
       - id: packages
         title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
+
+policies:
+  title: Policies
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-policies'
+  deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
+  frontend:
+    paths:
+      - /insights/policies
+  source_repo: https://github.com/RedHatInsights/policies-ui-frontend
 
 product:
   title: Product Documentation
