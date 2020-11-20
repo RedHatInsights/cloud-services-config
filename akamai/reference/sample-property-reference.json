@@ -5708,7 +5708,9 @@
                             "secure": false,
                             "value": "flipmodesquad",
                             "domain": "cloud.redhat.com",
-                            "path": "/"
+                            "path": "/",
+                            "sameSite": "DEFAULT",
+                            "httpOnly": false
                         }
                     },
                     {
