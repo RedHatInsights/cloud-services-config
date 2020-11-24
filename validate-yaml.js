@@ -10,6 +10,7 @@ const permissionsSchema = Joi.object({
 
 const frontendSchema = Joi.object({
     title: Joi.string(),
+    app_base: Joi.string(),
     reload: Joi.string(),
     paths: Joi.array().items(Joi.string()),
     sub_apps: Joi.array().items(Joi.object({
