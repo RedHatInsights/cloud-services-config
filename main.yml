@@ -452,6 +452,24 @@ openshift:
         group: openshift
   top_level: true
 
+application-services:
+  title: Red Hat OpenShift Application Services
+  frontend:
+    title: Red Hat OpenShift Application Services
+    sub_apps:
+      - id: openshift-streams
+        default: true
+  top_level: true
+
+openshift-streams:
+  title: Red Hat OpenShift Streams for Apache Kafka
+  deployment_repo: https://github.com/RedHatInsights/openshift-streams-dashboard-build
+  frontend:
+    paths:
+      - /application-services
+      - /application-services/openshift-streams
+  source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
+
 patch:
   title: Patch
   api:
