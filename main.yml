@@ -463,7 +463,7 @@ application-services:
 
 openshift-streams:
   title: Red Hat OpenShift Streams for Apache Kafka
-  deployment_repo: https://github.com/RedHatInsights/openshift-streams-dashboard-build
+  deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     paths:
       - /application-services
