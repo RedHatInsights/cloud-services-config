@@ -472,7 +472,7 @@ openshift-streams:
 
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK
-  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build/
+  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
   frontend:
     paths:
       - /application-services/rhosak-data-plane-ui-build
