@@ -463,7 +463,7 @@ application-services:
 
 openshift-streams:
   title: Red Hat OpenShift Streams for Apache Kafka
-  deployment_repo: https://github.com/RedHatInsights/openshift-streams-dashboard-build
+  deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     paths:
       - /application-services
@@ -472,7 +472,7 @@ openshift-streams:
 
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK
-  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build/
+  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
   frontend:
     paths:
       - /application-services/rhosak-data-plane-ui-build
