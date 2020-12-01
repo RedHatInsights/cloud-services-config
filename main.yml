@@ -29,7 +29,7 @@ ansible:
   top_level: true
 
 api-docs:
-  title: API Documentation
+  title: APIs
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
     paths:
@@ -264,11 +264,19 @@ docs:
   channel: '#flip-mode-squad'
   frontend:
     sub_apps:
+      - id: docs_link
+      - id: trust
       - id: api-docs
         reload: api
         default: true
-      - id: product
   top_level: true
+
+docs_link:
+  title: Product Documentation
+  frontend:
+    paths:
+      - https://access.redhat.com/documentation/en-us/red_hat_insights/
+
 
 drift:
   title: Configuration Drift
@@ -433,11 +441,12 @@ product:
     paths:
       - /docs/product
     sub_apps:
-      - id: insights
-        title: Insights
-        default: true
-      - id: cost-management
-        title: Cost Management
+    - id: insights
+      title: Insights
+      default: true
+    - id: cost-management
+      title: Cost Management
+
   source_repo: https://github.com/RedHatInsights/docs-frontend
 
 rbac:
@@ -576,7 +585,7 @@ subscriptions:
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 trust:
-  title: Insights security
+  title: Security
   channel: '#advisor'
   top_level: true
   deployment_repo: https://github.com/RedHatInsights/trust-frontend-build
