@@ -477,6 +477,10 @@ rhosak-data-plane-ui-build:
     paths:
       - /application-services/rhosak-data-plane-ui-build
 
+rhosak-control-plane-ui-build:
+  title: Control Plane UI for RHOSAK
+  deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
+
 patch:
   title: Patch
   api:
