@@ -451,13 +451,13 @@ rbac:
     paths:
       - /settings/rbac
     sub_apps:
-      - id: groups
-        title: Groups
+      - id: users
+        title: Users
         default: true
       - id: roles
         title: Roles
-      - id: users
-        title: Users
+      - id: groups
+        title: Groups
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 registration:
