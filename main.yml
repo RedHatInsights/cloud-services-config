@@ -19,7 +19,7 @@ advisor:
   source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
 
 ansible:
-  title: Red Hat Ansible Automation Platform
+  title: Ansible Automation Platform
   frontend:
     sub_apps:
       - id: automation-analytics
@@ -346,7 +346,7 @@ ingress:
 insights:
   title: Insights
   frontend:
-    title: Red Hat Insights
+    title: Insights
     sub_apps:
       - id: dashboard
         default: true
@@ -452,7 +452,7 @@ openshift:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend:
-    title: Red Hat OpenShift Cluster Manager
+    title: OpenShift Cluster Manager
     paths:
       - /openshift
     sub_apps:
@@ -469,16 +469,16 @@ openshift:
   top_level: true
 
 application-services:
-  title: Red Hat OpenShift Application Services
+  title: OpenShift Application Services
   frontend:
-    title: Red Hat OpenShift Application Services
+    title: OpenShift Application Services
     sub_apps:
       - id: openshift-streams
         default: true
   top_level: true
 
 openshift-streams:
-  title: Red Hat OpenShift Streams for Apache Kafka
+  title: OpenShift Streams for Apache Kafka
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     paths:
@@ -682,7 +682,7 @@ subscriptions:
         default: true
         group: subscriptions
       - id: openshift-sw
-        title: Red Hat OpenShift
+        title: OpenShift
         group: subscriptions
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
