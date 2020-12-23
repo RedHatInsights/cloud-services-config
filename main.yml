@@ -330,6 +330,17 @@ insights:
       - id: registration
   top_level: true
 
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  api:
+    versions:
+      - v1
+  frontend:
+    app_base: notifications
+    paths:
+      - /settings/integrations
+
 inventory:
   title: Managed Inventory
   api:
@@ -381,6 +392,18 @@ my-user-access:
     paths:
       - /settings
       - /settings/my-user-access
+
+notifications:
+  title: Notifications
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    paths:
+      - /settings/notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
   title: OpenShift (OCM)
@@ -522,6 +545,8 @@ settings:
         default: true
       - id: rbac
       - id: sources
+      - id: integrations
+      - id: notifications
       - id: applications
 
 sources:
