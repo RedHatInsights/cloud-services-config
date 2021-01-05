@@ -682,7 +682,7 @@ subscriptions:
         default: true
         group: subscriptions
       - id: openshift-sw
-        title: OpenShift
+        title: Red Hat OpenShift
         group: subscriptions
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
