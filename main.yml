@@ -292,10 +292,8 @@ drift:
       - id: ''
         title: Comparison
         default: true
-        reload: drift
       - id: baselines
         title: Baselines
-        reload: drift/baselines
   source_repo: https://github.com/RedHatInsights/drift-frontend
 
 edge:
