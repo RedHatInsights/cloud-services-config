@@ -443,10 +443,9 @@ rbac:
       - /settings
       - /settings/rbac
     sub_apps:
-      - id: my-user-access
-        default: true
       - id: users
         title: Users
+        default: true
       - id: roles
         title: Roles
       - id: groups
@@ -511,8 +510,9 @@ settings:
   top_level: true
   frontend:
     sub_apps:
-      - id: rbac
+      - id: my-user-access
         default: true
+      - id: rbac
       - id: sources
       - id: applications
 
