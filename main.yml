@@ -371,6 +371,15 @@ migration-analytics:
       - /migrations/migration-analytics
   source_repo: https://github.com/project-xavier/xavier-ui
 
+my-user-access:
+  title: My user access
+  channel: '#platform-experience'
+  frontend:
+    app_base: rbac
+    paths:
+      - /settings
+      - /settings/my-user-access
+
 openshift:
   title: OpenShift (OCM)
   api:
@@ -426,15 +435,18 @@ rbac:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  permissions:
+    method: isOrgAdmin
   frontend:
     title: User access
     paths:
       - /settings
       - /settings/rbac
     sub_apps:
+      - id: my-user-access
+        default: true
       - id: users
         title: Users
-        default: true
       - id: roles
         title: Roles
       - id: groups
