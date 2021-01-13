@@ -446,6 +446,8 @@ rbac:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/rbac-frontend-deploy.git
+  permissions:
+    method: isOrgAdmin
   frontend:
     title: User access
     paths:
