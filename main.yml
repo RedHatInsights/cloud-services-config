@@ -268,7 +268,7 @@ docs:
   top_level: true
 
 drift:
-  title: Configuration Drift
+  title: Drift
   api:
     subItems:
       drift:
