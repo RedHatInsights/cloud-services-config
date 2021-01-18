@@ -1239,7 +1239,7 @@
                             "values": [
                                 "/api/*",
                                 "/api",
-                                "/r/insights/platform/*"
+                                "/r/insights/*"
                             ],
                             "matchOperator": "MATCHES_ONE_OF",
                             "matchCaseSensitive": false,
