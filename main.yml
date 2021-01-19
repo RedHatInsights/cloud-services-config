@@ -358,6 +358,7 @@ insights:
       - id: inventory
       - id: remediations
       - id: registration
+      - id: ros
   top_level: true
 
 integrations:
@@ -741,3 +742,19 @@ vulnerability:
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
+
+ros:
+  title: Resource Optimization
+  api:
+    versions:
+      - v0
+    channel: '#team-ros'
+    deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
+    disabled_on_prod: true
+    frontend:
+        title: Resource Optimization
+        paths:
+            - /insights/ros
+        suppress_id: true
+    source_repo: https://github.com/RedHatInsights/ros-frontend
+    top_level: false
