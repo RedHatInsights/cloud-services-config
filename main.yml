@@ -609,13 +609,11 @@ ros:
   title: Resource Optimization
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
-  disabled_on_prod: true
   frontend:
       title: Resource Optimization
       paths:
           - /insights/ros
   source_repo: https://github.com/RedHatInsights/ros-frontend
-  top_level: false
 
 ruledev:
   title: Rule Development
