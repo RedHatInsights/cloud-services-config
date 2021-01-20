@@ -116,7 +116,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
         if ("url_prefix" not in env or env["url_prefix"] == ""):
             parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF"
-            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*"])
+            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*", "/r/insights/*"])
             # Each env should exclude matches for other envs.
             for nomatch in (x for x in master_config_list if (x != env["name"] and "url_prefix" in x and x["url_prefix"] != "")):
                 parent_rule["criteria"][0]["options"]["values"].extend([nomatch["url_prefix"], nomatch["url_prefix"] + "/*"])
