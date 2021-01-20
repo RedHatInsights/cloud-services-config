@@ -358,6 +358,7 @@ insights:
       - id: inventory
       - id: remediations
       - id: registration
+      - id: ros
   top_level: true
 
 integrations:
@@ -603,6 +604,16 @@ rhel-sw:
         title: IBM Z systems
       - id: x86
         title: x86
+
+ros:
+  title: Resource Optimization
+  channel: '#team-ros'
+  deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
+  frontend:
+      title: Resource Optimization
+      paths:
+          - /insights/ros
+  source_repo: https://github.com/RedHatInsights/ros-frontend
 
 ruledev:
   title: Rule Development
