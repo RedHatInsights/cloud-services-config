@@ -238,11 +238,26 @@ cost-management:
       - id: ocp
         title: OpenShift
         group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=OCP'
+                accessor: 'data'
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/sources/?type=OCP'
+                matcher: 'isNotEmpty'
+                accessor: 'data'
       - id: infrastructure
         group: cost-management
       - id: cost-models
         title: Cost models
         group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=cost_model'
+                accessor: 'data'
   source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
@@ -332,8 +347,28 @@ infrastructure:
       - id: aws
         title: Amazon Web Services
         default: true
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AWS'
+                accessor: 'data'
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/sources/?type=AWS'
+                matcher: 'isNotEmpty'
+                accessor: 'data'
       - id: azure
         title: Microsoft Azure
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AZURE'
+                accessor: 'data'
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/sources/?type=AZURE'
+                matcher: 'isNotEmpty'
+                accessor: 'data'
 
 ingress:
   title: Ingress
