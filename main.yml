@@ -351,6 +351,7 @@ insights:
       - id: inventory
       - id: remediations
       - id: registration
+      - id: ros
   top_level: true
 
 inventory:
