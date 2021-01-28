@@ -219,23 +219,23 @@ cost-management:
       - id: ocp
         title: OpenShift
         group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=OCP'
+                accessor: 'data'
       - id: infrastructure
         group: cost-management
       - id: cost-models
-        title: Cost models
+        title: Cost Models
         group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=cost_model'
+                accessor: 'data'
   source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
-
-infrastructure:
-  title: Infrastructure
-  frontend:
-    sub_apps:
-      - id: aws
-        title: Amazon Web Services
-        default: true
-      - id: azure
-        title: Microsoft Azure
 
 policies:
   title: Policies
@@ -311,6 +311,33 @@ image-builder:
     paths:
       - /insights/image-builder
   source_repo: https://github.com/osbuild/image-builder-frontend
+
+infrastructure:
+  title: Infrastructure
+  frontend:
+    sub_apps:
+      - id: aws
+        title: Amazon Web Services
+        default: true
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AWS'
+                accessor: 'data'
+      - id: azure
+        title: Microsoft Azure
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AZURE'
+                accessor: 'data'
+      - id: gcp
+        title: Google Cloud Provider
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=GCP'
+                accessor: 'data'
 
 ingress:
   title: Ingress
