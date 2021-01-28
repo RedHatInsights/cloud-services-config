@@ -243,11 +243,6 @@ cost-management:
             args:
               - url: '/api/cost-management/v1/user-access/?type=OCP'
                 accessor: 'data'
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/sources/?type=OCP'
-                matcher: 'isNotEmpty'
-                accessor: 'data'
       - id: infrastructure
         group: cost-management
       - id: cost-models
@@ -352,11 +347,6 @@ infrastructure:
             args:
               - url: '/api/cost-management/v1/user-access/?type=AWS'
                 accessor: 'data'
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/sources/?type=AWS'
-                matcher: 'isNotEmpty'
-                accessor: 'data'
       - id: azure
         title: Microsoft Azure
         permissions:
@@ -364,22 +354,12 @@ infrastructure:
             args:
               - url: '/api/cost-management/v1/user-access/?type=AZURE'
                 accessor: 'data'
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/sources/?type=AZURE'
-                matcher: 'isNotEmpty'
-                accessor: 'data'
       - id: gcp
         title: Google Cloud Provider
         permissions:
           - method: apiRequest
             args:
               - url: '/api/cost-management/v1/user-access/?type=GCP'
-                accessor: 'data'
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/sources/?type=GCP'
-                matcher: 'isNotEmpty'
                 accessor: 'data'
 
 ingress:
