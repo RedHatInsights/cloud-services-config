@@ -1,3 +1,15 @@
+access-requests:
+  title: Access Requests
+  description: Frontend for Red Hat employee to request access to customer account
+  deployment_repo: https://github.com/RedHatInsights/access-requests-build
+  api:
+    versions:
+      -v1
+  frontend:
+    title: Access Requests
+    paths:
+      - /internal/access-requests
+
 advisor:
   title: Advisor
   api:
@@ -406,6 +418,7 @@ internal:
     sub_apps:
       - id: commit-tracker
         default: true
+      - id: access-requests
 
 inventory:
   title: Managed Inventory
