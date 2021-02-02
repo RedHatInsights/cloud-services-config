@@ -520,6 +520,8 @@ rbac:
         title: Roles
       - id: groups
         title: Groups
+      - id: access-request
+        title: Red Hat Access Requests
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 registration:
