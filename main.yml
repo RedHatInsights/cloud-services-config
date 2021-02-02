@@ -514,6 +514,7 @@ application-services:
     sub_apps:
       - id: openshift-streams
         default: true
+      - id: quickstarts
   top_level: true
 
 openshift-streams:
@@ -526,6 +527,16 @@ openshift-streams:
       - /application-services
       - /application-services/openshift-streams
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
+
+quickstarts:
+  title: QuickStarts
+  api:
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
+  frontend:
+    paths:
+      - /application-services/quickstarts
+  source_repo: https://github.com/bf2fc6cc711aee1a0c2a/guides
 
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK
