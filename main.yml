@@ -623,6 +623,18 @@ rbac:
         title: Groups
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
+sed:
+  title: Service Enablement Dashboard
+  api:
+    versions:
+      - v1
+  deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
+  frontend:
+    title: Service Enablement Dashboard
+    paths:
+      - /settings/sed
+  source_repo: https://github.com/RedHatInsights/sed-frontend
+
 registration:
   title: Register Systems
   channel: '#advisor'
@@ -698,6 +710,7 @@ settings:
       - id: integrations
       - id: notifications
       - id: applications
+      - id: sed
 
 sources:
   title: Discovered Inventory
