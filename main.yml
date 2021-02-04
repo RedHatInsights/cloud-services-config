@@ -480,6 +480,7 @@ mosaic:
   frontend:
     sub_apps:
       - id: cloud-tutorials
+  top_level: true
 
 my-user-access:
   title: My user access
