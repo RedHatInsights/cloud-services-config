@@ -180,6 +180,18 @@ chrome:
   deployment_repo: https://github.com/RedHatInsights/insights-chrome-build
   source_repo: https://github.com/RedHatInsights/insights-chrome
 
+cloud-tutorials:
+  title: Cloud Tutorials
+  description: Cloud Tutorials for Open Data Hub
+  deployment_repo: https://github.com/cloudmosaic/cloud-tutorials-frontend-build
+  api:
+    versions:
+      -v1
+  frontend:
+    title: Cloud Tutorials
+    paths:
+      - /mosaic/cloud-tutorials
+
 commit-tracker:
   title: Commit Tracker
   description: The Commit Tracker Tool
@@ -462,6 +474,13 @@ migration-analytics:
       - /migrations
       - /migrations/migration-analytics
   source_repo: https://github.com/project-xavier/xavier-ui
+
+mosaic:
+  title: Cloud Mosaic
+  frontend:
+    sub_apps:
+      - id: cloud-tutorials
+  top_level: true
 
 my-user-access:
   title: My user access
