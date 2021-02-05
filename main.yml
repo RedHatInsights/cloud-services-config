@@ -358,7 +358,6 @@ insights:
       - id: patch
       - id: drift
       - id: policies
-      - id: image-builder
       - id: inventory
       - id: remediations
       - id: registration
