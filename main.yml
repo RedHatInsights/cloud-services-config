@@ -391,7 +391,7 @@ infrastructure:
               - url: '/api/cost-management/v1/user-access/?type=AZURE'
                 accessor: 'data'
       - id: gcp
-        title: Google Cloud Provider
+        title: Google Cloud Platform
         permissions:
           - method: apiRequest
             args:
