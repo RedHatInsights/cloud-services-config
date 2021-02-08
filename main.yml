@@ -19,6 +19,7 @@ advisor:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
+    module: advisor#./RootApp
     paths:
       - /insights/advisor
     sub_apps:
@@ -213,6 +214,7 @@ compliance:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
+    module: inventory#./RootApp
     paths:
       - /insights/compliance
     sub_apps:
@@ -319,6 +321,7 @@ drift:
         title: Historical system profiles
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
+    module: drift#./RootApp
     title: Drift
     paths:
       - /insights/drift
@@ -440,6 +443,7 @@ inventory:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend:
+    module: inventory#./RootApp
     title: Inventory
     paths:
       - /insights/inventory
@@ -581,6 +585,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
+    module: inventory#./RootApp
     title: Patch
     paths:
       - /insights/patch
@@ -629,6 +634,7 @@ rbac:
   permissions:
     method: isOrgAdmin
   frontend:
+    module: rbac#./RootApp
     title: User Access
     paths:
       - /settings/rbac
@@ -671,6 +677,7 @@ remediations:
   channel: '#insights-remediations'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
+    module: drift#./RootApp
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
@@ -827,6 +834,7 @@ vulnerability:
   channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
+    module: vulnerability#./RootApp
     title: Vulnerability
     paths:
       - /insights/vulnerability
