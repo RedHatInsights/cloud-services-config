@@ -95,6 +95,22 @@ If you want the name of your app to appear differently on the frontend, set this
 
 If you want this app to use the same codebase as another existing app, set this value to the ID of that app.
 
+#### app_id.frontend.module
+
+To indicate chrome how to load the application for federated modules you need to pass this property. It can either be a magic link containing `yourApp#./RootApp` for most applications. If you want to be more specific you can pass in module object containing `appName`, `scope` and `module`
+
+##### app_id.frontend.module.appName
+
+To indicate chrome loader from what app to load your fed-mods config.
+
+##### app_id.frontend.module.scope
+
+To indicate federated modules scope of your application (you can have multiple scopes per one app). This is usually your application's name (same as `appName`).
+
+##### app_id.frontend.module.module
+
+To indicate which module should be loaded when rendering your app (you can have multiple modules per one scope). This is usually `./RootApp`
+
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
