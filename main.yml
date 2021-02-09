@@ -214,7 +214,7 @@ compliance:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
-    module: inventory#./RootApp
+    module: compliance#./RootApp
     paths:
       - /insights/compliance
     sub_apps:
@@ -589,7 +589,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
-    module: inventory#./RootApp
+    module: patch#./RootApp
     title: Patch
     paths:
       - /insights/patch
@@ -681,7 +681,7 @@ remediations:
   channel: '#insights-remediations'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
-    module: drift#./RootApp
+    module: remediations#./RootApp
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
