@@ -233,6 +233,14 @@ cost-management:
             args:
               - url: '/api/cost-management/v1/user-access/?type=cost_model'
                 accessor: 'data'
+      - id: explorer
+        title: Historical Cost Explorer
+        group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=any&beta=true'
+                accessor: 'data'
   source_repo: https://github.com/project-koku/
   mailing_list: cost-mgmt@redhat.com
 
@@ -325,7 +333,7 @@ infrastructure:
               - url: '/api/cost-management/v1/user-access/?type=AZURE'
                 accessor: 'data'
       - id: gcp
-        title: Google Cloud Provider
+        title: Google Cloud Platform
         permissions:
           - method: apiRequest
             args:
