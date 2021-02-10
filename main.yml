@@ -45,6 +45,7 @@ api-docs:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
+    module: apiDocs#./RootApp
     paths:
       - /docs/api
       - /docs
@@ -348,6 +349,7 @@ edge:
   source_repo: https://github.com/RedHatInsights/edge-frontend
   top_level: true
   frontend:
+    module: edge#./RootApp
     title: Edge for RHEL
     paths:
       - /edge
