@@ -296,6 +296,7 @@ dashboard:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
+    module: dashboard#./RootApp
     paths:
       - /insights
       - /insights/dashboard
