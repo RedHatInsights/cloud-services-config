@@ -11,7 +11,8 @@ const permissionsSchema = Joi.object({
 const moduleSchema = Joi.object({
     module: Joi.string(),
     scope: Joi.string(),
-    appName: Joi.string()
+    appName: Joi.string(),
+    group: Joi.string()
 });
 
 const frontendSchema = Joi.object({
