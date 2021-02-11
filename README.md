@@ -113,7 +113,7 @@ To indicate which module should be loaded when rendering your app (you can have 
 
 ##### app_id.frontend.module.group
 
-If you have first level application to indicate which group should be managed by this module.
+If you have a first-level application, this field indicates which group should be managed by this module.
 
 #### app_id.frontend.paths
 
