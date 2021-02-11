@@ -118,6 +118,9 @@ automation-analytics:
 
 automation-hub:
   title: Automation Hub
+  api:
+    versions:
+      - v3
   deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
   frontend:
     paths:
