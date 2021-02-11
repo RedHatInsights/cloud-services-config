@@ -45,7 +45,11 @@ api-docs:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
-    module: apiDocs#./RootApp
+    module:
+      appName: api-docs
+      scope: apiDocs
+      module: ./RootApp
+      group: docs
     paths:
       - /docs/api
       - /docs
@@ -296,7 +300,6 @@ dashboard:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
-    module: dashboard#./RootApp
     paths:
       - /insights
       - /insights/dashboard
@@ -350,7 +353,11 @@ edge:
   source_repo: https://github.com/RedHatInsights/edge-frontend
   top_level: true
   frontend:
-    module: edge#./RootApp
+    module:
+      appName: edge
+      scope: edge
+      module: ./RootApp
+      group: groups
     title: Edge for RHEL
     paths:
       - /edge
@@ -707,9 +714,6 @@ rhel-sw:
 
 ros:
   title: Resource Optimization
-  api:
-    versions:
-      - v0
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:

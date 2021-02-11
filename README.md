@@ -111,6 +111,10 @@ To indicate federated modules scope of your application (you can have multiple s
 
 To indicate which module should be loaded when rendering your app (you can have multiple modules per one scope). This is usually `./RootApp`
 
+##### app_id.frontend.module.group
+
+If you have first level application to indicate which group should be managed by this module.
+
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
