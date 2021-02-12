@@ -73,7 +73,7 @@ If your API consists of multiple APIs, you can list them here. Each has the same
 
 #### app_id.api.apiName
 
-If your API is accessible on a URL other than `/api/{app_id}/{versions[0]}/openapi.json` you can change it by passing the correct name. The URL will look like `/api/{apiName}/{versions[0]}/openapi.json`
+If your API is accessible on a URL other than `/api/{app_id}/{versions[0]}/openapi.json`, you can change it by passing the correct name. The URL will look like `/api/{apiName}/{versions[0]}/openapi.json`
 
 ### Frontend Properties
 
