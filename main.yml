@@ -449,6 +449,14 @@ patch:
     title: Patch
     paths:
       - /insights/patch
+    sub_apps:
+      - id: advisories
+        title: Advisories
+        default: true
+      - id: systems
+        title: Systems
+      - id: packages
+        title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
 
 policies:
