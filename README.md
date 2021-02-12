@@ -69,11 +69,11 @@ This is the list of API versions your app can use. Since `v1` is the default, yo
 
 #### app_id.api.subItems
 
-If your API consists of multiple APIs you can list them in here it has the same signature as `{app_id.api}`.
+If your API consists of multiple APIs, you can list them here. Each has the same signature as `{app_id.api}`.
 
 #### app_id.api.apiName
 
-If your API is accessible on oher URL than `/api/{app_id}/{versions[0]}/openapi.json` you can change this by passing correct name, the URL will look like `/api/{apiName}/{versions[0]}/openapi.json`
+If your API is accessible on a URL other than `/api/{app_id}/{versions[0]}/openapi.json`, you can change it by passing the correct name. The URL will look like `/api/{apiName}/{versions[0]}/openapi.json`
 
 ### Frontend Properties
 
