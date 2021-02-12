@@ -344,7 +344,7 @@ infrastructure:
         permissions:
           - method: apiRequest
             args:
-              - url: '/api/cost-management/v1/user-access/?type=GCP'
+              - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
                 accessor: 'data'
 
 ingress:
@@ -465,6 +465,8 @@ patch:
         default: true
       - id: systems
         title: Systems
+      - id: packages
+        title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
 
 product:
