@@ -10,7 +10,6 @@ access-requests:
       appName: access-requests
       scope: accessRequests
       module: ./RootApp
-      group: internal
     title: Access Requests
     paths:
       - /internal/access-requests
