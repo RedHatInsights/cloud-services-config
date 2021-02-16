@@ -684,6 +684,7 @@ registration:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/registration-assistant-build
   frontend:
+    module: registration#./RootApp
     paths:
       - /insights/registration
   source_repo: https://github.com/RedHatInsights/registration-assistant/
