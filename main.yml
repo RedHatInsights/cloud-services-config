@@ -674,6 +674,7 @@ sed:
   deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
   frontend:
     title: Service Enablement Dashboard
+    module: sed#./RootApp
     paths:
       - /settings/sed
   source_repo: https://github.com/RedHatInsights/sed-frontend
