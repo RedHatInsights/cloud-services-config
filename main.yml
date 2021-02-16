@@ -6,6 +6,10 @@ access-requests:
     versions:
       -v1
   frontend:
+    module:
+      appName: access-requests
+      scope: accessRequests
+      module: ./RootApp
     title: Access Requests
     paths:
       - /internal/access-requests
