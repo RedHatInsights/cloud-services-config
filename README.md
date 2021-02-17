@@ -115,6 +115,9 @@ To indicate which module should be loaded when rendering your app (you can have 
 
 If you have a first-level application, this field indicates which group should be managed by this module.
 
+##### app_id.frontend.module.manifest
+
+If your application shares same manifest as other app or your manifest is located on completely different path, you can pass the path to it in this option.
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
