@@ -9,10 +9,11 @@ const permissionsSchema = Joi.object({
 })
 
 const moduleSchema = Joi.object({
-    module: Joi.string(),
-    scope: Joi.string(),
-    appName: Joi.string(),
-    group: Joi.string()
+    module: Joi.string().required(),
+    scope: Joi.string().required(),
+    appName: Joi.string().required(),
+    group: Joi.string(),
+    manifest: Joi.string()
 });
 
 const frontendSchema = Joi.object({
