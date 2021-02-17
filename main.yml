@@ -209,6 +209,11 @@ cost-management:
   frontend:
     paths:
       - /cost-management
+    module:
+      appName: cost-management
+      group: cost-management
+      scope: costManagement
+      module: ./RootApp
     sub_apps:
       - id: ''
         title: Overview
