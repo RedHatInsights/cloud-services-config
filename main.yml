@@ -535,6 +535,11 @@ my-user-access:
   title: My user access
   channel: '#platform-experience'
   frontend:
+    module:
+      appName: my-user-access
+      scope: rbac
+      module: ./RootApp
+      manifest: /apps/rbac/fed-mods.json
     app_base: rbac
     paths:
       - /settings
