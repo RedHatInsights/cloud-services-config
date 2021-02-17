@@ -270,6 +270,7 @@ cost-management:
       - /cost-management
     module:
       appName: cost-management
+      group: cost-management
       scope: costManagement
       module: ./RootApp
     sub_apps:
