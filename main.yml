@@ -307,6 +307,36 @@ drift:
         title: Baselines
   source_repo: https://github.com/RedHatInsights/drift-frontend
 
+edge:
+  title: Edge for RHEL
+  disabled_on_prod: true
+  deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
+  source_repo: https://github.com/RedHatInsights/edge-frontend
+  top_level: true
+  frontend:
+    module:
+      appName: edge
+      scope: edge
+      module: ./RootApp
+      group: groups
+    title: Edge for RHEL
+    paths:
+      - /edge
+      - /edge/groups
+      - /edge/devices
+      - /edge/canaries
+    sub_apps:
+      - id: groups
+        default: true
+        title: Groups
+        group: groups
+      - id: devices
+        title: Devices
+        group: groups
+      - id: canaries
+        title: Canaries
+        group: groups
+
 frontend-assets:
   title: Frontend Assets
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
