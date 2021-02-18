@@ -7,6 +7,7 @@ advisor:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
+    module: advisor#./RootApp
     paths:
       - /insights/advisor
     sub_apps:
@@ -19,7 +20,7 @@ advisor:
   source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
 
 ansible:
-  title: Red Hat Ansible Automation Platform
+  title: Ansible Automation Platform
   frontend:
     sub_apps:
       - id: automation-analytics
@@ -32,6 +33,11 @@ api-docs:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
+    module:
+      appName: api-docs
+      scope: apiDocs
+      module: ./RootApp
+      group: docs
     paths:
       - /docs/api
       - /docs
@@ -97,7 +103,6 @@ automation-analytics:
       - id: automation-calculator
         title: Automation calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
-
 
 automation-hub:
   title: Automation Hub
@@ -171,6 +176,7 @@ compliance:
       - v1
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
+    module: compliance#./RootApp
     paths:
       - /insights/compliance
     sub_apps:
@@ -288,6 +294,7 @@ drift:
         title: Historical system profiles
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
+    module: drift#./RootApp
     title: Drift
     paths:
       - /insights/drift
@@ -353,7 +360,7 @@ ingress:
 insights:
   title: Insights
   frontend:
-    title: Red Hat Insights
+    title: Insights
     sub_apps:
       - id: dashboard
         default: true
@@ -377,6 +384,7 @@ inventory:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend:
+    module: inventory#./RootApp
     title: Inventory
     paths:
       - /insights/inventory
@@ -428,7 +436,7 @@ openshift:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend:
-    title: Red Hat OpenShift Cluster Manager
+    title: OpenShift Cluster Manager
     paths:
       - /openshift
     sub_apps:
@@ -439,7 +447,6 @@ openshift:
       - id: subscriptions
         title: Subscriptions
         group: openshift
-  source_repo:
   top_level: true
 
 patch:
@@ -450,6 +457,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
+    module: patch#./RootApp
     title: Patch
     paths:
       - /insights/patch
@@ -484,6 +492,7 @@ rbac:
   permissions:
     method: isOrgAdmin
   frontend:
+    module: rbac#./RootApp
     title: User access
     paths:
       - /settings/rbac
@@ -514,6 +523,7 @@ remediations:
   channel: '#insights-remediations'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
+    module: remediations#./RootApp
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
@@ -657,6 +667,7 @@ vulnerability:
   channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
+    module: vulnerability#./RootApp
     title: Vulnerability
     paths:
       - /insights/vulnerability

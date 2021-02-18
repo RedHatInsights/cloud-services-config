@@ -25,6 +25,10 @@ Here is some example configuration that demonstrates the structure, using all re
     deployment_repo: https://github.com/app-deployment-repo-url
     disabled_on_prod: true
     docs: https://link.to.docs.com/docs
+    permissions:
+        method: isOrgAdmin
+        apps:
+            - app_id_1
     frontend:
         title: App Title Override
         paths:
@@ -35,6 +39,10 @@ Here is some example configuration that demonstrates the structure, using all re
             -   id: app_id_1
                 title: Some Sub App
                 default: true
+                permissions:
+                    method: isEntitled
+                    args:
+                        - insights
             -   id: app_id_2
                 title: Another Sub App
         suppress_id: true
@@ -86,6 +94,26 @@ If you want the name of your app to appear differently on the frontend, set this
 #### app_id.frontend.app_base
 
 If you want this app to use the same codebase as another existing app, set this value to the ID of that app.
+
+#### app_id.frontend.module
+
+To indicate chrome how to load the application for federated modules you need to pass this property. It can either be a magic link containing `yourApp#./RootApp` for most applications. If you want to be more specific you can pass in module object containing `appName`, `scope` and `module`
+
+##### app_id.frontend.module.appName
+
+To indicate chrome loader from what app to load your fed-mods config.
+
+##### app_id.frontend.module.scope
+
+To indicate federated modules scope of your application (you can have multiple scopes per one app). This is usually your application's name (same as `appName`).
+
+##### app_id.frontend.module.module
+
+To indicate which module should be loaded when rendering your app (you can have multiple modules per one scope). This is usually `./RootApp`
+
+##### app_id.frontend.module.group
+
+If you have a first-level application, this field indicates which group should be managed by this module.
 
 #### app_id.frontend.paths
 
@@ -142,6 +170,18 @@ This is the mailing list associated with your project. Used to automate email no
 
 If this is set to `true`, your app will be a top-level app, which is usually reserved for bundles (Insights, RHEL, Hybrid, Openshift, etc).
 Use this if your app does not have a parent app or bundle.
+
+#### permissions.method
+
+If you want to hide any navigational element based on some chrome's logic, this is the right property. This defines the function to be used in order to hide nav item. (Chrome's list of methods)[https://github.com/RedHatInsights/insights-chrome#permissions].
+
+#### permissions.args
+
+If the `permissions.method` requires some arguments in order to properly work, this is how to pass them to it: an array of items.
+
+#### permissions.apps
+
+If you want to control visibility for multiple navigation items you can specify one permission per entry and list which apps from `frontend.sub_apps` should be checked.
 
 ## Akamai API Access
 
