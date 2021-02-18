@@ -536,7 +536,7 @@ mosaic:
   top_level: true
 
 my-user-access:
-  title: My user access
+  title: My User Access
   channel: '#platform-experience'
   frontend:
     module:
