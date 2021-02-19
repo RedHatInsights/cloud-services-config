@@ -697,7 +697,7 @@ sed:
       - v1
   deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
   frontend:
-    title: Service Enablement Dashboard
+    title: Red Hat Connector
     module: sed#./RootApp
     paths:
       - /settings/sed
