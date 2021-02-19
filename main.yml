@@ -691,7 +691,7 @@ rbac:
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
 sed:
-  title: Service Enablement Dashboard
+  title: Red Hat Connector
   api:
     versions:
       - v1
@@ -782,8 +782,8 @@ settings:
       - id: sources
       - id: integrations
       - id: notifications
-      - id: applications
       - id: sed
+      - id: applications
 
 sources:
   title: Discovered Inventory
