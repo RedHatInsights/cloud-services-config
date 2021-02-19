@@ -804,9 +804,24 @@ staging:
   title: Staging Bundle
   frontend:
     sub_apps:
+      - id: starter
       - id: ruledev
       - id: policies
   top_level: true
+
+starter:
+  title: Starter
+  api:
+    versions:
+      - v1
+    apiName: insights
+  channel: '#forum-clouddot-ui'
+  deployment_repo: https://github.com/RedHatInsights/frontend-starter-app-build
+  frontend:
+    module: starter#./RootApp
+    paths:
+      - /staging/starter
+  source_repo: https://github.com/RedHatInsights/frontend-starter-app
 
 storybook:
   channel: '#flip-mode-squad'
