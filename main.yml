@@ -19,7 +19,7 @@ advisor:
   source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
 
 ansible:
-  title: Red Hat Ansible Automation Platform
+  title: Ansible Automation Platform
   frontend:
     sub_apps:
       - id: automation-analytics
@@ -349,7 +349,7 @@ ingress:
 insights:
   title: Insights
   frontend:
-    title: Red Hat Insights
+    title: Insights
     sub_apps:
       - id: dashboard
         default: true
@@ -423,7 +423,7 @@ openshift:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   frontend:
-    title: Red Hat OpenShift Cluster Manager
+    title: OpenShift Cluster Manager
     paths:
       - /openshift
     sub_apps:
