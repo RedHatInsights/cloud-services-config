@@ -309,7 +309,6 @@ drift:
 
 edge:
   title: Edge for RHEL
-  disabled_on_prod: true
   deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
   source_repo: https://github.com/RedHatInsights/edge-frontend
   top_level: true
