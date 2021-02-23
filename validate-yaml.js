@@ -20,6 +20,7 @@ const frontendSchema = Joi.object({
     title: Joi.string(),
     app_base: Joi.string(),
     reload: Joi.string(),
+    section: Joi.string(),
     paths: Joi.array().items(Joi.string()),
     module: [Joi.string(), moduleSchema],
     sub_apps: Joi.array().items(Joi.object({
