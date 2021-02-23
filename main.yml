@@ -24,6 +24,7 @@ advisor:
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
     module: advisor#./RootApp
+    section: operations
     paths:
       - /insights/advisor
     sub_apps:
@@ -39,10 +40,10 @@ ansible:
   title: Ansible Automation Platform
   frontend:
     sub_apps:
-      - id: automation-analytics
-        default: true
       - id: automation-hub
       - id: catalog
+      - id: automation-analytics
+        default: true
   top_level: true
 
 api-docs:
@@ -100,13 +101,14 @@ approval:
   source_repo: https://github.com/RedHatInsights/approval-ui
 
 automation-analytics:
-  title: Automation Analytics
+  title: Analytics
   api:
     versions:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   frontend:
+    section: insights
     paths:
       - /ansible
       - /ansible/automation-analytics
@@ -226,6 +228,7 @@ compliance:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
+    section: security
     module: compliance#./RootApp
     paths:
       - /insights/compliance
@@ -353,6 +356,7 @@ drift:
   frontend:
     module: drift#./RootApp
     title: Drift
+    section: operations
     paths:
       - /insights/drift
     sub_apps:
@@ -402,6 +406,7 @@ image-builder:
   title: Image Builder
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
   frontend:
+    section: operations
     paths:
       - /insights/image-builder
   source_repo: https://github.com/osbuild/image-builder-frontend
@@ -447,16 +452,18 @@ insights:
       - id: dashboard
         default: true
       - id: advisor
-      - id: vulnerability
-      - id: compliance
-      - id: patch
       - id: drift
-      - id: policies
       - id: image-builder
       - id: inventory
-      - id: remediations
+      - id: vulnerability
+      - id: compliance
+      - id: policies
+      - id: patch
       - id: registration
+      - id: remediations
+      - id: rhel-sw
       - id: ros
+      - id: docs
   top_level: true
 
 integrations:
@@ -494,6 +501,7 @@ inventory:
   frontend:
     module: inventory#./RootApp
     title: Inventory
+    section: operations
     paths:
       - /insights/inventory
   source_repo: https://github.com/RedHatInsights/insights-inventory-frontend
@@ -627,6 +635,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
+    section: security
     module: patch#./RootApp
     title: Patch
     paths:
@@ -650,6 +659,7 @@ policies:
   deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
     module: policies#./RootApp
+    section: security
     paths:
       - /insights/policies
   source_repo: https://github.com/RedHatInsights/policies-ui-frontend
@@ -728,8 +738,9 @@ remediations:
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
 rhel-sw:
-  title: Red Hat Enterprise Linux
+  title: Subscriptions
   frontend:
+    section: business
     sub_apps:
       - id: all
         title: All
@@ -751,6 +762,7 @@ ros:
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
+      section: business
       title: Resource Optimization
       paths:
           - /insights/ros
@@ -785,6 +797,9 @@ settings:
       - id: notifications
       - id: sed
       - id: applications
+      - id: automation-hub
+      - id: catalog
+      - id: automation-analytics
 
 sources:
   title: Discovered Inventory
@@ -898,6 +913,7 @@ vulnerability:
   channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
+    section: security
     module: vulnerability#./RootApp
     title: Vulnerability
     paths:
@@ -911,3 +927,4 @@ vulnerability:
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
+  
