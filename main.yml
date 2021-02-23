@@ -581,16 +581,22 @@ openshift:
     paths:
       - /openshift
     sub_apps:
+      - id: overview
+        title: Overview
       - id: ''
-        title: Clusters
+        title: Cluster Management
         group: openshift
         default: true
       - id: subscriptions
         title: Subscriptions
         group: openshift
-      - id: overview
-        title: Overview
+        section: insights
+        reload: ../subscriptions/openshift-sw
+      - id: cost-management
         group: openshift
+        title: Cost Management
+        section: insights
+        reload: ../cost-management/ocp
   top_level: true
 
 application-services:

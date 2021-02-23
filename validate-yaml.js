@@ -29,7 +29,8 @@ const frontendSchema = Joi.object({
         title: Joi.string(),
         group: Joi.string(),
         reload: Joi.string(),
-        permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
+        permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+        section: Joi.string()
     }))
 })
 
