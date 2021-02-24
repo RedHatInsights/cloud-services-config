@@ -16,6 +16,17 @@ const moduleSchema = Joi.object({
     manifest: Joi.string()
 });
 
+const subApp = Joi.object({
+    id: Joi.string().required().allow(''),
+    default: Joi.boolean(),
+    title: Joi.string(),
+    group: Joi.string(),
+    reload: Joi.string(),
+    permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+    section: Joi.string(),
+    sub_apps: Joi.array().items('#subApp')
+});
+
 const frontendSchema = Joi.object({
     title: Joi.string(),
     app_base: Joi.string(),
@@ -30,7 +41,8 @@ const frontendSchema = Joi.object({
         group: Joi.string(),
         reload: Joi.string(),
         permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
-        section: Joi.string()
+        section: Joi.string(),
+        sub_apps: Joi.array().items(subApp)
     }))
 })
 

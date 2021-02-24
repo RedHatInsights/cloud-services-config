@@ -590,14 +590,54 @@ openshift:
         default: true
       - id: subscriptions
         title: Subscriptions
+        sub_apps:
+          - id: openshift-sw
+            title: OpenShift
+            group: subscriptions
+            reload: ../subscriptions/openshift-sw
         group: openshift
-        section: insights
-        reload: ../subscriptions/openshift-sw
       - id: cost-management
-        group: openshift
         title: Cost Management
-        section: insights
-        reload: ../cost-management/ocp
+        group: openshift
+        sub_apps:
+          - id: ''
+            title: Overview
+            group: cost-management
+            reload: ../cost-management
+          - id: ocp
+            title: OpenShift
+            group: cost-management
+            reload: ../cost-management/ocp
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=OCP'
+                    accessor: 'data'
+          - id: aws
+            title: Amazon Web Services
+            reload: ../cost-management/aws
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=AWS'
+                    accessor: 'data'
+          - id: azure
+            title: Microsoft Azure
+            reload: ../cost-management/azure
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=AZURE'
+                    accessor: 'data'
+          - id: cost-models
+            title: Cost models
+            group: cost-management
+            reload: ../cost-management/cost-models
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=cost_model'
+                    accessor: 'data'
   top_level: true
 
 application-services:
