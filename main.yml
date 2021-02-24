@@ -462,6 +462,7 @@ insights:
       - id: registration
       - id: remediations
       - id: rhel-sw
+        section: business
       - id: ros
       - id: docs
   top_level: true
@@ -581,16 +582,62 @@ openshift:
     paths:
       - /openshift
     sub_apps:
+      - id: overview
+        title: Overview
       - id: ''
-        title: Clusters
+        title: Cluster Management
         group: openshift
         default: true
       - id: subscriptions
         title: Subscriptions
+        sub_apps:
+          - id: openshift-sw
+            title: OpenShift
+            group: subscriptions
+            reload: ../subscriptions/openshift-sw
         group: openshift
-      - id: overview
-        title: Overview
+      - id: cost-management
+        title: Cost Management
         group: openshift
+        sub_apps:
+          - id: ''
+            title: Overview
+            group: cost-management
+            reload: ../cost-management
+          - id: ocp
+            title: OpenShift
+            group: cost-management
+            reload: ../cost-management/ocp
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=OCP'
+                    accessor: 'data'
+          - id: aws
+            title: Amazon Web Services
+            reload: ../cost-management/aws
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=AWS'
+                    accessor: 'data'
+          - id: azure
+            title: Microsoft Azure
+            reload: ../cost-management/azure
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=AZURE'
+                    accessor: 'data'
+          - id: cost-models
+            title: Cost models
+            group: cost-management
+            reload: ../cost-management/cost-models
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=cost_model'
+                    accessor: 'data'
   top_level: true
 
 application-services:
@@ -740,7 +787,6 @@ remediations:
 rhel-sw:
   title: Subscriptions
   frontend:
-    section: business
     sub_apps:
       - id: all
         title: All
@@ -797,9 +843,6 @@ settings:
       - id: notifications
       - id: sed
       - id: applications
-      - id: automation-hub
-      - id: catalog
-      - id: automation-analytics
 
 sources:
   title: Discovered Inventory
