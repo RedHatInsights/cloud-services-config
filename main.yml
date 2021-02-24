@@ -802,9 +802,6 @@ settings:
       - id: notifications
       - id: sed
       - id: applications
-      - id: automation-hub
-      - id: catalog
-      - id: automation-analytics
 
 sources:
   title: Discovered Inventory
