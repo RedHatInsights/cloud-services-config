@@ -462,6 +462,7 @@ insights:
       - id: registration
       - id: remediations
       - id: rhel-sw
+        section: business
       - id: ros
       - id: docs
   top_level: true
@@ -745,7 +746,6 @@ remediations:
 rhel-sw:
   title: Subscriptions
   frontend:
-    section: business
     sub_apps:
       - id: all
         title: All
