@@ -218,6 +218,7 @@ commit-tracker:
   frontend:
     title: Commit Tracker
     paths:
+      - /internal
       - /internal/commit-tracker
 
 compliance:
