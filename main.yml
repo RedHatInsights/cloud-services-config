@@ -460,12 +460,11 @@ insights:
       - id: compliance
       - id: policies
       - id: patch
-      - id: registration
-      - id: remediations
       - id: rhel-sw
         section: business
+      - id: registration
+      - id: remediations
       - id: ros
-      - id: docs
   top_level: true
 
 integrations:
