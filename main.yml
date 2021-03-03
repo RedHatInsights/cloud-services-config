@@ -301,7 +301,7 @@ cost-management:
               - url: '/api/cost-management/v1/user-access/?type=cost_model'
                 accessor: 'data'
       - id: explorer
-        title: Historical Cost Explorer
+        title: Cost Explorer
         group: cost-management
         permissions:
           - method: apiRequest
@@ -970,4 +970,3 @@ vulnerability:
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
-  
