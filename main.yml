@@ -408,11 +408,6 @@ integrations:
       - v1
   frontend:
     app_base: notifications
-    module:
-      appName: integrations
-      scope: notifications
-      module: ./RootApp
-      manifest: /apps/notifications/fed-mods.json
     paths:
       - /settings/integrations
 
@@ -476,7 +471,6 @@ notifications:
   channel: '#cloudservices-notifications'
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
   frontend:
-    module: notifications#./RootApp
     paths:
       - /settings/notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
