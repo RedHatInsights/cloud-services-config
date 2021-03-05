@@ -569,6 +569,11 @@ notifications:
     module: notifications#./RootApp
     paths:
       - /settings/notifications
+    sub_apps:
+      - id: insights
+        title: Red Hat Insights
+        group: notifications
+        default: true
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
