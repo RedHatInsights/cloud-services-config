@@ -631,7 +631,12 @@ subscriptions:
         default: true
         group: subscriptions
       - id: openshift-sw
-        title: Red Hat OpenShift
+        title: OpenShift
+        sub_apps:
+          - id: ocp
+            title: Container Platform
+          - id: dedicated
+            title: Dedicated
         group: subscriptions
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
