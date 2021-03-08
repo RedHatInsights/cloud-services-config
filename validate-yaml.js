@@ -71,7 +71,9 @@ const schema = Joi.object({
     source_repo: Joi.string(),
     frontend: frontendSchema,
     top_level: Joi.boolean(),
-    permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
+    permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+    productId: Joi.string(),
+    infoId: Joi.string()
 })
 
 const inputfile = 'main.yml';
