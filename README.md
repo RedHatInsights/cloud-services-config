@@ -118,6 +118,7 @@ If you have a first-level application, this field indicates which group should b
 ##### app_id.frontend.module.manifest
 
 If your application shares same manifest as other app or your manifest is located on completely different path, you can pass the path to it in this option.
+
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
@@ -144,6 +145,14 @@ This property is used if the app isn't a real app on disk, and only exists for n
 ### Other Optional Properties
 
 The following properties aren't required for all apps, but may still apply to your app:
+
+#### app_id.productId
+
+The Red Hat product ID for your application. This is tied to fields on Portal Case Management for pre-filling information.
+
+#### app_id.infoId
+
+Some applications are mounted in two locations, but use the same base repo (ex. RBAC and MUA), in this case MUA needs to point to RBAC's app.info.json, so this is the base app for that url.
 
 #### app_id.channel
 

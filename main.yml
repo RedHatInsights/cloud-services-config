@@ -22,6 +22,7 @@ advisor:
     apiName: insights
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  productId: Red Hat Insights
   frontend:
     module: advisor#./RootApp
     section: operations
@@ -107,6 +108,7 @@ automation-analytics:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  productId: Ansible Automation Analytics
   frontend:
     section: insights
     paths:
@@ -132,6 +134,7 @@ automation-hub:
     versions:
       - v3
   deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
+  productId: Ansible Automation Hub
   frontend:
     paths:
       - /ansible/automation-hub
@@ -257,6 +260,7 @@ cost-management:
     isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
+  productId: Red Hat Cost Management
   description: >
     Cost Management is an application that provides users a view of their
     enterprise cost. Cost Management allows users to evaluate the cost on
@@ -531,6 +535,7 @@ migration-analytics:
       - value: "experimental"
         title: "Experimental API"
   deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
+  productId: Red Hat Migration Analytics
   frontend:
     paths:
       - /migrations
@@ -547,6 +552,7 @@ mosaic:
 my-user-access:
   title: My User Access
   channel: '#platform-experience'
+  infoId: rbac
   frontend:
     module:
       appName: my-user-access
@@ -582,6 +588,7 @@ openshift:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
+  productId: Red Hat Openshift Cluster Manager
   frontend:
     title: OpenShift Cluster Manager
     paths:
@@ -904,6 +911,7 @@ subscriptions:
       - rhsm-subscriptions
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
+  productId: Subscription Watch
   top_level: true
   frontend:
     paths:
