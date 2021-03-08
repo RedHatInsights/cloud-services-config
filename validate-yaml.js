@@ -24,6 +24,7 @@ const subApp = Joi.object({
     reload: Joi.string(),
     permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
     section: Joi.string(),
+    navigate: Joi.string(),
     sub_apps: Joi.array().items('#subApp')
 });
 
@@ -42,6 +43,7 @@ const frontendSchema = Joi.object({
         reload: Joi.string(),
         permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
         section: Joi.string(),
+        navigate: Joi.string(),
         sub_apps: Joi.array().items(subApp)
     }))
 })
