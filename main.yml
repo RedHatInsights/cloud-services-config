@@ -442,6 +442,13 @@ infrastructure:
             args:
               - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
                 accessor: 'data'
+      - id: ibm
+        title: IBM Cloud
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=IBM&beta=true'
+                accessor: 'data'
 
 ingress:
   title: Ingress
