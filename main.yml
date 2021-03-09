@@ -466,9 +466,13 @@ insights:
       - id: patch
       - id: rhel-sw
         section: business
+      - id: subscriptions-documentation
+        title: Subscriptions Documentation
+        navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
+        section: business
+      - id: ros
       - id: registration
       - id: remediations
-      - id: ros
   top_level: true
 
 integrations:
@@ -650,6 +654,13 @@ openshift:
                 args:
                   - url: '/api/cost-management/v1/user-access/?type=cost_model'
                     accessor: 'data'
+          - id: cost-explorer
+            title: Cost Explorer
+            group: cost-management
+            reload: /cost-management/explorer
+          - id: cost-management-docs
+            title: Cost Management Documentation
+            navigate: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/#category-cost-management
   top_level: true
 
 application-services:
