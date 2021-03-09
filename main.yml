@@ -655,10 +655,10 @@ settings:
     sub_apps:
       - id: my-user-access
         default: true
-      - id: integrations
-      - id: notifications
       - id: rbac
       - id: sources
+      - id: integrations
+      - id: notifications
       - id: applications
 
 sources:
