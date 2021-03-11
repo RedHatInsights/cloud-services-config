@@ -605,8 +605,6 @@ openshift:
     paths:
       - /openshift
     sub_apps:
-      - id: overview
-        title: Overview
       - id: ''
         title: Cluster Management
         group: openshift
@@ -615,9 +613,17 @@ openshift:
         title: Subscriptions
         sub_apps:
           - id: openshift-sw
-            title: OpenShift
+            title: Container Platform
             group: subscriptions
-            reload: ../subscriptions/openshift-sw
+            reload: ../subscriptions/openshift-sw/ocp
+          - id: openshift-dedicated
+            title: Dedicated
+            group: subscriptions
+            reload: ../subscriptions/openshift-sw/dedicated
+          - id: opneshift-sw-documentation
+            title: Documentation
+            group: subscriptions
+            navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
         group: openshift
       - id: cost-management
         title: Cost Management
@@ -652,6 +658,13 @@ openshift:
                 args:
                   - url: '/api/cost-management/v1/user-access/?type=AZURE'
                     accessor: 'data'
+          - id: gcp
+            title: Google Cloud Platform
+            permissions:
+              - method: apiRequest
+                args:
+                  - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
+                    accessor: 'data'
           - id: cost-models
             title: Cost models
             group: cost-management
@@ -670,21 +683,40 @@ openshift:
             navigate: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/#category-cost-management
   top_level: true
 
+streams:
+  title: "Streams for Apache Kafka"
+  frontend:
+    sub_apps:
+      - id: kafkas
+        title: "Kafka Instances"
+        default: true
+      - id: service-accounts
+        title: "Service Accounts"
+      - id: resources
+        title: "Resources"
+
 application-services:
-  title: OpenShift Application Services
+  title: Application Services
   api:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
-    title: OpenShift Application Services
+    title: Application Services
     paths:
       - /application-services
     sub_apps:
-      - id: openshift-streams
-        title: "OpenShift Streams for Apache Kafka"
+      - id: overview
+        title: "Overview"
         default: true
-      - id: quickstarts
-        title: "QuickStarts"
+        group: overview
+      - id: streams
+        group: overview
+      - id: api-management
+        title: "API Management"
+        group: overview
+      - id: data-science
+        title: "Data Science"
+        group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
