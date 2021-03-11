@@ -499,21 +499,40 @@ openshift:
   source_repo:
   top_level: true
 
+streams:
+  title: "Streams for Apache Kafka"
+  frontend:
+    sub_apps:
+      - id: kafkas
+        title: "Kafka Instances"
+        default: true
+      - id: service-accounts
+        title: "Service Accounts"
+      - id: resources
+        title: "Resources"
+
 application-services:
-  title: OpenShift Application Services
+  title: Application Services
   api:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
-    title: OpenShift Application Services
+    title: Application Services
     paths:
       - /application-services
     sub_apps:
-      - id: openshift-streams
-        title: "OpenShift Streams for Apache Kafka"
+      - id: overview
+        title: "Overview"
         default: true
-      - id: quickstarts
-        title: "Quick Starts"
+        group: overview
+      - id: streams
+        group: overview
+      - id: api-management
+        title: "API Management"
+        group: overview
+      - id: data-science
+        title: "Data Science"
+        group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
