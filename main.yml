@@ -617,7 +617,7 @@ openshift:
               title: Container Platform
             - id: openshift-dedicated
               title: Dedicated
-            - id: opneshift-sw-documentation
+            - id: openshift-sw-documentation
               title: Documentation
               navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
       - id: cost-management
