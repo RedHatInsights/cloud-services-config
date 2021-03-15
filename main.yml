@@ -471,7 +471,7 @@ insights:
       - id: compliance
       - id: policies
       - id: patch
-      - id: rhel-sw
+      - id: subscriptions
         section: business
       - id: subscriptions-documentation
         title: Subscriptions Documentation
@@ -611,23 +611,18 @@ openshift:
         default: true
       - id: subscriptions
         title: Subscriptions
+        section: insights
         sub_apps:
-          - id: openshift-sw
-            title: Container Platform
-            group: subscriptions
-            reload: ../subscriptions/openshift-sw/ocp
-          - id: openshift-dedicated
-            title: Dedicated
-            group: subscriptions
-            reload: ../subscriptions/openshift-sw/dedicated
-          - id: opneshift-sw-documentation
-            title: Documentation
-            group: subscriptions
-            navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
-        group: openshift
+            - id: openshift-container
+              title: Container Platform
+            - id: openshift-dedicated
+              title: Dedicated
+            - id: openshift-sw-documentation
+              title: Documentation
+              navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
       - id: cost-management
         title: Cost Management
-        group: openshift
+        section: insights
         sub_apps:
           - id: ''
             title: Overview
@@ -681,6 +676,7 @@ openshift:
           - id: cost-management-docs
             title: Cost Management Documentation
             navigate: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/#category-cost-management
+          
   top_level: true
 
 streams:
@@ -846,22 +842,6 @@ remediations:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
-rhel-sw:
-  title: Subscriptions
-  frontend:
-    sub_apps:
-      - id: all
-        title: All
-        default: true
-      - id: arm
-        title: ARM
-      - id: ibmpower
-        title: IBM Power
-      - id: ibmz
-        title: IBM Z systems
-      - id: x86
-        title: x86
-
 ros:
   title: Resource Optimization
   api:
@@ -966,19 +946,19 @@ subscriptions:
   frontend:
     paths:
       - /insights/subscriptions
-      - /subscriptions
     sub_apps:
-      - id: rhel-sw
+      - id: rhel
+        title: All
         default: true
-        group: subscriptions
-      - id: openshift-sw
-        title: OpenShift
-        sub_apps:
-          - id: ocp
-            title: Container Platform
-          - id: dedicated
-            title: Dedicated
-        group: subscriptions
+      - id: rhel-arm
+        title: ARM
+      - id: rhel-ibmpower
+        title: IBM Power
+      - id: rhel-ibmz
+        title: IBM Z systems
+      - id: rhel-x86
+        title: X86
+      
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 topological-inventory:
