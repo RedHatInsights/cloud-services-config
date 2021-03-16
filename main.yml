@@ -988,6 +988,11 @@ user-preferences:
   top_level: true
   frontend:
     title: User Preferences
+    module:
+      appName: user-preferences
+      scope: userPreferences
+      module: ./RootApp
+      group: email
     paths:
       - /user-preferences
     sub_apps:
