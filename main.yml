@@ -881,6 +881,9 @@ settings:
       - id: notifications
       - id: sed
       - id: applications
+      - id: settings-documentation
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_cloud_platform/2020-10/html/configuring_sources_for_red_hat_services/
 
 sources:
   title: Discovered Inventory
