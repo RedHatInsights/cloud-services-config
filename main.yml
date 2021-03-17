@@ -883,7 +883,7 @@ settings:
       - id: applications
       - id: settings-documentation
         title: Documentation
-        navigate: https://access.redhat.com/documentation/en-us/red_hat_cloud_platform/2020-10/html/configuring_sources_for_red_hat_services/
+        navigate: https://access.redhat.com/documentation/red_hat_cloud_platform/
 
 sources:
   title: Discovered Inventory
