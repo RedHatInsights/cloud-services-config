@@ -227,8 +227,38 @@ cost-management:
             args:
               - url: '/api/cost-management/v1/user-access/?type=OCP'
                 accessor: 'data'
-      - id: infrastructure
+      - id: aws
+        title: Amazon Web Services
         group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AWS'
+                accessor: 'data'
+      - id: azure
+        title: Microsoft Azure
+        group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=AZURE'
+                accessor: 'data'
+      - id: gcp
+        title: Google Cloud Platform
+        group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
+                accessor: 'data'
+      - id: ibm
+        title: IBM Cloud
+        group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=IBM&beta=true'
+                accessor: 'data'
       - id: cost-models
         title: Cost Models
         group: cost-management
@@ -245,7 +275,7 @@ cost-management:
             args:
               - url: '/api/cost-management/v1/user-access/?type=any&beta=true'
                 accessor: 'data'
-  source_repo: https://github.com/project-koku/
+  source_repo: https://github.com/project-koku-ui/
   mailing_list: cost-mgmt@redhat.com
 
 dashboard:
@@ -314,40 +344,6 @@ hooks:
     paths:
       - /settings/hooks
   source_repo: https://github.com/RedHatInsights/notifications-frontend
-
-infrastructure:
-  title: Infrastructure
-  frontend:
-    sub_apps:
-      - id: aws
-        title: Amazon Web Services
-        default: true
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=AWS'
-                accessor: 'data'
-      - id: azure
-        title: Microsoft Azure
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=AZURE'
-                accessor: 'data'
-      - id: gcp
-        title: Google Cloud Platform
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
-                accessor: 'data'
-      - id: ibm
-        title: IBM Cloud
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=IBM&beta=true'
-                accessor: 'data'
 
 ingress:
   title: Ingress
