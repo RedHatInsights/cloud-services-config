@@ -945,6 +945,7 @@ subscriptions:
   frontend:
     paths:
       - /insights/subscriptions
+      - /openshift/subscriptions
     sub_apps:
       - id: rhel
         title: All
