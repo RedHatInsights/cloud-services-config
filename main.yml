@@ -42,9 +42,9 @@ ansible:
   frontend:
     sub_apps:
       - id: automation-hub
+        default: true
       - id: catalog
       - id: automation-analytics
-        default: true
   top_level: true
 
 api-docs:
@@ -115,17 +115,17 @@ automation-analytics:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: clusters
-        title: Clusters
-        default: true
+      - id : roi-calculator
+        title: ROI Calculator
       - id: organization-statistics
         title: Organization Statistics
       - id: job-explorer
         title: Job Explorer
+      - id: clusters
+        title: Clusters
+        default: true
       - id: notifications
         title: Notifications
-      - id: automation-calculator
-        title: Automation Calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
@@ -686,6 +686,9 @@ streams:
         title: "Service Accounts"
       - id: resources
         title: "Resources"
+      - id: streams-docs
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/
 
 application-services:
   title: Application Services
@@ -958,6 +961,15 @@ subscriptions:
         title: IBM Z systems
       - id: rhel-x86
         title: X86
+      - id: openshift-subscription
+        title: OpenShift Subscriptions
+        reload: '../openshift/subscriptions/openshift-container'
+      - id: subscriptions-documentation
+        title: Subscriptions Documentation
+        navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
+      - id: manifests
+        title: Manifests
+
       
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
