@@ -96,6 +96,7 @@ approval:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
+    module: approval#./RootApp
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
