@@ -846,6 +846,7 @@ ros:
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
+      module: ros#./RootApp
       section: business
       title: Resource Optimization
       paths:
