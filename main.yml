@@ -935,6 +935,20 @@ storybook:
       - /docs/storybook
   source_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
+subscription-central:
+  title: Subscription Central
+  channel: '#subscription-central'
+  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
+  frontend:
+    module:
+      appName: subscription-central
+      scope: subscriptionCentral
+      module: ./RootApp
+      group: insights
+    paths:
+      - /insights/subscriptions/manifests
+  source_repo: https://github.com/RedHatInsights/subscription-central-ui
+
 subscriptions:
   title: Subscription Watch
   api:
