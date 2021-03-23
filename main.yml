@@ -944,9 +944,9 @@ subscription-central:
       appName: subscription-central
       scope: subscriptionCentral
       module: ./RootApp
-      group: insights
     paths:
       - /insights/subscriptions/manifests
+    reload: subscriptions/manifests
   source_repo: https://github.com/RedHatInsights/subscription-central-ui
 
 subscriptions:
