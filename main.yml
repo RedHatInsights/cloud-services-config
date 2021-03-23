@@ -417,19 +417,10 @@ edge:
     title: Edge for RHEL
     paths:
       - /edge
-      - /edge/groups
-      - /edge/devices
-      - /edge/canaries
     sub_apps:
-      - id: groups
-        default: true
-        title: Groups
-        group: groups
       - id: devices
+        default: true
         title: Devices
-        group: groups
-      - id: canaries
-        title: Canaries
         group: groups
 
 frontend-assets:
