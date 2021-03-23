@@ -96,7 +96,10 @@ approval:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
-    module: approval#./RootApp
+    module:
+      appName: approval
+      scope: approval
+      module: ./RootApp
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
@@ -673,7 +676,7 @@ openshift:
           - id: cost-management-docs
             title: Cost Management Documentation
             navigate: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/#category-cost-management
-          
+
   top_level: true
 
 streams:
@@ -972,7 +975,7 @@ subscriptions:
       - id: manifests
         title: Manifests
 
-      
+
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 topological-inventory:
