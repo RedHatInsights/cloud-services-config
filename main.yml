@@ -279,7 +279,7 @@ cost-management:
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
     paths:
-      - /cost-management
+      - /openshift/cost-management
     module:
       appName: cost-management
       group: cost-management
@@ -612,61 +612,6 @@ openshift:
               title: Documentation
               navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
       - id: cost-management
-        title: Cost Management
-        section: insights
-        sub_apps:
-          - id: ''
-            title: Overview
-            group: cost-management
-            reload: ../cost-management
-          - id: ocp
-            title: OpenShift
-            group: cost-management
-            reload: ../cost-management/ocp
-            permissions:
-              - method: apiRequest
-                args:
-                  - url: '/api/cost-management/v1/user-access/?type=OCP'
-                    accessor: 'data'
-          - id: aws
-            title: Amazon Web Services
-            reload: ../cost-management/aws
-            permissions:
-              - method: apiRequest
-                args:
-                  - url: '/api/cost-management/v1/user-access/?type=AWS'
-                    accessor: 'data'
-          - id: azure
-            title: Microsoft Azure
-            reload: ../cost-management/azure
-            permissions:
-              - method: apiRequest
-                args:
-                  - url: '/api/cost-management/v1/user-access/?type=AZURE'
-                    accessor: 'data'
-          - id: gcp
-            title: Google Cloud Platform
-            permissions:
-              - method: apiRequest
-                args:
-                  - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
-                    accessor: 'data'
-          - id: cost-models
-            title: Cost models
-            group: cost-management
-            reload: ../cost-management/cost-models
-            permissions:
-              - method: apiRequest
-                args:
-                  - url: '/api/cost-management/v1/user-access/?type=cost_model'
-                    accessor: 'data'
-          - id: cost-explorer
-            title: Cost Explorer
-            group: cost-management
-            reload: /cost-management/explorer
-          - id: cost-management-docs
-            title: Cost Management Documentation
-            navigate: https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/#category-cost-management
 
   top_level: true
 
