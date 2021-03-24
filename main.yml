@@ -982,7 +982,7 @@ subscriptions:
       - id: subscriptions-documentation
         title: Subscriptions Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
-      - id: manifests
+      - id: subscription-central
         title: Manifests
 
       
