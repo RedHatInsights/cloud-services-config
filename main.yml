@@ -7,6 +7,7 @@ advisor:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
   frontend:
+    module: advisor#./RootApp
     paths:
       - /insights/advisor
     sub_apps:
@@ -32,6 +33,11 @@ api-docs:
   title: API Documentation
   deployment_repo: https://github.com/RedHatInsights/api-frontend-build
   frontend:
+    module:
+      appName: api-docs
+      scope: apiDocs
+      module: ./RootApp
+      group: docs
     paths:
       - /docs/api
       - /docs
@@ -70,6 +76,10 @@ approval:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
+    module:
+      appName: approval
+      scope: approval
+      module: ./RootApp
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
@@ -170,6 +180,7 @@ compliance:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
+    module: compliance#./RootApp
     paths:
       - /insights/compliance
     sub_apps:
@@ -209,6 +220,11 @@ cost-management:
     AWS) or deriving it based on a user set of rates.
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
+    module:
+      appName: cost-management
+      group: cost-management
+      scope: costManagement
+      module: ./RootApp
     paths:
       - /cost-management
     sub_apps:
@@ -262,6 +278,11 @@ dashboard:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
+    module:
+      appName: dashboard
+      scope: dashboard
+      module: ./RootApp
+      group: insights
     paths:
       - /insights
       - /insights/dashboard
@@ -296,6 +317,7 @@ drift:
         title: Historical system profiles
   deployment_repo: https://github.com/RedHatInsights/drift-frontend-build
   frontend:
+    module: drift#./RootApp
     title: Drift
     paths:
       - /insights/drift
@@ -407,6 +429,11 @@ integrations:
     versions:
       - v1
   frontend:
+    module:
+      appName: integrations
+      scope: notifications
+      module: ./RootApp
+      manifest: /apps/notifications/fed-mods.json
     app_base: notifications
     paths:
       - /settings/integrations
@@ -419,6 +446,7 @@ inventory:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend:
+    module: inventory#./RootApp
     title: Inventory
     paths:
       - /insights/inventory
@@ -458,6 +486,11 @@ my-user-access:
   title: My user access
   channel: '#platform-experience'
   frontend:
+    module:
+      appName: my-user-access
+      scope: rbac
+      module: ./RootApp
+      manifest: /apps/rbac/fed-mods.json
     app_base: rbac
     paths:
       - /settings
@@ -471,6 +504,7 @@ notifications:
   channel: '#cloudservices-notifications'
   deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
   frontend:
+    module: notifications#./RootApp
     paths:
       - /settings/notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
@@ -560,6 +594,7 @@ patch:
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
+    module: patch#./RootApp
     title: Patch
     paths:
       - /insights/patch
@@ -596,6 +631,7 @@ rbac:
   permissions:
     method: isOrgAdmin
   frontend:
+    module: rbac#./RootApp
     title: User access
     paths:
       - /settings/rbac
@@ -614,6 +650,7 @@ registration:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/registration-assistant-build
   frontend:
+    module: registration#./RootApp
     paths:
       - /insights/registration
   source_repo: https://github.com/RedHatInsights/registration-assistant/
@@ -626,6 +663,7 @@ remediations:
   channel: '#insights-remediations'
   deployment_repo: https://github.com/RedHatInsights/insights-remediations-frontend-build
   frontend:
+    module: remediations#./RootApp
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
@@ -683,6 +721,7 @@ sources:
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
     title: Sources
+    module: sources#./RootApp
     paths:
       - /settings/sources
   source_repo: https://github.com/RedHatInsights/sources-ui
@@ -739,6 +778,11 @@ user-preferences:
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
   top_level: true
   frontend:
+    module:
+      appName: user-preferences
+      scope: userPreferences
+      module: ./RootApp
+      group: email
     title: User preferences
     paths:
       - /user-preferences
@@ -756,6 +800,7 @@ vulnerability:
   channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
+    module: vulnerability#./RootApp
     title: Vulnerability
     paths:
       - /insights/vulnerability
