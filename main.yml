@@ -581,6 +581,12 @@ patch:
         title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
 
+playbook-dispatcher:
+  title: Playbook Dispatcher
+  api:
+    versions:
+      - v1
+
 product:
   title: Product Documentation
   deployment_repo: https://github.com/RedHatInsights/docs-frontend-build
