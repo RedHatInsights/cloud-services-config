@@ -881,6 +881,20 @@ storybook:
       - /docs/storybook
   source_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
+subscription-central:
+  title: Manifests
+  channel: '#subscription-central'
+  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
+  frontend:
+    module:
+      appName: subscription-central
+      scope: subscriptionCentral
+      module: ./RootApp
+    paths:
+      - /insights/subscriptions/manifests
+    reload: subscriptions/manifests
+  source_repo: https://github.com/RedHatInsights/subscription-central-ui
+
 subscriptions:
   title: Subscription Watch
   api:
@@ -914,8 +928,7 @@ subscriptions:
       - id: subscriptions-documentation
         title: Subscriptions Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
-      - id: manifests
-        title: Manifests
+      - id: subscription-central
 
 
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
