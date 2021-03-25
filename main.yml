@@ -41,11 +41,25 @@ ansible:
   title: Ansible Automation Platform
   frontend:
     sub_apps:
-      - id: automation-hub
+      - id: ansible-dashboard
         default: true
+      - id: automation-hub
       - id: catalog
       - id: automation-analytics
   top_level: true
+
+ansible-dashboard:
+  title: Overview
+  deployment_repo: https://github.com/RedHatInsights/ansible-platform-dashboard-build
+  frontend:
+    module:
+      appName: ansible-dashboard
+      scope: ansibleDashboard
+      module: ./RootApp
+    paths:
+      - /ansible
+      - /ansible/ansible-dashboard
+  source_repo: https://github.com/RedHatInsights/ansible-platform-dashboard
 
 api-docs:
   title: API Documentation
