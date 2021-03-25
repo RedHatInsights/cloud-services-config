@@ -605,13 +605,15 @@ openshift:
         title: Subscriptions
         section: insights
         sub_apps:
+            - id: subscription-options
+              title: Subscription Options
             - id: openshift-container
               title: Container Platform
             - id: openshift-dedicated
               title: Dedicated
-            - id: openshift-sw-documentation
-              title: Documentation
-              navigate: https://access.redhat.com/documentation/en-us/cost_management_service/
+            - id: rhel
+              title: RHEL Subscriptions
+              reload: '../../insights/subscriptions/rhel'
       - id: cost-management
 
   top_level: true
