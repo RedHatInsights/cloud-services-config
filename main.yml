@@ -764,7 +764,7 @@ sed:
     title: Red Hat Connector
     module: sed#./RootApp
     paths:
-      - /settings/sed
+      - /settings/connector
   source_repo: https://github.com/RedHatInsights/sed-frontend
 
 registration:
