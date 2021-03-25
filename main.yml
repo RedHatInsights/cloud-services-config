@@ -279,6 +279,7 @@ cost-management:
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
     paths:
+      - /cost-management
       - /openshift/cost-management
     module:
       appName: cost-management
@@ -596,7 +597,7 @@ openshift:
     paths:
       - /openshift
     sub_apps:
-      - id: ''
+      - id: clusters
         title: Cluster Management
         group: openshift
         default: true
