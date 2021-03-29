@@ -570,6 +570,15 @@ my-user-access:
 notification:
   title: Notifications
   frontend:
+    app_base: user-preferences
+    module:
+      appName: notification
+      scope: userPreferences
+      module: ./RootApp
+      manifest: /apps/user-preferences/fed-mods.json
+      group: user-preferences
+    paths:
+      - /user-preferences/notification/insights
     sub_apps:
       - id: insights
         title: Insights
