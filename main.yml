@@ -299,6 +299,7 @@ policies:
   channel: '#cloudservices-policies'
   deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
+    module: policies#./RootApp
     paths:
       - /insights/policies
   source_repo: https://github.com/RedHatInsights/policies-ui-frontend
