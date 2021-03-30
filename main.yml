@@ -572,6 +572,7 @@ notifications-preferences:
   frontend:
     app_base: user-preferences
     module:
+      appName: user-preferences
       scope: userPreferences
       module: ./RootApp
       manifest: /apps/user-preferences/fed-mods.json
@@ -587,8 +588,6 @@ notifications-preferences-rhel:
   title: Red Hat Enterprise Linux
   frontend:
     app_base: user-preferences
-    module:
-      appName: notifications-preferences
     paths:
       - /user-preferences/notifications/rhel
     reload: notifications/rhel
@@ -597,8 +596,6 @@ notifications-preferences-openshift:
   title: OpenShift
   frontend:
     app_base: user-preferences
-    module:
-      appName: notifications-preferences
     paths:
       - /user-preferences/notifications/openshift
     reload: notifications/openshift
