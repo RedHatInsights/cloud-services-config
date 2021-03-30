@@ -770,7 +770,7 @@ rbac:
         title: Groups
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
-sed:
+connector:
   title: Red Hat Connector
   api:
     versions:
@@ -778,9 +778,9 @@ sed:
   deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
   frontend:
     title: Red Hat Connector
-    module: sed#./RootApp
+    module: connector#./RootApp
     paths:
-      - /settings/sed
+      - /settings/connector
   source_repo: https://github.com/RedHatInsights/sed-frontend
 
 registration:
@@ -848,7 +848,7 @@ settings:
       - id: sources
       - id: integrations
       - id: notifications
-      - id: sed
+      - id: connector
       - id: applications
       - id: settings-documentation
         title: Documentation
