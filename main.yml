@@ -262,7 +262,7 @@ cost-management:
         permissions:
           - method: apiRequest
             args:
-              - url: '/api/cost-management/v1/user-access/?type=GCP&beta=true'
+              - url: '/api/cost-management/v1/user-access/?type=GCP'
                 accessor: 'data'
       - id: ibm
         title: IBM Cloud
