@@ -578,10 +578,12 @@ notification:
       manifest: /apps/user-preferences/fed-mods.json
       group: user-preferences
     paths:
-      - /user-preferences/notification/insights
+      - /user-preferences/notifications
     sub_apps:
-      - id: insights
-        title: Insights
+      - id: rhel
+        title: Red Hat Enterprise Linux
+      - id: openshift
+        title: OpenShift
 
 notifications:
   title: Notifications
@@ -595,10 +597,13 @@ notifications:
     paths:
       - /settings/notifications
     sub_apps:
-      - id: insights
-        title: Red Hat Insights
+      - id: rhel
+        title: Red Hat Enterprise Linux
         group: notifications
         default: true
+      - id: openshift
+        title: OpenShift
+        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
