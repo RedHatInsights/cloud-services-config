@@ -567,22 +567,6 @@ my-user-access:
       - /settings
       - /settings/my-user-access
 
-notification:
-  title: Notifications
-  frontend:
-    app_base: user-preferences
-    module:
-      appName: notification
-      scope: userPreferences
-      module: ./RootApp
-      manifest: /apps/user-preferences/fed-mods.json
-      group: user-preferences
-    paths:
-      - /user-preferences/notification/insights
-    sub_apps:
-      - id: insights
-        title: Insights
-
 notifications:
   title: Notifications
   api:
@@ -991,7 +975,17 @@ user-preferences:
       - id: email
         title: Email Preferences
         default: true
-      - id: notification
+        group: email
+      - id: notifications
+        title: Notifications
+        group: email
+        sub_apps:
+            - id: rhel
+              title: Red Hat Enterprise Linux
+              group: email
+            - id: openshift
+              title: Openshift
+              group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
 vulnerability:
