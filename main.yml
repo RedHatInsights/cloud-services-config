@@ -609,10 +609,13 @@ notifications:
     paths:
       - /settings/notifications
     sub_apps:
-      - id: insights
-        title: Red Hat Insights
+      - id: rhel
+        title: Red Hat Enterprise Linux
         group: notifications
         default: true
+      - id: openshift
+        title: OpenShift
+        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
