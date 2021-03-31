@@ -408,7 +408,7 @@ drift:
   source_repo: https://github.com/RedHatInsights/drift-frontend
 
 edge:
-  title: Edge for RHEL
+  title: RHEL for Edge
   disabled_on_prod: true
   deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
   source_repo: https://github.com/RedHatInsights/edge-frontend
@@ -419,7 +419,7 @@ edge:
       scope: edge
       module: ./RootApp
       group: groups
-    title: Edge for RHEL
+    title: RHEL for Edge
     paths:
       - /edge
     sub_apps:
