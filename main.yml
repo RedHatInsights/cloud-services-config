@@ -776,6 +776,7 @@ connector:
   api:
     versions:
       - v1
+    apiName: config-manager
   deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
   frontend:
     title: Red Hat Connector
