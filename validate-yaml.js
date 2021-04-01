@@ -30,6 +30,7 @@ const subApp = Joi.object({
 
 const frontendSchema = Joi.object({
     title: Joi.string(),
+    isBeta: Joi.boolean(),
     app_base: Joi.string(),
     reload: Joi.string(),
     section: Joi.string(),

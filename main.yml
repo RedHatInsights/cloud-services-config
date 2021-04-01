@@ -657,6 +657,7 @@ application-services:
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     title: Application Services
+    isBeta: true
     paths:
       - /application-services
     sub_apps:
