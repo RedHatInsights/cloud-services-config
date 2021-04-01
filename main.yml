@@ -93,7 +93,6 @@ approval:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
     module:
@@ -110,7 +109,6 @@ automation-analytics:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   productId: Ansible Automation Analytics
   frontend:
@@ -161,7 +159,6 @@ catalog:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
@@ -233,7 +230,6 @@ compliance:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     section: security
@@ -261,7 +257,6 @@ cost-management:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   productId: Red Hat Cost Management
@@ -657,6 +652,7 @@ application-services:
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     title: Application Services
+    isBeta: true
     paths:
       - /application-services
     sub_apps:
@@ -695,7 +691,6 @@ patch:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
@@ -827,7 +822,6 @@ ruledev:
   api:
     versions:
       - v1
-    isBeta: true
     tags:
       - value: "experimental"
         title: "Experimental API"
@@ -860,7 +854,6 @@ sources:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#sources'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
