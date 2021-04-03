@@ -397,6 +397,11 @@ frontend-assets:
 image-builder:
   title: Image Builder
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
+  permissions:
+    method: apiRequest
+    args:
+      - url: '/api/image-builder/v1/version'
+        matcher: isNotEmpty
   frontend:
     paths:
       - /insights/image-builder
@@ -421,6 +426,7 @@ insights:
       - id: patch
       - id: drift
       - id: policies
+      - id: image-builder
       - id: inventory
       - id: remediations
       - id: registration
