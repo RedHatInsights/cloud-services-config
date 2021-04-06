@@ -470,10 +470,6 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
-      - id: subscriptions-documentation
-        title: Subscriptions Documentation
-        navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
-        section: business
       - id: ros
       - id: registration
       - id: remediations
@@ -909,7 +905,7 @@ storybook:
   source_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
 subscriptions:
-  title: Subscription Watch
+  title: Subscriptions
   api:
     versions:
       - v1
@@ -925,7 +921,7 @@ subscriptions:
       - /openshift/subscriptions
     sub_apps:
       - id: rhel
-        title: All
+        title: All RHEL
         default: true
       - id: rhel-arm
         title: ARM
