@@ -335,712 +335,712 @@
                 "name": "Cloud Services Frontend",
                 "children": [
                     {
-                        "name": "Beta OpenShift Clusters",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/clusters"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/openshift"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Subscriptions Container",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/subscriptions/openshift-container*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/openshift-sw*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Subscriptions Quota",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/quota"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/openshift/subscriptions"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Subscriptions RHEL",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/all/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-Management Overview",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-Management OpenShfit",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management/ocp/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/ocp/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-Management AWS",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management/infrastructure/aws/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/infrastructure/aws/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-Management Azure",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/azure/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/infrastructure/azure/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-Management Google Cloud",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/gcp/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/infrastructure/gcp/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta OpenShift Insights Cost-management Cost Models",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/cost-management/cost-models/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/cost-management/cost-models/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Subscriptions All RHEL",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/all/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Subscriptions ARM",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel-arm/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/arm*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Subscriptions IBM Power",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel-ibmpower/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/ibmpower.*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights IBM Z Systems",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel-ibmz/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/ibmz/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Subscriptions X86",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DaqEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/insights/subscriptions/rhel-x86/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/rhel-sw/x86/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Subscription OpenShift",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/openshift/subscriptions/openshift-container/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/subscriptions/openshift-sw/ocp/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta RHEL Business Insights Resource Optimization",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/rhel/ros"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/insights/ros"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta Ansible Automation Insights ROI Calculator",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/ansible/insights/roi-calculator/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/ansible/automation-analytics/automation-calculator/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta Ansible Automation Insights Organization Statistics",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/ansible/insights/organization-statistics/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/ansible/automation-analytics/organization-statistics/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta Ansible Automation Insights Job Explorer",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/ansible/insights/job-explorer/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/ansible/automation-analytics/job-explorer/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta Ansible Automation Insights Cluster",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/ansible/insights/clusters/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/ansible/automation-analytics/clusters/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "Beta Ansible Automation Insights Notifications",
-                        "children": [],
-                        "behaviors": [
-                            {
-                                "name": "redirect",
-                                "options": {
-                                    "mobileDefaultChoice": "DEFAULT",
-                                    "destinationProtocol": "SAME_AS_REQUEST",
-                                    "destinationHostname": "SAME_AS_REQUEST",
-                                    "destinationPath": "OTHER",
-                                    "queryString": "APPEND",
-                                    "responseCode": 301,
-                                    "destinationPathOther": "/beta/ansible/insights/notifications/*"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "MATCHES_ONE_OF",
-                                    "values": [
-                                        "/beta/ansible/automation-analytics/notifications/*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
                         "name": "Redirects",
                         "children": [
+                            {
+                                "name": "Beta OpenShift Clusters",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/clusters"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/openshift"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Subscriptions Container",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/subscriptions/openshift-container*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/openshift-sw*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Subscriptions Quota",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/quota"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/openshift/subscriptions"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Subscriptions RHEL",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/all/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-Management Overview",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-Management OpenShfit",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management/ocp/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/ocp/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-Management AWS",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructure/aws/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/infrastructure/aws/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-Management Azure",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/azure/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/infrastructure/azure/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-Management Google Cloud",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/gcp/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/infrastructure/gcp/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta OpenShift Insights Cost-management Cost Models",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/cost-management/cost-models/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/cost-management/cost-models/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Subscriptions All RHEL",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/all/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Subscriptions ARM",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel-arm/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/arm*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Subscriptions IBM Power",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel-ibmpower/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/ibmpower.*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights IBM Z Systems",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel-ibmz/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/ibmz/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Subscriptions X86",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DaqEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions/rhel-x86/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/rhel-sw/x86/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Subscription OpenShift",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/subscriptions/openshift-container/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/openshift-sw/ocp/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta RHEL Business Insights Resource Optimization",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/rhel/ros"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/insights/ros"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights ROI Calculator",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/roi-calculator/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics/automation-calculator/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights Organization Statistics",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/organization-statistics/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics/organization-statistics/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights Job Explorer",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/job-explorer/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics/job-explorer/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights Cluster",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/clusters/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics/clusters/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights Notifications",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/notifications/*"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics/notifications/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
                             {
                                 "name": "RHEL",
                                 "children": [],
