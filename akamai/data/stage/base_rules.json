@@ -338,38 +338,6 @@
                         "name": "Redirects",
                         "children": [
                             {
-                                "name": "Beta OpenShift Clusters",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/clusters"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/openshift"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "Beta OpenShift Insights Subscriptions Container",
                                 "children": [],
                                 "behaviors": [
@@ -424,7 +392,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/openshift/subscriptions"
+                                                "/beta/openshift/subscriptions*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -658,38 +626,6 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Beta RHEL Business Insights Subscriptions All RHEL",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/insights/subscriptions/rhel"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/subscriptions/rhel-sw/all/*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "Beta RHEL Business Insights Subscriptions ARM",
                                 "children": [],
                                 "behaviors": [
@@ -840,7 +776,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/insights/ros"
+                                                "/beta/insights/ros*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
