@@ -728,7 +728,7 @@
                                     {
                                         "name": "redirect",
                                         "options": {
-                                            "mobileDefaultChoice": "DaqEFAULT",
+                                            "mobileDefaultChoice": "DEFAULT",
                                             "destinationProtocol": "SAME_AS_REQUEST",
                                             "destinationHostname": "SAME_AS_REQUEST",
                                             "destinationPath": "OTHER",
