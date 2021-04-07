@@ -534,32 +534,6 @@ manifests:
     reload: subscriptions/manifests
   source_repo: https://github.com/RedHatInsights/subscription-central-ui
   
-migrations:
-  title: Migrations
-  frontend:
-    sub_apps:
-      - id: migration-analytics
-        default: true
-  top_level: true
-
-migration-analytics:
-  title: Migration Analytics
-  api:
-    versions:
-      - v1.0
-    alias:
-      - xavier
-    tags:
-      - value: "experimental"
-        title: "Experimental API"
-  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  productId: Red Hat Migration Analytics
-  frontend:
-    paths:
-      - /migrations
-      - /migrations/migration-analytics
-  source_repo: https://github.com/project-xavier/xavier-ui
-
 mosaic:
   title: Cloud Mosaic
   frontend:
