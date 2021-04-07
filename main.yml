@@ -623,12 +623,16 @@ openshift:
         title: Subscriptions
         section: insights
         sub_apps:
-            - id: subscription-options
-              title: Subscription Options
             - id: openshift-container
               title: Container Platform
+            - id: openshift-quota
+              title: Dedicated (Annual)
+              reload: '../quota'
             - id: openshift-dedicated
-              title: Dedicated
+              title: Dedicated (On-Demand)
+            - id: resource-limits
+              title: Dedicated (On-Demand limits)
+              reload: '../quota/resource-limits'
             - id: rhel
               title: RHEL Subscriptions
               reload: '../../insights/subscriptions/rhel'
@@ -919,6 +923,7 @@ subscriptions:
     paths:
       - /insights/subscriptions
       - /openshift/subscriptions
+      - /openshift/quota
     sub_apps:
       - id: rhel
         title: All RHEL
