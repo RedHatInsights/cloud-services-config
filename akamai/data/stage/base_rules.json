@@ -552,7 +552,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/subscriptions/rhel-sw/all/*"
+                                                "/beta/subscriptions/rhel-sw/all*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -584,7 +584,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/*"
+                                                "/beta/cost-management*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -616,7 +616,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/ocp/*"
+                                                "/beta/cost-management/ocp*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -648,7 +648,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/infrastructure/aws/*"
+                                                "/beta/cost-management/infrastructure/aws*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -680,7 +680,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/infrastructure/azure/*"
+                                                "/beta/cost-management/infrastructure/azure*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -712,7 +712,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/infrastructure/gcp/*"
+                                                "/beta/cost-management/infrastructure/gcp*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -744,7 +744,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/cost-management/cost-models/*"
+                                                "/beta/cost-management/cost-models*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -808,7 +808,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/subscriptions/rhel-sw/ibmpower/*"
+                                                "/beta/subscriptions/rhel-sw/ibmpower*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -840,7 +840,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/subscriptions/rhel-sw/ibmz/*"
+                                                "/beta/subscriptions/rhel-sw/ibmz*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -872,7 +872,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/subscriptions/rhel-sw/x86/*"
+                                                "/beta/subscriptions/rhel-sw/x86*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -936,7 +936,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/ansible/automation-analytics/automation-calculator/*"
+                                                "/beta/ansible/automation-analytics/automation-calculator*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -968,7 +968,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/ansible/automation-analytics/organization-statistics/*"
+                                                "/beta/ansible/automation-analytics/organization-statistics*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -1000,7 +1000,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/ansible/automation-analytics/job-explorer/*"
+                                                "/beta/ansible/automation-analytics/job-explorer*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -1032,7 +1032,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/ansible/automation-analytics/clusters/*"
+                                                "/beta/ansible/automation-analytics/clusters*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
@@ -1064,7 +1064,7 @@
                                         "options": {
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
-                                                "/beta/ansible/automation-analytics/notifications/*"
+                                                "/beta/ansible/automation-analytics/notifications*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
