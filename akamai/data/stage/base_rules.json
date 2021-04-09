@@ -850,7 +850,7 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Beta Ansible Automation Insights ROI Calculator",
+                                "name": "Beta Ansible Automation Insights Automation Calculator",
                                 "children": [],
                                 "behaviors": [
                                     {
@@ -862,7 +862,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/ansible/insights/roi-calculator"
+                                            "destinationPathOther": "/beta/ansible/insights/automation-calculator"
                                         }
                                     }
                                 ],
@@ -1490,7 +1490,7 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Ansible Automation Insights ROI Calculator",
+                                "name": "Ansible Automation Insights Automation Calculator",
                                 "children": [],
                                 "behaviors": [
                                     {
@@ -1502,7 +1502,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/ansible/insights/roi-calculator"
+                                            "destinationPathOther": "/ansible/insights/automation-calculator"
                                         }
                                     }
                                 ],
