@@ -574,7 +574,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructure/aws/"
+                                            "destinationPathOther": "/beta/openshift/cost-management/aws"
                                         }
                                     }
                                 ],
@@ -606,7 +606,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/azure"
+                                            "destinationPathOther": "/beta/openshift/cost-management/azure"
                                         }
                                     }
                                 ],
@@ -638,7 +638,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/gcp"
+                                            "destinationPathOther": "/beta/openshift/cost-management/gcp"
                                         }
                                     }
                                 ],
@@ -1246,7 +1246,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructure/aws/"
+                                            "destinationPathOther": "/openshift/cost-management/aws"
                                         }
                                     }
                                 ],
@@ -1278,7 +1278,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructrue/azure"
+                                            "destinationPathOther": "/openshift/cost-management/azure"
                                         }
                                     }
                                 ],
@@ -1310,7 +1310,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructrue/gcp"
+                                            "destinationPathOther": "/openshift/cost-management/gcp"
                                         }
                                     }
                                 ],
