@@ -614,7 +614,7 @@ openshift:
     paths:
       - /openshift
     sub_apps:
-      - id: clusters
+      - id: ''
         title: Cluster Management
         group: openshift
         default: true
