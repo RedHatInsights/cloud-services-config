@@ -338,134 +338,6 @@
                         "name": "Redirects",
                         "children": [
                             {
-                                "name": "Beta OpenShift Clusters Details",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/clusters/details"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/openshift/details*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "Beta OpenShift Clusters Create",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/clusters/create"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/openshift/create*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "Beta OpenShift Clusters Install",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/clusters/install"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/openshift/install*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "Beta OpenShift Clusters AssistedInstaller",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/clusters/assistedinstaller/clusters"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/openshift/assistedinstaller/clusters*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "Beta OpenShift Insights Subscriptions RHEL",
                                 "children": [],
                                 "behaviors": [
@@ -574,7 +446,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructure/aws/"
+                                            "destinationPathOther": "/beta/openshift/cost-management/aws"
                                         }
                                     }
                                 ],
@@ -606,7 +478,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/azure"
+                                            "destinationPathOther": "/beta/openshift/cost-management/azure"
                                         }
                                     }
                                 ],
@@ -638,7 +510,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/openshift/cost-management/infrastructrue/gcp"
+                                            "destinationPathOther": "/beta/openshift/cost-management/gcp"
                                         }
                                     }
                                 ],
@@ -850,7 +722,7 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Beta Ansible Automation Insights ROI Calculator",
+                                "name": "Beta Ansible Automation Insights",
                                 "children": [],
                                 "behaviors": [
                                     {
@@ -862,7 +734,39 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/beta/ansible/insights/roi-calculator"
+                                            "destinationPathOther": "/beta/ansible/insights"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/ansible/automation-analytics*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Beta Ansible Automation Insights Automation Calculator",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/ansible/insights/automation-calculator"
                                         }
                                     }
                                 ],
@@ -1010,134 +914,6 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "OpenShift Clusters Details",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/openshift/clusters/details"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/openshift/details*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "OpenShift Clusters Create",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/openshift/clusters/create"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/openshift/create*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "OpenShift Clusters Install",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/openshift/clusters/install"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/openshift/install*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
-                                "name": "OpenShift Clusters AssistedInstaller",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/openshift/clusters/assistedinstaller/clusters"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/openshift/assistedinstaller/clusters*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "OpenShift Insights Subscriptions RHEL",
                                 "children": [],
                                 "behaviors": [
@@ -1246,7 +1022,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructure/aws/"
+                                            "destinationPathOther": "/openshift/cost-management/aws"
                                         }
                                     }
                                 ],
@@ -1278,7 +1054,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructrue/azure"
+                                            "destinationPathOther": "/openshift/cost-management/azure"
                                         }
                                     }
                                 ],
@@ -1310,7 +1086,7 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/openshift/cost-management/infrastructrue/gcp"
+                                            "destinationPathOther": "/openshift/cost-management/gcp"
                                         }
                                     }
                                 ],
@@ -1490,7 +1266,7 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Ansible Automation Insights ROI Calculator",
+                                "name": "Ansible Automation Insights",
                                 "children": [],
                                 "behaviors": [
                                     {
@@ -1502,7 +1278,39 @@
                                             "destinationPath": "OTHER",
                                             "queryString": "APPEND",
                                             "responseCode": 301,
-                                            "destinationPathOther": "/ansible/insights/roi-calculator"
+                                            "destinationPathOther": "/ansible/insights"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/ansible/automation-analytics*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "Ansible Automation Insights Automation Calculator",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/ansible/insights/automation-calculator"
                                         }
                                     }
                                 ],
