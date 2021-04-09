@@ -398,6 +398,20 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
 
+manifests:
+  title: Manifests
+  channel: '#subscription-central'
+  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
+  frontend:
+    module:
+      appName: manifests
+      scope: manifests
+      module: ./RootApp
+    paths:
+      - /insights/subscriptions/manifests
+    reload: subscriptions/manifests
+  source_repo: https://github.com/RedHatInsights/subscription-central-ui
+
 migrations:
   title: Migrations
   frontend:
@@ -636,6 +650,7 @@ subscriptions:
       - id: openshift-sw
         title: Red Hat OpenShift
         group: subscriptions
+      - id: manifests
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 trust:
