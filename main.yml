@@ -119,8 +119,8 @@ automation-analytics:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id : roi-calculator
-        title: ROI Calculator
+      - id : automation-calculator
+        title: Automation Calculator
       - id: organization-statistics
         title: Organization Statistics
       - id: job-explorer
