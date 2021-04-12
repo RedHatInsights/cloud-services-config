@@ -670,21 +670,6 @@ rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
 
-rhosak-data-plane-ui-build:
-  title: Data Plane UI for RHOSAK
-  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
-  frontend:
-    paths:
-      - /application-services/rhosak-data-plane-ui-build
-
-rhosak-control-plane-ui-build:
-  title: Control Plane UI for RHOSAK
-  deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
-
-rhoas-guides-build:
-  title: Guides for RHOAS
-  deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
-
 patch:
   title: Patch
   api:
