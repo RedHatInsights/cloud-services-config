@@ -740,6 +740,7 @@ rbac:
     module: rbac#./RootApp
     title: User Access
     paths:
+      - /settings
       - /settings/rbac
     sub_apps:
       - id: users
