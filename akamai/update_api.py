@@ -116,7 +116,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
         parent_rule["name"] = "{} (AUTO-GENERATED)".format(env["name"])
         if ("url_prefix" not in env or env["url_prefix"] == ""):
             parent_rule["criteria"][0]["options"]["matchOperator"] = "DOES_NOT_MATCH_ONE_OF"
-            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*"])
+            parent_rule["criteria"][0]["options"]["values"].extend(["/api", "/api/*", "/mirror/openshift*", "/wss/*", "/r/insights/*"])
             # Each env should exclude matches for other envs.
             for nomatch in (x for x in master_config_list if (x != env["name"] and "url_prefix" in x and x["url_prefix"] != "")):
                 parent_rule["criteria"][0]["options"]["values"].extend([nomatch["url_prefix"], nomatch["url_prefix"] + "/*"])
@@ -185,7 +185,7 @@ def main():
 
     cs_config_list = []
     for env in releases:
-        source_branch = releases[env]["branch"] if "branch" in releases[env] else ""
+        source_branch = releases[env]["branch"].replace("prod", crc_env) if "branch" in releases[env] else ""
         url_prefix = releases[env]["url_prefix"] if "url_prefix" in releases[env] else ""
         content_path_prefix = crc_env_prefix + releases[env]["content_path_prefix"] if "content_path_prefix" in releases[env] else crc_env_prefix
 
