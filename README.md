@@ -4,7 +4,7 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for all beta branches is kept in sync, so changes will be automatically merged up through `qa-beta` and `prod-beta`. When you need config added to another environment (`ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment, and feel free to ping #forum-cloudservices-sre on Slack for assistance.
+To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync, so changes to `ci-beta` will automatically be merged into `nightly-beta` and `qa-beta`. When you need this config added to another environment (`prod-beta`, `ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment. If you have any concerns about this process, feel free to ping #forum-cloudservices-sre on Slack for assistance.
 
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
 
@@ -25,6 +25,10 @@ Here is some example configuration that demonstrates the structure, using all re
     deployment_repo: https://github.com/app-deployment-repo-url
     disabled_on_prod: true
     docs: https://link.to.docs.com/docs
+    permissions:
+        method: isOrgAdmin
+        apps:
+            - app_id_1
     frontend:
         title: App Title Override
         paths:
@@ -35,6 +39,10 @@ Here is some example configuration that demonstrates the structure, using all re
             -   id: app_id_1
                 title: Some Sub App
                 default: true
+                permissions:
+                    method: isEntitled
+                    args:
+                        - insights
             -   id: app_id_2
                 title: Another Sub App
         suppress_id: true
@@ -87,6 +95,30 @@ If you want the name of your app to appear differently on the frontend, set this
 
 If you want this app to use the same codebase as another existing app, set this value to the ID of that app.
 
+#### app_id.frontend.module
+
+To indicate chrome how to load the application for federated modules you need to pass this property. It can either be a magic link containing `yourApp#./RootApp` for most applications. If you want to be more specific you can pass in module object containing `appName`, `scope` and `module`
+
+##### app_id.frontend.module.appName
+
+To indicate chrome loader from what app to load your fed-mods config.
+
+##### app_id.frontend.module.scope
+
+To indicate federated modules scope of your application (you can have multiple scopes per one app). This is usually your application's name (same as `appName`).
+
+##### app_id.frontend.module.module
+
+To indicate which module should be loaded when rendering your app (you can have multiple modules per one scope). This is usually `./RootApp`
+
+##### app_id.frontend.module.group
+
+If you have a first-level application, this field indicates which group should be managed by this module.
+
+##### app_id.frontend.module.manifest
+
+If your application shares same manifest as other app or your manifest is located on completely different path, you can pass the path to it in this option.
+
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
@@ -113,6 +145,14 @@ This property is used if the app isn't a real app on disk, and only exists for n
 ### Other Optional Properties
 
 The following properties aren't required for all apps, but may still apply to your app:
+
+#### app_id.productId
+
+The Red Hat product ID for your application. This is tied to fields on Portal Case Management for pre-filling information.
+
+#### app_id.infoId
+
+Some applications are mounted in two locations, but use the same base repo (ex. RBAC and MUA), in this case MUA needs to point to RBAC's app.info.json, so this is the base app for that url.
 
 #### app_id.channel
 
@@ -142,6 +182,18 @@ This is the mailing list associated with your project. Used to automate email no
 
 If this is set to `true`, your app will be a top-level app, which is usually reserved for bundles (Insights, RHEL, Hybrid, Openshift, etc).
 Use this if your app does not have a parent app or bundle.
+
+#### permissions.method
+
+If you want to hide any navigational element based on some chrome's logic, this is the right property. This defines the function to be used in order to hide nav item. (Chrome's list of methods)[https://github.com/RedHatInsights/insights-chrome#permissions].
+
+#### permissions.args
+
+If the `permissions.method` requires some arguments in order to properly work, this is how to pass them to it: an array of items.
+
+#### permissions.apps
+
+If you want to control visibility for multiple navigation items you can specify one permission per entry and list which apps from `frontend.sub_apps` should be checked.
 
 ## Akamai API Access
 
@@ -175,7 +227,7 @@ Restart your insights-proxy to pick up the change.
 
 Create a `beta/config` directory inside of `cloud-services-config` and copy `main.yml` to it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
 
-```
+```text
 $ npx http-server -p 8889
 npx: installed 25 in 2.484s
 Starting up http-server, serving ./
@@ -206,4 +258,4 @@ index 090fd7e..a680d06 100644
    frontend:
 ```
 
-Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on "https://ci.foo.redhat.com:1337" and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
+Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on <https://ci.foo.redhat.com:1337> and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
