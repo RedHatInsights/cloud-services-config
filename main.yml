@@ -278,6 +278,11 @@ cost-management:
     AWS) or deriving it based on a user set of rates.
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
+    module:
+      appName: cost-management
+      group: cost-management
+      scope: costManagement
+      module: ./RootApp
     paths:
       - /cost-management
       - /openshift/cost-management
@@ -332,7 +337,15 @@ cost-management:
               - url: '/api/cost-management/v1/user-access/?type=IBM&beta=true'
                 accessor: 'data'
       - id: cost-models
-        title: Cost models
+        title: Cost Models
+        group: cost-management
+        permissions:
+          - method: apiRequest
+            args:
+              - url: '/api/cost-management/v1/user-access/?type=cost_model'
+                accessor: 'data'
+      - id: explorer
+        title: Cost Explorer
         group: cost-management
         permissions:
           - method: apiRequest
@@ -471,6 +484,9 @@ insights:
       - id: subscriptions
         section: business
       - id: ros
+      - id: image-builder
+      - id: inventory
+      - id: remediations
       - id: registration
       - id: remediations
   top_level: true
@@ -499,6 +515,22 @@ internal:
       - id: commit-tracker
         default: true
       - id: access-requests
+
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  api:
+    versions:
+      - v1
+  frontend:
+    module:
+      appName: integrations
+      scope: notifications
+      module: ./RootApp
+      manifest: /apps/notifications/fed-mods.json
+    app_base: notifications
+    paths:
+      - /settings/integrations
 
 inventory:
   title: Managed Inventory
@@ -575,6 +607,38 @@ notifications:
       - id: openshift
         title: OpenShift
         group: notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
+my-user-access:
+  title: My user access
+  channel: '#platform-experience'
+  frontend:
+    module:
+      appName: my-user-access
+      scope: rbac
+      module: ./RootApp
+      manifest: /apps/rbac/fed-mods.json
+    app_base: rbac
+    paths:
+      - /settings
+      - /settings/my-user-access
+
+notifications:
+  title: Notifications
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    module: notifications#./RootApp
+    paths:
+      - /settings/notifications
+    sub_apps:
+      - id: insights
+        title: Red Hat Insights
+        group: notifications
+        default: true
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
@@ -670,6 +734,58 @@ rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
 
+streams:
+  title: Streams for Apache Kafka
+  frontend:
+    sub_apps:
+      - id: kafkas
+        title: Kafka Instances
+        default: true
+      - id: service-accounts
+        title: Service Accounts
+      - id: resources
+        title: Resources
+
+application-services:
+  title: Application Services
+  api:
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
+  frontend:
+    title: Application Services
+    paths:
+      - /application-services
+    sub_apps:
+      - id: overview
+        title: Overview
+        default: true
+        group: overview
+      - id: streams
+        group: overview
+      - id: api-management
+        title: API Management
+        group: overview
+      - id: data-science
+        title: Data Science
+        group: overview
+  top_level: true
+  source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
+
+rhosak-data-plane-ui-build:
+  title: Data Plane UI for RHOSAK
+  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
+  frontend:
+    paths:
+      - /application-services/rhosak-data-plane-ui-build
+
+rhosak-control-plane-ui-build:
+  title: Control Plane UI for RHOSAK
+  deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
+
+rhoas-guides-build:
+  title: Guides for RHOAS
+  deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
+
 patch:
   title: Patch
   api:
@@ -740,7 +856,6 @@ rbac:
     module: rbac#./RootApp
     title: User Access
     paths:
-      - /settings
       - /settings/rbac
     sub_apps:
       - id: users
