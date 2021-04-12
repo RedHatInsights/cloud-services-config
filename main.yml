@@ -670,18 +670,6 @@ rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
 
-streams:
-  title: Streams for Apache Kafka
-  frontend:
-    sub_apps:
-      - id: kafkas
-        title: Kafka Instances
-        default: true
-      - id: service-accounts
-        title: Service Accounts
-      - id: resources
-        title: Resources
-
 application-services:
   title: Application Services
   api:
