@@ -286,11 +286,6 @@ cost-management:
     paths:
       - /cost-management
       - /openshift/cost-management
-    module:
-      appName: cost-management
-      group: cost-management
-      scope: costManagement
-      module: ./RootApp
     sub_apps:
       - id: ''
         title: Overview
