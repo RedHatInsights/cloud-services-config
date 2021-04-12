@@ -475,22 +475,6 @@ insights:
       - id: remediations
   top_level: true
 
-integrations:
-  title: Integrations
-  channel: '#cloudservices-notifications'
-  api:
-    versions:
-      - v1
-  frontend:
-    app_base: notifications
-    module:
-      appName: integrations
-      scope: notifications
-      module: ./RootApp
-      manifest: /apps/notifications/fed-mods.json
-    paths:
-      - /settings/integrations
-
 internal:
   title: Internal
   top_level: true
