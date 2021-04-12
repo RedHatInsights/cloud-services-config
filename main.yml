@@ -670,31 +670,6 @@ rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
 
-application-services:
-  title: Application Services
-  api:
-    isBeta: true
-  deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
-  frontend:
-    title: Application Services
-    paths:
-      - /application-services
-    sub_apps:
-      - id: overview
-        title: Overview
-        default: true
-        group: overview
-      - id: streams
-        group: overview
-      - id: api-management
-        title: API Management
-        group: overview
-      - id: data-science
-        title: Data Science
-        group: overview
-  top_level: true
-  source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
-
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK
   deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
