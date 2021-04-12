@@ -601,12 +601,12 @@ openshift:
               title: Container Platform
             - id: openshift-quota
               title: Dedicated (Annual)
-              reload: '../quota'
+              reload: './quota'
             - id: openshift-dedicated
               title: Dedicated (On-Demand)
             - id: resource-limits
               title: Dedicated (On-Demand limits)
-              reload: '../quota/resource-limits'
+              reload: './quota/resource-limits'
             - id: rhel
               title: RHEL Subscriptions
               reload: '../../insights/subscriptions/rhel'
@@ -897,7 +897,6 @@ subscriptions:
     paths:
       - /insights/subscriptions
       - /openshift/subscriptions
-      - /openshift/quota
     sub_apps:
       - id: rhel
         title: All RHEL
