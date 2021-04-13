@@ -117,7 +117,7 @@ automation-analytics:
     section: insights
     paths:
       - /ansible
-      - /ansible/automation-analytics
+      - /ansible/insights
     sub_apps:
       - id : automation-calculator
         title: Automation Calculator
