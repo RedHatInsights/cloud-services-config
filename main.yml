@@ -470,7 +470,6 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
-      - id: ros
       - id: registration
       - id: remediations
   top_level: true
@@ -520,20 +519,6 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
 
-manifests:
-  title: Manifests
-  channel: '#subscription-central'
-  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
-  frontend:
-    module:
-      appName: manifests
-      scope: manifests
-      module: ./RootApp
-    paths:
-      - /insights/subscriptions/manifests
-    reload: subscriptions/manifests
-  source_repo: https://github.com/RedHatInsights/subscription-central-ui
-  
 mosaic:
   title: Cloud Mosaic
   frontend:
@@ -788,21 +773,6 @@ remediations:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
-ros:
-  title: Resource Optimization
-  api:
-    versions:
-      - v0
-  channel: '#team-ros'
-  deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
-  frontend:
-      module: ros#./RootApp
-      section: business
-      title: Resource Optimization
-      paths:
-          - /insights/ros
-  source_repo: https://github.com/RedHatInsights/ros-frontend
-
 ruledev:
   title: Rule Development
   api:
@@ -911,7 +881,6 @@ subscriptions:
       - id: openshift-subscription
         title: OpenShift Subscriptions
         reload: '../openshift/subscriptions/openshift-container'
-      - id: manifests
       - id: subscriptions-documentation
         title: Subscriptions Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
