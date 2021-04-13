@@ -578,6 +578,9 @@ openshift:
         title: Cluster Management
         group: openshift
         default: true
+      - id: overview
+        title: Overview
+        group: openshift
       - id: subscriptions
         title: Subscriptions
         section: insights
