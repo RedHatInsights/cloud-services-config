@@ -602,17 +602,19 @@ openshift:
         sub_apps:
             - id: openshift-container
               title: Container Platform
+              reload: subscriptions/openshift-container
             - id: openshift-quota
               title: Dedicated (Annual)
-              reload: './quota'
+              reload: 'quota'
             - id: openshift-dedicated
               title: Dedicated (On-Demand)
+              reload: subscriptions/openshift-dedicated
             - id: resource-limits
               title: Dedicated (On-Demand limits)
-              reload: './quota/resource-limits'
+              reload: 'quota/resource-limits'
             - id: rhel
               title: RHEL Subscriptions
-              reload: '../../insights/subscriptions/rhel'
+              reload: '../insights/subscriptions/rhel'
       - id: cost-management
 
   top_level: true
