@@ -572,7 +572,7 @@ openshift:
       - /openshift
     sub_apps:
       - id: ''
-        title: Cluster Management
+        title: Clusters
         group: openshift
         default: true
       - id: overview
