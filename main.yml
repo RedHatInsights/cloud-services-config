@@ -490,12 +490,12 @@ integrations:
     versions:
       - v1
   frontend:
+    app_base: notifications
     module:
       appName: integrations
       scope: notifications
       module: ./RootApp
       manifest: /apps/notifications/fed-mods.json
-    app_base: notifications
     paths:
       - /settings/integrations
 
@@ -931,6 +931,13 @@ user-preferences:
         title: Email Preferences
         default: true
         group: email
+      - id: notifications
+        title: Notifications
+        group: email
+        sub_apps:
+          - id: rhel
+            title: Red Hat Enterprise Linux
+            group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
 vulnerability:
