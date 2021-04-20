@@ -9,16 +9,31 @@ const permissionsSchema = Joi.object({
 })
 
 const moduleSchema = Joi.object({
-    module: Joi.string(),
-    scope: Joi.string(),
-    appName: Joi.string(),
-    group: Joi.string()
+    module: Joi.string().required(),
+    scope: Joi.string().required(),
+    appName: Joi.string().required(),
+    group: Joi.string(),
+    manifest: Joi.string()
+});
+
+const subApp = Joi.object({
+    id: Joi.string().required().allow(''),
+    default: Joi.boolean(),
+    title: Joi.string(),
+    group: Joi.string(),
+    reload: Joi.string(),
+    permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+    section: Joi.string(),
+    navigate: Joi.string(),
+    sub_apps: Joi.array().items('#subApp')
 });
 
 const frontendSchema = Joi.object({
     title: Joi.string(),
+    isBeta: Joi.boolean(),
     app_base: Joi.string(),
     reload: Joi.string(),
+    section: Joi.string(),
     paths: Joi.array().items(Joi.string()),
     module: [Joi.string(), moduleSchema],
     sub_apps: Joi.array().items(Joi.object({
@@ -27,7 +42,10 @@ const frontendSchema = Joi.object({
         title: Joi.string(),
         group: Joi.string(),
         reload: Joi.string(),
-        permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
+        permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+        section: Joi.string(),
+        navigate: Joi.string(),
+        sub_apps: Joi.array().items(subApp)
     }))
 })
 
@@ -56,7 +74,9 @@ const schema = Joi.object({
     source_repo: Joi.string(),
     frontend: frontendSchema,
     top_level: Joi.boolean(),
-    permissions: [Joi.array().items(permissionsSchema), permissionsSchema]
+    permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
+    productId: Joi.string(),
+    infoId: Joi.string()
 })
 
 const inputfile = 'main.yml';
