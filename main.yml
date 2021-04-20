@@ -548,7 +548,7 @@ manifests:
       - /insights/subscriptions/manifests
     reload: subscriptions/manifests
   source_repo: https://github.com/RedHatInsights/subscription-central-ui
-  
+
 mosaic:
   title: Cloud Mosaic
   frontend:
@@ -610,6 +610,9 @@ openshift:
         default: true
       - id: overview
         title: Overview
+        group: openshift
+      - id: releases
+        title: Releases
         group: openshift
       - id: subscriptions
         title: Subscriptions
@@ -938,7 +941,7 @@ subscriptions:
       - id: subscriptions-documentation
         title: Subscriptions Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
-      
+
 
 
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
