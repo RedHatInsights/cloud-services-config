@@ -370,6 +370,19 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
+hooks:
+  title: Web Hooks Service
+  api:
+    versions:
+      - v1
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build.git
+  frontend:
+    title: Hooks
+    paths:
+      - /settings/hooks
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
+
 ingress:
   title: Ingress
   api:
@@ -431,6 +444,20 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
+
+manifests:
+  title: Manifests
+  channel: '#subscription-central'
+  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
+  frontend:
+    module:
+      appName: manifests
+      scope: manifests
+      module: ./RootApp
+    paths:
+      - /insights/subscriptions/manifests
+    reload: subscriptions/manifests
+  source_repo: https://github.com/RedHatInsights/subscription-central-ui
 
 my-user-access:
   title: My User Access
@@ -588,6 +615,19 @@ remediations:
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
+
+ros:
+  title: Resource Optimization
+  api:
+    versions:
+      - v0
+  channel: '#team-ros'
+  deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
+  frontend:
+    title: Resource Optimization
+    paths:
+        - /insights/ros
+  source_repo: https://github.com/RedHatInsights/ros-frontend
 
 ruledev:
   title: Rule Development
