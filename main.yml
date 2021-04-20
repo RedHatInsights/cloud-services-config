@@ -44,7 +44,22 @@ ansible:
       - id: automation-hub
         default: true
       - id: catalog
-      - id: automation-analytics
+      - id : automation-calculator
+        title: Automation Calculator
+        section: insights
+      - id: organization-statistics
+        title: Organization Statistics
+        section: insights
+      - id: job-explorer
+        title: Job Explorer
+        section: insights
+      - id: clusters
+        title: Clusters
+        section: insights
+        default: true
+      - id: notifications
+        title: Notifications
+        section: insights
   top_level: true
 
 api-docs:
