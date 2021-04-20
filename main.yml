@@ -370,6 +370,22 @@ insights:
       - id: ros
   top_level: true
 
+integrations:
+  title: Integrations
+  channel: '#cloudservices-notifications'
+  api:
+    versions:
+      - v1
+  frontend:
+    app_base: notifications
+    module:
+      appName: integrations
+      scope: notifications
+      module: ./RootApp
+      manifest: /apps/notifications/fed-mods.json
+    paths:
+      - /settings/integrations
+
 inventory:
   title: Managed Inventory
   api:
@@ -421,6 +437,27 @@ my-user-access:
     paths:
       - /settings
       - /settings/my-user-access
+
+notifications:
+  title: Notifications
+  api:
+    versions:
+      - v1
+  channel: '#cloudservices-notifications'
+  deployment_repo: https://github.com/RedHatInsights/notifications-frontend-build
+  frontend:
+    module: notifications#./RootApp
+    paths:
+      - /settings/notifications
+    sub_apps:
+      - id: rhel
+        title: Red Hat Enterprise Linux
+        group: notifications
+        default: true
+      - id: openshift
+        title: OpenShift
+        group: notifications
+  source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
   title: OpenShift (OCM)
@@ -577,6 +614,8 @@ settings:
         default: true
       - id: rbac
       - id: sources
+      - id: integrations
+      - id: notifications
       - id: applications
 
 sources:
@@ -636,12 +675,28 @@ user-preferences:
   top_level: true
   frontend:
     title: User preferences
+    module:
+      appName: user-preferences
+      scope: userPreferences
+      module: ./RootApp
+      group: email
     paths:
       - /user-preferences
     sub_apps:
       - id: email
         title: Email preferences
         default: true
+        group: email
+      - id: notifications
+        title: Notifications
+        group: email
+        sub_apps:
+          - id: rhel
+            title: Red Hat Enterprise Linux
+            group: email
+          - id: openshift
+            title: Openshift
+            group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
 vulnerability:
