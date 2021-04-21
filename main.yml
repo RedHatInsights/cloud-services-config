@@ -6,8 +6,10 @@ advisor:
     apiName: insights
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-advisor-frontend-build
+  productId: Red Hat Insights
   frontend:
     module: advisor#./RootApp
+    section: operations
     paths:
       - /insights/advisor
     sub_apps:
@@ -23,10 +25,10 @@ ansible:
   title: Ansible Automation Platform
   frontend:
     sub_apps:
-      - id: automation-analytics
-        default: true
       - id: automation-hub
+        default: true
       - id: catalog
+      - id: automation-analytics
   top_level: true
 
 api-docs:
@@ -58,12 +60,14 @@ applications:
           method: isEntitled
           args:
             - insights
+        reload: applications/advisor
       - id: cost-management
         title: Cost Management
         permissions:
           method: isEntitled
           args:
             - cost_management
+        reload: applications/cost-management
     paths:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
@@ -73,40 +77,52 @@ approval:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
+    module:
+      appName: approval
+      scope: approval
+      module: ./RootApp
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
   source_repo: https://github.com/RedHatInsights/approval-ui
 
 automation-analytics:
-  title: Automation Analytics
+  title: Analytics
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
+  productId: Ansible Automation Analytics
   frontend:
+    section: insights
     paths:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
-      - id: clusters
-        title: Clusters
-        default: true
+      - id : automation-calculator
+        title: Automation Calculator
       - id: organization-statistics
         title: Organization Statistics
       - id: job-explorer
         title: Job Explorer
+      - id: clusters
+        title: Clusters
+        default: true
       - id: notifications
         title: Notifications
-      - id: automation-calculator
-        title: Automation calculator
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
 
 automation-hub:
   title: Automation Hub
+  api:
+    versions:
+      - v3
   deployment_repo: https://github.com/RedHatInsights/ansible-hub-ui-build
+  productId: Ansible Automation Hub
   frontend:
     paths:
       - /ansible/automation-hub
@@ -129,6 +145,7 @@ catalog:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
@@ -174,8 +191,10 @@ compliance:
   api:
     versions:
       - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
+    section: security
     module: compliance#./RootApp
     paths:
       - /insights/compliance
@@ -200,8 +219,10 @@ cost-management:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
+  productId: Red Hat Cost Management
   description: >
     Cost Management is an application that provides users a view of their
     enterprise cost. Cost Management allows users to evaluate the cost on
@@ -215,13 +236,14 @@ cost-management:
     AWS) or deriving it based on a user set of rates.
   docs: https://koku.readthedocs.io/en/latest/
   frontend:
-    paths:
-      - /cost-management
     module:
       appName: cost-management
       group: cost-management
       scope: costManagement
       module: ./RootApp
+    paths:
+      - /cost-management
+      - /openshift/cost-management
     sub_apps:
       - id: ''
         title: Overview
@@ -291,6 +313,11 @@ dashboard:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
   frontend:
+    module:
+      appName: dashboard
+      scope: dashboard
+      module: ./RootApp
+      group: insights
     paths:
       - /insights
       - /insights/dashboard
@@ -302,12 +329,13 @@ docs:
   frontend:
     sub_apps:
       - id: api-docs
-        reload: docs/api
+        reload: api
         default: true
+      - id: product
   top_level: true
 
 drift:
-  title: Configuration Drift
+  title: Drift
   api:
     subItems:
       drift:
@@ -326,6 +354,7 @@ drift:
   frontend:
     module: drift#./RootApp
     title: Drift
+    section: operations
     paths:
       - /insights/drift
     sub_apps:
@@ -368,15 +397,16 @@ insights:
       - id: dashboard
         default: true
       - id: advisor
+      - id: drift
+      - id: inventory
       - id: vulnerability
       - id: compliance
-      - id: patch
-      - id: drift
       - id: policies
-      - id: inventory
-      - id: remediations
+      - id: patch
+      - id: subscriptions
+        section: business
       - id: registration
-      - id: ros
+      - id: remediations
   top_level: true
 
 integrations:
@@ -405,6 +435,7 @@ inventory:
   frontend:
     module: inventory#./RootApp
     title: Inventory
+    section: operations
     paths:
       - /insights/inventory
   source_repo: https://github.com/RedHatInsights/insights-inventory-frontend
@@ -428,35 +459,16 @@ manifests:
     reload: subscriptions/manifests
   source_repo: https://github.com/RedHatInsights/subscription-central-ui
 
-migrations:
-  title: Migrations
-  frontend:
-    sub_apps:
-      - id: migration-analytics
-        default: true
-  top_level: true
-
-migration-analytics:
-  title: Migration Analytics
-  api:
-    versions:
-      - v1
-    alias:
-      - xavier
-    tags:
-      - value: "experimental"
-        title: "Experimental API"
-  deployment_repo: https://github.com/RedHatInsights/xavier-ui-deploy
-  frontend:
-    paths:
-      - /migrations
-      - /migrations/migration-analytics
-  source_repo: https://github.com/project-xavier/xavier-ui
-
 my-user-access:
-  title: My user access
+  title: My User Access
   channel: '#platform-experience'
+  infoId: rbac
   frontend:
+    module:
+      appName: my-user-access
+      scope: rbac
+      module: ./RootApp
+      manifest: /apps/rbac/fed-mods.json
     app_base: rbac
     paths:
       - /settings
@@ -489,6 +501,7 @@ openshift:
     versions:
       - v1
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
+  productId: Red Hat Openshift Cluster Manager
   frontend:
     title: OpenShift Cluster Manager
     paths:
@@ -498,9 +511,28 @@ openshift:
         title: Clusters
         group: openshift
         default: true
+      - id: overview
+        title: Overview
+        group: openshift
       - id: subscriptions
         title: Subscriptions
-        group: openshift
+        section: insights
+        sub_apps:
+            - id: openshift-container
+              title: Container Platform
+            - id: openshift-quota
+              title: Dedicated (Annual)
+              reload: './quota'
+            - id: openshift-dedicated
+              title: Dedicated (On-Demand)
+            - id: resource-limits
+              title: Dedicated (On-Demand limits)
+              reload: './quota/resource-limits'
+            - id: rhel
+              title: RHEL Subscriptions
+              reload: '../../insights/subscriptions/rhel'
+      - id: cost-management
+
   top_level: true
 
 patch:
@@ -508,9 +540,11 @@ patch:
   api:
     versions:
       - v1
+    isBeta: true
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
+    section: security
     module: patch#./RootApp
     title: Patch
     paths:
@@ -533,6 +567,8 @@ policies:
   channel: '#cloudservices-policies'
   deployment_repo: https://github.com/RedHatInsights/policies-ui-frontend-build
   frontend:
+    module: policies#./RootApp
+    section: security
     paths:
       - /insights/policies
   source_repo: https://github.com/RedHatInsights/policies-ui-frontend
@@ -547,7 +583,7 @@ rbac:
     method: isOrgAdmin
   frontend:
     module: rbac#./RootApp
-    title: User access
+    title: User Access
     paths:
       - /settings/rbac
     sub_apps:
@@ -565,6 +601,7 @@ registration:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/registration-assistant-build
   frontend:
+    module: registration#./RootApp
     paths:
       - /insights/registration
   source_repo: https://github.com/RedHatInsights/registration-assistant/
@@ -582,22 +619,6 @@ remediations:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
 
-rhel-sw:
-  title: Red Hat Enterprise Linux
-  frontend:
-    sub_apps:
-      - id: all
-        title: All
-        default: true
-      - id: arm
-        title: ARM
-      - id: ibmpower
-        title: IBM Power
-      - id: ibmz
-        title: IBM Z systems
-      - id: x86
-        title: x86
-
 ros:
   title: Resource Optimization
   api:
@@ -606,9 +627,9 @@ ros:
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
-      title: Resource Optimization
-      paths:
-          - /insights/ros
+    title: Resource Optimization
+    paths:
+        - /insights/ros
   source_repo: https://github.com/RedHatInsights/ros-frontend
 
 ruledev:
@@ -639,16 +660,21 @@ settings:
       - id: integrations
       - id: notifications
       - id: applications
+      - id: settings-documentation
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/red_hat_cloud_platform/
 
 sources:
   title: Discovered Inventory
   api:
     versions:
       - v1
-  channel: '#insights_topology_svc'
+    isBeta: true
+  channel: '#sources'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
     title: Sources
+    module: sources#./RootApp
     paths:
       - /settings/sources
   source_repo: https://github.com/RedHatInsights/sources-ui
@@ -657,7 +683,9 @@ staging:
   title: Staging Bundle
   frontend:
     sub_apps:
+      - id: starter
       - id: ruledev
+      - id: policies
   top_level: true
 
 storybook:
@@ -669,27 +697,38 @@ storybook:
   source_repo: https://github.com/RedHatInsights/insights-frontend-storybook
 
 subscriptions:
-  title: Subscription Watch
+  title: Subscriptions
   api:
     versions:
       - v1
-    tags:
-      - value: "experimental"
-        title: "Experimental API"
+    alias:
+      - rhsm-subscriptions
   channel: '#subscriptions'
   deployment_repo: https://github.com/RedHatInsights/curiosity-frontend-build
+  productId: Subscription Watch
   top_level: true
   frontend:
     paths:
-      - /subscriptions
+      - /insights/subscriptions
+      - /openshift/subscriptions
     sub_apps:
-      - id: rhel-sw
+      - id: rhel
+        title: All RHEL
         default: true
-        group: subscriptions
-      - id: openshift-sw
-        title: Red Hat OpenShift
-        group: subscriptions
-      - id: manifests
+      - id: rhel-arm
+        title: ARM
+      - id: rhel-ibmpower
+        title: IBM Power
+      - id: rhel-ibmz
+        title: IBM Z systems
+      - id: rhel-x86
+        title: X86
+      - id: openshift-subscription
+        title: OpenShift Subscriptions
+        reload: '../openshift/subscriptions/openshift-container'
+      - id: subscriptions-documentation
+        title: Subscriptions Documentation
+        navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
 trust:
@@ -707,7 +746,7 @@ user-preferences:
   deployment_repo: https://github.com/RedHatInsights/user-preferences-frontend-build
   top_level: true
   frontend:
-    title: User preferences
+    title: User Preferences
     module:
       appName: user-preferences
       scope: userPreferences
@@ -717,7 +756,7 @@ user-preferences:
       - /user-preferences
     sub_apps:
       - id: email
-        title: Email preferences
+        title: Email Preferences
         default: true
         group: email
       - id: notifications
@@ -740,6 +779,7 @@ vulnerability:
   channel: '#team-vulnerability'
   deployment_repo: https://github.com/RedHatInsights/vulnerability-ui-build
   frontend:
+    section: security
     module: vulnerability#./RootApp
     title: Vulnerability
     paths:
