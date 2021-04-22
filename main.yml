@@ -407,6 +407,7 @@ insights:
         section: business
       - id: registration
       - id: remediations
+      - id: ros
   top_level: true
 
 integrations:
