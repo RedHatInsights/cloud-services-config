@@ -42,8 +42,8 @@ ansible:
   frontend:
     sub_apps:
       - id: ansible-dashboard
-        default: true
       - id: automation-hub
+        default: true
       - id: catalog
       - id: automation-analytics
   top_level: true
