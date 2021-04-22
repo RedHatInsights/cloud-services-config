@@ -57,7 +57,6 @@ ansible-dashboard:
       scope: ansibleDashboard
       module: ./RootApp
     paths:
-      - /ansible
       - /ansible/ansible-dashboard
   source_repo: https://github.com/RedHatInsights/ansible-platform-dashboard
 
