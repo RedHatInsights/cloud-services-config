@@ -405,6 +405,7 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
+      - id: ros
       - id: registration
       - id: remediations
   top_level: true
