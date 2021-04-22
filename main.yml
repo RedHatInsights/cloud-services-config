@@ -405,9 +405,9 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
+      - id: ros
       - id: registration
       - id: remediations
-      - id: ros
   top_level: true
 
 integrations:
