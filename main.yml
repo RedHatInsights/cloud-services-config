@@ -626,6 +626,8 @@ ros:
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
     title: Resource Optimization
+    module: ros#./RootApp
+    section: business
     paths:
         - /insights/ros
   source_repo: https://github.com/RedHatInsights/ros-frontend
