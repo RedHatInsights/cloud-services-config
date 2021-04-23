@@ -562,6 +562,38 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "Beta RHEL Business Insights Subscriptions Container Platform",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/openshift/subscriptions/openshift-container"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions/openshift-sw*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "Beta RHEL Business Insights Subscriptions ARM",
                                 "children": [],
                                 "behaviors": [
@@ -1097,6 +1129,38 @@
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
                                                 "/cost-management/cost-models*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "RHEL Business Insights Subscriptions Container Platform",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/openshift/subscriptions/openshift-container"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/subscriptions/openshift-sw*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
