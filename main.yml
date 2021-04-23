@@ -467,7 +467,7 @@ ingress:
       - v1
 
 insights:
-  title: Insights
+  title: Red Hat Enterprise Linux
   frontend:
     title: Insights
     sub_apps:
@@ -598,7 +598,7 @@ openshift:
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   productId: Red Hat Openshift Cluster Manager
   frontend:
-    title: OpenShift Cluster Manager
+    title: OpenShift
     paths:
       - /openshift
     sub_apps:
@@ -937,7 +937,7 @@ subscriptions:
         reload: '../openshift/subscriptions/openshift-container'
       - id: manifests
       - id: subscriptions-documentation
-        title: Subscriptions Documentation
+        title: Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
 
 
