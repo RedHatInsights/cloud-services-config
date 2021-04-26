@@ -604,6 +604,7 @@ openshift:
               title: RHEL Subscriptions
               reload: '../../insights/subscriptions/rhel'
       - id: cost-management
+        section: insights
 
   top_level: true
 
