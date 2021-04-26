@@ -1,3 +1,6 @@
-# Asa is an owner by default bc this whole crazy thing was his idea.
-# Karel and Ryan are also getting dragged into this (sorry) as Asa transitions away from Fakamai/Akamai.
-*                       @kruai @karelhala @ryelo
+# Karel and Ryan have full control of the repo by default
+*                       @karelhala @ryelo
+
+# Keith may also want to be aware of changes made to the Akamai scripts and Jenkinsfile
+/akamai/*               @karelhala @ryelo @coderbydesign
+/Jenkinsfile            @karelhala @ryelo @coderbydesign
