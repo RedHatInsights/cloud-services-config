@@ -470,7 +470,7 @@ ingress:
 insights:
   title: Red Hat Enterprise Linux
   frontend:
-    title: Insights
+    title: Red Hat Enterprise Linux
     sub_apps:
       - id: dashboard
         default: true
