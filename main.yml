@@ -92,9 +92,6 @@ application-services:
       - id: api-management
         title: "API Management"
         group: overview
-      - id: data-science
-        title: "Data Science"
-        group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
@@ -421,7 +418,6 @@ insights:
         default: true
       - id: advisor
       - id: drift
-      - id: image-builder
       - id: inventory
       - id: vulnerability
       - id: compliance
@@ -429,12 +425,6 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
-      - id: ros
-        permissions:
-          method: hasCookie
-          args:
-            - cs_ros_beta_enable
-            - "1"
       - id: registration
       - id: remediations
   top_level: true
