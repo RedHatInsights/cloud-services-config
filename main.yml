@@ -431,6 +431,11 @@ insights:
       - id: subscriptions
         section: business
       - id: ros
+        permissions:
+          method: hasCookie
+          args:
+            - cs_ros_beta_enable
+            - "1"
       - id: registration
       - id: remediations
   top_level: true
