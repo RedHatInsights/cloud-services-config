@@ -536,9 +536,6 @@ notifications:
         title: Red Hat Enterprise Linux
         group: notifications
         default: true
-      - id: openshift
-        title: OpenShift
-        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
@@ -829,9 +826,6 @@ user-preferences:
         sub_apps:
           - id: rhel
             title: Red Hat Enterprise Linux
-            group: email
-          - id: openshift
-            title: Openshift
             group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
