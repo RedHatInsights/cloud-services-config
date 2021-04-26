@@ -470,6 +470,12 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
+      - id: ros
+        permissions:
+          method: hasCookie
+          args:
+            - cs_ros_beta_enable
+            - "1"
       - id: registration
       - id: remediations
   top_level: true
@@ -775,6 +781,21 @@ remediations:
     paths:
       - /insights/remediations
   source_repo: https://github.com/RedHatInsights/insights-remediations-frontend
+
+ros:
+  title: Resource Optimization
+  api:
+    versions:
+      - v0
+  channel: '#team-ros'
+  deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
+  frontend:
+      module: ros#./RootApp
+      section: business
+      title: Resource Optimization
+      paths:
+          - /insights/ros
+  source_repo: https://github.com/RedHatInsights/ros-frontend
 
 ruledev:
   title: Rule Development
