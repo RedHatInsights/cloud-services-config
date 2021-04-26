@@ -53,6 +53,7 @@ applications:
     apps:
       - cost-management
   frontend:
+    module: applications#./RootApp
     sub_apps:
       - id: advisor
         title: Advisor
