@@ -905,7 +905,7 @@ subscriptions:
         title: OpenShift Subscriptions
         reload: '../openshift/subscriptions/openshift-container'
       - id: subscriptions-documentation
-        title: Subscriptions Documentation
+        title: Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
 
 
