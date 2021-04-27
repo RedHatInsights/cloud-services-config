@@ -52,12 +52,12 @@ def getLatestVersionNumber(crc_env, akamai_env):
 # Makes an API call to activate the specified version on the specified environment.
 def activateVersion(version_number, env="STAGING", crc_env="stage"):
     # "notifyEmails" is unfortunately required for this API call.
-    # TODO: Set this to the team email list once that exists
     body = {
         "note": "Auto-generated activation",
         "useFastFallback": "false",
         "notifyEmails": [
-            "aprice@redhat.com"
+            "rlong@redhat.com",
+            "khala@redhat.com"
         ]
     }
     body["propertyVersion"] = version_number
