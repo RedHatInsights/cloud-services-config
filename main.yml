@@ -69,6 +69,7 @@ applications:
     apps:
       - cost-management
   frontend:
+    module: applications#./RootApp
     sub_apps:
       - id: advisor
         title: Advisor
@@ -76,14 +77,12 @@ applications:
           method: isEntitled
           args:
             - insights
-        reload: applications/advisor
       - id: cost-management
         title: Cost Management
         permissions:
           method: isEntitled
           args:
             - cost_management
-        reload: applications/cost-management
     paths:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
