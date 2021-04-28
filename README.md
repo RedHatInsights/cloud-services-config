@@ -2,6 +2,14 @@
 
 This repo deals with the high-level configuration of Cloud Services. `main.yml` contains the source of truth for CS apps, and the `akamai` folder deals with updating our Akamai configuration.
 
+## Branch syncing
+
+These branches sync:
+
+* ci-beta -> nightly-beta -> qa-beta (and qaprodauth-beta) -> stage-beta
+* ci-stable -> nightly-stable
+* qa-stable (and qaprodauth-stable) -> stage-stable
+
 ## Adding Config for New Apps
 
 To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync, so changes to `ci-beta` will automatically be merged into `nightly-beta` and `qa-beta`. When you need this config added to another environment (`prod-beta`, `ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment. If you have any concerns about this process, feel free to ping #forum-cloudservices-sre on Slack for assistance.
