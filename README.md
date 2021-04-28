@@ -6,9 +6,9 @@ This repo deals with the high-level configuration of Cloud Services. `main.yml` 
 
 These branches sync:
 
-* ci-beta -> nightly-beta -> qa-beta (and qaprodauth-beta) -> stage-beta
+* ci-beta -> nightly-beta -> qa-beta -> stage-beta
 * ci-stable -> nightly-stable
-* qa-stable (and qaprodauth-stable) -> stage-stable
+* qa-stable -> stage-stable
 
 ## Adding Config for New Apps
 
