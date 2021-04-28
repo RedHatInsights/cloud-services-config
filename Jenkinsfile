@@ -163,7 +163,7 @@ node {
             from: 'csc-jenkins@redhat.com',
             replyTo: 'rlong@redhat.com',
             subject: 'CSC build: STAGING smoke tests failed',
-            to: 'rlong@redhat.com,khala@redhat.com'
+            to: 'rlong@redhat.com,khala@redhat.com,jdupuy@redhat.com'
       error('Smoke tests failed in STAGING. Will not activate on PRODUCTION.')
     }
   }
@@ -263,7 +263,7 @@ node {
             from: 'csc-jenkins@redhat.com',
             replyTo: 'rlong@redhat.com',
             subject: 'CSC build: PROD smoke tests failed',
-            to: 'rlong@redhat.com,khala@redhat.com'
+            to: 'rlong@redhat.com,khala@redhat.com,jdupuy@redhat.com'
       error('Smoke tests failed in PRODUCTION. All changes have been rolled back.')
     }
   }
