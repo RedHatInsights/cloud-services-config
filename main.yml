@@ -72,6 +72,21 @@ applications:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
 
+streams:
+  title: "Streams for Apache Kafka"
+  frontend:
+    sub_apps:
+      - id: kafkas
+        title: "Kafka Instances"
+        default: true
+      - id: service-accounts
+        title: "Service Accounts"
+      - id: resources
+        title: "Resources"
+      - id: streams-docs
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/
+
 application-services:
   title: Application Services
   api:
