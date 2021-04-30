@@ -596,6 +596,7 @@ openshift:
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   productId: Red Hat Openshift Cluster Manager
   frontend:
+    module: openshift#./RootApp
     title: OpenShift
     paths:
       - /openshift
