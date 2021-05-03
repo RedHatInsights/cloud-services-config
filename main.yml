@@ -850,6 +850,7 @@ staging:
       - id: starter
       - id: ruledev
       - id: policies
+      - id: malware
   top_level: true
 
 starter:
