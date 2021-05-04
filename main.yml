@@ -434,9 +434,9 @@ edge:
     paths:
       - /edge
     sub_apps:
-      - id: devices
+      - id: fleet-management
         default: true
-        title: Devices
+        title: Fleet management
         group: groups
 
 frontend-assets:
@@ -530,6 +530,24 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
+
+malware:
+  title: Malware
+  permissions:
+    method: isInternal
+  api:
+    versions:
+      - v1
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
+  frontend:
+    module: malware#./RootApp
+    paths:
+      - /insights/malware
+    sub_apps:
+      - id: signatures
+        title: Signatures
+  source_repo: https://github.com/RedHatInsights/malware-detection-frontend
 
 manifests:
   title: Manifests
