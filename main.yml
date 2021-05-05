@@ -269,59 +269,21 @@ cost-management:
       - id: ocp
         title: OpenShift
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=OCP'
-                accessor: 'data'
       - id: aws
         title: Amazon Web Services
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=AWS'
-                accessor: 'data'
       - id: azure
         title: Microsoft Azure
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=AZURE'
-                accessor: 'data'
       - id: gcp
         title: Google Cloud Platform
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=GCP'
-                accessor: 'data'
-      - id: ibm
-        title: IBM Cloud
-        group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=IBM&beta=true'
-                accessor: 'data'
       - id: cost-models
         title: Cost Models
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=cost_model'
-                accessor: 'data'
       - id: explorer
         title: Cost Explorer
         group: cost-management
-        permissions:
-          - method: apiRequest
-            args:
-              - url: '/api/cost-management/v1/user-access/?type=any&beta=true'
-                accessor: 'data'
   source_repo: https://github.com/project-koku-ui/
   mailing_list: cost-mgmt@redhat.com
 
