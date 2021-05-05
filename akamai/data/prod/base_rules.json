@@ -557,6 +557,38 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                                "name": "Beta RHEL Business Insights Subscriptions",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/beta/insights/subscriptions"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/subscriptions*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "Beta RHEL Business Insights Subscriptions ARM",
                                 "children": [],
                                 "behaviors": [
@@ -1124,6 +1156,38 @@
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
                                                 "/subscriptions/openshift-sw*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "RHEL Business Insights Subscriptions",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "SAME_AS_REQUEST",
+                                            "destinationPath": "OTHER",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationPathOther": "/insights/subscriptions"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/subscriptions*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
