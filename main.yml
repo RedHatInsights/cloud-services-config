@@ -383,9 +383,9 @@ edge:
     paths:
       - /edge
     sub_apps:
-      - id: devices
+      - id: fleet-management
         default: true
-        title: Devices
+        title: Fleet management
         group: groups
 
 frontend-assets:
