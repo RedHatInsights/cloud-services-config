@@ -685,38 +685,6 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
-                                "name": "Beta RHEL Business Insights Resource Optimization",
-                                "children": [],
-                                "behaviors": [
-                                    {
-                                        "name": "redirect",
-                                        "options": {
-                                            "mobileDefaultChoice": "DEFAULT",
-                                            "destinationProtocol": "SAME_AS_REQUEST",
-                                            "destinationHostname": "SAME_AS_REQUEST",
-                                            "destinationPath": "OTHER",
-                                            "queryString": "APPEND",
-                                            "responseCode": 301,
-                                            "destinationPathOther": "/beta/rhel/ros"
-                                        }
-                                    }
-                                ],
-                                "criteria": [
-                                    {
-                                        "name": "path",
-                                        "options": {
-                                            "matchOperator": "MATCHES_ONE_OF",
-                                            "values": [
-                                                "/beta/insights/ros*"
-                                            ],
-                                            "matchCaseSensitive": false,
-                                            "normalize": false
-                                        }
-                                    }
-                                ],
-                                "criteriaMustSatisfy": "all"
-                            },
-                            {
                                 "name": "Beta Ansible Automation Insights",
                                 "children": [],
                                 "behaviors": [
