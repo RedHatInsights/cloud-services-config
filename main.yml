@@ -485,6 +485,20 @@ landing:
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
 
+manifests:
+  title: Manifests
+  channel: '#subscription-central'
+  deployment_repo: https://github.com/RedHatInsights/subscription-central-ui-build
+  frontend:
+    module:
+      appName: manifests
+      scope: manifests
+      module: ./RootApp
+    paths:
+      - /insights/subscriptions/manifests
+    reload: subscriptions/manifests
+  source_repo: https://github.com/RedHatInsights/subscription-central-ui
+
 mosaic:
   title: Cloud Mosaic
   frontend:
@@ -866,6 +880,7 @@ subscriptions:
       - id: openshift-subscription
         title: OpenShift Subscriptions
         reload: '../openshift/subscriptions/openshift-container'
+      - id: manifests
       - id: subscriptions-documentation
         title: Documentation
         navigate: https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC
