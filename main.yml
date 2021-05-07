@@ -560,6 +560,12 @@ patch:
         title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
 
+playbook-dispatcher:
+  title: Playbook Dispatcher
+  api:
+    versions:
+      - v1
+
 policies:
   title: Policies
   api:
