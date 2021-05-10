@@ -446,6 +446,10 @@ frontend-assets:
 
 image-builder:
   title: Image Builder
+  api:
+    versions:
+      - v1
+    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
   permissions:
     method: apiRequest
@@ -454,6 +458,11 @@ image-builder:
         matcher: isNotEmpty
   frontend:
     section: operations
+    module:
+      appName: image-builder
+      scope: image_builder
+      module: ./RootApp
+    title: Image Builder
     paths:
       - /insights/image-builder
   source_repo: https://github.com/osbuild/image-builder-frontend
