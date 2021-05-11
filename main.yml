@@ -664,6 +664,9 @@ application-services:
       - id: data-science
         title: "Data Science"
         group: overview
+      - id: cos
+        title: "Connectors"
+        group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
@@ -677,6 +680,10 @@ rhosak-data-plane-ui-build:
 rhosak-control-plane-ui-build:
   title: Control Plane UI for RHOSAK
   deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
+
+cos-ui-build:
+  title: UI for COS
+  deployment_repo: https://github.com/RedHatInsights/cos-ui-build
 
 rhoas-guides-build:
   title: Guides for RHOAS
