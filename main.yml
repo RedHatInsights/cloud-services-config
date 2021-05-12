@@ -799,6 +799,7 @@ settings:
       - id: sources
       - id: integrations
       - id: notifications
+      - id: connector
       - id: applications
       - id: settings-documentation
         title: Documentation
