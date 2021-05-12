@@ -453,6 +453,7 @@ insights:
       - id: compliance
       - id: policies
       - id: patch
+      - id: malware
       - id: subscriptions
         section: business
       - id: ros
@@ -507,14 +508,15 @@ landing:
 
 malware:
   title: Malware
-  permissions:
-    method: isInternal
   api:
     versions:
       - v1
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
   frontend:
+    isHidden: true
+    section: security
+    title: Malware
     module: malware#./RootApp
     paths:
       - /insights/malware
