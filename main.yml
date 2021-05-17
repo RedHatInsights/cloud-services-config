@@ -641,6 +641,20 @@ rbac:
         title: Groups
   source_repo: https://github.com/RedHatInsights/insights-rbac-ui
 
+connector:
+  title: Red Hat Connector
+  api:
+    versions:
+      - v1
+    apiName: config-manager
+  deployment_repo: https://github.com/RedHatInsights/sed-frontend-build
+  frontend:
+    title: Red Hat Connector
+    module: connector#./RootApp
+    paths:
+      - /settings/connector
+  source_repo: https://github.com/RedHatInsights/sed-frontend
+
 registration:
   title: Register Systems
   channel: '#advisor'
@@ -708,6 +722,7 @@ settings:
       - id: sources
       - id: integrations
       - id: notifications
+      - id: connector
       - id: applications
       - id: settings-documentation
         title: Documentation
