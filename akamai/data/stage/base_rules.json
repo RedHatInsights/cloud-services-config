@@ -2464,6 +2464,37 @@
                     }
                 ],
                 "name": "Client Cert"
+            },
+            {
+                "name": "Redirect Top Level",
+                "children": [],
+                "behaviors": [
+                    {
+                        "name": "redirect",
+                        "options": {
+                            "queryString": "APPEND",
+                            "responseCode": 301,
+                            "destinationHostname": "OTHER",
+                            "destinationPath": "SAME_AS_REQUEST",
+                            "destinationProtocol": "SAME_AS_REQUEST",
+                            "mobileDefaultChoice": "DEFAULT",
+                            "destinationHostnameOther": "api-gateway-stage.apps.crcgovs02ue1.43j0.p1.openshiftapps.com"
+                        }
+                    }
+                ],
+                "criteria": [
+                    {
+                        "name": "hostname",
+                        "options": {
+                            "matchOperator": "IS_ONE_OF",
+                            "values": [
+                                "gov.cloud.stage.redhat.com"
+                            ]
+                        }
+                    }
+                ],
+                "criteriaMustSatisfy": "all",
+                "comments": ""
             }
         ],
         "options": {
