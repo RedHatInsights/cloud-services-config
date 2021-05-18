@@ -669,6 +669,9 @@ application-services:
       - id: cos
         title: "Connectors"
         group: overview
+      - id: sr
+        title: "Service Registry"
+        group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
@@ -686,6 +689,10 @@ rhosak-control-plane-ui-build:
 cos-ui-build:
   title: UI for COS
   deployment_repo: https://github.com/RedHatInsights/cos-ui-build
+
+sr-ui-build:
+  title: UI for Service Registry
+  deployment_repo: https://github.com/RedHatInsights/sr-ui-build
 
 rhoas-guides-build:
   title: Guides for RHOAS
