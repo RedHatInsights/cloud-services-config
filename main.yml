@@ -382,15 +382,18 @@ edge:
       appName: edge
       scope: edge
       module: ./RootApp
-      group: groups
+      group: fleet-management
     title: RHEL for Edge
     paths:
       - /edge
     sub_apps:
       - id: fleet-management
         default: true
-        title: Fleet management
-        group: groups
+        title: Fleet Management
+        group: fleet-management
+      - id: manage-images
+        title: Manage images
+        group: fleet-management
 
 frontend-assets:
   title: Frontend Assets
