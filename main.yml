@@ -103,6 +103,10 @@ approval:
       - v1
   deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
   frontend:
+    module:
+      appName: approval
+      scope: approval
+      module: ./RootApp
     paths:
       - /ansible/catalog/approval
     reload: catalog/approval
