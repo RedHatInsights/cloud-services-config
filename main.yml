@@ -373,6 +373,10 @@ edge:
   deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
   source_repo: https://github.com/RedHatInsights/edge-frontend
   top_level: true
+  permissions:
+    method: withEmail
+    args:
+      - "@redhat.com"
   frontend:
     module:
       appName: edge
