@@ -437,7 +437,7 @@ image-builder:
     title: Image Builder
     paths:
       - /insights/image-builder
-  source_repo: https://github.com/osbuild/image-builder-frontend
+  source_repo: https://github.com/RedHatInsights/image-builder-frontend
 
 ingress:
   title: Ingress
