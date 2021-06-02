@@ -707,6 +707,10 @@ sr-ui-build:
   title: UI for Service Registry
   deployment_repo: https://github.com/RedHatInsights/sr-ui-build
 
+srs-ui-build:
+  title: UI for Service Registry Control Plane
+  deployment_repo: https://github.com/RedHatInsights/srs-ui-build
+
 rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
