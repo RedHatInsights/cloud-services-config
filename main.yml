@@ -45,7 +45,7 @@ ansible-dashboard:
       appName: ansible-dashboard
       scope: ansibleDashboard
       module: ./RootApp
-      group: ansible
+      group: ansible-dashboard
     paths:
       - /ansible
       - /ansible/ansible-dashboard
@@ -57,6 +57,7 @@ ansible:
     sub_apps:
       - id: ansible-dashboard
         default: true
+        group: ansible-dashboard
       - id: automation-hub
       - id: catalog
       - id: automation-analytics
