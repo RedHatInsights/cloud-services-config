@@ -749,6 +749,38 @@
                                 "criteriaMustSatisfy": "all"
                             },
                             {
+                              "name": "Beta Ansible Automation Insights Savings Planner",
+                              "children": [],
+                              "behaviors": [
+                                  {
+                                      "name": "redirect",
+                                      "options": {
+                                          "mobileDefaultChoice": "DEFAULT",
+                                          "destinationProtocol": "SAME_AS_REQUEST",
+                                          "destinationHostname": "SAME_AS_REQUEST",
+                                          "destinationPath": "OTHER",
+                                          "queryString": "APPEND",
+                                          "responseCode": 301,
+                                          "destinationPathOther": "/beta/ansible/insights/savings-planner"
+                                      }
+                                  }
+                              ],
+                              "criteria": [
+                                  {
+                                      "name": "path",
+                                      "options": {
+                                          "matchOperator": "MATCHES_ONE_OF",
+                                          "values": [
+                                              "/beta/ansible/automation-analytics/savings-planner*"
+                                          ],
+                                          "matchCaseSensitive": false,
+                                          "normalize": false
+                                      }
+                                  }
+                              ],
+                              "criteriaMustSatisfy": "all"
+                          }
+                            {
                                 "name": "Beta Ansible Automation Insights Automation Calculator",
                                 "children": [],
                                 "behaviors": [
@@ -1356,6 +1388,38 @@
                                 ],
                                 "criteriaMustSatisfy": "all"
                             },
+                            {
+                              "name": "Ansible Automation Insights Savings Plannes",
+                              "children": [],
+                              "behaviors": [
+                                  {
+                                      "name": "redirect",
+                                      "options": {
+                                          "mobileDefaultChoice": "DEFAULT",
+                                          "destinationProtocol": "SAME_AS_REQUEST",
+                                          "destinationHostname": "SAME_AS_REQUEST",
+                                          "destinationPath": "OTHER",
+                                          "queryString": "APPEND",
+                                          "responseCode": 301,
+                                          "destinationPathOther": "/ansible/insights/savings-planner"
+                                      }
+                                  }
+                              ],
+                              "criteria": [
+                                  {
+                                      "name": "path",
+                                      "options": {
+                                          "matchOperator": "MATCHES_ONE_OF",
+                                          "values": [
+                                              "/ansible/automation-analytics/savings-planner*"
+                                          ],
+                                          "matchCaseSensitive": false,
+                                          "normalize": false
+                                      }
+                                  }
+                              ],
+                              "criteriaMustSatisfy": "all"
+                          },
                             {
                                 "name": "Ansible Automation Insights Automation Calculator",
                                 "children": [],
