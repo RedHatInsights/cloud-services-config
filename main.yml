@@ -117,6 +117,8 @@ automation-analytics:
       - /ansible
       - /ansible/automation-analytics
     sub_apps:
+      - id : savings-planner
+        title: Savings Planner
       - id : automation-calculator
         title: Automation Calculator
       - id: organization-statistics
