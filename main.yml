@@ -588,6 +588,9 @@ notifications:
       - id: openshift
         title: OpenShift
         group: notifications
+      - id: application-services
+        title: Application Services
+        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
@@ -1016,6 +1019,9 @@ user-preferences:
               group: email
             - id: openshift
               title: Openshift
+              group: email
+            - id: application-services
+              title: Application Services
               group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
