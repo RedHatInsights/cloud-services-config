@@ -1,0 +1,90 @@
+[
+    {
+        "moduleScope": "userPreferences",
+        "manifestLocation": "/apps/user-preferences/fed-mods.json"
+    },
+    {
+        "moduleScope": "rbac",
+        "manifestLocation": "/apps/rbac/fed-mods.json"
+    },
+    {
+        "moduleScope": "sources",
+        "manifestLocation": "/apps/sources/fed-mods.json"
+    },
+    {
+        "moduleScope": "notifications",
+        "manifestLocation": "/apps/notifications/fed-mods.json"
+    },
+    {
+        "moduleScope": "connector",
+        "manifestLocation": "/apps/connector/fed-mods.json"
+    },
+    {
+        "moduleScope": "applications",
+        "manifestLocation": "/apps/applications/fed-mods.json"
+    },
+    {
+        "moduleScope": "openshift",
+        "manifestLocation": "/apps/openshift/fed-mods.json"
+    },
+    {
+        "moduleScope": "cost-management",
+        "manifestLocation": "/apps/cost-management/fed-mods.json"
+    },
+    {
+        "moduleScope": "dashboard",
+        "manifestLocation": "/apps/dashboard/fed-mods.json"
+    },
+    {
+        "moduleScope": "advisor",
+        "manifestLocation": "/apps/advisor/fed-mods.json"
+    },
+    {
+        "moduleScope": "drift",
+        "manifestLocation": "/apps/drift/fed-mods.json"
+    },
+    {
+        "moduleScope": "inventory",
+        "manifestLocation": "/apps/inventory/fed-mods.json"
+    },
+    {
+        "moduleScope": "vulnerability",
+        "manifestLocation": "/apps/vulnerability/fed-mods.json"
+    },
+    {
+        "moduleScope": "compliance",
+        "manifestLocation": "/apps/compliance/fed-mods.json"
+    },
+    {
+        "moduleScope": "policies",
+        "manifestLocation": "/apps/policies/fed-mods.json"
+    },
+    {
+        "moduleScope": "patch",
+        "manifestLocation": "/apps/patch/fed-mods.json"
+    },
+    {
+        "moduleScope": "manifests",
+        "manifestLocation": "/apps/manifests/fed-mods.json"
+    },
+    {
+        "moduleScope": "ros",
+        "manifestLocation": "/apps/ros/fed-mods.json"
+    },
+    {
+        "moduleScope": "registration",
+        "manifestLocation": "/apps/registration/fed-mods.json"
+    },
+    {
+        "moduleScope": "remediations",
+        "manifestLocation": "/apps/remediations/fed-mods.json"
+    },
+    {
+        "moduleScope": "ansibleDashboard",
+        "manifestLocation": "/apps/ansible-dashboard/fed-mods.json"
+    },
+    {
+        "moduleScope": "approval",
+        "manifestLocation": "/apps/approval/fed-mods.json"
+    }
+]
