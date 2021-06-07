@@ -1,4 +1,26 @@
 {
+    "landingPage": [
+        {
+            "id": "application-services",
+            "title": "Application services",
+            "pathname": "/application-services"
+        },
+        {
+            "id": "openshift",
+            "title": "OpenShift",
+            "pathname": "/openshift"
+        },
+        {
+            "id": "rhel",
+            "title": "Red Hat Enterprise Linux",
+            "pathname": "/insights"
+        },
+        {
+            "id": "ansbile",
+            "title": "Ansible Automation Platform",
+            "pathname": "/ansible"
+        }
+    ],
     "leftNav": [
         {
             "id": "application-services",
