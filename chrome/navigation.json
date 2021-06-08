@@ -21,7 +21,7 @@
             "pathname": "/ansible"
         }
     ],
-    "userPrefferences": [
+    "userPreferences": [
         {
             "id": "email-preferences",
             "title": "Email preferences",
