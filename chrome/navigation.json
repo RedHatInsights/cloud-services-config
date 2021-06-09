@@ -1,40 +1,4 @@
 {
-    "userPreferences": [
-        {
-            "id": "email-preferences",
-            "title": "Email preferences",
-            "moduleScope": "userPreferences",
-            "module": "./RootApp",
-            "pathname": [
-                "/user-preferences",
-                "/user-preferences/email"
-            ]
-        },
-        {
-            "id": "notifications",
-            "title": "Notifications",
-            "moduleScope": "userPreferences",
-            "module": "./RootApp",
-            "pathname": "/user-preferences/notifications",
-            "routes": [
-                {
-                    "id": "notifications-rhel",
-                    "title": "Red Hat Enterprise Linux",
-                    "pathname": "/user-preferences/notifications/rhel"
-                },
-                {
-                    "id": "notifications-openshift",
-                    "title": "Openshift",
-                    "pathname": "/user-preferences/notifications/openshift"
-                },
-                {
-                    "id": "notifications-application-services",
-                    "title": "Application Services",
-                    "pathname": "/user-preferences/notifications/application-services"
-                }
-            ]
-        }
-    ],
     "leftNav": [
         {
             "id": "application-services",
