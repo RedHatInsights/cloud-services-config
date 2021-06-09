@@ -37,12 +37,28 @@ advisor:
         title: Topics
   source_repo: https://github.com/RedHatInsights/insights-advisor-frontend
 
+ansible-dashboard:
+  title: Overview
+  deployment_repo: https://github.com/RedHatInsights/ansible-platform-dashboard-build
+  frontend:
+    module:
+      appName: ansible-dashboard
+      scope: ansibleDashboard
+      module: ./RootApp
+      group: ansible-dashboard
+    paths:
+      - /ansible
+      - /ansible/ansible-dashboard
+  source_repo: https://github.com/RedHatInsights/ansible-platform-dashboard
+
 ansible:
   title: Ansible Automation Platform
   frontend:
     sub_apps:
-      - id: automation-hub
+      - id: ansible-dashboard
         default: true
+        group: ansible-dashboard
+      - id: automation-hub
       - id: catalog
       - id: automation-analytics
   top_level: true
@@ -114,8 +130,7 @@ automation-analytics:
   frontend:
     section: insights
     paths:
-      - /ansible
-      - /ansible/automation-analytics
+      - /ansible/insights
     sub_apps:
       - id : savings-planner
         title: Savings Planner
@@ -127,7 +142,6 @@ automation-analytics:
         title: Job Explorer
       - id: clusters
         title: Clusters
-        default: true
       - id: notifications
         title: Notifications
   source_repo: https://github.com/RedHatInsights/tower-analytics-frontend
