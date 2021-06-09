@@ -1,0 +1,109 @@
+{
+    "appId": "openshift",
+    "title": "Openshift",
+    "expandable": true,
+    "navItems": [
+        {
+            "appId": "openshift",
+            "href": "/openshift",
+            "title": "Cluster Management"
+        },
+        {
+            "id": "openshift-overview",
+            "href": "/openshift/overview",
+            "title": "Overview"
+        },
+        {
+            "appId": "openshift",
+            "href": "/openshift/releases",
+            "title": "Releases"
+        },
+        {
+            "groupId": "insights",
+            "title": "Insights",
+            "navItems": [
+                {
+                    "id": "subscribtions",
+                    "href": "/openshift/subscriptions",
+                    "title": "Subscriptions",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "id": "openshift-subscribtions-containers",
+                            "title": "Container Platform",
+                            "href": "/openshift/subscriptions/openshift-container"
+                        },
+                        {
+                            "id": "openshift-quota",
+                            "title": "Dedicated (Annual)",
+                            "href": "/openshift/quota"
+                        },
+                        {
+                            "id": "openshift-subscribtions-dedicated",
+                            "title": "Dedicated (On-Demand)",
+                            "href": "/openshift/subscriptions/openshift-dedicated"
+                        },
+                        {
+                            "id": "openshift-resource-limits",
+                            "title": "Dedicated (On-Demand limits)",
+                            "href": "/openshift/quota/resource-limits"
+                        },
+                        {
+                            "id": "openshift-rhel",
+                            "title": "RHEL Subscriptions",
+                            "forceRefresh": true,
+                            "href": "/insights/subscriptions/rhel"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "appId": "cost-management",
+            "title": "Cost Management",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "cost-management",
+                    "title": "Overview",
+                    "href": "/openshift/cost-management"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "OpenShift",
+                    "href": "/openshift/cost-management/ocp"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Amazon Web Services",
+                    "href": "/openshift/cost-management/aws"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Microsoft Azure",
+                    "href": "/openshift/cost-management/azure"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Google Cloud Platform",
+                    "href": "/openshift/cost-management/gcp"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "IBM Cloud",
+                    "href": "/openshift/cost-management/ibm"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Cost models",
+                    "href": "/openshift/cost-management/cost-models"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Cost models",
+                    "href": "/openshift/cost-management/explorer"
+                }
+            ]
+        }
+    ]
+}
