@@ -1,5 +1,6 @@
 {
     "id": "application-services",
+    "title": "Application services",
     "navItems": [
         {
             "appId": "application-services",
@@ -7,7 +8,6 @@
             "href": "/application-services/overview"
         },
         {
-            "appId": "streams",
             "title": "Streams for Apache Kafka",
             "expandable": true,
             "routes": [
@@ -27,7 +27,6 @@
                     "href": "/application-services/streams/resources"
                 },
                 {
-                    "appId": "streams",
                     "title": "Documentation",
                     "isExternal": true,
                     "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"

@@ -1,5 +1,6 @@
 {
     "id": "user-preferences",
+    "title": "User preferences",
     "navItems": [
         {
             "appId": "userPreferences",
@@ -7,7 +8,6 @@
             "href": "/user-preferences/email"
         },
         {
-            "appId": "userPreferences",
             "title": "Notifications",
             "expandable": true,
             "routes": [

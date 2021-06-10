@@ -168,8 +168,7 @@
                         {
                             "appId": "openshift",
                             "title": "OpenShift Subscriptions",
-                            "href": "/openshift/subscriptions/openshift-container",
-                            "forceRefresh": true
+                            "href": "/openshift/subscriptions/openshift-container"
                         },
                         {
                             "appId": "subscriptions",
@@ -196,7 +195,7 @@
             "href": "/insights/registration"
         },
         {
-            "id": "remediations",
+            "appId": "remediations",
             "title": "Remediations",
             "href": "/insights/remediations"
         }

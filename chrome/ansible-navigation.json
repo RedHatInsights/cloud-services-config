@@ -8,7 +8,6 @@
             "href": "/ansible/ansible-dashboard"
         },
         {
-            "appId": "ansible-automation-hub",
             "title": "Automation Hub",
             "expandable": true,
             "routes": [
@@ -40,7 +39,6 @@
             ]
         },
         {
-            "appId": "catalog",
             "title": "Automation Services Catalog",
             "expandable": true,
             "routes": [
@@ -99,7 +97,6 @@
         {
             "groupId": "insights",
             "title": "Insights",
-            "expandable": true,
             "navItems": [
                 {
                     "appId": "ansible-automation-analytics",

@@ -349,7 +349,7 @@
             {
                 "id": "ansible-automation-analytics",
                 "dynamic": false,
-                "rouutes": [
+                "routes": [
                     "/ansible/insights",
                     "/ansible/savings-planner",
                     "/ansible/automation-calculator",
@@ -365,6 +365,7 @@
         "dynamic": false,
         "modules": [
             {
+                "id": "application-services",
                 "dynamic": false,
                 "routes": [
                     "/application-services"
@@ -376,6 +377,7 @@
         "dynamic": false,
         "modules": [
             {
+                "id": "streams",
                 "dynamic": false,
                 "routes": [
                     "/application-services/streams"

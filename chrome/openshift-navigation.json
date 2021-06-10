@@ -1,7 +1,6 @@
 {
-    "appId": "openshift",
+    "id": "openshift",
     "title": "Openshift",
-    "expandable": true,
     "navItems": [
         {
             "appId": "openshift",
@@ -9,7 +8,7 @@
             "title": "Cluster Management"
         },
         {
-            "id": "openshift-overview",
+            "appId": "openshift-overview",
             "href": "/openshift/overview",
             "title": "Overview"
         },
@@ -23,35 +22,32 @@
             "title": "Insights",
             "navItems": [
                 {
-                    "id": "subscribtions",
-                    "href": "/openshift/subscriptions",
                     "title": "Subscriptions",
                     "expandable": true,
                     "routes": [
                         {
-                            "id": "openshift-subscribtions-containers",
+                            "appId": "openshift-subscribtions-containers",
                             "title": "Container Platform",
                             "href": "/openshift/subscriptions/openshift-container"
                         },
                         {
-                            "id": "openshift-quota",
+                            "appId": "openshift-quota",
                             "title": "Dedicated (Annual)",
                             "href": "/openshift/quota"
                         },
                         {
-                            "id": "openshift-subscribtions-dedicated",
+                            "appId": "openshift-subscribtions-dedicated",
                             "title": "Dedicated (On-Demand)",
                             "href": "/openshift/subscriptions/openshift-dedicated"
                         },
                         {
-                            "id": "openshift-resource-limits",
+                            "appId": "openshift-resource-limits",
                             "title": "Dedicated (On-Demand limits)",
                             "href": "/openshift/quota/resource-limits"
                         },
                         {
-                            "id": "openshift-rhel",
+                            "appId": "openshift-rhel",
                             "title": "RHEL Subscriptions",
-                            "forceRefresh": true,
                             "href": "/insights/subscriptions/rhel"
                         }
                     ]
@@ -59,7 +55,6 @@
             ]
         },
         {
-            "appId": "cost-management",
             "title": "Cost Management",
             "expandable": true,
             "routes": [

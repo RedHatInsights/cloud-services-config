@@ -1,5 +1,6 @@
 {
     "id": "settings",
+    "title": "Settings",
     "navItems": [
         {
             "appId": "rbac",
@@ -7,7 +8,6 @@
             "href": "/settings/my-user-access"
         },
         {
-            "appId": "rbac",
             "title": "User access",
             "expandable": true,
             "routes": [
@@ -44,7 +44,6 @@
             "href": "/settings/integrations"
         },
         {
-            "appId": "notifications",
             "title": "Notifications",
             "expandable": true,
             "routes": [
@@ -71,7 +70,6 @@
             "href": "/settings/connector"
         },
         {
-            "id": "applications",
             "title": "Applications",
             "expandable": true,
             "permissions": [
@@ -84,26 +82,30 @@
             ],
             "routes": [
                 {
-                    "id": "applications",
+                    "appId": "applications",
                     "title": "Advisor",
                     "href": "/settings/applications/advisor",
-                    "permissions": {
-                        "method": "isEntitled",
-                        "args": [
-                            "insights"
-                        ]
-                    }
+                    "permissions": [
+                        {
+                            "method": "isEntitled",
+                            "args": [
+                                "insights"
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "id": "applications",
+                    "appId": "applications",
                     "title": "Cost Management",
                     "href": "/settings/applications/cost-management",
-                    "permissions": {
-                        "method": "isEntitled",
-                        "args": [
-                            "cost_management"
-                        ]
-                    }
+                    "permissions": [
+                        {
+                            "method": "isEntitled",
+                            "args": [
+                                "cost_management"
+                            ]
+                        }
+                    ]
                 }
             ]
         }
