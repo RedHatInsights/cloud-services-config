@@ -747,7 +747,7 @@
                                   }
                               ],
                               "criteriaMustSatisfy": "all"
-                          }
+                            },
                             {
                                 "name": "Beta Ansible Automation Insights Automation Calculator",
                                 "children": [],
