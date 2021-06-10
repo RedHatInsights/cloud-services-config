@@ -219,6 +219,29 @@
             }
         ]
     },
+    "subscriptions": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "insights-subscriptions",
+                "routes": [
+                    {
+                        "pathname": "/insights/subscriptions",
+                        "dynamic": false
+                    }
+                ]
+            },
+            {
+                "id": "oepnshift-subscriptions",
+                "routes": [
+                    {
+                        "pathname": "/openshift/subscriptions",
+                        "dynamic": false
+                    }
+                ]
+            }
+        ]
+    },
     "manifests": {
         "manifestLocation": "/apps/manifests/fed-mods.json",
         "modules": [
@@ -292,6 +315,70 @@
                 "module": "./RootApp",
                 "routes": [
                     "/ansible/catalog/approval"
+                ]
+            }
+        ]
+    },
+    "catalog": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "catalog",
+                "dynamic": false,
+                "routes": [
+                    "/ansible/catalog"
+                ]
+            }
+        ]
+    },
+    "ansible-automation-hub": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "ansible-automation-hub",
+                "dynamic": false,
+                "routes": [
+                    "/ansible/ansible-automation-hub"
+                ]
+            }
+        ]
+    },
+    "ansible-automation-analytics": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "ansible-automation-analytics",
+                "dynamic": false,
+                "rouutes": [
+                    "/ansible/insights",
+                    "/ansible/savings-planner",
+                    "/ansible/automation-calculator",
+                    "/ansible/organization-statistics",
+                    "/ansible/job-explorer",
+                    "/ansible/clusters",
+                    "/ansible/notifications"
+                ]
+            }
+        ]
+    },
+    "application-services": {
+        "dynamic": false,
+        "modules": [
+            {
+                "dynamic": false,
+                "routes": [
+                    "/application-services"
+                ]
+            }
+        ]
+    },
+    "streams": {
+        "dynamic": false,
+        "modules": [
+            {
+                "dynamic": false,
+                "routes": [
+                    "/application-services/streams"
                 ]
             }
         ]
