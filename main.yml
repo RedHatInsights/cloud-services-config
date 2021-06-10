@@ -620,6 +620,8 @@ openshift:
       - id: releases
         title: Releases
         group: openshift
+      - id: ocp-advisor
+        group: insights
       - id: subscriptions
         title: Subscriptions
         section: insights
@@ -643,6 +645,23 @@ openshift:
         section: insights
 
   top_level: true
+
+ocp-advisor: 
+  title: Advisor
+  source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
+  deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
+  frontend:
+    module: ocp-advisor#./RootApp
+    isHidden: true
+    paths:
+      - /openshift/insights/advisor
+    sub_apps:
+      - id: clusters
+        title: Clusters
+        reload: clusters 
+      - id: recommendations
+        title: Recommendations
+        reload: recommendations
 
 streams:
   title: "Streams for Apache Kafka"
