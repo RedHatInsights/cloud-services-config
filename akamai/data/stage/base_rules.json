@@ -1456,7 +1456,7 @@
                                   }
                               ],
                               "criteriaMustSatisfy": "all"
-                          },
+                            },
                             {
                                 "name": "Ansible Automation Insights Automation Calculator",
                                 "children": [],
