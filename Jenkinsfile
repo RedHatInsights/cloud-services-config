@@ -106,6 +106,7 @@ node {
           cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
     }
@@ -135,6 +136,7 @@ node {
             cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
             chmod 600 ~/.ssh/known_hosts
             rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
       }
@@ -206,6 +208,7 @@ node {
           cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
     }
@@ -235,6 +238,7 @@ node {
             cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
             chmod 600 ~/.ssh/known_hosts
             rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
       }
