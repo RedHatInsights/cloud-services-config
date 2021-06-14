@@ -384,5 +384,30 @@
                 ]
             }
         ]
+    },
+    "trust": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "trust",
+                "dynamic": false,
+                "routes": [
+                    "/security/insights"
+                ]
+            }
+        ]
+    },
+    "apiDocs": {
+        "manifestLocation": "/apps/api-docs/fed-mods.json",
+        "modules": [
+            {
+                "id": "api-docs",
+                "module": "./RootApp",
+                "routes": [
+                    "/docs/api",
+                    "/docs"
+                ]
+            }
+        ]
     }
 }

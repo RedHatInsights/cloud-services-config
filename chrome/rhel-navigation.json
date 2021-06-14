@@ -178,7 +178,7 @@
                         {
                             "title": "Documentation",
                             "isExternal": true,
-                            "href": "https://access.redhat.com/products/subscription-central?extIdCarryOver=true&sc_cid=701f2000001Css5AAC"
+                            "href": "https://access.redhat.com/products/subscription-central"
                         }
                     ]
                 },
@@ -198,6 +198,27 @@
             "appId": "remediations",
             "title": "Remediations",
             "href": "/insights/remediations"
+        },
+        {
+            "title": "Product Materials",
+            "expandable": true,
+            "routes": [
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
+                },
+                {
+                    "appId": "trust",
+                    "title": "Security Information",
+                    "href": "/security/insights"
+                },
+                {
+                    "appId": "apiDocs",
+                    "title": "APIs",
+                    "href": "/docs/api"
+                }
+            ]
         }
     ]
 }

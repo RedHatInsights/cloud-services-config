@@ -8,7 +8,7 @@
             "href": "/settings/my-user-access"
         },
         {
-            "title": "User access",
+            "title": "User Access",
             "expandable": true,
             "routes": [
                 {

@@ -12,6 +12,7 @@ const routeSchema = Joi.object({
     then: Joi.forbidden(),
     otherwise: Joi.required()
   }),
+  isBeta: Joi.bool(),
   title: Joi.string().required(),
   href: Joi.string().required(),
   permissions: Joi.array().items(permissionsSchema),
@@ -19,11 +20,18 @@ const routeSchema = Joi.object({
 })
 
 const navItemSchema = Joi.object({
-  appId: Joi.string().when('href', {
+  appId: Joi.string()
+  .when('isExternal', {
+    is: Joi.exist(),
+    then: Joi.optional(),
+    break: true,
+  })
+  .when('href', {
     is: Joi.exist(),
     then: Joi.required(),
     otherwise: Joi.forbidden(),
   }),
+  isExternal: Joi.bool(),
   title: Joi.string().required(),
   groupId: Joi.string(),
   href: Joi.string().when('expandable', {

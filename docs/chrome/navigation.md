@@ -22,6 +22,10 @@ interface Route = {
    * @example "/insights/advisor/recommendations"
   */
   href: string
+  /**
+   * Link will redirect user to beta env
+  */
+  isBeta?: boolean;
   permissions?: Permissions[]
   /**
    * Marks an external link. The browser will open a new tab.

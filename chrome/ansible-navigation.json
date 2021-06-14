@@ -129,6 +129,11 @@
                     "href": "/ansible/insights/notifications"
                 }
             ]
+        },
+        {
+            "title": "Documentation",
+            "isExternal": true,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
         }
     ]
 }
