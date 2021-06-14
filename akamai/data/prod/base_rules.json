@@ -1665,6 +1665,57 @@
                             }
                         ],
                         "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "gateway-origin",
+                        "children": [],
+                        "behaviors": [
+                            <<gateway-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "cert.cloud.stage.redhat.com",
+                                        "cloud.stage.redhat.com"
+                                    ]
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "FedRAMP-origin",
+                        "children": [],
+                        "behaviors": [
+                            <<FedRAMP-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "gov.cloud.stage.redhat.com"
+                                    ]
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
                     }
                 ],
                 "behaviors": [
@@ -1676,7 +1727,6 @@
                             "standardPassHeaderName": "OTHER"
                         }
                     },
-                    <<gateway-origin-json>>,
                     {
                         "name": "modifyOutgoingRequestHeader",
                         "options": {
@@ -1716,12 +1766,6 @@
                             "standardAddHeaderName": "OTHER",
                             "headerValue": "<<prod-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
-                        }
-                    },
-                    {
-                        "name": "caching",
-                        "options": {
-                            "behavior": "NO_STORE"
                         }
                     },
                     {
@@ -2124,6 +2168,57 @@
                         ],
                         "criteria": [],
                         "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "gateway-origin",
+                        "children": [],
+                        "behaviors": [
+                            <<gateway-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "cert.cloud.stage.redhat.com",
+                                        "cloud.stage.redhat.com"
+                                    ]
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "FedRAMP-origin",
+                        "children": [],
+                        "behaviors": [
+                            <<FedRAMP-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "gov.cloud.stage.redhat.com"
+                                    ]
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
                     }
                 ],
                 "behaviors": [
@@ -2135,7 +2230,6 @@
                             "standardPassHeaderName": "OTHER"
                         }
                     },
-                    <<gateway-origin-json>>,
                     {
                         "name": "modifyOutgoingRequestHeader",
                         "options": {
@@ -2175,12 +2269,6 @@
                             "standardAddHeaderName": "OTHER",
                             "headerValue": "<<prod-gateway-secret>>",
                             "customHeaderName": "x-rh-insights-gateway-secret"
-                        }
-                    },
-                    {
-                        "name": "caching",
-                        "options": {
-                            "behavior": "NO_STORE"
                         }
                     },
                     {
@@ -2872,37 +2960,6 @@
                     }
                 ],
                 "name": "Client Cert"
-            },
-            {
-                "name": "Redirect Top Level for FedRAMP",
-                "children": [],
-                "behaviors": [
-                    {
-                        "name": "redirect",
-                        "options": {
-                            "queryString": "APPEND",
-                            "responseCode": 301,
-                            "destinationHostname": "OTHER",
-                            "destinationPath": "SAME_AS_REQUEST",
-                            "destinationProtocol": "SAME_AS_REQUEST",
-                            "mobileDefaultChoice": "DEFAULT",
-                            "destinationHostnameOther": "api-gateway-stage.apps.crcgovs02ue1.43j0.p1.openshiftapps.com"
-                        }
-                    }
-                ],
-                "criteria": [
-                    {
-                        "name": "hostname",
-                        "options": {
-                            "matchOperator": "IS_ONE_OF",
-                            "values": [
-                                "gov.cloud.redhat.com"
-                            ]
-                        }
-                    }
-                ],
-                "criteriaMustSatisfy": "all",
-                "comments": ""
             }
         ],
         "options": {
