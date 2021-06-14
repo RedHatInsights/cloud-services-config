@@ -31,6 +31,7 @@ const navItemSchema = Joi.object({
     then: Joi.required(),
     otherwise: Joi.forbidden(),
   }),
+  isHidden: Joi.bool(),
   isExternal: Joi.bool(),
   title: Joi.string().required(),
   groupId: Joi.string(),
