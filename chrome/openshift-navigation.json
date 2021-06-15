@@ -1,0 +1,141 @@
+{
+    "id": "openshift",
+    "title": "Openshift",
+    "navItems": [
+        {
+            "appId": "openshift",
+            "href": "/openshift",
+            "title": "Cluster Management"
+        },
+        {
+            "appId": "openshift-overview",
+            "href": "/openshift/overview",
+            "title": "Overview"
+        },
+        {
+            "appId": "openshift",
+            "href": "/openshift/releases",
+            "title": "Releases"
+        },
+        {
+            "groupId": "insights",
+            "title": "Insights",
+            "navItems": [
+                {
+                    "title": "Advisor",
+                    "expandable": true,
+                    "isHidden": true,
+                    "routes": [
+                        {
+                            "appId": "ocp-advisor",
+                            "title": "Clusters",
+                            "href": "/openshift/insights/advisor/clusters"
+                        },
+                        {
+                            "appId": "ocp-advisor",
+                            "title": "Recommendations",
+                            "href": "/openshift/insights/advisor/recommendations"
+                        }
+                    ]
+                },
+                {
+                    "title": "Subscriptions",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "openshift-subscribtions-containers",
+                            "title": "Container Platform",
+                            "href": "/openshift/subscriptions/openshift-container"
+                        },
+                        {
+                            "appId": "openshift-quota",
+                            "title": "Dedicated (Annual)",
+                            "href": "/openshift/quota"
+                        },
+                        {
+                            "appId": "openshift-subscribtions-dedicated",
+                            "title": "Dedicated (On-Demand)",
+                            "href": "/openshift/subscriptions/openshift-dedicated"
+                        },
+                        {
+                            "appId": "openshift-resource-limits",
+                            "title": "Dedicated (On-Demand limits)",
+                            "href": "/openshift/quota/resource-limits"
+                        },
+                        {
+                            "appId": "openshift-rhel",
+                            "title": "RHEL Subscriptions",
+                            "href": "/insights/subscriptions/rhel"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Cost Management",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "cost-management",
+                    "title": "Overview",
+                    "href": "/openshift/cost-management"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "OpenShift",
+                    "href": "/openshift/cost-management/ocp"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Amazon Web Services",
+                    "href": "/openshift/cost-management/aws"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Microsoft Azure",
+                    "href": "/openshift/cost-management/azure"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Google Cloud Platform",
+                    "href": "/openshift/cost-management/gcp"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "IBM Cloud",
+                    "href": "/openshift/cost-management/ibm"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Cost models",
+                    "href": "/openshift/cost-management/cost-models"
+                },
+                {
+                    "appId": "cost-management",
+                    "title": "Cost models",
+                    "href": "/openshift/cost-management/explorer"
+                }
+            ]
+        },
+        {
+            "title": "Support Cases",
+            "href": "https://access.redhat.com/support/cases",
+            "isExternal": true
+        },
+        {
+            "title": "Cluster Manager Feedback",
+            "href": "mailto:ocm-feedback@redhat.com",
+            "isExternal": true
+        },
+        {
+            "title": "Red Hat Marketplace",
+            "href": "https://marketplace.redhat.com",
+            "isExternal": true
+        },
+        {
+            "href": "https://access.redhat.com/documentation/en-us/openshift_cluster_manager/",
+            "title": "Documentation",
+            "isExternal": true
+        }
+    ]
+}

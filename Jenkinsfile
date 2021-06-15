@@ -45,6 +45,7 @@ node {
 
     sh "wget -O main.yml.bak ${CSC_CONFIG_PATH}/main.yml"
     sh "wget -O releases.yml.bak ${CSC_CONFIG_PATH}/releases.yml"
+    sh "wget -r -np -A \"*.json\" -nd ${CSC_CONFIG_PATH}/chrome/ -P ./chrome.bak"
   }
 
   stage ("build & activate on Akamai staging") {
@@ -106,6 +107,7 @@ node {
           cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
     }
@@ -125,6 +127,8 @@ node {
         sh "cp main.yml.bak main.yml"
         sh "rm releases.yml"
         sh "cp releases.yml.bak releases.yml"
+        sh "rm -r chrome"
+        sh "cp -r chrome.bak chrome"
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
                 keyFileVariable: "privateKeyFile",
                 passphraseVariable: "",
@@ -135,6 +139,7 @@ node {
             cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
             chmod 600 ~/.ssh/known_hosts
             rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
       }
@@ -206,6 +211,7 @@ node {
           cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
     }
@@ -225,6 +231,8 @@ node {
         sh "cp main.yml.bak main.yml"
         sh "rm releases.yml"
         sh "cp releases.yml.bak releases.yml"
+        sh "rm -r chrome"
+        sh "cp -r chrome.bak chrome"
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
                 keyFileVariable: "privateKeyFile",
                 passphraseVariable: "",
@@ -235,6 +243,7 @@ node {
             cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
             chmod 600 ~/.ssh/known_hosts
             rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+            rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
       }
