@@ -8,7 +8,7 @@ install:
 jobs:
   include:
     - stage: validate
-      script: npm run validate-yaml
+      script: npm run validate-yaml && npm run validate-chrome
 cache:
   directories:
     - "$HOME/.npm"
