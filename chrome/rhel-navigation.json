@@ -1,0 +1,224 @@
+{
+    "id": "rhel",
+    "title": "Red Hat Enterprise Linux",
+    "navItems": [
+        {
+            "appId": "dashboard",
+            "title": "Dashboard",
+            "href": "/insights/dashboard"
+        },
+        {
+            "groupId": "operations",
+            "title": "Operations Insights",
+            "icon": "wrench",
+            "navItems": [
+                {
+                    "title": "Advisor",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "advisor",
+                            "title": "Recommendations",
+                            "href": "/insights/advisor/recommendations"
+                        },
+                        {
+                            "appId": "advisor",
+                            "title": "Systems",
+                            "href": "/insights/advisor/systems"
+                        },
+                        {
+                            "appId": "approval",
+                            "title": "Topics",
+                            "href": "/insights/advisor/topics"
+                        }
+                    ]
+                },
+                {
+                    "title": "Drift",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "drift",
+                            "title": "Comparison",
+                            "href": "/insights/drift/"
+                        },
+                        {
+                            "appId": "drift",
+                            "title": "Baselines",
+                            "href": "/insights/drift/baselines"
+                        }
+                    ]
+                },
+                {
+                    "appId": "inventory",
+                    "title": "Inventory",
+                    "href": "/insights/inventory"
+                }
+            ]
+        },
+        {
+            "groupId": "security",
+            "title": "Security Insights",
+            "icon": "shield",
+            "navItems": [
+                {
+                    "title": "Vulnerability",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "vulnerability",
+                            "title": "Vulnerability",
+                            "href": "/insights/vulnerability/cves"
+                        },
+                        {
+                            "appId": "vulnerability",
+                            "title": "Reports",
+                            "href": "/insights/vulnerability/reports"
+                        },
+                        {
+                            "appId": "vulnerability",
+                            "title": "Systems",
+                            "href": "/insights/vulnerability/systems"
+                        }
+                    ]
+                },
+                {
+                    "title": "Compliance",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "compliance",
+                            "title": "Reports",
+                            "href": "/insights/compliance/reports"
+                        },
+                        {
+                            "appId": "compliance",
+                            "title": "SCAP Policies",
+                            "href": "/insights/compliance/scappolicies"
+                        },
+                        {
+                            "appId": "compliance",
+                            "title": "Systems",
+                            "href": "/insights/compliance/systems"
+                        }
+                    ]
+                },
+                {
+                    "appId": "policies",
+                    "title": "Policies",
+                    "href": "/insights/policies"
+                },
+                {
+                    "title": "Patch",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "patch",
+                            "title": "Advisories",
+                            "href": "/insights/patch/advisories"
+                        },
+                        {
+                            "appId": "patch",
+                            "title": "Systems",
+                            "href": "/insights/patch/systems"
+                        },
+                        {
+                            "appId": "patch",
+                            "title": "Packages",
+                            "href": "/insights/patch/packages"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "groupId": "business",
+            "icon": "trend-up",
+            "title": "Business Insights",
+            "navItems": [
+                {
+                    "expandable": true,
+                    "title": "Subscriptions",
+                    "routes": [
+                        {
+                            "appId": "subscriptions",
+                            "title": "All RHEL",
+                            "href": "/insights/subscriptions/rhel"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "ARM",
+                            "href": "/insights/subscriptions/rhel-arm"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "IBM Power",
+                            "href": "/insights/subscriptions/rhel-ibmpower"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "IBM Z systems",
+                            "href": "/insights/subscriptions/rhel-ibmz"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "X86",
+                            "href": "/insights/subscriptions/rhel-x86"
+                        },
+                        {
+                            "appId": "openshift",
+                            "title": "OpenShift Subscriptions",
+                            "href": "/openshift/subscriptions/openshift-container"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "Manifests",
+                            "href": "/insights/subscriptions/manifests"
+                        },
+                        {
+                            "title": "Documentation",
+                            "isExternal": true,
+                            "href": "https://access.redhat.com/products/subscription-central"
+                        }
+                    ]
+                },
+                {
+                    "appId": "ros",
+                    "title": "Resource Optimization",
+                    "href": "/insights/ros"
+                }
+            ]
+        },
+        {
+            "appId": "registration",
+            "title": "Register Systems",
+            "href": "/insights/registration"
+        },
+        {
+            "appId": "remediations",
+            "title": "Remediations",
+            "href": "/insights/remediations"
+        },
+        {
+            "title": "Product Materials",
+            "expandable": true,
+            "routes": [
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
+                },
+                {
+                    "appId": "trust",
+                    "title": "Security Information",
+                    "href": "/security/insights"
+                },
+                {
+                    "appId": "apiDocs",
+                    "title": "APIs",
+                    "href": "/docs/api"
+                }
+            ]
+        }
+    ]
+}
