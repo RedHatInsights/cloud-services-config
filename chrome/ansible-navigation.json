@@ -3,7 +3,7 @@
     "title": "Ansible Automation Platform",
     "navItems": [
         {
-            "appId": "ansible-dashboard",
+            "appId": "ansibleDashboard",
             "title": "Overview",
             "href": "/ansible/ansible-dashboard"
         },
@@ -12,27 +12,27 @@
             "expandable": true,
             "routes": [
                 {
-                    "appId": "ansible-automation-hub",
+                    "appId": "ansibleAutomationHub",
                     "title": "Collections",
                     "href": "/ansible/automation-hub"
                 },
                 {
-                    "appId": "ansible-automation-hub",
+                    "appId": "ansibleAutomationHub",
                     "title": "Partners",
                     "href": "/ansible/automation-partners"
                 },
                 {
-                    "appId": "ansible-automation-hub",
+                    "appId": "ansibleAutomationHub",
                     "title": "My namespaces",
                     "href": "/ansible/automation-my-namespaces"
                 },
                 {
-                    "appId": "ansible-automation-hub",
+                    "appId": "ansibleAutomationHub",
                     "title": "Repo Management",
                     "href": "/ansible/automation-repositories"
                 },
                 {
-                    "appId": "ansible-automation-hub",
+                    "appId": "ansibleAutomationHub",
                     "title": "Connect to Hub",
                     "href": "/ansible/automation-token"
                 }
@@ -99,32 +99,32 @@
             "title": "Insights",
             "navItems": [
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Savings Planner",
                     "href": "/ansible/insights/savings-planner"
                 },
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Automation Calculator",
                     "href": "/ansible/insights/automation-calculator"
                 },
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Organization Statistics",
                     "href": "/ansible/insights/organization-statistics"
                 },
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Job Explorer",
                     "href": "/ansible/insights/job-explorer"
                 },
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Clusters",
                     "href": "/ansible/insights/clusters"
                 },
                 {
-                    "appId": "ansible-automation-analytics",
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Notifications",
                     "href": "/ansible/insights/notifications"
                 }

@@ -8,7 +8,7 @@
             "title": "Cluster Management"
         },
         {
-            "appId": "openshift-overview",
+            "appId": "openshift",
             "href": "/openshift/overview",
             "title": "Overview"
         },
@@ -27,12 +27,12 @@
                     "isHidden": true,
                     "routes": [
                         {
-                            "appId": "ocp-advisor",
+                            "appId": "ocpAdvisor",
                             "title": "Clusters",
                             "href": "/openshift/insights/advisor/clusters"
                         },
                         {
-                            "appId": "ocp-advisor",
+                            "appId": "ocpAdvisor",
                             "title": "Recommendations",
                             "href": "/openshift/insights/advisor/recommendations"
                         }
@@ -43,27 +43,27 @@
                     "expandable": true,
                     "routes": [
                         {
-                            "appId": "openshift-subscribtions-containers",
+                            "appId": "subscriptions",
                             "title": "Container Platform",
                             "href": "/openshift/subscriptions/openshift-container"
                         },
                         {
-                            "appId": "openshift-quota",
+                            "appId": "openshift",
                             "title": "Dedicated (Annual)",
                             "href": "/openshift/quota"
                         },
                         {
-                            "appId": "openshift-subscribtions-dedicated",
+                            "appId": "subscriptions",
                             "title": "Dedicated (On-Demand)",
                             "href": "/openshift/subscriptions/openshift-dedicated"
                         },
                         {
-                            "appId": "openshift-resource-limits",
+                            "appId": "openshift",
                             "title": "Dedicated (On-Demand limits)",
                             "href": "/openshift/quota/resource-limits"
                         },
                         {
-                            "appId": "openshift-rhel",
+                            "appId": "subscriptions",
                             "title": "RHEL Subscriptions",
                             "href": "/insights/subscriptions/rhel"
                         }
@@ -76,42 +76,42 @@
             "expandable": true,
             "routes": [
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Overview",
                     "href": "/openshift/cost-management"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "OpenShift",
                     "href": "/openshift/cost-management/ocp"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Amazon Web Services",
                     "href": "/openshift/cost-management/aws"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Microsoft Azure",
                     "href": "/openshift/cost-management/azure"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Google Cloud Platform",
                     "href": "/openshift/cost-management/gcp"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "IBM Cloud",
                     "href": "/openshift/cost-management/ibm"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Cost models",
                     "href": "/openshift/cost-management/cost-models"
                 },
                 {
-                    "appId": "cost-management",
+                    "appId": "costManagement",
                     "title": "Cost models",
                     "href": "/openshift/cost-management/explorer"
                 }

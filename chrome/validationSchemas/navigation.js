@@ -7,7 +7,7 @@ const permissionsSchema = Joi.object({
 })
 
 const routeSchema = Joi.object({
-  appId: Joi.string().when('isExternal', {
+  appId: Joi.string().token().when('isExternal', {
     is: Joi.exist(),
     then: Joi.forbidden(),
     otherwise: Joi.required()
@@ -20,7 +20,7 @@ const routeSchema = Joi.object({
 })
 
 const navItemSchema = Joi.object({
-  appId: Joi.string()
+  appId: Joi.string().token()
   .when('isExternal', {
     is: Joi.exist(),
     then: Joi.optional(),
