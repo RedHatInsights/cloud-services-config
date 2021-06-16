@@ -108,6 +108,11 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Documentation",
+            "isExternal": true,
+            "href": "https://access.redhat.com/documentation/red_hat_cloud_platform/"
         }
     ]
 }
