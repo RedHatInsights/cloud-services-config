@@ -362,7 +362,7 @@
                 "id": "ansible-automation-hub",
                 "dynamic": false,
                 "routes": [
-                    "/ansible/ansible-automation-hub"
+                    "/ansible/automation-hub"
                 ]
             }
         ]
