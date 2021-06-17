@@ -449,5 +449,17 @@
                 ]
             }
         ]
+    },
+    "edge": {
+        "manifestLocation": "/apps/edge/fed-mods.json",
+        "modules": [
+            {
+                "id": "edge",
+                "module": "./RootApp",
+                "routes": [
+                    "/edge"
+                ]
+            }
+        ]
     }
 }
