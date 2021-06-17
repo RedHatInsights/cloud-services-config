@@ -3,7 +3,7 @@
     "title": "Application services",
     "navItems": [
         {
-            "appId": "application-services",
+            "appId": "applicationServices",
             "title": "Overview",
             "href": "/application-services/overview"
         },
@@ -37,22 +37,22 @@
             ]
         },
         {
-            "appId": "application-services",
+            "appId": "applicationServices",
             "title": "API Management",
             "href": "/application-services/api-management"
         },
         {
-            "appId": "application-services",
+            "appId": "applicationServices",
             "title": "Data Science",
             "href": "/application-services/data-science"
         },
         {
-            "appId": "application-services",
+            "appId": "applicationServices",
             "title": "Connectors",
             "href": "/application-services/cos"
         },
         {
-            "appId": "application-services",
+            "appId": "applicationServices",
             "title": "Service Registry",
             "href": "/application-services/sr"
         }
