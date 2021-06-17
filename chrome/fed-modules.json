@@ -1,4 +1,20 @@
 {
+    "landing": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "landing",
+                "dynamic": false,
+                "routes": [
+                    {
+                        "dynamic": false,
+                        "exact": true,
+                        "pathname": "/"
+                    }
+                ]
+            }
+        ]
+    },
     "userPreferences": {
         "manifestLocation": "/apps/user-preferences/fed-mods.json",
         "modules": [
@@ -110,7 +126,19 @@
             }
         ]
     },
-    "cost-management": {
+    "openshiftOverview": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "openshiftOverview",
+                "dynamic": false,
+                "routes": [
+                    "/openshift/overview"
+                ]
+            }
+        ]
+    },
+    "costManagement": {
         "manifestLocation": "/apps/cost-management/fed-mods.json",
         "modules": [
             {
@@ -147,7 +175,7 @@
             }
         ]
     },
-    "ocp-advisor": {
+    "ocpAdvisor": {
         "manifestLocation": "/apps/ocp-advisor/fed-mods.json",
         "modules": [
             {
@@ -302,7 +330,7 @@
             }
         ]
     },
-    "ansible-dashboard": {
+    "ansibleDashboard": {
         "manifestLocation": "/apps/ansible-dashboard/fed-mods.json",
         "modules": [
             {
@@ -343,19 +371,19 @@
             }
         ]
     },
-    "ansible-automation-hub": {
+    "ansibleAutomationHub": {
         "dynamic": false,
         "modules": [
             {
                 "id": "ansible-automation-hub",
                 "dynamic": false,
                 "routes": [
-                    "/ansible/ansible-automation-hub"
+                    "/ansible/automation-hub"
                 ]
             }
         ]
     },
-    "ansible-automation-analytics": {
+    "ansibleAutomationAnalytics": {
         "dynamic": false,
         "modules": [
             {
@@ -373,7 +401,7 @@
             }
         ]
     },
-    "application-services": {
+    "applicationServices": {
         "dynamic": false,
         "modules": [
             {
