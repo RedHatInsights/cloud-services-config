@@ -1,4 +1,20 @@
 {
+    "landing": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "landing",
+                "dynamic": false,
+                "routes": [
+                    {
+                        "dynamic": false,
+                        "exact": true,
+                        "pathname": "/"
+                    }
+                ]
+            }
+        ]
+    },
     "userPreferences": {
         "manifestLocation": "/apps/user-preferences/fed-mods.json",
         "modules": [
