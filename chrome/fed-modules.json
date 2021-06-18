@@ -461,5 +461,17 @@
                 ]
             }
         ]
+    },
+    "docsFrontend": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "docs-frontend",
+                "dynamic": false,
+                "routes": [
+                    "/docs/product"
+                ]
+            }
+        ]
     }
 }
