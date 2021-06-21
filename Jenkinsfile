@@ -58,6 +58,7 @@ node {
         withCredentials([
           file(credentialsId: "rhcs-akamai-edgerc", variable: 'EDGERC'),
           file(credentialsId: "rhcs-$ENVSTR-3scale-origin-json", variable: 'GATEWAYORIGINJSON'),
+          file(credentialsId: "rhcs-$ENVSTR-gov-3scale-origin-json", variable: 'FEDRAMPORIGINJSON'),
           file(credentialsId: "rhcs-$ENVSTR-turnpike-origin-json", variable: 'TURNPIKEORIGINJSON'),
           file(credentialsId: "rhcs-openshift-origin-json", variable: 'OPENSHIFTORIGINJSON'),
           file(credentialsId: "rhcs-openshift-mirror-origin-json", variable: 'OPENSHIFTORIGINMIRRORJSON'),
