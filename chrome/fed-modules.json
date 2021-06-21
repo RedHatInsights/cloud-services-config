@@ -55,6 +55,18 @@
             }
         ]
     },
+    "accessRequests": {
+        "manifestLocation": "/apps/access-requests/fed-mods.json",
+        "modules": [
+            {
+                "id": "internal-access",
+                "module": "./RootApp",
+                "routes": [
+                    "/internal/access-requests"
+                ]
+            }
+        ]
+    },
     "sources": {
         "manifestLocation": "/apps/sources/fed-mods.json",
         "modules": [
