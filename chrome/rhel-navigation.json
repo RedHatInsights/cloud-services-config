@@ -67,7 +67,7 @@
                     "routes": [
                         {
                             "appId": "vulnerability",
-                            "title": "Vulnerability",
+                            "title": "CVEs",
                             "href": "/insights/vulnerability/cves"
                         },
                         {

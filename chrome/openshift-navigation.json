@@ -107,12 +107,12 @@
                 },
                 {
                     "appId": "costManagement",
-                    "title": "Cost models",
+                    "title": "Cost Models",
                     "href": "/openshift/cost-management/cost-models"
                 },
                 {
                     "appId": "costManagement",
-                    "title": "Cost models",
+                    "title": "Cost Explorer",
                     "href": "/openshift/cost-management/explorer"
                 }
             ]
