@@ -21,14 +21,10 @@ node {
       ENVSTR = "prod"
     } else if (BRANCH == "stage-stable") {
       PREFIX = ""
-      STAGETESTSTR = "\'stage and stable\'"
-      PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
       ENVSTR = "stage"
     } else if (BRANCH == "stage-beta") {
       PREFIX = "beta/"
-      STAGETESTSTR = "\'stage and beta\'"
-      PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
       ENVSTR = "stage"
     } else {
@@ -38,9 +34,11 @@ node {
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
       CSC_CONFIG_PATH = "https://cloud.redhat.com/${PREFIX}config"
+      RUN_SMOKE_TESTS = true
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
       CSC_CONFIG_PATH = "https://cloud.redhat.com/${ENVSTR}/${PREFIX}config"
+      RUN_SMOKE_TESTS = false   // cannot run smoke tests on stage as it requires vpn
     }
 
     sh "wget -O main.yml.bak ${CSC_CONFIG_PATH}/main.yml"
@@ -118,9 +116,14 @@ node {
 
   stage ("run akamai staging smoke tests") {
     try {
-      openShiftUtils.withNode {
-        sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
+      if (RUN_SMOKE_TESTS) {
+        openShiftUtils.withNode {
+          sh "iqe plugin install akamai"
+          sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
+        }
+      }
+      else {
+        sh "echo Smoke tests cannot run against STAGE environment as it requires VPN connection"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
@@ -223,9 +226,14 @@ node {
 
   stage ("run akamai production smoke tests") {
     try {
-      openShiftUtils.withNode {
-        sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
+      if (RUN_SMOKE_TESTS) {
+        openShiftUtils.withNode {
+          sh "iqe plugin install akamai"
+          sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
+        }
+      }
+      else {
+        sh "echo Smoke tests cannot run against STAGE environment as it requires VPN connection"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
