@@ -21,14 +21,10 @@ node {
       ENVSTR = "prod"
     } else if (BRANCH == "stage-stable") {
       PREFIX = ""
-      STAGETESTSTR = "\'stage and stable\'"
-      PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
       ENVSTR = "stage"
     } else if (BRANCH == "stage-beta") {
       PREFIX = "beta/"
-      STAGETESTSTR = "\'stage and beta\'"
-      PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
       ENVSTR = "stage"
     } else {
@@ -38,9 +34,11 @@ node {
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
       CSC_CONFIG_PATH = "https://cloud.redhat.com/${PREFIX}config"
+      RUN_SMOKE_TESTS = true
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
       CSC_CONFIG_PATH = "https://cloud.redhat.com/${ENVSTR}/${PREFIX}config"
+      RUN_SMOKE_TESTS = false   // cannot run smoke tests on stage as it requires vpn
     }
 
     sh "wget -O main.yml.bak ${CSC_CONFIG_PATH}/main.yml"
