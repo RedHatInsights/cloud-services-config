@@ -1,0 +1,16 @@
+{
+    "id": "internal",
+    "title": "Internal;",
+    "navItems": [
+        {
+            "title": "Commit Tracker",
+            "appId": "apiDocs",
+            "href": "/internal/commit-tracker"
+        },
+        {
+            "title": "Access Requests",
+            "appId": "accessRequests",
+            "href": "/internal/access-requests"
+        }
+    ]
+}
