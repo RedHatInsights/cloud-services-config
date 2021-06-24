@@ -1684,8 +1684,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -1702,6 +1701,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -1710,7 +1719,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2179,6 +2188,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -2187,8 +2206,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2213,7 +2231,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
