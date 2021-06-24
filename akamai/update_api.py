@@ -97,6 +97,7 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
     replacements = [
         ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
         ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
+        ("<<stage-gateway-secret>>", util.getEnvVar("GATEWAYSTAGESECRET")),
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<rhorchata-origin-json>>", util.readFileAsString(util.getEnvVar("RHORCHATAORIGINJSON"))),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON"))),
