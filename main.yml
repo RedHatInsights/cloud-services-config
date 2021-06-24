@@ -528,6 +528,12 @@ openshift:
       - id: overview
         title: Overview
         group: openshift
+      - id: releases
+        title: Releases
+        group: openshift
+      - id: downloads
+        title: Downloads
+        group: openshift
       - id: subscriptions
         title: Subscriptions
         section: insights
