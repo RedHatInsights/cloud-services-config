@@ -1716,8 +1716,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -1734,6 +1733,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -1742,7 +1751,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2240,8 +2249,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2258,6 +2266,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -2266,7 +2284,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -3034,37 +3052,6 @@
                     }
                 ],
                 "name": "Client Cert"
-            },
-            {
-                "name": "Redirect Top Level for FedRAMP",
-                "children": [],
-                "behaviors": [
-                    {
-                        "name": "redirect",
-                        "options": {
-                            "queryString": "APPEND",
-                            "responseCode": 301,
-                            "destinationHostname": "OTHER",
-                            "destinationPath": "SAME_AS_REQUEST",
-                            "destinationProtocol": "SAME_AS_REQUEST",
-                            "mobileDefaultChoice": "DEFAULT",
-                            "destinationHostnameOther": "api-gateway-stage.apps.crcgovs02ue1.43j0.p1.openshiftapps.com"
-                        }
-                    }
-                ],
-                "criteria": [
-                    {
-                        "name": "hostname",
-                        "options": {
-                            "matchOperator": "IS_ONE_OF",
-                            "values": [
-                                "gov.cloud.redhat.com"
-                            ]
-                        }
-                    }
-                ],
-                "criteriaMustSatisfy": "all",
-                "comments": ""
             }
         ],
         "options": {
