@@ -96,8 +96,8 @@ def updatePropertyRulesUsingConfig(version_number, master_config_list, crc_env =
     frontend_rule_index = 5 if ("stage"==crc_env) else 4
     replacements = [
         ("<<prod-gateway-secret>>", util.getEnvVar("GATEWAYSECRET")),
-        ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
         ("<<stage-gateway-secret>>", util.getEnvVar("GATEWAYSTAGESECRET")),
+        ("<<pentest-gateway-secret>>", util.getEnvVar("PENTESTGATEWAYSECRET")),
         ("<<certauth-gateway-secret>>", util.getEnvVar("CERTAUTHSECRET")),
         ("<<rhorchata-origin-json>>", util.readFileAsString(util.getEnvVar("RHORCHATAORIGINJSON"))),
         ("<<gateway-origin-json>>", util.readFileAsString(util.getEnvVar("GATEWAYORIGINJSON"))),
