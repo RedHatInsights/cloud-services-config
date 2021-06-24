@@ -2188,16 +2188,6 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
-                            },
-                            {
-                                "name": "modifyOutgoingRequestHeader",
-                                "options": {
-                                    "action": "MODIFY",
-                                    "standardModifyHeaderName": "OTHER",
-                                    "newHeaderValue": "<<stage-gateway-secret>>",
-                                    "avoidDuplicateHeaders": false,
-                                    "customHeaderName": "x-rh-insights-gateway-secret"
-                                }
                             }
                         ],
                         "criteria": [
@@ -2222,6 +2212,16 @@
                                 "name": "caching",
                                 "options": {
                                     "behavior": "NO_STORE"
+                                }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
                                 }
                             }
                         ],
