@@ -10,6 +10,11 @@
         {
             "title": "User Access",
             "expandable": true,
+            "permissions": [
+                {
+                    "method": "isEntitled"
+                }
+            ],
             "routes": [
                 {
                     "appId": "rbac",
