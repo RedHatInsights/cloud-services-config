@@ -55,6 +55,19 @@
             }
         ]
     },
+    "commitTracker": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "commit-tracker",
+                "dynamic": false,
+                "routes": [
+                    "/internal",
+                    "/internal/commit-tracker"
+                ]
+            }
+        ]
+    },
     "accessRequests": {
         "manifestLocation": "/apps/access-requests/fed-mods.json",
         "modules": [
@@ -482,6 +495,30 @@
                 "dynamic": false,
                 "routes": [
                     "/docs/product"
+                ]
+            }
+        ]
+    },
+    "starter": {
+        "manifestLocation": "/apps/starter/fed-mods.json",
+        "modules": [
+            {
+                "id": "starter",
+                "module": "./RootApp",
+                "routes": [
+                    "/staging/starter"
+                ]
+            }
+        ]
+    },
+    "ruledev": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "ruledev",
+                "dynamic": false,
+                "routes": [
+                    "/staging/ruledev"
                 ]
             }
         ]
