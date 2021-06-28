@@ -5,12 +5,24 @@
         {
             "title": "Fleet Management",
             "appId": "edge",
-            "href": "/edge/fleet-management"
+            "href": "/edge/fleet-management",
+            "permissions": [
+                {
+                    "method": "withEmail",
+                    "args": ["@redhat.com"]
+                }
+            ]
         },
         {
             "title": "Manage images",
             "appId": "edge",
-            "href": "/edge/manage-images"
+            "href": "/edge/manage-images",
+            "permissions": [
+                {
+                    "method": "withEmail",
+                    "args": ["@redhat.com"]
+                }
+            ]
         }
     ]
 }

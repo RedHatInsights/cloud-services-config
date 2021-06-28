@@ -200,6 +200,22 @@
             "href": "/insights/remediations"
         },
         {
+            "appId": "image_builder",
+            "title": "Image builder",
+            "href": "/insights/image-builder",
+            "permissions": [
+                {
+                    "method": "apiRequest",
+                    "args": [
+                        {
+                            "url": "/api/image-builder/v1/version",
+                            "matcher": "isNotEmpty"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Product Materials",
             "expandable": true,
             "routes": [
