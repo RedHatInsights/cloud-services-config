@@ -5,22 +5,26 @@
         {
             "appId": "openshift",
             "href": "/openshift",
-            "title": "Cluster Management"
+            "title": "Cluster Management",
+            "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "appId": "openshift",
             "href": "/openshift/overview",
-            "title": "Overview"
+            "title": "Overview",
+            "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "appId": "openshift",
             "href": "/openshift/releases",
-            "title": "Releases"
+            "title": "Releases",
+            "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "appId": "openshift",
             "href": "/openshift/downloads",
-            "title": "Downloads"
+            "title": "Downloads",
+            "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "groupId": "insights",
@@ -34,12 +38,14 @@
                         {
                             "appId": "ocpAdvisor",
                             "title": "Clusters",
-                            "href": "/openshift/insights/advisor/clusters"
+                            "href": "/openshift/insights/advisor/clusters",
+                            "product": "Red Hat OpenShift Cluster Manager"
                         },
                         {
                             "appId": "ocpAdvisor",
                             "title": "Recommendations",
-                            "href": "/openshift/insights/advisor/recommendations"
+                            "href": "/openshift/insights/advisor/recommendations",
+                            "product": "Red Hat OpenShift Cluster Manager"
                         }
                     ]
                 },
@@ -50,7 +56,8 @@
                         {
                             "appId": "subscriptions",
                             "title": "Container Platform",
-                            "href": "/openshift/subscriptions/openshift-container"
+                            "href": "/openshift/subscriptions/openshift-container",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "openshift",
@@ -70,7 +77,8 @@
                         {
                             "appId": "subscriptions",
                             "title": "RHEL Subscriptions",
-                            "href": "/insights/subscriptions/rhel"
+                            "href": "/insights/subscriptions/rhel",
+                            "product": "Subscription Watch"
                         }
                     ]
                 }
@@ -83,42 +91,50 @@
                 {
                     "appId": "costManagement",
                     "title": "Overview",
-                    "href": "/openshift/cost-management"
+                    "href": "/openshift/cost-management",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "OpenShift",
-                    "href": "/openshift/cost-management/ocp"
+                    "href": "/openshift/cost-management/ocp",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "Amazon Web Services",
-                    "href": "/openshift/cost-management/aws"
+                    "href": "/openshift/cost-management/aws",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "Microsoft Azure",
-                    "href": "/openshift/cost-management/azure"
+                    "href": "/openshift/cost-management/azure",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "Google Cloud Platform",
-                    "href": "/openshift/cost-management/gcp"
+                    "href": "/openshift/cost-management/gcp",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "IBM Cloud",
-                    "href": "/openshift/cost-management/ibm"
+                    "href": "/openshift/cost-management/ibm",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "Cost Models",
-                    "href": "/openshift/cost-management/cost-models"
+                    "href": "/openshift/cost-management/cost-models",
+                    "product": "Red Hat Cost Management"
                 },
                 {
                     "appId": "costManagement",
                     "title": "Cost Explorer",
-                    "href": "/openshift/cost-management/explorer"
+                    "href": "/openshift/cost-management/explorer",
+                    "product": "Red Hat Cost Management"
                 }
             ]
         },
