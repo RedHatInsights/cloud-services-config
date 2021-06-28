@@ -1712,6 +1712,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
                                 }
@@ -2164,6 +2165,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
                                 }
@@ -2327,6 +2329,7 @@
                         "options": {
                             "values": [
                                 "cert.cloud.stage.redhat.com",
+                                "cert.gov.cloud.stage.redhat.com",
                                 "mtls.internal.cloud.stage.redhat.com"
                             ],
                             "matchOperator": "IS_ONE_OF"
@@ -2466,6 +2469,7 @@
                                 "options": {
                                     "values": [
                                         "cert.cloud.stage.redhat.com",
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "mtls.internal.cloud.stage.redhat.com"
                                     ],
                                     "matchOperator": "IS_ONE_OF"
