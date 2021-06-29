@@ -620,6 +620,9 @@ openshift:
       - id: releases
         title: Releases
         group: openshift
+      - id: downloads
+        title: Downloads
+        group: openshift
       - id: ocp-advisor
         group: insights
       - id: subscriptions
