@@ -1784,6 +1784,27 @@
                             "headerValue": "cloud.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
                         }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteria": [
@@ -2292,6 +2313,27 @@
                         "name": "webSockets",
                         "options": {
                             "enabled": true
+                        }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.redhat.com"
+                            ]
                         }
                     }
                 ],
