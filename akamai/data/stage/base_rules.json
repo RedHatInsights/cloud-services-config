@@ -1904,6 +1904,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
                                 }
@@ -2136,6 +2137,27 @@
                             "headerValue": "internal.cloud.stage.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
                         }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteria": [
@@ -2239,6 +2261,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
                                 }
@@ -2436,6 +2459,27 @@
                         "options": {
                             "enabled": true
                         }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteria": [
@@ -2519,6 +2563,7 @@
                         "options": {
                             "values": [
                                 "cert.cloud.stage.redhat.com",
+                                "cert.gov.cloud.stage.redhat.com",
                                 "mtls.internal.cloud.stage.redhat.com"
                             ],
                             "matchOperator": "IS_ONE_OF"
@@ -2658,6 +2703,7 @@
                                 "options": {
                                     "values": [
                                         "cert.cloud.stage.redhat.com",
+                                        "cert.gov.cloud.stage.redhat.com",
                                         "mtls.internal.cloud.stage.redhat.com"
                                     ],
                                     "matchOperator": "IS_ONE_OF"

@@ -1812,8 +1812,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -1830,6 +1829,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -1838,7 +1847,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -1911,6 +1920,27 @@
                             "standardAddHeaderName": "OTHER",
                             "headerValue": "cloud.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
+                        }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.redhat.com"
+                            ]
                         }
                     }
                 ],
@@ -2164,8 +2194,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "cert.cloud.stage.redhat.com",
-                                        "cloud.stage.redhat.com"
+                                        "cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2182,6 +2211,16 @@
                                 "options": {
                                     "behavior": "NO_STORE"
                                 }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
                             }
                         ],
                         "criteria": [
@@ -2190,7 +2229,7 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "gov.cloud.stage.redhat.com"
+                                        "gov.cloud.redhat.com"
                                     ]
                                 }
                             }
@@ -2420,6 +2459,27 @@
                         "name": "webSockets",
                         "options": {
                             "enabled": true
+                        }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.redhat.com"
+                            ]
                         }
                     }
                 ],
