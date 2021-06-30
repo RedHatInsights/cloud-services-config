@@ -5,7 +5,8 @@
         {
             "appId": "dashboard",
             "title": "Dashboard",
-            "href": "/insights/dashboard"
+            "href": "/insights/dashboard",
+            "product": "Red Hat Insights"
         },
         {
             "groupId": "operations",
@@ -19,17 +20,20 @@
                         {
                             "appId": "advisor",
                             "title": "Recommendations",
-                            "href": "/insights/advisor/recommendations"
+                            "href": "/insights/advisor/recommendations",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "advisor",
                             "title": "Systems",
-                            "href": "/insights/advisor/systems"
+                            "href": "/insights/advisor/systems",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "approval",
                             "title": "Topics",
-                            "href": "/insights/advisor/topics"
+                            "href": "/insights/advisor/topics",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 },
@@ -40,19 +44,22 @@
                         {
                             "appId": "drift",
                             "title": "Comparison",
-                            "href": "/insights/drift/"
+                            "href": "/insights/drift/",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "drift",
                             "title": "Baselines",
-                            "href": "/insights/drift/baselines"
+                            "href": "/insights/drift/baselines",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 },
                 {
                     "appId": "inventory",
                     "title": "Inventory",
-                    "href": "/insights/inventory"
+                    "href": "/insights/inventory",
+                    "product": "Red Hat Insights"
                 }
             ]
         },
@@ -67,18 +74,21 @@
                     "routes": [
                         {
                             "appId": "vulnerability",
-                            "title": "Vulnerability",
-                            "href": "/insights/vulnerability/cves"
+                            "title": "CVEs",
+                            "href": "/insights/vulnerability/cves",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "vulnerability",
                             "title": "Reports",
-                            "href": "/insights/vulnerability/reports"
+                            "href": "/insights/vulnerability/reports",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "vulnerability",
                             "title": "Systems",
-                            "href": "/insights/vulnerability/systems"
+                            "href": "/insights/vulnerability/systems",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 },
@@ -89,17 +99,20 @@
                         {
                             "appId": "compliance",
                             "title": "Reports",
-                            "href": "/insights/compliance/reports"
+                            "href": "/insights/compliance/reports",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "compliance",
                             "title": "SCAP Policies",
-                            "href": "/insights/compliance/scappolicies"
+                            "href": "/insights/compliance/scappolicies",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "compliance",
                             "title": "Systems",
-                            "href": "/insights/compliance/systems"
+                            "href": "/insights/compliance/systems",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 },
@@ -115,17 +128,20 @@
                         {
                             "appId": "patch",
                             "title": "Advisories",
-                            "href": "/insights/patch/advisories"
+                            "href": "/insights/patch/advisories",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "patch",
                             "title": "Systems",
-                            "href": "/insights/patch/systems"
+                            "href": "/insights/patch/systems",
+                            "product": "Red Hat Insights"
                         },
                         {
                             "appId": "patch",
                             "title": "Packages",
-                            "href": "/insights/patch/packages"
+                            "href": "/insights/patch/packages",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 }
@@ -143,37 +159,44 @@
                         {
                             "appId": "subscriptions",
                             "title": "All RHEL",
-                            "href": "/insights/subscriptions/rhel"
+                            "href": "/insights/subscriptions/rhel",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "subscriptions",
                             "title": "ARM",
-                            "href": "/insights/subscriptions/rhel-arm"
+                            "href": "/insights/subscriptions/rhel-arm",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "subscriptions",
                             "title": "IBM Power",
-                            "href": "/insights/subscriptions/rhel-ibmpower"
+                            "href": "/insights/subscriptions/rhel-ibmpower",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "subscriptions",
                             "title": "IBM Z systems",
-                            "href": "/insights/subscriptions/rhel-ibmz"
+                            "href": "/insights/subscriptions/rhel-ibmz",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "subscriptions",
                             "title": "X86",
-                            "href": "/insights/subscriptions/rhel-x86"
+                            "href": "/insights/subscriptions/rhel-x86",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "openshift",
                             "title": "OpenShift Subscriptions",
-                            "href": "/openshift/subscriptions/openshift-container"
+                            "href": "/openshift/subscriptions/openshift-container",
+                            "product": "Subscription Watch"
                         },
                         {
                             "appId": "subscriptions",
                             "title": "Manifests",
-                            "href": "/insights/subscriptions/manifests"
+                            "href": "/insights/subscriptions/manifests",
+                            "product": "Subscription Watch"
                         },
                         {
                             "title": "Documentation",
@@ -185,19 +208,39 @@
                 {
                     "appId": "ros",
                     "title": "Resource Optimization",
-                    "href": "/insights/ros"
+                    "href": "/insights/ros",
+                    "product": "Red Hat Insights"
                 }
             ]
         },
         {
             "appId": "registration",
             "title": "Register Systems",
-            "href": "/insights/registration"
+            "href": "/insights/registration",
+            "product": "Red Hat Insights"
         },
         {
             "appId": "remediations",
             "title": "Remediations",
-            "href": "/insights/remediations"
+            "href": "/insights/remediations",
+            "product": "Red Hat Insights"
+        },
+        {
+            "appId": "image_builder",
+            "title": "Image builder",
+            "href": "/insights/image-builder",
+            "product": "Red Hat Insights",
+            "permissions": [
+                {
+                    "method": "apiRequest",
+                    "args": [
+                        {
+                            "url": "/api/image-builder/v1/version",
+                            "matcher": "isNotEmpty"
+                        }
+                    ]
+                }
+            ]
         },
         {
             "title": "Product Materials",

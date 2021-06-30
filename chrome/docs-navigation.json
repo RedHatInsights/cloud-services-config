@@ -3,7 +3,7 @@
     "title": "Documentation",
     "navItems": [
         {
-            "title": "Api Documentation",
+            "title": "API Documentation",
             "appId": "apiDocs",
             "href": "/docs/api"
         },
