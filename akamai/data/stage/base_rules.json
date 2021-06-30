@@ -1915,6 +1915,27 @@
                             "headerValue": "cloud.stage.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
                         }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteria": [
@@ -2072,27 +2093,6 @@
                             "standardAddHeaderName": "OTHER",
                             "headerValue": "internal.cloud.stage.redhat.com",
                             "customHeaderName": "x-rh-insights-forwarded-host"
-                        }
-                    },
-                    {
-                        "name": "corsSupport",
-                        "options": {
-                            "enabled": true,
-                            "allowOrigins": "SPECIFIED",
-                            "allowCredentials": false,
-                            "allowHeaders": "ANY",
-                            "methods": [
-                                "GET",
-                                "PATCH",
-                                "POST",
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "exposeHeaders": [],
-                            "preflightMaxAge": "600s",
-                            "origins": [
-                                "console.stage.redhat.com"
-                            ]
                         }
                     }
                 ],
@@ -2395,6 +2395,27 @@
                         "options": {
                             "enabled": true
                         }
+                    },
+                    {
+                        "name": "corsSupport",
+                        "options": {
+                            "enabled": true,
+                            "allowOrigins": "SPECIFIED",
+                            "allowCredentials": false,
+                            "allowHeaders": "ANY",
+                            "methods": [
+                                "GET",
+                                "PATCH",
+                                "POST",
+                                "PUT",
+                                "DELETE"
+                            ],
+                            "exposeHeaders": [],
+                            "preflightMaxAge": "600s",
+                            "origins": [
+                                "console.stage.redhat.com"
+                            ]
+                        }
                     }
                 ],
                 "criteria": [
@@ -2424,27 +2445,6 @@
                         "name": "allowTransferEncoding",
                         "options": {
                             "enabled": true
-                        }
-                    },
-                    {
-                        "name": "corsSupport",
-                        "options": {
-                            "enabled": true,
-                            "allowOrigins": "SPECIFIED",
-                            "allowCredentials": false,
-                            "allowHeaders": "ANY",
-                            "methods": [
-                                "GET",
-                                "PATCH",
-                                "POST",
-                                "PUT",
-                                "DELETE"
-                            ],
-                            "exposeHeaders": [],
-                            "preflightMaxAge": "600s",
-                            "origins": [
-                                "console.stage.redhat.com"
-                            ]
                         }
                     }
                 ],
