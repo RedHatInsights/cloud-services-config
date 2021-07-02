@@ -297,7 +297,7 @@
                 ]
             },
             {
-                "id": "oepnshift-subscriptions",
+                "id": "openshift-subscriptions",
                 "routes": [
                     {
                         "pathname": "/openshift/subscriptions",
