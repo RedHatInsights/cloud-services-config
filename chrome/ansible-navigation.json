@@ -25,7 +25,7 @@
                 },
                 {
                     "appId": "ansibleAutomationHub",
-                    "title": "My namespaces",
+                    "title": "My Namespaces",
                     "href": "/ansible/automation-hub/automation-my-namespaces",
                     "product": "Ansible Automation Hub"
                 },
