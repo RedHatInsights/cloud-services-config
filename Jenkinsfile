@@ -115,9 +115,29 @@ node {
 
   stage ("run akamai staging smoke tests") {
     try {
-      openShiftUtils.withNode {
-        sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
+      if (RUN_SMOKE_TESTS) {
+        openShiftUtils.withNode {
+          withCredentials([
+            string(credentialsId: "vaultRoleId", variable: 'DYNACONF_IQE_VAULT_ROLE_ID'),
+            string(credentialsId: "vaultSecretId", variable: 'DYNACONF_IQE_VAULT_SECRET_ID'),
+          ]) {
+            // set some env variables for authentication in the iqe-core pod
+            withEnv([
+              "DYNACONF_IQE_VAULT_ROLE_ID=$DYNACONF_IQE_VAULT_ROLE_ID",
+              "DYNACONF_IQE_VAULT_SECRET_ID=$DYNACONF_IQE_VAULT_SECRET_ID",
+              "DYNACONF_IQE_VAULT_LOADER_ENABLED=true",
+              "ENV_FOR_DYNACONF=prod"
+            ]) {
+              // install akamai and 3scale plugins, run smoke tests
+              sh "iqe plugin install akamai 3scale"
+              sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
+              sh "iqe tests plugin 3scale --akamai-staging -m akamai_smoke"
+            }
+          }
+        }
+      }
+      else {
+        sh "echo Smoke tests cannot run against STAGE environment as it requires VPN connection"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
@@ -215,9 +235,29 @@ node {
 
   stage ("run akamai production smoke tests") {
     try {
-      openShiftUtils.withNode {
-        sh "iqe plugin install akamai"
-        sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
+      if (RUN_SMOKE_TESTS) {
+        openShiftUtils.withNode {
+          withCredentials([
+            string(credentialsId: "vaultRoleId", variable: 'DYNACONF_IQE_VAULT_ROLE_ID'),
+            string(credentialsId: "vaultSecretId", variable: 'DYNACONF_IQE_VAULT_SECRET_ID'),
+          ]) {
+            // set some env variables for authentication in the iqe-core pod
+            withEnv([
+              "DYNACONF_IQE_VAULT_ROLE_ID=$DYNACONF_IQE_VAULT_ROLE_ID",
+              "DYNACONF_IQE_VAULT_SECRET_ID=$DYNACONF_IQE_VAULT_SECRET_ID",
+              "DYNACONF_IQE_VAULT_LOADER_ENABLED=true",
+              "ENV_FOR_DYNACONF=prod"
+            ]) {
+              // install akamai and 3scale plugins, run smoke tests
+              sh "iqe plugin install akamai 3scale"
+              sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
+              sh "iqe tests plugin 3scale --akamai-production -m akamai_smoke"
+            }
+          }
+        }
+      }
+      else {
+        sh "echo Smoke tests cannot run against STAGE environment as it requires VPN connection"
       }
     } catch(e) {
       // If the tests don't all pass, roll back changes:
