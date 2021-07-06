@@ -3,8 +3,8 @@
     "title": "Cloud Tutorials",
     "navItems": [
         {
-            "appId": "cloud-tutorials",
             "title": "Cloud Tutorials",
+            "appId": "cloudTutorials",
             "href": "/mosaic/cloud-tutorials"
         }
     ]
