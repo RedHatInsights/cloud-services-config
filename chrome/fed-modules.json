@@ -534,5 +534,17 @@
                 ]
             }
         ]
+    },
+    "cloudTutorials": {
+        "manifestLocation": "/apps/cloud-tutorials/fed-mods.json",
+        "modules": [
+            {
+                "id": "cloud-tutorials",
+                "module": "./RootApp",
+                "routes": [
+                    "/mosaic/cloud-tutorials"
+                ]
+            }
+        ]
     }
 }

@@ -129,14 +129,14 @@ Application not using chrome 2 rendering will not benefit from any chrome 2 feat
 ### Prerequisites
 - UI is registered as a module in the `fed-modules.json` file.
 
-1. Open a correct navigation schema file. Navigation files are located at `chrome/<namespace>-navigation.json`. For example, if we want to add a new link to `/insights`, modify the `chrome/rhel-navigation.json`.
+1. Open a correct navigation schema file. Navigation files are located at `chrome/<namespace>-navigation.json`. For example, if we want to add a new link to `/insights`, modify the `chrome/insights-navigation.json`.
 2. Add new link entry to the schema:
 
 ```diff
-diff --git a/chrome/rhel-navigation.json b/chrome/rhel-navigation.json
+diff --git a/chrome/insights-navigation.json b/chrome/insights-navigation.json
 index ad62a21..63445cb 100644
---- a/chrome/rhel-navigation.json
-+++ b/chrome/rhel-navigation.json
+--- a/chrome/insights-navigation.json
++++ b/chrome/insights-navigation.json
 @@ -7,6 +7,11 @@
              "title": "Dashboard",
              "href": "/insights/dashboard"
@@ -209,10 +209,10 @@ Navigation groups are named sections of the navigation. Group has an extra title
 
 1. Add a new group into the `navItems` navigation attribute.
 ```diff
-diff --git a/chrome/rhel-navigation.json b/chrome/rhel-navigation.json
+diff --git a/chrome/insights-navigation.json b/chrome/insights-navigation.json
 index ad62a21..17dcf2d 100644
---- a/chrome/rhel-navigation.json
-+++ b/chrome/rhel-navigation.json
+--- a/chrome/insights-navigation.json
++++ b/chrome/insights-navigation.json
 @@ -7,6 +7,12 @@
              "title": "Dashboard",
              "href": "/insights/dashboard"
