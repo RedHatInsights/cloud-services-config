@@ -387,6 +387,9 @@ drift:
 
 edge:
   title: RHEL for Edge
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
   source_repo: https://github.com/RedHatInsights/edge-frontend
   top_level: true
