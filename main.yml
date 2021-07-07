@@ -223,10 +223,6 @@ cloud-tutorials:
     versions:
       -v1
   frontend:
-    module:
-      appName: cloud-tutorials
-      scope: cloudTutorials
-      module: ./RootApp
     title: Cloud Tutorials
     paths:
       - /mosaic/cloud-tutorials
