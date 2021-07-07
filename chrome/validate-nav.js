@@ -7,8 +7,7 @@ const navigationSchema = require('./validationSchemas/navigation');
 
 
 const navigationFiles = fs.readdirSync(__dirname)
-  .filter(f => f.endsWith('-navigation.json'))
-  .filter(f => f !== 'landing-navigation.json');
+  .filter(f => f.endsWith('-navigation.json') && f !== 'landing-navigation.json');
 const landingFile = path.resolve(__dirname, 'landing-navigation.json')
 const modulesFile = path.resolve(__dirname, 'fed-modules.json')
 
