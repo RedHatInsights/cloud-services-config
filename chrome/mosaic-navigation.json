@@ -1,0 +1,11 @@
+{
+    "id": "mosaic",
+    "title": "Cloud Tutorials",
+    "navItems": [
+        {
+            "title": "Cloud Tutorials",
+            "appId": "cloudTutorials",
+            "href": "/mosaic/cloud-tutorials"
+        }
+    ]
+}
