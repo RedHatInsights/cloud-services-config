@@ -178,6 +178,10 @@ catalog:
   channel: '#insights-catalog'
   deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
   frontend:
+    module:
+      appName: catalog
+      scope: catalog
+      module: ./RootApp
     paths:
       - /ansible/catalog
     sub_apps:
@@ -654,7 +658,7 @@ openshift:
 
   top_level: true
 
-ocp-advisor: 
+ocp-advisor:
   title: Advisor
   source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
@@ -666,7 +670,7 @@ ocp-advisor:
     sub_apps:
       - id: clusters
         title: Clusters
-        reload: clusters 
+        reload: clusters
       - id: recommendations
         title: Recommendations
         reload: recommendations
