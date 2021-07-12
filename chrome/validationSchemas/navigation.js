@@ -12,6 +12,7 @@ const routeSchema = Joi.object({
     then: Joi.forbidden(),
     otherwise: Joi.required()
   }),
+  filterable: Joi.bool(),
   isBeta: Joi.bool(),
   title: Joi.string().required(),
   href: Joi.string().required(),
@@ -33,6 +34,7 @@ const navItemSchema = Joi.object({
     otherwise: Joi.forbidden(),
   }),
   isHidden: Joi.bool(),
+  filterable: Joi.bool(),
   isExternal: Joi.bool(),
   title: Joi.string().required(),
   groupId: Joi.string(),
