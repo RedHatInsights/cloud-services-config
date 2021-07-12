@@ -51,11 +51,6 @@
                     "appId": "notifications",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/settings/notifications/rhel"
-                },
-                {
-                    "appId": "notifications",
-                    "title": "OpenShift",
-                    "href": "/settings/notifications/openshift"
                 }
             ]
         },

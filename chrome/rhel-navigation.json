@@ -149,6 +149,20 @@
             ]
         },
         {
+            "appId": "openshift",
+            "href": "/openshift/releases",
+            "title": "Releases",
+            "filterable": false,
+            "product": "Red Hat OpenShift Cluster Manager"
+        },
+        {
+            "appId": "openshift",
+            "href": "/openshift/downloads",
+            "title": "Downloads",
+            "filterable": false,
+            "product": "Red Hat OpenShift Cluster Manager"
+        },
+        {
             "groupId": "business",
             "icon": "trend-up",
             "title": "Business Insights",
