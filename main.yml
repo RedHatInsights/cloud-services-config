@@ -87,6 +87,46 @@ applications:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
 
+streams:
+  title: "Streams for Apache Kafka"
+  frontend:
+    sub_apps:
+      - id: kafkas
+        title: "Kafka Instances"
+        default: true
+      - id: service-accounts
+        title: "Service Accounts"
+      - id: resources
+        title: "Resources"
+      - id: streams-docs
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/
+
+application-services:
+  title: Application Services
+  api:
+    isBeta: true
+  deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
+  frontend:
+    title: Application Services
+    paths:
+      - /application-services
+    sub_apps:
+      - id: overview
+        title: "Overview"
+        default: true
+        group: overview
+      - id: streams
+        group: overview
+      - id: api-management
+        title: "API Management"
+        group: overview
+      - id: data-science
+        title: "Data Science"
+        group: overview
+  top_level: true
+  source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
+
 approval:
   title: Approval
   api:
@@ -381,7 +421,6 @@ insights:
       - id: patch
       - id: subscriptions
         section: business
-      - id: ros
       - id: registration
       - id: remediations
   top_level: true
@@ -393,7 +432,6 @@ integrations:
     versions:
       - v1
   frontend:
-    app_base: notifications
     module:
       appName: integrations
       scope: notifications
@@ -467,9 +505,6 @@ notifications:
         title: Red Hat Enterprise Linux
         group: notifications
         default: true
-      - id: openshift
-        title: OpenShift
-        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
@@ -480,11 +515,6 @@ openshift:
   deployment_repo: https://github.com/RedHatInsights/uhc-portal-frontend-deploy.git
   productId: Red Hat Openshift Cluster Manager
   frontend:
-    module:
-      appName: openshift
-      scope: openshift
-      module: ./RootApp
-      group: openshift
     title: OpenShift Cluster Manager
     paths:
       - /openshift
@@ -516,26 +546,8 @@ openshift:
               title: RHEL Subscriptions
               reload: '../../insights/subscriptions/rhel'
       - id: cost-management
-        section: insights
 
   top_level: true
-
-ocp-advisor: 
-  title: Advisor
-  source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
-  deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
-  frontend:
-    module: ocp-advisor#./RootApp
-    isHidden: true
-    paths:
-      - /openshift/insights/advisor
-    sub_apps:
-      - id: clusters
-        title: Clusters
-        reload: clusters 
-      - id: recommendations
-        title: Recommendations
-        reload: recommendations
 
 patch:
   title: Patch
@@ -560,12 +572,6 @@ patch:
       - id: packages
         title: Packages
   source_repo: https://github.com/RedHatInsights/patchman-ui
-
-playbook-dispatcher:
-  title: Playbook Dispatcher
-  api:
-    versions:
-      - v1
 
 policies:
   title: Policies
@@ -651,7 +657,6 @@ ros:
   frontend:
       module: ros#./RootApp
       section: business
-      title: Resource Optimization
       paths:
           - /insights/ros
   source_repo: https://github.com/RedHatInsights/ros-frontend
