@@ -12,6 +12,7 @@
             "appId": "openshift",
             "href": "/openshift/overview",
             "title": "Overview",
+            "filterable": false,
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
