@@ -241,3 +241,16 @@ External links will open a new tab in the browser. External links are commonly u
 +    "href": "https://www.redhat.com/"
 +},
 ```
+
+## Removing a link from the application filter
+
+By default, top-level links are also visible in the application filter. If a link does not directly lead to an application (such as an external documentation link), you can remove the link from the application filter by setting `filterable` flag.
+
+```diff
+{
+    "title": "Red Hat",
+    "isExternal": true,
++   "filterable": false,    
+    "href": "https://www.redhat.com/"
+},
+```

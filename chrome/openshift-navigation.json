@@ -12,18 +12,21 @@
             "appId": "openshift",
             "href": "/openshift/overview",
             "title": "Overview",
+            "filterable": false,
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "appId": "openshift",
             "href": "/openshift/releases",
             "title": "Releases",
+            "filterable": false,
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
             "appId": "openshift",
             "href": "/openshift/downloads",
             "title": "Downloads",
+            "filterable": false,
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
@@ -96,6 +99,7 @@
                 {
                     "appId": "costManagement",
                     "title": "Overview",
+                    "filterable": false,
                     "href": "/openshift/cost-management",
                     "product": "Red Hat Cost Management"
                 },
@@ -161,6 +165,7 @@
         {
             "href": "https://access.redhat.com/documentation/en-us/openshift_cluster_manager/",
             "title": "Documentation",
+            "filterable": false,
             "isExternal": true
         }
     ]

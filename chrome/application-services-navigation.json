@@ -5,6 +5,7 @@
         {
             "appId": "applicationServices",
             "title": "Overview",
+            "filterable": false,
             "href": "/application-services/overview"
         },
         {

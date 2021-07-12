@@ -33,7 +33,13 @@ interface Route = {
    * You must include the origin for external routes
    * @example href: "https://www.google.com/"
   */
-  isExternal?: boolean
+  isExternal?: boolean;
+  /**
+   * Flag to controlling link visibility in application filter
+   * @default true
+   * @example filterable: false
+  */
+  filterable?: boolean;
 }
 
 interface NavItem {
@@ -62,6 +68,12 @@ interface NavItem {
   */
   routes?: Route[]
   permissions?: Permissions[]
+  /**
+   * Flag to controlling link visibility in application filter
+   * @default true
+   * @example filterable: false
+  */
+  filterable?: boolean;
 }
 
 interface GroupItem {
