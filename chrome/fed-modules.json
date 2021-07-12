@@ -426,18 +426,6 @@
             }
         ]
     },
-    "docsFrontend": {
-        "dynamic": false,
-        "modules": [
-            {
-                "id": "docs-frontend",
-                "dynamic": false,
-                "routes": [
-                    "/docs/product"
-                ]
-            }
-        ]
-    },
     "starter": {
         "manifestLocation": "/apps/starter/fed-mods.json",
         "modules": [
