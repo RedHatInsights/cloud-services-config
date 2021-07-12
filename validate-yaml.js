@@ -25,6 +25,7 @@ const subApp = Joi.object({
     permissions: [Joi.array().items(permissionsSchema), permissionsSchema],
     section: Joi.string(),
     navigate: Joi.string(),
+    isHidden: Joi.boolean(),
     sub_apps: Joi.array().items('#subApp')
 });
 
@@ -39,6 +40,7 @@ const frontendSchema = Joi.object({
     module: [Joi.string(), moduleSchema],
     sub_apps: Joi.array().items(Joi.object({
         id: Joi.string().required().allow(''),
+        isHidden: Joi.boolean(),
         default: Joi.boolean(),
         title: Joi.string(),
         group: Joi.string(),
