@@ -462,11 +462,6 @@ insights:
       - id: subscriptions
         section: business
       - id: ros
-        permissions:
-          method: hasCookie
-          args:
-            - cs_ros_beta_enable
-            - "1"
       - id: registration
       - id: remediations
   top_level: true
@@ -638,7 +633,7 @@ openshift:
 
   top_level: true
 
-ocp-advisor: 
+ocp-advisor:
   title: Advisor
   source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
@@ -650,7 +645,7 @@ ocp-advisor:
     sub_apps:
       - id: clusters
         title: Clusters
-        reload: clusters 
+        reload: clusters
       - id: recommendations
         title: Recommendations
         reload: recommendations
