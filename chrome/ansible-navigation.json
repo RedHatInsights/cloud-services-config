@@ -5,6 +5,7 @@
         {
             "appId": "ansibleDashboard",
             "title": "Overview",
+            "filterable": false,
             "href": "/ansible/ansible-dashboard"
         },
         {
@@ -144,6 +145,7 @@
         {
             "title": "Documentation",
             "isExternal": true,
+            "filterable": false,
             "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
         }
     ]
