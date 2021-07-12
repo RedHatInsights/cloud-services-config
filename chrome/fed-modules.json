@@ -546,5 +546,17 @@
                 ]
             }
         ]
+    },
+    "malware": {
+        "manifestLocation": "/apps/malware/fed-mods.json",
+        "modules": [
+            {
+                "id": "malware",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/malware"
+                ]
+            }
+        ]
     }
 }
