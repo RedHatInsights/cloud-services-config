@@ -45,7 +45,8 @@ node {
 
     sh "wget -O main.yml.bak ${CSC_CONFIG_PATH}/main.yml"
     sh "wget -O releases.yml.bak ${CSC_CONFIG_PATH}/releases.yml"
-    sh "wget -r -np -A \"*.json\" -nd ${CSC_CONFIG_PATH}/chrome/ -P ./chrome.bak"
+    // we have to wait with the backup after first upload to akamai
+    // sh "wget -r -np -A \"*.json\" -nd ${CSC_CONFIG_PATH}/chrome/ -P ./chrome.bak"
   }
 
   stage ("build & activate on Akamai staging") {
@@ -129,8 +130,9 @@ node {
         sh "cp main.yml.bak main.yml"
         sh "rm releases.yml"
         sh "cp releases.yml.bak releases.yml"
-        sh "rm -r chrome"
-        sh "cp -r chrome.bak chrome"
+        // we have to wait with the backup after first upload to akamai
+        // sh "rm -r chrome"
+        // sh "cp -r chrome.bak chrome"
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
                 keyFileVariable: "privateKeyFile",
                 passphraseVariable: "",
@@ -233,8 +235,9 @@ node {
         sh "cp main.yml.bak main.yml"
         sh "rm releases.yml"
         sh "cp releases.yml.bak releases.yml"
-        sh "rm -r chrome"
-        sh "cp -r chrome.bak chrome"
+        // we have to wait with the backup after first upload to akamai
+        // sh "rm -r chrome"
+        // sh "cp -r chrome.bak chrome"
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
                 keyFileVariable: "privateKeyFile",
                 passphraseVariable: "",
