@@ -1,0 +1,16 @@
+{
+    "id": "staging",
+    "title": "Staging Bundle;",
+    "navItems": [
+        {
+            "title": "Commit Tracker",
+            "appId": "starter",
+            "href": "/staging/starter"
+        },
+        {
+            "title": "Access Requests",
+            "appId": "ruledev",
+            "href": "/staging/ruledev"
+        }
+    ]
+}
