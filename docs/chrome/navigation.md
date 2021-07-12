@@ -6,6 +6,7 @@
  * @see https://github.com/RedHatInsights/insights-chrome/blob/master/docs/navigation.md#permissions
 */
 type Permissions = any
+
 interface Route = {
   /**
    * Name of an Application module.
@@ -32,8 +33,15 @@ interface Route = {
    * You must include the origin for external routes
    * @example href: "https://www.google.com/"
   */
-  isExternal?: boolean
+  isExternal?: boolean;
+  /**
+   * Flag to controlling link visibility in application filter
+   * @default true
+   * @example filterable: false
+  */
+  filterable?: boolean;
 }
+
 interface NavItem {
   /**
    * Indicate if the navigation Item has a second level
@@ -60,7 +68,14 @@ interface NavItem {
   */
   routes?: Route[]
   permissions?: Permissions[]
+  /**
+   * Flag to controlling link visibility in application filter
+   * @default true
+   * @example filterable: false
+  */
+  filterable?: boolean;
 }
+
 interface GroupItem {
   /**
    * Id of the group
@@ -79,6 +94,7 @@ interface GroupItem {
   */
   navItems: NavItem[]
 }
+
 interface NavigationSchema {
   id: string
   /**
