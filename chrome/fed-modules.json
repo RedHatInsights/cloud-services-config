@@ -426,18 +426,6 @@
             }
         ]
     },
-    "starter": {
-        "manifestLocation": "/apps/starter/fed-mods.json",
-        "modules": [
-            {
-                "id": "starter",
-                "module": "./RootApp",
-                "routes": [
-                    "/staging/starter"
-                ]
-            }
-        ]
-    },
     "ruledev": {
         "dynamic": false,
         "modules": [
