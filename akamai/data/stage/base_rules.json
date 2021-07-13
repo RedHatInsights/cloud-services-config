@@ -338,6 +338,43 @@
                         "name": "Redirects",
                         "children": [
                             {
+                                "name": "Beta OpenShift Insights policies",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "OTHER",
+                                            "destinationPath": "SAME_AS_REQUEST",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationHostnameOther": "console.stage.redhat.com"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/beta/insights/policies",
+                                                "/beta/insights/policies/",
+                                                "/beta/user-preferences/notifications/rhel",
+                                                "/beta/user-preferences/notifications/rhel/",
+                                                "/beta/insights/policies/policy/*",
+                                                "/beta/insights/inventory/*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
                                 "name": "Beta OpenShift Insights Subscriptions RHEL",
                                 "children": [],
                                 "behaviors": [
@@ -937,6 +974,43 @@
                                             "matchOperator": "MATCHES_ONE_OF",
                                             "values": [
                                                 "/beta/ansible/automation-analytics/notifications*"
+                                            ],
+                                            "matchCaseSensitive": false,
+                                            "normalize": false
+                                        }
+                                    }
+                                ],
+                                "criteriaMustSatisfy": "all"
+                            },
+                            {
+                                "name": "OpenShift Insights policies",
+                                "children": [],
+                                "behaviors": [
+                                    {
+                                        "name": "redirect",
+                                        "options": {
+                                            "mobileDefaultChoice": "DEFAULT",
+                                            "destinationProtocol": "SAME_AS_REQUEST",
+                                            "destinationHostname": "OTHER",
+                                            "destinationPath": "SAME_AS_REQUEST",
+                                            "queryString": "APPEND",
+                                            "responseCode": 301,
+                                            "destinationHostnameOther": "console.stage.redhat.com"
+                                        }
+                                    }
+                                ],
+                                "criteria": [
+                                    {
+                                        "name": "path",
+                                        "options": {
+                                            "matchOperator": "MATCHES_ONE_OF",
+                                            "values": [
+                                                "/insights/policies",
+                                                "/insights/policies/",
+                                                "/insights/policies/policy/*",
+                                                "/user-preferences/notifications/rhel",
+                                                "/user-preferences/notifications/rhel/",
+                                                "/insights/inventory/*"
                                             ],
                                             "matchCaseSensitive": false,
                                             "normalize": false
