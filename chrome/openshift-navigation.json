@@ -30,11 +30,6 @@
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
-            "appId": "openshift",
-            "href": "/openshift/downloads",
-            "title": "Downloads"
-        },
-        {
             "groupId": "insights",
             "title": "Insights",
             "navItems": [
