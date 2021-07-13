@@ -149,18 +149,17 @@
             ]
         },
         {
-            "appId": "openshift",
-            "href": "/openshift/releases",
-            "title": "Releases",
+            "appId": "registration",
+            "title": "Register Systems",
             "filterable": false,
-            "product": "Red Hat OpenShift Cluster Manager"
+            "href": "/insights/registration",
+            "product": "Red Hat Insights"
         },
         {
-            "appId": "openshift",
-            "href": "/openshift/downloads",
-            "title": "Downloads",
-            "filterable": false,
-            "product": "Red Hat OpenShift Cluster Manager"
+            "appId": "remediations",
+            "title": "Remediations",
+            "href": "/insights/remediations",
+            "product": "Red Hat Insights"
         },
         {
             "groupId": "business",
@@ -222,19 +221,6 @@
                     "product": "Red Hat Insights"
                 }
             ]
-        },
-        {
-            "appId": "registration",
-            "title": "Register Systems",
-            "filterable": false,
-            "href": "/insights/registration",
-            "product": "Red Hat Insights"
-        },
-        {
-            "appId": "remediations",
-            "title": "Remediations",
-            "href": "/insights/remediations",
-            "product": "Red Hat Insights"
         },
         {
             "title": "Product Materials",
