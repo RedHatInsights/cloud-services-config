@@ -381,6 +381,34 @@ drift:
         title: Baselines
   source_repo: https://github.com/RedHatInsights/drift-frontend
 
+edge:
+  title: RHEL for Edge
+  deployment_repo: https://github.com/RedHatInsights/edge-frontend-build
+  source_repo: https://github.com/RedHatInsights/edge-frontend
+  top_level: true
+  permissions:
+    method: withEmail
+    args:
+      - "@redhat.com"
+  frontend:
+    module:
+      appName: edge
+      scope: edge
+      module: ./RootApp
+      group: fleet-management
+    title: RHEL for Edge
+    paths:
+      - /edge
+    sub_apps:
+      - id: fleet-management
+        default: true
+        title: Fleet Management
+        group: fleet-management
+      - id: manage-images
+        isHidden: true
+        title: Manage images
+        group: fleet-management
+
 frontend-assets:
   title: Frontend Assets
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
