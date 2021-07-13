@@ -1,0 +1,247 @@
+{
+    "id": "rhel",
+    "title": "Red Hat Enterprise Linux",
+    "navItems": [
+        {
+            "appId": "dashboard",
+            "title": "Dashboard",
+            "filterable": false,
+            "href": "/insights/dashboard",
+            "product": "Red Hat Insights"
+        },
+        {
+            "groupId": "operations",
+            "title": "Operations Insights",
+            "icon": "wrench",
+            "navItems": [
+                {
+                    "title": "Advisor",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "advisor",
+                            "title": "Recommendations",
+                            "href": "/insights/advisor/recommendations",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "advisor",
+                            "title": "Systems",
+                            "href": "/insights/advisor/systems",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "approval",
+                            "title": "Topics",
+                            "href": "/insights/advisor/topics",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "title": "Drift",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "drift",
+                            "title": "Comparison",
+                            "href": "/insights/drift/",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "drift",
+                            "title": "Baselines",
+                            "href": "/insights/drift/baselines",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "appId": "inventory",
+                    "title": "Inventory",
+                    "href": "/insights/inventory",
+                    "product": "Red Hat Insights"
+                }
+            ]
+        },
+        {
+            "groupId": "security",
+            "title": "Security Insights",
+            "icon": "shield",
+            "navItems": [
+                {
+                    "title": "Vulnerability",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "vulnerability",
+                            "title": "CVEs",
+                            "href": "/insights/vulnerability/cves",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "vulnerability",
+                            "title": "Reports",
+                            "href": "/insights/vulnerability/reports",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "vulnerability",
+                            "title": "Systems",
+                            "href": "/insights/vulnerability/systems",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "title": "Compliance",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "compliance",
+                            "title": "Reports",
+                            "href": "/insights/compliance/reports",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "compliance",
+                            "title": "SCAP Policies",
+                            "href": "/insights/compliance/scappolicies",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "compliance",
+                            "title": "Systems",
+                            "href": "/insights/compliance/systems",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "appId": "policies",
+                    "title": "Policies",
+                    "href": "/insights/policies"
+                },
+                {
+                    "title": "Patch",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "patch",
+                            "title": "Advisories",
+                            "href": "/insights/patch/advisories",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "patch",
+                            "title": "Systems",
+                            "href": "/insights/patch/systems",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "patch",
+                            "title": "Packages",
+                            "href": "/insights/patch/packages",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "groupId": "business",
+            "icon": "trend-up",
+            "title": "Business Insights",
+            "navItems": [
+                {
+                    "expandable": true,
+                    "title": "Subscriptions",
+                    "routes": [
+                        {
+                            "appId": "subscriptions",
+                            "title": "All RHEL",
+                            "href": "/insights/subscriptions/rhel",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "ARM",
+                            "href": "/insights/subscriptions/rhel-arm",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "IBM Power",
+                            "href": "/insights/subscriptions/rhel-ibmpower",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "IBM Z systems",
+                            "href": "/insights/subscriptions/rhel-ibmz",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "X86",
+                            "href": "/insights/subscriptions/rhel-x86",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "openshift",
+                            "title": "OpenShift Subscriptions",
+                            "href": "/openshift/subscriptions/openshift-container",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "appId": "subscriptions",
+                            "title": "Manifests",
+                            "href": "/insights/subscriptions/manifests",
+                            "product": "Subscription Watch"
+                        },
+                        {
+                            "title": "Documentation",
+                            "isExternal": true,
+                            "filterable": false,
+                            "href": "https://access.redhat.com/products/subscription-central"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "appId": "registration",
+            "title": "Register Systems",
+            "filterable": false,
+            "href": "/insights/registration",
+            "product": "Red Hat Insights"
+        },
+        {
+            "appId": "remediations",
+            "title": "Remediations",
+            "href": "/insights/remediations",
+            "product": "Red Hat Insights"
+        },
+        {
+            "title": "Product Materials",
+            "expandable": true,
+            "routes": [
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
+                },
+                {
+                    "appId": "trust",
+                    "title": "Security Information",
+                    "href": "/security/insights"
+                },
+                {
+                    "appId": "apiDocs",
+                    "title": "APIs",
+                    "href": "/docs/api"
+                }
+            ]
+        }
+    ]
+}
