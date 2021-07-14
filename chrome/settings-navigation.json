@@ -102,6 +102,7 @@
         {
             "title": "Documentation",
             "isExternal": true,
+            "filterable": false,
             "href": "https://access.redhat.com/documentation/red_hat_cloud_platform/"
         }
     ]

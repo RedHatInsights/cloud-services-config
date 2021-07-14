@@ -5,6 +5,7 @@
         {
             "appId": "dashboard",
             "title": "Dashboard",
+            "filterable": false,
             "href": "/insights/dashboard",
             "product": "Red Hat Insights"
         },
@@ -195,6 +196,7 @@
                         {
                             "title": "Documentation",
                             "isExternal": true,
+                            "filterable": false,
                             "href": "https://access.redhat.com/products/subscription-central"
                         }
                     ]
@@ -204,6 +206,7 @@
         {
             "appId": "registration",
             "title": "Register Systems",
+            "filterable": false,
             "href": "/insights/registration",
             "product": "Red Hat Insights"
         },

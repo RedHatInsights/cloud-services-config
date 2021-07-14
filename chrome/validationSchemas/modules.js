@@ -41,6 +41,6 @@ const moduleItemSchema = Joi.object({
   modules: Joi.array().items(routeModuleSchema).required()
 })
 
-const modulesSchema = Joi.object().pattern(Joi.string(), moduleItemSchema);
+const modulesSchema = Joi.object().pattern(Joi.string().token(), moduleItemSchema);
 
 module.exports = modulesSchema;

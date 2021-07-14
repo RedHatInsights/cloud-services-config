@@ -5,6 +5,7 @@
         {
             "appId": "ansibleDashboard",
             "title": "Overview",
+            "filterable": false,
             "href": "/ansible/ansible-dashboard"
         },
         {
@@ -105,6 +106,12 @@
             "navItems": [
                 {
                     "appId": "ansibleAutomationAnalytics",
+                    "title": "Savings Planner",
+                    "href": "/ansible/insights/savings-planner",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "ansibleAutomationAnalytics",
                     "title": "Automation Calculator",
                     "href": "/ansible/insights/automation-calculator",
                     "product": "Ansible Automation Analytics"
@@ -138,7 +145,8 @@
         {
             "title": "Documentation",
             "isExternal": true,
+            "filterable": false,
             "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
         }
     ]
-}
+} 

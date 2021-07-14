@@ -1,10 +1,11 @@
 {
     "id": "application-services",
-    "title": "Application services",
+    "title": "Application Services",
     "navItems": [
         {
             "appId": "applicationServices",
             "title": "Overview",
+            "filterable": false,
             "href": "/application-services/overview"
         },
         {
@@ -47,4 +48,4 @@
             "href": "/application-services/data-science"
         }
     ]
-}
+} 
