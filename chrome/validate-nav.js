@@ -6,16 +6,15 @@ const navigationSchema = require('./validationSchemas/navigation');
 
 
 
-const navigationFiles = ['ansible', 'application-services', 'rhel', 'settings', 'user-preferences', 'openshift'].map((file) => path.resolve(__dirname, `${file}-navigation.json`))
+const navigationFiles = fs.readdirSync(__dirname)
+  .filter(f => f.endsWith('-navigation.json') && f !== 'landing-navigation.json');
 const landingFile = path.resolve(__dirname, 'landing-navigation.json')
 const modulesFile = path.resolve(__dirname, 'fed-modules.json')
 
 
 async function validateLanding() {    
   try {
-    const file = fs.readFileSync(landingFile, {
-      encoding: 'utf-8'
-    })
+    const file = fs.readFileSync(landingFile, 'utf-8')
     await landingSchema.strict(true).validateAsync(JSON.parse(file));
   } catch (error) {
     console.error(`Error in landing page navigation definition.\n`, error)
@@ -25,9 +24,7 @@ async function validateLanding() {
 
 async function validateModules() {
   try {
-    const file = fs.readFileSync(modulesFile, {
-      encoding: 'utf-8'
-    })
+    const file = fs.readFileSync(modulesFile, 'utf-8')
     await modulesSchema.strict(true).validateAsync(JSON.parse(file));
   } catch (error) {
     console.error(`Error in federated modules definition.\n`, error)
@@ -37,18 +34,16 @@ async function validateModules() {
 
 async function validateNavigation() {
   navigationFiles.forEach(async fileName => {
-    const file = fs.readFileSync(fileName, {
-      encoding: 'utf-8'
-    })
+    const file = fs.readFileSync(path.join(__dirname, fileName), 'utf-8')
     try {
-        const result = await navigationSchema.strict(true).validateAsync(JSON.parse(file));
+      const result = await navigationSchema.strict(true).validateAsync(JSON.parse(file));
     } catch (error) {
-        console.error(`Error in ${fileName} navigation definition.\n`, error)
-        process.exit(1)
+      console.error(`Error in ${fileName} navigation definition.\n`, error)
+      process.exit(1)
     }
-})
+  })
 }
 
 validateLanding()
 validateModules()
-validateNavigation() 
+validateNavigation()
