@@ -1,0 +1,22 @@
+{
+    "id": "user-preferences",
+    "title": "User preferences",
+    "navItems": [
+        {
+            "appId": "userPreferences",
+            "title": "Email preferences",
+            "href": "/user-preferences/email"
+        },
+        {
+            "title": "Notifications",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "userPreferences",
+                    "title": "Red Hat Enterprise Linux",
+                    "href": "/user-preferences/notifications/rhel"
+                }
+            ]
+        }
+    ]
+}
