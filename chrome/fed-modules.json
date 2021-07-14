@@ -438,5 +438,77 @@
                 ]
             }
         ]
+    },
+    "edge": {
+        "manifestLocation": "/apps/edge/fed-mods.json",
+        "modules": [
+            {
+                "id": "edge",
+                "module": "./RootApp",
+                "routes": [
+                    "/edge"
+                ]
+            }
+        ]
+    },
+    "docsFrontend": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "docs-frontend",
+                "dynamic": false,
+                "routes": [
+                    "/docs/product"
+                ]
+            }
+        ]
+    },
+    "starter": {
+        "manifestLocation": "/apps/starter/fed-mods.json",
+        "modules": [
+            {
+                "id": "starter",
+                "module": "./RootApp",
+                "routes": [
+                    "/staging/starter"
+                ]
+            }
+        ]
+    },
+    "ruledev": {
+        "dynamic": false,
+        "modules": [
+            {
+                "id": "ruledev",
+                "dynamic": false,
+                "routes": [
+                    "/staging/ruledev"
+                ]
+            }
+        ]
+    },
+    "image_builder": {
+        "manifestLocation": "/apps/image-builder/fed-mods.json",
+        "modules": [
+            {
+                "id": "image-builder",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/image-builder"
+                ]
+            }
+        ]
+    },
+    "malware": {
+        "manifestLocation": "/apps/malware/fed-mods.json",
+        "modules": [
+            {
+                "id": "malware",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/malware"
+                ]
+            }
+        ]
     }
 }

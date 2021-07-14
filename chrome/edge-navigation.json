@@ -1,0 +1,17 @@
+{
+    "id": "edge",
+    "title": "RHEL For Edge",
+    "navItems": [
+        {
+            "title": "Fleet Management",
+            "appId": "edge",
+            "href": "/edge/fleet-management",
+            "permissions": [
+                {
+                    "method": "withEmail",
+                    "args": ["@redhat.com"]
+                }
+            ]
+        }
+    ]
+}
