@@ -1783,6 +1783,17 @@
                                         "cloud.redhat.com"
                                     ]
                                 }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
                             }
                         ],
                         "criteriaMustSatisfy": "all"
@@ -1817,6 +1828,17 @@
                                     "values": [
                                         "gov.cloud.redhat.com"
                                     ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -2316,6 +2338,17 @@
                                         "cloud.redhat.com"
                                     ]
                                 }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
                             }
                         ],
                         "criteriaMustSatisfy": "all"
@@ -2350,6 +2383,17 @@
                                     "values": [
                                         "gov.cloud.redhat.com"
                                     ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],

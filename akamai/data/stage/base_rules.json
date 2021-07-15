@@ -1818,6 +1818,17 @@
                                         "cloud.stage.redhat.com"
                                     ]
                                 }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
                             }
                         ],
                         "criteriaMustSatisfy": "all"
@@ -1843,6 +1854,17 @@
                                         "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
@@ -2292,6 +2314,17 @@
                                         "cloud.stage.redhat.com"
                                     ]
                                 }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
                             }
                         ],
                         "criteriaMustSatisfy": "all"
@@ -2317,6 +2350,17 @@
                                         "cert.gov.cloud.stage.redhat.com",
                                         "gov.cloud.stage.redhat.com"
                                     ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
                                 }
                             }
                         ],
