@@ -26,12 +26,6 @@
                 },
                 {
                     "appId": "ansibleAutomationHub",
-                    "title": "My Namespaces",
-                    "href": "/ansible/automation-hub/automation-my-namespaces",
-                    "product": "Ansible Automation Hub"
-                },
-                {
-                    "appId": "ansibleAutomationHub",
                     "title": "Repo Management",
                     "href": "/ansible/automation-hub/automation-repositories",
                     "product": "Ansible Automation Hub"
