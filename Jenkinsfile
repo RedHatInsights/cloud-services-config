@@ -132,6 +132,7 @@ node {
               // install akamai and 3scale plugins, run smoke tests
               sh "iqe plugin install akamai 3scale"
               sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${STAGETESTSTR}"
+              sh "iqe tests plugin akamai -k 'test_api.py' -m stage"
               sh "iqe tests plugin 3scale --akamai-staging -m akamai_smoke"
             }
           }
@@ -257,6 +258,7 @@ node {
               // install akamai and 3scale plugins, run smoke tests
               sh "iqe plugin install akamai 3scale"
               sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
+              sh "iqe tests plugin akamai -k 'test_api.py' -m prod"
               sh "iqe tests plugin 3scale --akamai-production -m akamai_smoke"
             }
           }
