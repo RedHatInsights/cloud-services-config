@@ -326,7 +326,9 @@
                             "matchOperator": "IS_NOT_ONE_OF",
                             "values": [
                                 "internal.cloud.stage.redhat.com",
-                                "mtls.internal.cloud.stage.redhat.com"
+                                "internal.gov.cloud.stage.redhat.com",
+                                "mtls.internal.cloud.stage.redhat.com",
+                                "mtls.internal.gov.cloud.stage.redhat.com"
                             ]
                         }
                     }
@@ -2130,7 +2132,9 @@
                             "matchOperator": "IS_NOT_ONE_OF",
                             "values": [
                                 "internal.cloud.stage.redhat.com",
-                                "mtls.internal.cloud.stage.redhat.com"
+                                "mtls.internal.cloud.stage.redhat.com",
+                                "internal.gov.cloud.stage.redhat.com",
+                                "mtls.internal.gov.cloud.stage.redhat.com"
                             ]
                         }
                     }
@@ -2263,7 +2267,9 @@
                             "matchOperator": "IS_ONE_OF",
                             "values": [
                                 "internal.cloud.stage.redhat.com",
-                                "mtls.internal.cloud.stage.redhat.com"
+                                "mtls.internal.cloud.stage.redhat.com",
+                                "internal.gov.cloud.stage.redhat.com",
+                                "mtls.internal.gov.cloud.stage.redhat.com"
                             ]
                         }
                     }
@@ -2682,7 +2688,8 @@
                             "values": [
                                 "cert.cloud.stage.redhat.com",
                                 "cert.gov.cloud.stage.redhat.com",
-                                "mtls.internal.cloud.stage.redhat.com"
+                                "mtls.internal.cloud.stage.redhat.com",
+                                "mtls.internal.gov.cloud.stage.redhat.com"
                             ],
                             "matchOperator": "IS_ONE_OF"
                         }
@@ -2729,7 +2736,8 @@
                                 "options": {
                                     "matchOperator": "IS_ONE_OF",
                                     "values": [
-                                        "mtls.internal.cloud.stage.redhat.com"
+                                        "mtls.internal.cloud.stage.redhat.com",
+                                        "mtls.internal.gov.cloud.stage.redhat.com"
                                     ]
                                 }
                             }
@@ -2822,7 +2830,8 @@
                                     "values": [
                                         "cert.cloud.stage.redhat.com",
                                         "cert.gov.cloud.stage.redhat.com",
-                                        "mtls.internal.cloud.stage.redhat.com"
+                                        "mtls.internal.cloud.stage.redhat.com",
+                                        "mtls.internal.gov.cloud.stage.redhat.com"
                                     ],
                                     "matchOperator": "IS_ONE_OF"
                                 }
