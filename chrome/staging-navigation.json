@@ -1,0 +1,11 @@
+{
+    "id": "staging",
+    "title": "Staging Bundle;",
+    "navItems": [
+        {
+            "title": "Access Requests",
+            "appId": "ruledev",
+            "href": "/staging/ruledev"
+        }
+    ]
+}
