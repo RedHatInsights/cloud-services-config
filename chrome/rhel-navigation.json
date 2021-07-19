@@ -223,6 +223,12 @@
                             "href": "https://access.redhat.com/products/subscription-central"
                         }
                     ]
+                },
+                {
+                    "appId": "ros",
+                    "title": "Resource Optimization",
+                    "href": "/insights/ros",
+                    "product": "Red Hat Insights"
                 }
             ]
         },
