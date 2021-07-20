@@ -15,7 +15,7 @@
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Collections",
-                    "href": "/ansible/automation-hub",
+                    "href": "/ansible/automation-hub/",
                     "product": "Ansible Automation Hub"
                 },
                 {
