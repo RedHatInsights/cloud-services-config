@@ -15,13 +15,13 @@
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Collections",
-                    "href": "/ansible/automation-hub",
+                    "href": "/ansible/automation-hub/",
                     "product": "Ansible Automation Hub"
                 },
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Partners",
-                    "href": "/ansible/automation-hub/automation-partners",
+                    "href": "/ansible/automation-hub/partners",
                     "product": "Ansible Automation Hub"
                 },
                 {
@@ -33,13 +33,13 @@
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Repo Management",
-                    "href": "/ansible/automation-hub/automation-repositories",
+                    "href": "/ansible/automation-hub/repositories",
                     "product": "Ansible Automation Hub"
                 },
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Connect to Hub",
-                    "href": "/ansible/automation-hub/automation-token",
+                    "href": "/ansible/automation-hub/token",
                     "product": "Ansible Automation Hub"
                 }
             ]
