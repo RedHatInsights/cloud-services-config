@@ -1,0 +1,51 @@
+{
+    "id": "application-services",
+    "title": "Application Services",
+    "navItems": [
+        {
+            "appId": "applicationServices",
+            "title": "Overview",
+            "filterable": false,
+            "href": "/application-services/overview"
+        },
+        {
+            "title": "Streams for Apache Kafka",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "streams",
+                    "title": "Kafka Instances",
+                    "isBeta": true,
+                    "href": "/application-services/streams/kafkas"
+                },
+                {
+                    "appId": "streams",
+                    "title": "Service Accounts",
+                    "isBeta": true,
+                    "href": "/application-services/streams/service-accounts"
+                },
+                {
+                    "appId": "streams",
+                    "title": "Resources",
+                    "isBeta": true,
+                    "href": "/application-services/streams/resources"
+                },
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
+                }
+            ]
+        },
+        {
+            "appId": "applicationServices",
+            "title": "API Management",
+            "href": "/application-services/api-management"
+        },
+        {
+            "appId": "applicationServices",
+            "title": "Data Science",
+            "href": "/application-services/data-science"
+        }
+    ]
+}

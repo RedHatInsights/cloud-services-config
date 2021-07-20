@@ -4,7 +4,8 @@
   "description": "This repo deals with the high-level configuration of Cloud Services. `main.yml` contains the source of truth for CS apps, and the `akamai` folder deals with updating our Akamai configuration.",
   "main": "index.js",
   "scripts": {
-    "validate-yaml": "node validate-yaml.js"
+    "validate-yaml": "node validate-yaml.js",
+    "validate-chrome": "node chrome/validate-nav.js"
   },
   "author": "",
   "license": "Apache-2.0",
