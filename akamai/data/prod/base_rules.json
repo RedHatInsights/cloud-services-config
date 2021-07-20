@@ -2165,88 +2165,6 @@
                         ],
                         "criteria": [],
                         "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "gateway-origin",
-                        "children": [],
-                        "behaviors": [
-                            <<gateway-origin-json>>,
-                            {
-                                "name": "caching",
-                                "options": {
-                                    "behavior": "NO_STORE"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "hostname",
-                                "options": {
-                                    "matchOperator": "IS_ONE_OF",
-                                    "values": [
-                                        "cloud.redhat.com"
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                    "values": [
-                                        "/api/v1/static*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
-                    },
-                    {
-                        "name": "FedRAMP-origin",
-                        "children": [],
-                        "behaviors": [
-                            <<FedRAMP-origin-json>>,
-                            {
-                                "name": "caching",
-                                "options": {
-                                    "behavior": "NO_STORE"
-                                }
-                            },
-                            {
-                                "name": "modifyOutgoingRequestHeader",
-                                "options": {
-                                    "action": "MODIFY",
-                                    "standardModifyHeaderName": "OTHER",
-                                    "newHeaderValue": "<<stage-gateway-secret>>",
-                                    "avoidDuplicateHeaders": false,
-                                    "customHeaderName": "x-rh-insights-gateway-secret"
-                                }
-                            }
-                        ],
-                        "criteria": [
-                            {
-                                "name": "hostname",
-                                "options": {
-                                    "matchOperator": "IS_ONE_OF",
-                                    "values": [
-                                        "gov.cloud.redhat.com"
-                                    ]
-                                }
-                            },
-                            {
-                                "name": "path",
-                                "options": {
-                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
-                                    "values": [
-                                        "/api/v1/static*"
-                                    ],
-                                    "matchCaseSensitive": false,
-                                    "normalize": false
-                                }
-                            }
-                        ],
-                        "criteriaMustSatisfy": "all"
                     }
                 ],
                 "behaviors": [
@@ -2397,6 +2315,88 @@
                             }
                         ],
                         "criteria": [],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "gateway-origin",
+                        "children": [],
+                        "behaviors": [
+                                        <<gateway-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "cloud.redhat.com"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
+                            }
+                        ],
+                        "criteriaMustSatisfy": "all"
+                    },
+                    {
+                        "name": "FedRAMP-origin",
+                        "children": [],
+                        "behaviors": [
+                                        <<FedRAMP-origin-json>>,
+                            {
+                                "name": "caching",
+                                "options": {
+                                    "behavior": "NO_STORE"
+                                }
+                            },
+                            {
+                                "name": "modifyOutgoingRequestHeader",
+                                "options": {
+                                    "action": "MODIFY",
+                                    "standardModifyHeaderName": "OTHER",
+                                    "newHeaderValue": "<<stage-gateway-secret>>",
+                                    "avoidDuplicateHeaders": false,
+                                    "customHeaderName": "x-rh-insights-gateway-secret"
+                                }
+                            }
+                        ],
+                        "criteria": [
+                            {
+                                "name": "hostname",
+                                "options": {
+                                    "matchOperator": "IS_ONE_OF",
+                                    "values": [
+                                        "gov.cloud.redhat.com"
+                                    ]
+                                }
+                            },
+                            {
+                                "name": "path",
+                                "options": {
+                                    "matchOperator": "DOES_NOT_MATCH_ONE_OF",
+                                    "values": [
+                                        "/api/v1/static*"
+                                    ],
+                                    "matchCaseSensitive": false,
+                                    "normalize": false
+                                }
+                            }
+                        ],
                         "criteriaMustSatisfy": "all"
                     }
                 ],
