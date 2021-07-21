@@ -1,0 +1,146 @@
+{
+    "id": "ansible",
+    "title": "Ansible Automation Platform",
+    "navItems": [
+        {
+            "appId": "ansibleDashboard",
+            "title": "Overview",
+            "filterable": false,
+            "href": "/ansible/ansible-dashboard"
+        },
+        {
+            "title": "Automation Hub",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "ansibleAutomationHub",
+                    "title": "Collections",
+                    "href": "/ansible/automation-hub/",
+                    "product": "Ansible Automation Hub"
+                },
+                {
+                    "appId": "ansibleAutomationHub",
+                    "title": "Partners",
+                    "href": "/ansible/automation-hub/partners",
+                    "product": "Ansible Automation Hub"
+                },
+                {
+                    "appId": "ansibleAutomationHub",
+                    "title": "Repo Management",
+                    "href": "/ansible/automation-hub/repositories",
+                    "product": "Ansible Automation Hub"
+                },
+                {
+                    "appId": "ansibleAutomationHub",
+                    "title": "Connect to Hub",
+                    "href": "/ansible/automation-hub/token",
+                    "product": "Ansible Automation Hub"
+                }
+            ]
+        },
+        {
+            "title": "Automation Services Catalog",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "catalog",
+                    "title": "Products",
+                    "href": "/ansible/catalog/products"
+                },
+                {
+                    "appId": "catalog",
+                    "title": "Portfolios",
+                    "href": "/ansible/catalog/portfolios"
+                },
+                {
+                    "appId": "catalog",
+                    "title": "Platforms",
+                    "href": "/ansible/catalog/platforms",
+                    "permissions": [
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "catalog:portfolios:create"
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "appId": "catalog",
+                    "title": "order-processes",
+                    "href": "/ansible/catalog/order-processes",
+                    "permissions": [
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "catalog:order_processes:read"
+                                ]
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "appId": "catalog",
+                    "title": "Orders",
+                    "href": "/ansible/catalog/orders"
+                },
+                {
+                    "appId": "approval",
+                    "title": "Approval",
+                    "href": "/ansible/catalog/approval"
+                }
+            ]
+        },
+        {
+            "groupId": "insights",
+            "title": "Insights",
+            "navItems": [
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Savings Planner",
+                    "href": "/ansible/insights/savings-planner",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Automation Calculator",
+                    "href": "/ansible/insights/automation-calculator",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Organization Statistics",
+                    "href": "/ansible/insights/organization-statistics",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Job Explorer",
+                    "href": "/ansible/insights/job-explorer",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Clusters",
+                    "href": "/ansible/insights/clusters",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Notifications",
+                    "href": "/ansible/insights/notifications",
+                    "product": "Ansible Automation Analytics"
+                }
+            ]
+        },
+        {
+            "title": "Documentation",
+            "isExternal": true,
+            "filterable": false,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
+        }
+    ]
+} 

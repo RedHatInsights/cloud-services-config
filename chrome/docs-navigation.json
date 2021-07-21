@@ -1,0 +1,11 @@
+{
+    "id": "docs",
+    "title": "Documentation",
+    "navItems": [
+        {
+            "title": "API Documentation",
+            "appId": "apiDocs",
+            "href": "/docs/api"
+        }
+    ]
+} 

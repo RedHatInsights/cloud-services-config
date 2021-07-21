@@ -1,0 +1,22 @@
+[
+    {
+        "id": "application-services",
+        "title": "Application Services",
+        "href": "/application-services"
+    },
+    {
+        "id": "openshift",
+        "title": "OpenShift",
+        "href": "/openshift"
+    },
+    {
+        "id": "rhel",
+        "title": "Red Hat Enterprise Linux",
+        "href": "/insights"
+    },
+    {
+        "id": "ansbile",
+        "title": "Ansible Automation Platform",
+        "href": "/ansible"
+    }
+]

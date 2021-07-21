@@ -2,3 +2,5 @@
 *.pyc
 
 akamai/venv/**/*
+
+node_modules
