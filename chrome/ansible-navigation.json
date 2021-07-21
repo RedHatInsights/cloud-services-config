@@ -105,31 +105,31 @@
             "title": "Insights",
             "navItems": [
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Automation Calculator",
                     "href": "/ansible/insights/automation-calculator",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Organization Statistics",
                     "href": "/ansible/insights/organization-statistics",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Job Explorer",
                     "href": "/ansible/insights/job-explorer",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Clusters",
                     "href": "/ansible/insights/clusters",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Notifications",
                     "href": "/ansible/insights/notifications",
                     "product": "Ansible Automation Analytics"
