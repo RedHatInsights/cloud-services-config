@@ -384,12 +384,12 @@
             }
         ]
     },
-    "ansibleAutomationAnalytics": {
-        "dynamic": false,
+    "automationAnalytics": {
+        "manifestLocation": "/apps/automation-analytics/fed-mods.json",
         "modules": [
             {
                 "id": "ansible-automation-analytics",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     "/ansible/insights",
                     "/ansible/savings-planner",
