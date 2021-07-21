@@ -15,25 +15,25 @@
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Collections",
-                    "href": "/ansible/automation-hub",
+                    "href": "/ansible/automation-hub/",
                     "product": "Ansible Automation Hub"
                 },
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Partners",
-                    "href": "/ansible/automation-hub/automation-partners",
+                    "href": "/ansible/automation-hub/partners",
                     "product": "Ansible Automation Hub"
                 },
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Repo Management",
-                    "href": "/ansible/automation-hub/automation-repositories",
+                    "href": "/ansible/automation-hub/repositories",
                     "product": "Ansible Automation Hub"
                 },
                 {
                     "appId": "ansibleAutomationHub",
                     "title": "Connect to Hub",
-                    "href": "/ansible/automation-hub/automation-token",
+                    "href": "/ansible/automation-hub/token",
                     "product": "Ansible Automation Hub"
                 }
             ]
@@ -99,37 +99,37 @@
             "title": "Insights",
             "navItems": [
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Savings Planner",
                     "href": "/ansible/insights/savings-planner",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Automation Calculator",
                     "href": "/ansible/insights/automation-calculator",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Organization Statistics",
                     "href": "/ansible/insights/organization-statistics",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Job Explorer",
                     "href": "/ansible/insights/job-explorer",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Clusters",
                     "href": "/ansible/insights/clusters",
                     "product": "Ansible Automation Analytics"
                 },
                 {
-                    "appId": "ansibleAutomationAnalytics",
+                    "appId": "automationAnalytics",
                     "title": "Notifications",
                     "href": "/ansible/insights/notifications",
                     "product": "Ansible Automation Analytics"

@@ -347,8 +347,9 @@
             }
         ]
     },
-    "ansibleAutomationAnalytics": {
+    "automationAnalytics": {
         "dynamic": false,
+        "manifestLocation": "/apps/automation-analytics/fed-mods.json",
         "modules": [
             {
                 "id": "ansible-automation-analytics",
