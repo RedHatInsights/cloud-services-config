@@ -5,7 +5,7 @@
         {
             "appId": "openshift",
             "href": "/openshift",
-            "title": "Cluster Management",
+            "title": "Clusters",
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
