@@ -1,6 +1,6 @@
 {
     "id": "openshift",
-    "title": "OpenShift Cluster Manager",
+    "title": "OpenShift",
     "navItems": [
         {
             "appId": "openshift",
