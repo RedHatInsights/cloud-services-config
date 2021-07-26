@@ -201,7 +201,7 @@
                             "product": "Subscription Watch"
                         },
                         {
-                            "appId": "openshift",
+                            "appId": "subscriptions",
                             "title": "OpenShift Subscriptions",
                             "href": "/openshift/subscriptions/openshift-container",
                             "product": "Subscription Watch"
