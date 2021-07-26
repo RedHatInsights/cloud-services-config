@@ -6,6 +6,11 @@
             "title": "Access Requests",
             "appId": "ruledev",
             "href": "/staging/ruledev"
+        },
+        {
+            "title": "Starter App",
+            "appId": "starter",
+            "href": "/staging/starter"
         }
     ]
 }
