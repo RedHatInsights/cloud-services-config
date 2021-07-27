@@ -14,7 +14,7 @@
         },
         {
             "title": "Onboarding Test",
-            "appId": "test-onboarding-app",
+            "appId": "test_onboarding_app",
             "href": "/staging/test-onboarding-app"
         }
     ]
