@@ -938,6 +938,7 @@ staging:
       - id: starter
       - id: ruledev
       - id: policies
+      - id: test-onboarding-app
   top_level: true
 
 starter:
@@ -1000,6 +1001,22 @@ subscriptions:
 
 
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
+
+test-onboarding-app:
+  title: Onboarding Test
+  api:
+    versions:
+      - v1
+    isBeta: true
+    tags:
+      - value: "experimental"
+        title: "Experimental API"
+  channel: '#flip-mode-squad'
+  deployment_repo: https://github.com/RedHatInsights/test-onboarding-app-build
+  frontend:
+    paths:
+      - /staging/test-onboarding-app
+  source_repo: https://github.com/RedHatInsights/test-onboarding-app
 
 topological-inventory:
   title: Topological inventory
