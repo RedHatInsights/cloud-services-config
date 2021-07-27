@@ -11,6 +11,11 @@
             "title": "Access Requests",
             "appId": "ruledev",
             "href": "/staging/ruledev"
+        },
+        {
+            "title": "Onboarding Test",
+            "appID": "test-onboarding-app",
+            "href": "/staging/test-onboarding-app"
         }
     ]
 }
