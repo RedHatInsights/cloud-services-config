@@ -427,24 +427,13 @@
         ]
     },
     "applicationServices": {
-        "dynamic": false,
+        "manifestLocation": "/apps/application-services/fed-mods.json",
         "modules": [
             {
                 "id": "application-services",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
-                    "/application-services"
-                ]
-            }
-        ]
-    },
-    "streams": {
-        "dynamic": false,
-        "modules": [
-            {
-                "id": "streams",
-                "dynamic": false,
-                "routes": [
+                    "/application-services",
                     "/application-services/streams"
                 ]
             }
