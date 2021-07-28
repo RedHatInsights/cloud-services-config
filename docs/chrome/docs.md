@@ -31,7 +31,7 @@ To add a new module following configuration must be done:
 1. Go to the `/chrome/fed-modules.json` file.
 2. Add a value under a specific key to the object.
     - The key must be equal to the `insights.appname` from `package.json` in your repository
-    - **NOTE**: if your `appname` includes the *dash* `-` character, **the convert the key to camel case** (required due to webpack container naming limitations). For example: `user-preferences` -> `userPreferences`.
+    - **NOTE**: if your `appname` includes the *dash* `-` character, **convert the key to camel case** (required due to webpack container naming limitations). For example: `user-preferences` -> `userPreferences`.
 3. Add a federated modules `manifestLocation` of your application. With default build config the path is `/apps/<insights.appname>/fed-modules.json`
 
 ```json
