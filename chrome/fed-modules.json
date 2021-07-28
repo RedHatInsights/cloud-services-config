@@ -513,7 +513,7 @@
         ]
     },
     "onboarding": {
-        "manifestLocation": "/apps/test-onboarding-app/fed-mods.json",
+        "manifestLocation": "/apps/onboarding/fed-mods.json",
         "modules": [
             {
                 "id": "onboarding",
