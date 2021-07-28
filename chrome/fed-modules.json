@@ -512,6 +512,18 @@
             }
         ]
     },
+    "onboarding": {
+        "manifestLocation": "/apps/test-onboarding-app/fed-mods.json",
+        "modules": [
+            {
+                "id": "onboarding",
+                "module": "./RootApp",
+                "routes": [
+                    "/staging/test-onboarding-app"
+                ]
+            }
+        ]
+    },
     "image_builder": {
         "manifestLocation": "/apps/image-builder/fed-mods.json",
         "modules": [
