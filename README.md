@@ -12,11 +12,13 @@ These branches sync:
 
 ## Adding Config for New Apps
 
-To enable a new app in our environments, you need to create configuration for it in `main.yml`, and then create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync, so changes to `ci-beta` will automatically be merged into `nightly-beta` and `qa-beta` (as mentioned above).
+To enable a new app in our environments, you need to create configuration for it in `main.yml` and in `/chrome` directory. After that create a PR to merge it into the `ci-beta` branch. The configuration for the non-prod beta branches is kept in sync. Changes to `ci-beta` will automatically be merged into `qa-beta` (as mentioned above).
 
 When you need this config added to another environment (`prod-beta`, `ci-stable`, `qa-stable`, `prod-stable`), please open another PR for that environment. If you have any concerns about this process, feel free to ping #forum-clouddot-ui on Slack for assistance.
 
 Here is some example configuration that demonstrates the structure, using all required and optional properties:
+
+### `main.yml`
 
 ```yml
 {app_id}:
@@ -40,25 +42,52 @@ Here is some example configuration that demonstrates the structure, using all re
         apps:
             - app_id_1
     frontend:
-        title: App Title Override
         paths:
             - /example/path
             - /another/example/path
-        reload: reload/path
-        sub_apps:
-            -   id: app_id_1
-                title: Some Sub App
-                default: true
-                permissions:
-                    method: isEntitled
-                    args:
-                        - insights
-            -   id: app_id_2
-                title: Another Sub App
-        suppress_id: true
     source_repo: https://github.com/app-development-repo-url
     mailing_list: app-title@redhat.com
-    top_level: false
+```
+
+### `/chrome/fed-modules.json`
+
+Add new application metadata to chrome modules registry.
+
+[More details](https://github.com/RedHatInsights/cloud-services-config/blob/ci-beta/docs/chrome/docs.md#registering-new-module-app-to-chrome)
+
+```js
+{
+    /** app-id must be the same as in the main.yml file */
+    "<app-id>": {
+        "manifestLocation": "/apps/<app-id>/fed-mods.json",
+        "modules": [
+            {
+                "id": "module identifier",
+                "module": "./RootApp",
+                "routes": [
+                    "/example/path",
+                    "/another/example/path"
+                ]
+            }
+        ]
+    }
+}
+```
+### `/chrome/<bundle>-navigation.json`
+
+Add a new link to chrome navigation files. The navigation registry file is based on application location within the chrome application. For example, if the application should live under `/settings` route, modify the `settings-navigation.json` file.
+
+[More details](https://github.com/RedHatInsights/cloud-services-config/blob/ci-beta/docs/chrome/docs.md#adding-a-new-top-level-link-to-the-chrome-left-navigation)
+
+```js
+{
+    /** app-id must be the same as in the main.yml file */
+    "appId": "<app-id>",
+    /** Title of the link in browser */
+    "title": "App title",
+    /** Exact URL path to the application. Can be a nested route. */
+    "href": "/settings/new-app"
+}
 ```
 
 ### Required Properties (All Apps)
@@ -105,52 +134,9 @@ If you want the name of your app to appear differently on the frontend, set this
 
 If you want this app to use the same codebase as another existing app, set this value to the ID of that app.
 
-#### app_id.frontend.module
-
-To indicate chrome how to load the application for federated modules you need to pass this property. It can either be a magic link containing `yourApp#./RootApp` for most applications. If you want to be more specific you can pass in module object containing `appName`, `scope` and `module`
-
-##### app_id.frontend.module.appName
-
-To indicate chrome loader from what app to load your fed-mods config.
-
-##### app_id.frontend.module.scope
-
-To indicate federated modules scope of your application (you can have multiple scopes per one app). This is usually your application's name (same as `appName`).
-
-##### app_id.frontend.module.module
-
-To indicate which module should be loaded when rendering your app (you can have multiple modules per one scope). This is usually `./RootApp`
-
-##### app_id.frontend.module.group
-
-If you have a first-level application, this field indicates which group should be managed by this module.
-
-##### app_id.frontend.module.manifest
-
-If your application shares same manifest as other app or your manifest is located on completely different path, you can pass the path to it in this option.
-
 #### app_id.frontend.paths
 
 This is the list of URL paths where your app will be located.
-
-#### app_id.frontend.sub_apps
-
-If your app is a parent to any other apps, those apps should be listed here. Also, if your app has a parent app, or is listed under one of the top-level bundles (e.g. Insights, RHEL, Hybrid), you should add your app to the appropriate sub_apps list.
-
-Here are some notes on defining the items in sub_apps:
-
-- If you specify the title field, the sub-app will be self-contained, and it will not look up the app's ID elsewhere in the config.
-- If the title is specified, the sub-app's path will be determined by its ID.
-- If the title is not specified, the ID will be used to find the app's details in the rest of the config.
-
-#### app_id.frontend.reload
-
-If your app will be located under some other app, but isn't managed by that app, you can use this property to override the automatic generation of the URL.
-This property is commonly used for Settings apps, and tells Chrome's navigation the actual URL of your app.
-
-#### app_id.frontend.suppress_id
-
-This property is used if the app isn't a real app on disk, and only exists for navigation purposes. This removes the app ID on the frontend so that the nav bar works as expected.
 
 ### Other Optional Properties
 
@@ -188,23 +174,6 @@ This is the URL of the development (not deployment) repo for your app, i.e. the 
 
 This is the mailing list associated with your project. Used to automate email notifications.
 
-#### app_id.top_level
-
-If this is set to `true`, your app will be a top-level app, which is usually reserved for bundles (Insights, RHEL, Hybrid, Openshift, etc).
-Use this if your app does not have a parent app or bundle.
-
-#### permissions.method
-
-If you want to hide any navigational element based on some chrome's logic, this is the right property. This defines the function to be used in order to hide nav item. (Chrome's list of methods)[https://github.com/RedHatInsights/insights-chrome#permissions].
-
-#### permissions.args
-
-If the `permissions.method` requires some arguments in order to properly work, this is how to pass them to it: an array of items.
-
-#### permissions.apps
-
-If you want to control visibility for multiple navigation items you can specify one permission per entry and list which apps from `frontend.sub_apps` should be checked.
-
 ## Akamai API Access
 
 Before you can run the property-updating script locally, you need to have access to the Akamai API.
@@ -235,7 +204,7 @@ Testing local changes is straightforward. First, add a line like this to your in
 
 Restart your insights-proxy to pick up the change.
 
-Create a `beta/config` directory inside of `cloud-services-config` and copy `main.yml` to it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
+Create a `beta/config` directory inside of `cloud-services-config` and crate a sym link (or copy) to `/chrome` directory in it. Then, from the `cloud-services-config` dir, run `npx http-server -p 8889`. In your browser, go to `https://ci.foo.redhat.com:1337/beta/rhel/dashboard`. You should see something logged like this from npx:
 
 ```text
 $ npx http-server -p 8889
@@ -250,22 +219,23 @@ Hit CTRL-C to stop the server
 101 Firefox/69.0"
 ```
 
-Before you go developing, make sure you can make a simple change and see it in the web UI. Try renaming "Dashboard" to "XDashboardX". To do this, make an edit to `main.yml` similar to this (make sure you are editing the one in `beta/config`):
+Before you go developing, make sure you can make a simple change and see it in the web UI. Try renaming "Dashboard" link title to "XDashboardX" in `/chrome/rhel-navigation.json`.
 
 ```diff
-diff --git a/main.yml b/main.yml
-index 090fd7e..a680d06 100644
---- a/main.yml
-+++ b/main.yml
-@@ -152,7 +152,7 @@ cost-management:
-   mailing_list: cost-mgmt@redhat.com
+diff --git a/chrome/rhel-navigation.json b/chrome/rhel-navigation.json
+index 67237cc..4485daa 100644
+--- a/chrome/rhel-navigation.json
++++ b/chrome/rhel-navigation.json
+@@ -4,7 +4,7 @@
+     "navItems": [
+         {
+             "appId": "dashboard",
+-            "title": "Dashboard",
++            "title": "XDashboardX",
+             "filterable": false,
+             "href": "/insights/dashboard",
+             "product": "Red Hat Insights"
 
- dashboard:
--  title: Dashboard
-+  title: XDashboardX
-   channel: '#flip-mode-squad'
-   deployment_repo: https://github.com/RedHatInsights/insights-dashboard-build
-   frontend:
 ```
 
-Then, reload the site. You may not see your change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on <https://ci.foo.redhat.com:1337> and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request. You will need to repeat this cache clearing step whenever you make changes to `main.yml` in your local environment.
+Now go to `/insights/dashboard`. You may not see your navigation change at this point! Try clearing your local storage in your browser. To do this in Firefox, hit Shift-F9 and click "Local Storage", then right click on <https://ci.foo.redhat.com:1337> and delete all. Refresh the page and you should then see your changes. You'll notice too that SimpleHTTPServer logged another request.
