@@ -13,19 +13,19 @@
             "expandable": true,
             "routes": [
                 {
-                    "appId": "streams",
+                    "appId": "applicationServices",
                     "title": "Kafka Instances",
                     "isBeta": true,
                     "href": "/application-services/streams/kafkas"
                 },
                 {
-                    "appId": "streams",
+                    "appId": "applicationServices",
                     "title": "Service Accounts",
                     "isBeta": true,
                     "href": "/application-services/streams/service-accounts"
                 },
                 {
-                    "appId": "streams",
+                    "appId": "applicationServices",
                     "title": "Resources",
                     "isBeta": true,
                     "href": "/application-services/streams/resources"
