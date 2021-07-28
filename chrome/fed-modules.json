@@ -511,5 +511,17 @@
                 ]
             }
         ]
+    },
+    "ocpAdvisor": {
+        "manifestLocation": "/apps/ocp-advisor/fed-mods.json",
+        "modules": [
+            {
+                "id": "ocp-advisor",
+                "module": "./RootApp",
+                "routes": [
+                    "/openshift/insights/advisor"
+                ]
+            }
+        ]
     }
 }
