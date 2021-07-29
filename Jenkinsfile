@@ -48,6 +48,7 @@ node {
   }
 
   stage ("build & activate on Akamai staging") {
+    /*
     // Use image with python 3.6
     openShiftUtils.withNode(image: "python:3.6-slim") {
       checkout scm
@@ -93,7 +94,7 @@ node {
           print("STAGING NEWVERSION version is v" + NEWVERSION)
         }
       }
-    }
+    }*/
 
     checkout scm
     withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
@@ -113,7 +114,7 @@ node {
       }
     }
   }
-
+  /*
   stage ("run akamai staging smoke tests") {
     try {
       if (RUN_SMOKE_TESTS) {
@@ -320,5 +321,5 @@ node {
             to: 'rlong@redhat.com,khala@redhat.com'
       error('Smoke tests failed in PRODUCTION. All changes have been rolled back.')
     }
-  }
+  }*/
 }
