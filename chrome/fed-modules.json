@@ -139,18 +139,6 @@
             }
         ]
     },
-    "openshiftOverview": {
-        "dynamic": false,
-        "modules": [
-            {
-                "id": "openshiftOverview",
-                "dynamic": false,
-                "routes": [
-                    "/openshift/overview"
-                ]
-            }
-        ]
-    },
     "costManagement": {
         "manifestLocation": "/apps/cost-management/fed-mods.json",
         "modules": [
