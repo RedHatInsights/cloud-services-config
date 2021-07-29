@@ -373,11 +373,11 @@
         ]
     },
     "catalog": {
-        "dynamic": false,
+        "manifestLocation": "/apps/catalog/fed-mods.json",
         "modules": [
             {
                 "id": "catalog",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     "/ansible/catalog"
                 ]
