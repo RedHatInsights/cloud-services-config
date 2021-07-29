@@ -1,13 +1,12 @@
 {
     "landing": {
-        "dynamic": false,
+        "manifestLocation": "/apps/landing/fed-mods.json",
         "modules": [
             {
                 "id": "landing",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     {
-                        "dynamic": false,
                         "exact": true,
                         "pathname": "/"
                     }
