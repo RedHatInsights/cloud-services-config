@@ -33,11 +33,11 @@ node {
 
     if (ENVSTR == "prod") {
       AKAMAI_APP_PATH = "/822386/${PREFIX}config"
-      CSC_CONFIG_PATH = "https://cloud.redhat.com/${PREFIX}config"
+      CSC_CONFIG_PATH = "https://console.redhat.com/${PREFIX}config"
       RUN_SMOKE_TESTS = true
     } else {
       AKAMAI_APP_PATH = "/822386/${ENVSTR}/${PREFIX}config"
-      CSC_CONFIG_PATH = "https://cloud.redhat.com/${ENVSTR}/${PREFIX}config"
+      CSC_CONFIG_PATH = "https://console.redhat.com/${ENVSTR}/${PREFIX}config"
       RUN_SMOKE_TESTS = false   // cannot run smoke tests on stage as it requires vpn
     }
 
