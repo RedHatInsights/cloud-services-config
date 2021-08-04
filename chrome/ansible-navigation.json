@@ -212,13 +212,13 @@
                     "appId": "registration",
                     "title": "Register Systems",
                     "filterable": false,
-                    "href": "/ansible/insights/registration",
+                    "href": "/ansible/registration",
                     "product": "Red Hat Insights"
                 },
                 {
                     "appId": "remediations",
                     "title": "Remediations",
-                    "href": "/ansible/insights/remediations",
+                    "href": "/ansible/remediations",
                     "product": "Red Hat Insights"
                 }
             ]
