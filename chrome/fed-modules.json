@@ -158,7 +158,8 @@
                 "id": "advisor",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/advisor"
+                    "/insights/advisor",
+                    "/ansible/advisor"
                 ]
             }
         ]
@@ -170,7 +171,8 @@
                 "id": "drift",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/drift"
+                    "/insights/drift",
+                    "/ansible/drift"
                 ]
             }
         ]
@@ -182,7 +184,8 @@
                 "id": "inventory",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/inventory"
+                    "/insights/inventory",
+                    "/ansible/inventory"
                 ]
             }
         ]
@@ -218,7 +221,8 @@
                 "id": "policies",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/policies"
+                    "/insights/policies",
+                    "/ansible/policies"
                 ]
             }
         ]
@@ -277,7 +281,8 @@
                 "id": "registration",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/registration"
+                    "/insights/registration",
+                    "/ansible/registration"
                 ]
             }
         ]
@@ -289,7 +294,8 @@
                 "id": "remediations",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/remediations"
+                    "/insights/remediations",
+                    "/ansible/remediations"
                 ]
             }
         ]
