@@ -117,11 +117,7 @@
                 "id": "openshift",
                 "module": "./RootApp",
                 "routes": [
-                    "/openshift",
-                    {
-                        "pathname": "/openshift/subscriptions",
-                        "dynamic": false
-                    }
+                    "/openshift"
                 ]
             }
         ]
@@ -240,24 +236,20 @@
         ]
     },
     "subscriptions": {
-        "dynamic": false,
+        "manifestLocation": "/apps/subscriptions/fed-mods.json",
         "modules": [
             {
                 "id": "insights-subscriptions",
+                "module": "./RootApp",
                 "routes": [
-                    {
-                        "pathname": "/insights/subscriptions",
-                        "dynamic": false
-                    }
+                    "/insights/subscriptions"
                 ]
             },
             {
                 "id": "openshift-subscriptions",
+                "module": "./RootApp",
                 "routes": [
-                    {
-                        "pathname": "/openshift/subscriptions",
-                        "dynamic": false
-                    }
+                    "/openshift/subscriptions"
                 ]
             }
         ]
