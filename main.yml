@@ -471,7 +471,6 @@ malware:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
   frontend:
-    isHidden: true
     section: security
     title: Malware
     module: malware#./RootApp
@@ -480,6 +479,8 @@ malware:
     sub_apps:
       - id: signatures
         title: Signatures
+      - id: systems
+        title: Systems
   source_repo: https://github.com/RedHatInsights/malware-detection-frontend
 
 manifests:
