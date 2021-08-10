@@ -133,7 +133,7 @@ node {
             from: 'csc-jenkins@redhat.com',
             replyTo: 'rlong@redhat.com',
             subject: 'CSC build: Smoke tests failed',
-            to: 'rlong@redhat.com,khala@redhat.com,jdupuy@redhat.com'
+            to: 'csc-pipeline-failures@redhat.com'
       error('Smoke tests failed! Changes have been rolled back.')
     }
   }
