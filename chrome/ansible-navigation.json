@@ -186,6 +186,12 @@
             "navItems": [
                 {
                     "appId": "automationAnalytics",
+                    "title": "Reports",
+                    "href": "/ansible/insights/reports",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
                     "title": "Savings Planner",
                     "href": "/ansible/insights/savings-planner",
                     "product": "Ansible Automation Analytics"
