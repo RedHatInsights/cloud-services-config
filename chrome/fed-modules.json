@@ -401,6 +401,7 @@
                 "module": "./RootApp",
                 "routes": [
                     "/ansible/insights",
+                    "/ansible/reports",
                     "/ansible/savings-planner",
                     "/ansible/automation-calculator",
                     "/ansible/organization-statistics",
