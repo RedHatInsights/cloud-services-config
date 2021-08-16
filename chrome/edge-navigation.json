@@ -5,6 +5,7 @@
         {
             "title": "Fleet Management",
             "appId": "edge",
+            "filterable": false,
             "href": "/edge/fleet-management",
             "permissions": [
                 {
@@ -16,6 +17,7 @@
         {
             "title": "Manage images",
             "appId": "edge",
+            "filterable": false,
             "href": "/edge/manage-images",
             "permissions": [
                 {
