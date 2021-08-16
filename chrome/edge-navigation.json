@@ -5,6 +5,7 @@
         {
             "title": "Fleet Management",
             "appId": "edge",
+            "filterable": false,
             "href": "/edge/fleet-management",
             "permissions": [
                 {
