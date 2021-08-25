@@ -7,7 +7,8 @@
             "title": "Dashboard",
             "filterable": false,
             "href": "/insights/dashboard",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "isFedramp": true
         },
         {
             "groupId": "operations",
@@ -22,19 +23,22 @@
                             "appId": "advisor",
                             "title": "Recommendations",
                             "href": "/insights/advisor/recommendations",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "advisor",
                             "title": "Systems",
                             "href": "/insights/advisor/systems",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "approval",
                             "title": "Topics",
                             "href": "/insights/advisor/topics",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         }
                     ]
                 },
@@ -46,13 +50,15 @@
                             "appId": "drift",
                             "title": "Comparison",
                             "href": "/insights/drift/",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "drift",
                             "title": "Baselines",
                             "href": "/insights/drift/baselines",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         }
                     ]
                 },
@@ -60,7 +66,8 @@
                     "appId": "inventory",
                     "title": "Inventory",
                     "href": "/insights/inventory",
-                    "product": "Red Hat Insights"
+                    "product": "Red Hat Insights",
+                    "isFedramp": true
                 }
             ]
         },
@@ -77,19 +84,22 @@
                             "appId": "vulnerability",
                             "title": "CVEs",
                             "href": "/insights/vulnerability/cves",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "vulnerability",
                             "title": "Reports",
                             "href": "/insights/vulnerability/reports",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "vulnerability",
                             "title": "Systems",
                             "href": "/insights/vulnerability/systems",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         }
                     ]
                 },
@@ -101,26 +111,30 @@
                             "appId": "compliance",
                             "title": "Reports",
                             "href": "/insights/compliance/reports",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "compliance",
                             "title": "SCAP Policies",
                             "href": "/insights/compliance/scappolicies",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "compliance",
                             "title": "Systems",
                             "href": "/insights/compliance/systems",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         }
                     ]
                 },
                 {
                     "appId": "policies",
                     "title": "Policies",
-                    "href": "/insights/policies"
+                    "href": "/insights/policies",
+                    "isFedramp": true
                 },
                 {
                     "title": "Patch",
@@ -130,19 +144,22 @@
                             "appId": "patch",
                             "title": "Advisories",
                             "href": "/insights/patch/advisories",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "patch",
                             "title": "Systems",
                             "href": "/insights/patch/systems",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         },
                         {
                             "appId": "patch",
                             "title": "Packages",
                             "href": "/insights/patch/packages",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "isFedramp": true
                         }
                     ]
                 },
@@ -244,7 +261,8 @@
             "appId": "remediations",
             "title": "Remediations",
             "href": "/insights/remediations",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "isFedramp": true
         },
         {
             "appId": "image_builder",
