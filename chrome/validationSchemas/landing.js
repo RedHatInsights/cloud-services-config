@@ -3,6 +3,7 @@ const Joi = require('joi')
 const landingItemSchema = Joi.object({
   title: Joi.string().required(),
   href: Joi.string().required(),
+  appId: Joi.string().required(),
   id: Joi.string().required(),
 })
 
