@@ -36,7 +36,6 @@
                 {
                     "title": "Advisor",
                     "expandable": true,
-                    "isHidden": true,
                     "routes": [
                         {
                             "appId": "ocpAdvisor",
