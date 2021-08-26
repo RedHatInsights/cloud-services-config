@@ -663,7 +663,6 @@ ocp-advisor:
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
   frontend:
     module: ocp-advisor#./RootApp
-    isHidden: true
     paths:
       - /openshift/insights/advisor
     sub_apps:
