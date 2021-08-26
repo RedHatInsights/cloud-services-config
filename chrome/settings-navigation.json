@@ -5,8 +5,7 @@
         {
             "appId": "rbac",
             "title": "My User Access",
-            "href": "/settings/my-user-access",
-            "isFedramp": true
+            "href": "/settings/my-user-access"
         },
         {
             "title": "User Access",
@@ -20,20 +19,17 @@
                 {
                     "appId": "rbac",
                     "title": "Users",
-                    "href": "/settings/rbac/users",
-                    "isFedramp": true
+                    "href": "/settings/rbac/users"
                 },
                 {
                     "appId": "rbac",
                     "title": "Roles",
-                    "href": "/settings/rbac/roles",
-                    "isFedramp": true
+                    "href": "/settings/rbac/roles"
                 },
                 {
                     "appId": "rbac",
                     "title": "Groups",
-                    "href": "/settings/rbac/groups",
-                    "isFedramp": true
+                    "href": "/settings/rbac/groups"
                 },
                 {
                     "appId": "rbac",
