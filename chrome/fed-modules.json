@@ -36,6 +36,7 @@
     },
     "rbac": {
         "manifestLocation": "/apps/rbac/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "my-user-access",
@@ -160,6 +161,7 @@
     },
     "dashboard": {
         "manifestLocation": "/apps/dashboard/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "rhel-dashboard",
@@ -173,6 +175,7 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
@@ -198,6 +201,7 @@
     },
     "drift": {
         "manifestLocation": "/apps/drift/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "drift",
@@ -211,6 +215,7 @@
     },
     "inventory": {
         "manifestLocation": "/apps/inventory/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "inventory",
@@ -224,6 +229,7 @@
     },
     "vulnerability": {
         "manifestLocation": "/apps/vulnerability/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "vulnerability",
@@ -236,6 +242,7 @@
     },
     "compliance": {
         "manifestLocation": "/apps/compliance/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "compliance",
@@ -248,6 +255,7 @@
     },
     "policies": {
         "manifestLocation": "/apps/policies/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "policies",
@@ -261,6 +269,7 @@
     },
     "patch": {
         "manifestLocation": "/apps/patch/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "patch",
@@ -329,6 +338,7 @@
     },
     "remediations": {
         "manifestLocation": "/apps/remediations/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "remediations",
