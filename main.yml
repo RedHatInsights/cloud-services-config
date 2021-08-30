@@ -242,7 +242,6 @@ compliance:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     section: security
