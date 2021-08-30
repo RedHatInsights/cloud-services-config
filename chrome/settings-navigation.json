@@ -103,7 +103,7 @@
             "title": "Documentation",
             "isExternal": true,
             "filterable": false,
-            "href": "https://access.redhat.com/documentation/red_hat_cloud_platform/"
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/"
         }
     ]
 }
