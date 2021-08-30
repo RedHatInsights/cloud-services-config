@@ -56,11 +56,11 @@
         ]
     },
     "commitTracker": {
-        "dynamic": false,
+        "manifestLocation": "/apps/commit-tracker/fed-mods.json",
         "modules": [
             {
                 "id": "commit-tracker",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     "/internal",
                     "/internal/commit-tracker"
