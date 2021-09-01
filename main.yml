@@ -705,6 +705,14 @@ rhosak-control-plane-ui-build:
 rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
+  
+sr-ui-build:
+  title: Service Registry data plane UI
+  deployment_repo: https://github.com/RedHatInsights/sr-ui-build
+  
+srs-ui-build:
+  title: Service Registry control plane UI
+  deployment_repo: https://github.com/RedHatInsights/srs-ui-build
 
 patch:
   title: Patch
