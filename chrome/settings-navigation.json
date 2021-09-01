@@ -34,7 +34,8 @@
                 {
                     "appId": "rbac",
                     "title": "Red Hat Access Requests",
-                    "href": "/settings/rbac/access-requests"
+                    "href": "/settings/rbac/access-requests",
+                    "notifier": "chrome.accessRequests.hasUnseen"
                 }
             ]
         },
