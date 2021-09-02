@@ -55,6 +55,31 @@
             }
         ]
     },
+    "commitTracker": {
+        "manifestLocation": "/apps/commit-tracker/fed-mods.json",
+        "modules": [
+            {
+                "id": "commit-tracker",
+                "module": "./RootApp",
+                "routes": [
+                    "/internal",
+                    "/internal/commit-tracker"
+                ]
+            }
+        ]
+    },
+    "accessRequests": {
+        "manifestLocation": "/apps/access-requests/fed-mods.json",
+        "modules": [
+            {
+                "id": "internal-access",
+                "module": "./RootApp",
+                "routes": [
+                    "/internal/access-requests"
+                ]
+            }
+        ]
+    },
     "sources": {
         "manifestLocation": "/apps/sources/fed-mods.json",
         "modules": [
