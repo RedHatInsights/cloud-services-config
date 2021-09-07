@@ -141,6 +141,8 @@ automation-analytics:
     paths:
       - /ansible/insights
     sub_apps:
+      - id: reports
+        title: Reports
       - id: savings-planner
         title: Savings Planner
       - id : automation-calculator
