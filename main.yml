@@ -730,7 +730,7 @@ application-services:
       - id: cos
         title: "Connectors"
         group: overview
-      - id: sr
+      - id: service-registry
         title: "Service Registry"
         group: overview
   top_level: true

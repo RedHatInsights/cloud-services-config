@@ -55,7 +55,7 @@
         {
             "appId": "applicationServices",
             "title": "Service Registry",
-            "href": "/application-services/sr"
+            "href": "/application-services/service-registry"
         }
     ]
 }
