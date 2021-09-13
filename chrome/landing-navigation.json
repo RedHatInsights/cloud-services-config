@@ -13,6 +13,7 @@
   },
   {
       "id": "rhel",
+      "isFedramp": true,
       "appId": "dashboard",
       "title": "Red Hat Enterprise Linux",
       "href": "/insights/dashboard"
