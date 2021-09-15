@@ -20,7 +20,7 @@ const routeModuleSchema = Joi.object({
     is: Joi.array().has(Joi.object({
       pathname: Joi.any(),
       exact: Joi.any(),
-      dynamic: Joi.alternatives().try(Joi.boolean().valid(true), Joi.forbidden())
+      dynamic: Joi.alternatives().try(Joi.boolean().valid(true), Joi.forbidden()),
     })),
     then: Joi.required(),
   }),
@@ -28,6 +28,7 @@ const routeModuleSchema = Joi.object({
     pathname: Joi.string().required(),
     exact: Joi.boolean(),
     dynamic: Joi.boolean(),
+    isFedramp: Joi.boolean()
   }))).required()
 })
 
