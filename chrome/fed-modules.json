@@ -175,13 +175,15 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
-        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/advisor",
+                    {
+                        "pathname": "/insights/advisor",
+                        "isFedramp": true
+                    },
                     "/ansible/advisor"
                 ]
             }
@@ -201,13 +203,15 @@
     },
     "drift": {
         "manifestLocation": "/apps/drift/fed-mods.json",
-        "isFedramp": true,
         "modules": [
             {
                 "id": "drift",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/drift",
+                    {
+                        "pathname": "/insights/drift",
+                        "isFedramp": true
+                    },
                     "/ansible/drift"
                 ]
             }
@@ -215,13 +219,15 @@
     },
     "inventory": {
         "manifestLocation": "/apps/inventory/fed-mods.json",
-        "isFedramp": true,
         "modules": [
             {
                 "id": "inventory",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/inventory",
+                    {
+                        "pathname": "/insights/inventory",
+                        "isFedramp": true
+                    },
                     "/ansible/inventory"
                 ]
             }
@@ -255,13 +261,15 @@
     },
     "policies": {
         "manifestLocation": "/apps/policies/fed-mods.json",
-        "isFedramp": true,
         "modules": [
             {
                 "id": "policies",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/policies",
+                    {
+                        "pathname": "/insights/policies",
+                        "isFedramp": true
+                    },
                     "/ansible/policies"
                 ]
             }
@@ -338,13 +346,15 @@
     },
     "remediations": {
         "manifestLocation": "/apps/remediations/fed-mods.json",
-        "isFedramp": true,
         "modules": [
             {
                 "id": "remediations",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/remediations",
+                    {
+                        "pathname": "/insights/remediations",
+                        "isFedramp": true
+                    },
                     "/ansible/remediations"
                 ]
             }
