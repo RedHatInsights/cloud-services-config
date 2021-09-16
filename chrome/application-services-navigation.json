@@ -56,6 +56,11 @@
             "appId": "applicationServices",
             "title": "Service Registry",
             "href": "/application-services/service-registry"
+        },
+        {
+            "appId": "dbaas",
+            "title": "Database Access",
+            "href": "/application-services/databases"
         }
     ]
 }
