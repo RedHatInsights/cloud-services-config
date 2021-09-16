@@ -555,7 +555,7 @@
         ]
     },
     "dbaas": {
-        "manifestLocation": "/apps/malware/fed-mods.json",
+        "manifestLocation": "/apps/dbaas/fed-mods.json",
         "modules": [
             {
                 "id": "dbaas",
