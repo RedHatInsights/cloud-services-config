@@ -360,6 +360,11 @@ docs:
       - id: product
   top_level: true
 
+dbaas:
+  title: Database Access
+  deployment_repo: https://github.com/RedHatInsights/dbaas-ui-build
+  source_repo: https://github.com/RedHatInsights/dbaas-ui
+
 drift:
   title: Drift
   api:
