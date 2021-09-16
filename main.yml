@@ -714,8 +714,8 @@ service-registry:
   title: "Service Registry"
   frontend:
     sub_apps:
-      - id: sr
-        title: "Service Registry"
+      - id: instances
+        title: "Service Registry Instances"
       - id: streams-docs
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
