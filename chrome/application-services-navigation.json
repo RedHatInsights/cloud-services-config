@@ -42,6 +42,12 @@
                     "title": "Service Registry Instances",
                     "isBeta": true,
                     "href": "/application-services/service-registry"
+                },
+                {
+                    "appId": "applicationServices",
+                    "title": "Resources",
+                    "isBeta": true,
+                    "href": "/application-services/service-registry/resources"
                 },              
                 {
                     "title": "Documentation",
