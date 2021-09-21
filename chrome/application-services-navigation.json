@@ -42,13 +42,7 @@
                     "title": "Service Registry Instances",
                     "isBeta": true,
                     "href": "/application-services/service-registry"
-                },
-                {
-                    "appId": "applicationServices",
-                    "title": "Resources",
-                    "isBeta": true,
-                    "href": "/application-services/service-registry/resources"
-                },              
+                },           
                 {
                     "title": "Documentation",
                     "isExternal": true,
@@ -67,17 +61,16 @@
                     "href": "/application-services/streams/kafkas"
                 },
                 {
-                    "appId": "applicationServices",
-                    "title": "Resources",
-                    "isBeta": true,
-                    "href": "/application-services/streams/resources"
-                },
-                {
                     "title": "Documentation",
                     "isExternal": true,
                     "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
                 }
             ]
+        },
+        {
+            "appId": "applicationServices",
+            "title": "Learning Resources",
+            "href": "/application-services/learning-resources"
         }
     ]
 }

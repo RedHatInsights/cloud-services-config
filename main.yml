@@ -704,8 +704,6 @@ streams:
       - id: kafkas
         title: "Kafka Instances"
         default: true
-      - id: resources
-        title: "Resources"
       - id: streams-docs
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/
@@ -716,8 +714,6 @@ service-registry:
     sub_apps:
       - id: instances
         title: "Service Registry Instances"
-      - id: service-registry
-        title: "Service Registry"
       - id: streams-docs
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
@@ -753,6 +749,9 @@ application-services:
         title: "Service Registry"
         group: overview
       - id: streams
+        group: overview
+      - id: learning-resources
+        title: "Learning Resources"
         group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
