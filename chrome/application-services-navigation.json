@@ -19,6 +19,11 @@
             "href": "/application-services/data-science"
         },
         {
+            "appId": "dbaas",
+            "title": "Database Access",
+            "href": "/application-services/databases"
+        },
+        {
             "appId": "applicationServices",
             "title": "Service Accounts",
             "href": "/application-services/service-accounts"
