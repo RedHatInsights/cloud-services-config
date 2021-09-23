@@ -31,7 +31,7 @@
                             "product": "Red Hat Insights"
                         },
                         {
-                            "appId": "approval",
+                            "appId": "advisor",
                             "title": "Topics",
                             "href": "/insights/advisor/topics",
                             "product": "Red Hat Insights"
