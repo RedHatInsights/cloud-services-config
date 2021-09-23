@@ -37,6 +37,7 @@
     },
     "rbac": {
         "manifestLocation": "/apps/rbac/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "my-user-access",
@@ -161,6 +162,7 @@
     },
     "dashboard": {
         "manifestLocation": "/apps/dashboard/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "rhel-dashboard",
@@ -222,6 +224,7 @@
     },
     "vulnerability": {
         "manifestLocation": "/apps/vulnerability/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "vulnerability",
@@ -234,6 +237,7 @@
     },
     "compliance": {
         "manifestLocation": "/apps/compliance/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "compliance",
@@ -262,6 +266,7 @@
     },
     "patch": {
         "manifestLocation": "/apps/patch/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "patch",
