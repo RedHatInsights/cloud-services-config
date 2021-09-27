@@ -59,16 +59,6 @@
             ]
         },
         {
-            "appId": "applicationServices",
-            "title": "API Management",
-            "href": "/application-services/api-management"
-        },
-        {
-            "appId": "applicationServices",
-            "title": "Data Science",
-            "href": "/application-services/data-science"
-        },
-        {
             "appId": "dbaas",
             "title": "Database Access",
             "href": "/application-services/databases"
