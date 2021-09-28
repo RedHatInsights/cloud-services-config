@@ -56,6 +56,11 @@
                     "appId": "notifications",
                     "title": "OpenShift",
                     "href": "/settings/notifications/openshift"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Application Services",
+                    "href": "/settings/notifications/application-services"
                 }
             ]
         },
