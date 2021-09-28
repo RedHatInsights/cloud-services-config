@@ -549,6 +549,20 @@ malware:
         title: Systems
   source_repo: https://github.com/RedHatInsights/malware-detection-frontend
 
+subscription-inventory:
+  title: Subscription Inventory
+  channel: '#subscription-inventory'
+  deployment_repo: https://github.com/RedHatInsights/subscription-inventory-ui-build
+  frontend:
+    module:
+      appName: subscription-inventory
+      scope: inventory
+      module: ./RootApp
+    paths:
+      - /insights/subscriptions/inventory
+    reload: subscriptions/inventory
+  source_repo: https://github.com/RedHatInsights/subscription-inventory-ui
+
 manifests:
   title: Manifests
   channel: '#subscription-central'
