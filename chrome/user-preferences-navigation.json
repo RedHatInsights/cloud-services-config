@@ -15,6 +15,11 @@
                     "appId": "userPreferences",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/user-preferences/notifications/rhel"
+                },
+                {
+                    "appId": "userPreferences",
+                    "title": "OpenShift",
+                    "href": "/user-preferences/notifications/openshift"
                 }
             ]
         }
