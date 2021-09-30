@@ -436,6 +436,9 @@ hac-core:
   title: HAC
   deployment_repo: https://github.com/RedHatInsights/hac-core-frontend-build
   source_repo: https://github.com/RedHatInsights/hac-core-frontend
+  frontend:
+    paths:
+      - /hac
 
 image-builder:
   title: Image Builder
