@@ -439,6 +439,7 @@ hac-core:
   frontend:
     paths:
       - /hac
+      - /hac/core
 
 image-builder:
   title: Image Builder
