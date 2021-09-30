@@ -11,7 +11,7 @@ Each schema is validated in the CI by its validators. You can run the validation
 
 ## Prerequisites
 - Application UI repositories are setup.
-- The deployment configuration is present in the [main.yml](https://github.com/RedHatInsights/cloud-services-config#adding-config-for-new-apps) configuration. You can ignore the `sub_apps` and any configurations from the `frontend` object tied to the left nav. The `paths` key is still required for Akamai to serve static assets properly!
+- The deployment configuration is present in the [main.yml](https://github.com/RedHatInsights/cloud-services-config#adding-config-for-new-apps) configuration. You can ignore the `sub_apps` and any configurations from the `frontend` object tied to the left nav. The `paths` key is still required if you want to serve custom HTML template (is deprecated and will not be used for long).
 
 ## **NOTE**: configuration bellow applies to applications using chrome 2 rendering
 
