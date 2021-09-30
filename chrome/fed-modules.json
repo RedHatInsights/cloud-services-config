@@ -307,6 +307,18 @@
             }
         ]
     },
+    "subscriptionInventory": {
+        "manifestLocation": "/apps/subscription-inventory/fed-mods.json",
+        "modules": [
+            {
+                "id": "subscription-inventory",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/subscriptions/inventory"
+                ]
+            }
+        ]
+    },
     "manifests": {
         "manifestLocation": "/apps/manifests/fed-mods.json",
         "modules": [
