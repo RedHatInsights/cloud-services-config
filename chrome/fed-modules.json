@@ -476,6 +476,18 @@
             }
         ]
     },
+    "hacCore": {
+      "manifestLocation": "/apps/hac-core/fed-mods.json",
+      "modules": [
+          {
+              "id": "hacCore",
+              "module": "./RootApp",
+              "routes": [
+                  "/hac"
+              ]
+          }
+      ]
+    },
     "docsFrontend": {
         "dynamic": false,
         "modules": [

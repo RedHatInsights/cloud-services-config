@@ -425,6 +425,11 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
+hac-core:
+  title: HAC
+  deployment_repo: https://github.com/RedHatInsights/hac-core-frontend-build
+  source_repo: https://github.com/RedHatInsights/hac-core-frontend
+
 image-builder:
   title: Image Builder
   api:
