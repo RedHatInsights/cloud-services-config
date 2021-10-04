@@ -82,7 +82,8 @@
                 {
                     "method": "isOrgAdmin",
                     "apps": [
-                        "cost-management"
+                        "cost-management",
+                        "insights"
                     ]
                 }
             ],
@@ -97,6 +98,14 @@
                             "args": [
                                 "insights"
                             ]
+                        },
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "advisor:*:*"
+                                ]
+                            ]
                         }
                     ]
                 },
@@ -109,6 +118,14 @@
                             "method": "isEntitled",
                             "args": [
                                 "cost_management"
+                            ]
+                        },
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "cost-management:*:*"
+                                ]
                             ]
                         }
                     ]
