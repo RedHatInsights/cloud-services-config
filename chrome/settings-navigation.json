@@ -112,6 +112,11 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "appId": "applications",
+                    "title": "Fleet Management",
+                    "href": "/settings/applications/edge"
                 }
             ]
         },
