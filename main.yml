@@ -415,7 +415,7 @@ edge:
       scope: edge
       module: ./RootApp
       group: fleet-management
-    title: RHEL for Edge
+    title: Fleet Management
     paths:
       - /edge
     sub_apps:
