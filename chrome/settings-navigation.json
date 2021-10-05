@@ -83,7 +83,7 @@
                     "method": "isEntitled",
                     "args": [
                         "insights",
-                        "cost-management"
+                        "cost_management"
                     ]
                 }
             ],
