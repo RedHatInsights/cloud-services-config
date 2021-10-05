@@ -2,9 +2,6 @@ access-requests:
   title: Access Requests
   description: Frontend for Red Hat employee to request access to customer account
   deployment_repo: https://github.com/RedHatInsights/access-requests-build
-  api:
-    versions:
-      -v1
   frontend:
     module:
       appName: access-requests
@@ -221,9 +218,6 @@ cloud-tutorials:
   title: Cloud Tutorials
   description: Cloud Tutorials for Open Data Hub
   deployment_repo: https://github.com/cloudmosaic/cloud-tutorials-frontend-build
-  api:
-    versions:
-      -v1
   frontend:
     module:
       appName: cloud-tutorials
@@ -238,9 +232,6 @@ commit-tracker:
   description: The Commit Tracker Tool
   disabled_on_prod: true
   deployment_repo: https://github.com/RedHatInsights/commit-tracker-frontend-build
-  api:
-    versions:
-      -v1
   frontend:
     title: Commit Tracker
     paths:
