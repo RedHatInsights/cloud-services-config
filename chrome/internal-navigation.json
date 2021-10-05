@@ -4,7 +4,7 @@
     "navItems": [
         {
             "title": "Commit Tracker",
-            "appId": "apiDocs",
+            "appId": "commitTracker",
             "href": "/internal/commit-tracker"
         },
         {
