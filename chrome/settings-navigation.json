@@ -80,10 +80,10 @@
             "expandable": true,
             "permissions": [
                 {
-                    "method": "isOrgAdmin",
-                    "apps": [
-                        "cost-management",
-                        "insights"
+                    "method": "isEntitled",
+                    "args": [
+                        "insights",
+                        "cost-management"
                     ]
                 }
             ],
