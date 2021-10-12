@@ -78,15 +78,6 @@
         {
             "title": "Applications",
             "expandable": true,
-            "permissions": [
-                {
-                    "method": "isEntitled",
-                    "args": [
-                        "insights",
-                        "cost_management"
-                    ]
-                }
-            ],
             "routes": [
                 {
                     "appId": "applications",
