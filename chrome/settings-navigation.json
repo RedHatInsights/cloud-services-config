@@ -78,14 +78,6 @@
         {
             "title": "Applications",
             "expandable": true,
-            "permissions": [
-                {
-                    "method": "isOrgAdmin",
-                    "apps": [
-                        "cost-management"
-                    ]
-                }
-            ],
             "routes": [
                 {
                     "appId": "applications",
@@ -96,6 +88,14 @@
                             "method": "isEntitled",
                             "args": [
                                 "insights"
+                            ]
+                        },
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "advisor:*:*"
+                                ]
                             ]
                         }
                     ]
@@ -109,6 +109,14 @@
                             "method": "isEntitled",
                             "args": [
                                 "cost_management"
+                            ]
+                        },
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "cost-management:*:*"
+                                ]
                             ]
                         }
                     ]
