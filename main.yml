@@ -207,6 +207,7 @@ ccx:
   api:
     versions:
       - v1
+      - v2
     apiName: insights-results-aggregator
 
 chrome:
