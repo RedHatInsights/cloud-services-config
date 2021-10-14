@@ -127,6 +127,26 @@ application-services:
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
+rhosak-data-plane-ui-build:
+  title: Data Plane UI for RHOSAK
+  deployment_repo: https://github.com/RedHatInsights/rhosak-data-plane-ui-build
+
+rhosak-control-plane-ui-build:
+  title: Control Plane UI for RHOSAK
+  deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
+
+sr-ui-build:
+  title: UI for Service Registry
+  deployment_repo: https://github.com/RedHatInsights/sr-ui-build
+
+srs-ui-build:
+  title: UI for Service Registry Control Plane
+  deployment_repo: https://github.com/RedHatInsights/srs-ui-build
+
+rhoas-guides-build:
+  title: Guides for RHOAS
+  deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
+
 approval:
   title: Approval
   api:
