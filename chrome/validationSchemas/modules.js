@@ -39,9 +39,10 @@ const moduleItemSchema = Joi.object({
     then: Joi.any().forbidden(),
     otherwise: Joi.string().required()
   }),
+  isFedramp: Joi.boolean(),
   modules: Joi.array().items(routeModuleSchema).required()
 })
 
-const modulesSchema = Joi.object().pattern(Joi.string(), moduleItemSchema);
+const modulesSchema = Joi.object().pattern(Joi.string().token(), moduleItemSchema);
 
 module.exports = modulesSchema;
