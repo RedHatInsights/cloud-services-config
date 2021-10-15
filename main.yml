@@ -425,7 +425,6 @@ edge:
         title: Fleet Management
         group: fleet-management
       - id: manage-images
-        isHidden: true
         title: Manage images
         group: fleet-management
 
