@@ -21,7 +21,7 @@
         {
             "appId": "applicationServices",
             "title": "Service Accounts",
-            "href": "/application-services/service-accounts",
+            "href": "/application-services/service-accounts"
         },
         {
             "title": "Service Registry",
@@ -59,7 +59,7 @@
         {
             "appId": "applicationServices",
             "title": "Learning Resources",
-            "href": "/application-services/learning-resources",
+            "href": "/application-services/learning-resources"
         }
     ]
 }
