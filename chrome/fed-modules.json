@@ -420,18 +420,6 @@
             }
         ]
     },
-    "streams": {
-        "dynamic": false,
-        "modules": [
-            {
-                "id": "streams",
-                "dynamic": false,
-                "routes": [
-                    "/application-services/streams"
-                ]
-            }
-        ]
-    },
     "trust": {
         "dynamic": false,
         "modules": [
