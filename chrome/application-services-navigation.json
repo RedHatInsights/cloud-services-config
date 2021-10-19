@@ -22,7 +22,6 @@
             "appId": "applicationServices",
             "title": "Service Accounts",
             "href": "/application-services/service-accounts",
-            "isBeta": true
         },
         {
             "title": "Service Registry",
@@ -48,7 +47,6 @@
                 {
                     "appId": "applicationServices",
                     "title": "Kafka Instances",
-                    "isBeta": true,
                     "href": "/application-services/streams/kafkas"
                 },
                 {
@@ -62,7 +60,6 @@
             "appId": "applicationServices",
             "title": "Learning Resources",
             "href": "/application-services/learning-resources",
-            "isBeta": true
         }
     ]
 }
