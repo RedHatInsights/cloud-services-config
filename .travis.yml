@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - node
+before_install:
+  - npm install -g npm@latest
+install:
+  - npm ci
+jobs:
+  include:
+    - stage: validate
+      script: npm run validate-yaml && npm run validate-chrome
+cache:
+  directories:
+    - "$HOME/.npm"
+    - ".cache"

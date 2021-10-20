@@ -18,7 +18,8 @@ const routeSchema = Joi.object({
   href: Joi.string().required(),
   permissions: Joi.array().items(permissionsSchema),
   isExternal: Joi.bool(),
-  product: Joi.string()
+  product: Joi.string(),
+  notifier: Joi.string()
 })
 
 const navItemSchema = Joi.object({
@@ -68,7 +69,8 @@ const navItemSchema = Joi.object({
     then: Joi.forbidden(),
     otherwise: Joi.optional()
   }),
-  product: Joi.string()
+  product: Joi.string(),
+  notifier: Joi.string()
 })
 
 const subNavItem = navItemSchema.fork(['groupId', 'navItems', 'appId', 'icon'], schema => schema.forbidden())
