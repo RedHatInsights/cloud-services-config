@@ -21,7 +21,6 @@ const routeModuleSchema = Joi.object({
       pathname: Joi.any(),
       exact: Joi.any(),
       dynamic: Joi.alternatives().try(Joi.boolean().valid(true), Joi.forbidden()),
-      isFedramp: Joi.boolean(),
     })),
     then: Joi.required(),
   }),
@@ -29,18 +28,18 @@ const routeModuleSchema = Joi.object({
     pathname: Joi.string().required(),
     exact: Joi.boolean(),
     dynamic: Joi.boolean(),
-    isFedramp: Joi.boolean(),
+    isFedramp: Joi.boolean()
   }))).required()
 })
 
 const moduleItemSchema = Joi.object({
   dynamic: Joi.boolean().optional(),
-  isFedramp: Joi.boolean(),
   manifestLocation: Joi.alternatives().conditional('dynamic', {
     is: false,
     then: Joi.any().forbidden(),
     otherwise: Joi.string().required()
   }),
+  isFedramp: Joi.boolean(),
   modules: Joi.array().items(routeModuleSchema).required()
 })
 
