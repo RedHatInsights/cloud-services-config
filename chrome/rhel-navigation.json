@@ -248,6 +248,7 @@
         {
             "title": "Product Materials",
             "expandable": true,
+            "filterable": false,
             "routes": [
                 {
                     "title": "Documentation",

@@ -9,6 +9,38 @@
             "href": "/application-services/overview"
         },
         {
+            "appId": "applicationServices",
+            "title": "API Management",
+            "href": "/application-services/api-management"
+        },
+        {
+            "appId": "applicationServices",
+            "title": "Data Science",
+            "href": "/application-services/data-science"
+        },
+        {
+            "appId": "applicationServices",
+            "title": "Service Accounts",
+            "href": "/application-services/service-accounts"
+        },
+        {
+            "title": "Service Registry",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "applicationServices",
+                    "title": "Service Registry Instances",
+                    "isBeta": true,
+                    "href": "/application-services/service-registry"
+                },           
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry"
+                }
+            ]
+        },
+        {
             "title": "Streams for Apache Kafka",
             "expandable": true,
             "routes": [
@@ -19,18 +51,6 @@
                     "href": "/application-services/streams/kafkas"
                 },
                 {
-                    "appId": "applicationServices",
-                    "title": "Service Accounts",
-                    "isBeta": true,
-                    "href": "/application-services/streams/service-accounts"
-                },
-                {
-                    "appId": "applicationServices",
-                    "title": "Resources",
-                    "isBeta": true,
-                    "href": "/application-services/streams/resources"
-                },
-                {
                     "title": "Documentation",
                     "isExternal": true,
                     "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
@@ -39,13 +59,8 @@
         },
         {
             "appId": "applicationServices",
-            "title": "API Management",
-            "href": "/application-services/api-management"
-        },
-        {
-            "appId": "applicationServices",
-            "title": "Data Science",
-            "href": "/application-services/data-science"
+            "title": "Learning Resources",
+            "href": "/application-services/learning-resources"
         }
     ]
 }

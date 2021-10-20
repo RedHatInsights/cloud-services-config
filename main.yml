@@ -640,7 +640,6 @@ ocp-advisor:
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
   frontend:
     module: ocp-advisor#./RootApp
-    isHidden: true
     paths:
       - /openshift/insights/advisor
     sub_apps:
@@ -658,13 +657,19 @@ streams:
       - id: kafkas
         title: "Kafka Instances"
         default: true
-      - id: service-accounts
-        title: "Service Accounts"
-      - id: resources
-        title: "Resources"
       - id: streams-docs
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka/
+
+service-registry:
+  title: "Service Registry"
+  frontend:
+    sub_apps:
+      - id: instances
+        title: "Service Registry Instances"
+      - id: streams-docs
+        title: Documentation
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
 application-services:
   title: Application Services
@@ -681,13 +686,22 @@ application-services:
         title: "Overview"
         default: true
         group: overview
-      - id: streams
-        group: overview
       - id: api-management
         title: "API Management"
         group: overview
       - id: data-science
         title: "Data Science"
+        group: overview
+      - id: service-accounts
+        title: "Service Accounts"
+        group: overview
+      - id: service-registry
+        title: "Service Registry"
+        group: overview
+      - id: streams
+        group: overview
+      - id: learning-resources
+        title: "Learning Resources"
         group: overview
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
@@ -706,6 +720,14 @@ rhosak-control-plane-ui-build:
 rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
+  
+sr-ui-build:
+  title: Service Registry data plane UI
+  deployment_repo: https://github.com/RedHatInsights/sr-ui-build
+  
+srs-ui-build:
+  title: Service Registry control plane UI
+  deployment_repo: https://github.com/RedHatInsights/srs-ui-build
 
 patch:
   title: Patch
