@@ -3,7 +3,7 @@
     "title": "RHEL For Edge",
     "navItems": [
         {
-            "title": "Fleet Management",
+            "title": "Fleet management",
             "appId": "edge",
             "filterable": false,
             "href": "/edge/fleet-management",
@@ -15,14 +15,33 @@
             ]
         },
         {
-            "title": "Manage images",
-            "appId": "edge",
-            "filterable": false,
-            "href": "/edge/manage-images",
-            "permissions": [
+            "title": "Manage Images",
+            "expandable": true,
+            "routes": [
                 {
-                    "method": "withEmail",
-                    "args": ["@redhat.com"]
+                    "title": "Images",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/manage-images",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                },
+
+                {
+                    "title": "Custom repositories",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/repositories",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
                 }
             ]
         }
