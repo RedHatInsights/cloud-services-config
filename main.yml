@@ -433,6 +433,14 @@ hac-core:
       - /hac
       - /hac/core
 
+hac-dev:
+  title: HAC Developer Experience
+  deployment_repo: https://github.com/openshift/hac-dev
+  source_repo: https://github.com/openshift/hac-dev
+  frontend:
+    paths:
+      - /hac/app-studio
+
 image-builder:
   title: Image Builder
   api:
