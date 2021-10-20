@@ -6,6 +6,11 @@
           "title": "Example",
           "appId": "hacCore",
           "href": "/hac"
+      },
+      {
+          "title": "App Studio",
+          "appId": "hacDev",
+          "href": "/hac/app-studio"
       }
   ]
 }

@@ -506,6 +506,18 @@
           }
       ]
     },
+    "hacDev": {
+        "manifestLocation": "/apps/hac-dev/fed-mods.json",
+        "modules": [
+            {
+                "id": "hacDev",
+                "module": "./RootApp",
+                "routes": [
+                    "/hac/app-studio"
+                ]
+            }
+        ]
+      },
     "docsFrontend": {
         "dynamic": false,
         "modules": [
