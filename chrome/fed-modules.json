@@ -468,5 +468,17 @@
                 ]
             }
         ]
+    },
+    "dbaas": {
+        "manifestLocation": "/apps/dbaas/fed-mods.json",
+        "modules": [
+            {
+                "id": "dbaas",
+                "module": "./RootApp",
+                "routes": [
+                    "/application-services/databases"
+                ]
+            }
+        ]
     }
 }
