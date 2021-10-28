@@ -57,7 +57,11 @@
             ]
         },
         {
-            "appId": "applicationServices",
+            "appId": "dbaas",
+            "title": "Database Access",
+            "href": "/application-services/databases"
+        },
+        {
             "title": "Learning Resources",
             "href": "/application-services/learning-resources"
         }
