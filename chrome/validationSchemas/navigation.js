@@ -38,6 +38,7 @@ const navItemSchema = Joi.object({
   filterable: Joi.bool(),
   isExternal: Joi.bool(),
   title: Joi.string().required(),
+  dynamicNav: Joi.string(),
   groupId: Joi.string(),
   href: Joi.string().when('expandable', {
     is: true,
@@ -45,7 +46,12 @@ const navItemSchema = Joi.object({
     break: true
   }).when('groupId', {
     not: Joi.exist(),
-    then: Joi.required(),
+    then: Joi.when(
+      'dynamicNav', {
+        not: Joi.exist(),
+        then: Joi.required()
+      }
+    ),
     otherwise: Joi.optional()
   }),
   expandable: Joi.bool().optional(),
