@@ -194,6 +194,12 @@
                             "product": "Subscription Watch"
                         },
                         {
+                            "appId": "manifests",
+                            "title": "Manifests",
+                            "href": "/insights/subscriptions/manifests",
+                            "product": "Subscription Watch"
+                        },
+                        {
                             "title": "Documentation",
                             "isExternal": true,
                             "filterable": false,

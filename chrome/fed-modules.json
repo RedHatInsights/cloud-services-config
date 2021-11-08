@@ -267,6 +267,18 @@
             }
         ]
     },
+    "manifests": {
+        "manifestLocation": "/apps/manifests/fed-mods.json",
+        "modules": [
+            {
+                "id": "manifests",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/subscriptions/manifests"
+                ]
+            }
+        ]
+    },
     "registration": {
         "manifestLocation": "/apps/registration/fed-mods.json",
         "modules": [
