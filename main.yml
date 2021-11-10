@@ -754,6 +754,10 @@ application-services:
       - id: cos
         title: "Connectors"
         group: overview
+        sub_apps:
+            - id: dbz
+              title: Debezium
+              group: overview
       - id: data-science
         title: "Data Science"
         group: overview
@@ -785,6 +789,10 @@ rhosak-control-plane-ui-build:
 cos-ui-build:
   title: UI for COS
   deployment_repo: https://github.com/RedHatInsights/cos-ui-build
+
+dbz-ui-build:
+  title: UI for Debezium
+  deployment_repo: https://github.com/RedHatInsights/dbz-ui-build
 
 sr-ui-build:
   title: UI for Service Registry
