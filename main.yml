@@ -754,10 +754,6 @@ application-services:
       - id: cos
         title: "Connectors"
         group: overview
-        sub_apps:
-            - id: dbz
-              title: Debezium
-              group: overview
       - id: data-science
         title: "Data Science"
         group: overview
