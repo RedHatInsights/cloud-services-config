@@ -763,8 +763,12 @@ application-services:
       - id: service-registry
         title: "Service Registry"
         group: overview
-      - id: streams
-        group: overview
+      - id: subscriptions
+        title: Subscriptions
+        section: insights
+        sub_apps:
+          - id: streams
+            title: Streams for Apache Kafka
       - id: learning-resources
         title: "Learning Resources"
         group: overview
