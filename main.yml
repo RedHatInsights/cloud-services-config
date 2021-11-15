@@ -112,6 +112,14 @@ application-services:
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
+cos-ui-build:
+  title: UI for COS
+  deployment_repo: https://github.com/RedHatInsights/cos-ui-build
+
+dbz-ui-build:
+  title: UI for Debezium
+  deployment_repo: https://github.com/RedHatInsights/dbz-ui-build
+
 approval:
   title: Approval
   api:
