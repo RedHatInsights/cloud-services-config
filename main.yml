@@ -471,6 +471,7 @@ insights:
       - id: compliance
       - id: policies
       - id: patch
+      - id: malware
       - id: subscriptions
         section: business
       - id: registration
@@ -513,6 +514,26 @@ landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
+
+malware:
+  title: Malware
+  api:
+    versions:
+      - v1
+  channel: '#advisor'
+  deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
+  frontend:
+    section: security
+    title: Malware
+    module: malware#./RootApp
+    paths:
+      - /insights/malware
+    sub_apps:
+      - id: signatures
+        title: Signatures
+      - id: systems
+        title: Systems
+  source_repo: https://github.com/RedHatInsights/malware-detection-frontend
 
 manifests:
   title: Manifests
