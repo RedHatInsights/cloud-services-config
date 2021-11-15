@@ -145,6 +145,24 @@
                             "product": "Red Hat Insights"
                         }
                     ]
+                },
+                {
+                    "title": "Malware",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "malware",
+                            "title": "Signatures",
+                            "href": "/insights/malware/signatures",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "malware",
+                            "title": "Systems",
+                            "href": "/insights/malware/systems",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
                 }
             ]
         },
