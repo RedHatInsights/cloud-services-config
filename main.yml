@@ -135,6 +135,14 @@ rhosak-control-plane-ui-build:
   title: Control Plane UI for RHOSAK
   deployment_repo: https://github.com/RedHatInsights/rhosak-control-plane-ui-build
 
+cos-ui-build:
+  title: UI for COS
+  deployment_repo: https://github.com/RedHatInsights/cos-ui-build
+
+dbz-ui-build:
+  title: UI for Debezium
+  deployment_repo: https://github.com/RedHatInsights/dbz-ui-build
+
 sr-ui-build:
   title: UI for Service Registry
   deployment_repo: https://github.com/RedHatInsights/sr-ui-build
