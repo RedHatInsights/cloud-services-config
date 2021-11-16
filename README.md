@@ -2,11 +2,25 @@
 
 This repo deals with the high-level configuration of Cloud Services. `main.yml` contains the source of truth for CS apps, and the `akamai` folder deals with updating our Akamai configuration.
 
-## Branch syncing
+## Branch links and syncing
+
+These are the urls for each branch:
+
+### Beta
+* ci-beta -> https://ci.console.redhat.com/beta
+* qa-beta -> https://qa.console.redhat.com/beta
+* stage-beta -> https://console.stage.redhat.com/beta
+* prod-beta -> https://console.redhat.com/beta
+
+### Stable
+* ci-stable -> https://ci.console.redhat.com
+* qa-stable -> https://qa.console.redhat.com
+* stage -> https://console.stage.redhat.com/beta
+* prod-stable -> https://console.redhat.com
 
 These branches sync:
 
-* ci-beta -> nightly-beta -> qa-beta -> stage-beta
+* ci-beta -> qa-beta -> stage-beta
 * ci-stable -> nightly-stable
 * qa-stable -> stage-stable
 
