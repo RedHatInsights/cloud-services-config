@@ -15,7 +15,7 @@ These are the urls for each branch:
 ### Stable
 * ci-stable -> https://ci.console.redhat.com
 * qa-stable -> https://qa.console.redhat.com
-* stage -> https://console.stage.redhat.com/beta
+* stage -> https://console.stage.redhat.com
 * prod-stable -> https://console.redhat.com
 
 These branches sync:
