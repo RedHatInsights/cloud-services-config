@@ -69,6 +69,7 @@
         },
         {
             "groupId": "insights",
+            "icon": "trend-up",
             "title": "Insights",
             "navItems": [
                 {
