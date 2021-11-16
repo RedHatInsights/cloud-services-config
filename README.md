@@ -21,7 +21,7 @@ These are the urls for each branch:
 These branches sync:
 
 * ci-beta -> qa-beta -> stage-beta
-* ci-stable -> nightly-stable
+* ci-stable
 * qa-stable -> stage-stable
 
 ## Adding Config for New Apps
