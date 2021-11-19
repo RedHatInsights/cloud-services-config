@@ -280,6 +280,13 @@
         "manifestLocation": "/apps/subscriptions/fed-mods.json",
         "modules": [
             {
+                "id": "application-services-subscriptions",
+                "module": "./RootApp",
+                "routes": [
+                    "/application-services/subscriptions"
+                ]
+            },
+            {
                 "id": "insights-subscriptions",
                 "module": "./RootApp",
                 "routes": [
