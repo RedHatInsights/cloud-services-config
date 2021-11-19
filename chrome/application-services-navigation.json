@@ -38,6 +38,25 @@
             ]
         },
         {
+            "groupId": "insights",
+            "icon": "trend-up",
+            "title": "Insights",
+            "navItems": [
+                {
+                    "title": "Subscriptions",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "applicationServices",
+                            "title": "Streams for Apache Kafka",
+                            "isBeta": true,
+                            "href": "/application-services/subscriptions/streams"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "appId": "applicationServices",
             "title": "API Management",
             "href": "/application-services/api-management"
