@@ -39,14 +39,14 @@
                     "routes": [
                         {
                             "appId": "ocpAdvisor",
-                            "title": "Clusters",
-                            "href": "/openshift/insights/advisor/clusters",
+                            "title": "Recommendations",
+                            "href": "/openshift/insights/advisor/recommendations",
                             "product": "Red Hat OpenShift Cluster Manager"
                         },
                         {
                             "appId": "ocpAdvisor",
-                            "title": "Recommendations",
-                            "href": "/openshift/insights/advisor/recommendations",
+                            "title": "Clusters",
+                            "href": "/openshift/insights/advisor/clusters",
                             "product": "Red Hat OpenShift Cluster Manager"
                         }
                     ]
