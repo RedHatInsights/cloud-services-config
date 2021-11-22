@@ -57,6 +57,23 @@
                     ]
                 },
                 {
+                    "appId": "image_builder",
+                    "title": "Image builder",
+                    "href": "/insights/image-builder",
+                    "product": "Red Hat Insights",
+                    "permissions": [
+                        {
+                            "method": "apiRequest",
+                            "args": [
+                                {
+                                    "url": "/api/image-builder/v1/version",
+                                    "matcher": "isNotEmpty"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "appId": "inventory",
                     "title": "Inventory",
                     "href": "/insights/inventory",
@@ -251,23 +268,6 @@
             "title": "Remediations",
             "href": "/insights/remediations",
             "product": "Red Hat Insights"
-        },
-        {
-            "appId": "image_builder",
-            "title": "Image builder",
-            "href": "/insights/image-builder",
-            "product": "Red Hat Insights",
-            "permissions": [
-                {
-                    "method": "apiRequest",
-                    "args": [
-                        {
-                            "url": "/api/image-builder/v1/version",
-                            "matcher": "isNotEmpty"
-                        }
-                    ]
-                }
-            ]
         },
         {
             "title": "Product Materials",
