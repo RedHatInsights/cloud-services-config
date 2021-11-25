@@ -67,6 +67,11 @@
                     "appId": "notifications",
                     "title": "Application Services",
                     "href": "/settings/notifications/application-services"
+                },
+                {
+                    "appId": "ansible",
+                    "title": "Ansible",
+                    "href": "/settings/notifications/ansible"
                 }
             ]
         },
