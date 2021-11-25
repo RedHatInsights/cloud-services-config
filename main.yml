@@ -1111,6 +1111,9 @@ user-preferences:
             - id: application-services
               title: Application Services
               group: email
+            - id: ansible
+              title: Ansible
+              group: email
   source_repo: https://github.com/RedHatInsights/user-preferences-frontend
 
 vulnerability:
