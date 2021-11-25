@@ -25,6 +25,11 @@
                     "appId": "userPreferences",
                     "title": "Application Services",
                     "href": "/user-preferences/notifications/application-services"
+                },
+                {
+                    "appId": "userPreferences",
+                    "title": "Ansible",
+                    "href": "/user-preferences/notifications/ansible"
                 }
             ]
         }
