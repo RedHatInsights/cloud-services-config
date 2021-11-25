@@ -622,6 +622,9 @@ notifications:
       - id: application-services
         title: Application Services
         group: notifications
+      - id: ansible
+        title: Ansible
+        group: notifications
   source_repo: https://github.com/RedHatInsights/notifications-frontend
 
 openshift:
