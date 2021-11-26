@@ -16,6 +16,10 @@
         "dynamicNav": "hacCore/dev-demo-section"
       },
       {
+        "title": "Flat nav",
+        "dynamicNav": "hacCore"
+      },
+      {
           "title": "App Studio",
           "appId": "hacDev",
           "href": "/hac/app-studio"
