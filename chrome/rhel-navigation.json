@@ -60,18 +60,7 @@
                     "appId": "image_builder",
                     "title": "Image builder",
                     "href": "/insights/image-builder",
-                    "product": "Red Hat Insights",
-                    "permissions": [
-                        {
-                            "method": "apiRequest",
-                            "args": [
-                                {
-                                    "url": "/api/image-builder/v1/version",
-                                    "matcher": "isNotEmpty"
-                                }
-                            ]
-                        }
-                    ]
+                    "product": "Red Hat Insights"
                 },
                 {
                     "appId": "inventory",
