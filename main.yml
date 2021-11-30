@@ -448,11 +448,6 @@ image-builder:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
-  permissions:
-    method: apiRequest
-    args:
-      - url: '/api/image-builder/v1/version'
-        matcher: isNotEmpty
   frontend:
     section: operations
     module:
