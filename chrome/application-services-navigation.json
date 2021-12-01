@@ -30,7 +30,6 @@
                 {
                     "appId": "applicationServices",
                     "title": "Service Registry Instances",
-                    "isBeta": true,
                     "href": "/application-services/service-registry"
                 },
                 {
