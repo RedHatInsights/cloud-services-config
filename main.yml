@@ -386,6 +386,15 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
+hac-core:
+  title: HAC
+  deployment_repo: https://github.com/RedHatInsights/hac-core-frontend-build
+  source_repo: https://github.com/RedHatInsights/hac-core-frontend
+  frontend:
+    paths:
+      - /hac
+      - /hac/core
+
 hooks:
   title: Web Hooks Service
   api:
