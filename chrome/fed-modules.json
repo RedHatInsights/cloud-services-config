@@ -608,5 +608,17 @@
                 ]
             }
         ]
+    },
+    "bonfire": {
+        "manifestLocation": "/apps/bonfire/fed-mods.json",
+        "modules": [
+            {
+                "id": "bonfire",
+                "module": "./RootApp",
+                "routes": [
+                    "/internal/bonfire"
+                ]
+            }
+        ]
     }
 }

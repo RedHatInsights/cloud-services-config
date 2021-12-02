@@ -11,6 +11,11 @@
             "title": "Access Requests",
             "appId": "accessRequests",
             "href": "/internal/access-requests"
+        },
+        {
+            "title": "Bonfire",
+            "appId": "bonfire",
+            "href": "/internal/bonfire"
         }
     ]
 }
