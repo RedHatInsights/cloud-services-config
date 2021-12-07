@@ -184,8 +184,6 @@ automation-hub:
         default: true
       - id: partners
         title: Partners
-      - id: my-namespaces
-        title: My namespaces
       - id: repositories
         title: Repo Management
       - id: token
