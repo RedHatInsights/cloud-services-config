@@ -23,6 +23,12 @@
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
+            "appId": "sandbox",
+            "href": "/openshift/sandbox",
+            "title": "Developer Sandbox",
+            "filterable": false
+        },
+        {
             "appId": "openshift",
             "href": "/openshift/downloads",
             "title": "Downloads",
