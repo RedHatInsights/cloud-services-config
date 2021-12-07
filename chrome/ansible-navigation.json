@@ -13,31 +13,31 @@
             "expandable": true,
             "routes": [
                 {
-                    "appId": "ansibleAutomationHub",
+                    "appId": "automationHub",
                     "title": "Collections",
                     "href": "/ansible/automation-hub/",
                     "product": "Ansible Automation Hub"
                 },
                 {
-                    "appId": "ansibleAutomationHub",
+                    "appId": "automationHub",
                     "title": "Partners",
                     "href": "/ansible/automation-hub/partners",
                     "product": "Ansible Automation Hub"
                 },
                 {
-                    "appId": "ansibleAutomationHub",
+                    "appId": "automationHub",
                     "title": "My Namespaces",
                     "href": "/ansible/automation-hub/my-namespaces",
                     "product": "Ansible Automation Hub"
                 },
                 {
-                    "appId": "ansibleAutomationHub",
+                    "appId": "automationHub",
                     "title": "Repo Management",
                     "href": "/ansible/automation-hub/repositories",
                     "product": "Ansible Automation Hub"
                 },
                 {
-                    "appId": "ansibleAutomationHub",
+                    "appId": "automationHub",
                     "title": "Connect to Hub",
                     "href": "/ansible/automation-hub/token",
                     "product": "Ansible Automation Hub"
