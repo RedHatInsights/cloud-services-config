@@ -384,12 +384,12 @@
             }
         ]
     },
-    "ansibleAutomationHub": {
-        "dynamic": false,
+    "automationHub": {
+        "manifestLocation": "/apps/automation-hub/fed-mods.json",
         "modules": [
             {
                 "id": "ansible-automation-hub",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     "/ansible/automation-hub"
                 ]
