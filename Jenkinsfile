@@ -72,7 +72,10 @@ node {
       }
 
       // set akamai fast purge env
-      openShiftUtils.withJnlpNode(image: "quay.io/redhatqe/jenkins-slave-python36-akamai:v3.11") {
+      openShiftUtils.withJnlpNode(        
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
         sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
         // get akamai fast purge credentials
         withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
@@ -136,7 +139,10 @@ node {
         }
       }
 
-      openShiftUtils.withJnlpNode(image: "quay.io/redhatqe/jenkins-slave-python36-akamai:v3.11") {
+      openShiftUtils.withJnlpNode(
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
         sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
         // get akamai fast purge credentials
         withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
