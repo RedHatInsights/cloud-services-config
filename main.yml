@@ -685,7 +685,7 @@ ros:
   api:
     isBeta: true
     versions:
-      - v0
+      - v1
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
