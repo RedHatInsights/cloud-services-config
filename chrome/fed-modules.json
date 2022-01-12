@@ -1,6 +1,7 @@
 {
     "landing": {
         "manifestLocation": "/apps/landing/fed-mods.json",
+        "defaultDocumentTitle": "Home",
         "modules": [
             {
                 "id": "landing",
