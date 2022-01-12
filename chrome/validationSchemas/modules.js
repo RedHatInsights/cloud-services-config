@@ -34,6 +34,7 @@ const routeModuleSchema = Joi.object({
 
 const moduleItemSchema = Joi.object({
   dynamic: Joi.boolean().optional(),
+  defaultDocumentTitle: Joi.string().optional(),
   manifestLocation: Joi.alternatives().conditional('dynamic', {
     is: false,
     then: Joi.any().forbidden(),
