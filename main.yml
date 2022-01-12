@@ -409,6 +409,7 @@ insights:
       - id: malware
       - id: subscriptions
         section: business
+      - id: ros  
       - id: registration
       - id: remediations
   top_level: true
@@ -683,13 +684,11 @@ remediations:
 ros:
   title: Resource Optimization
   api:
-    isBeta: true
     versions:
       - v1
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:
-    isBeta: true
     module: ros#./RootApp
     section: business
     title: Resource Optimization
