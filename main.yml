@@ -254,16 +254,17 @@ catalog:
 ccx:
   title: OpenShift Insights
   api:
-    versions:
-      - v1
-    apiName: insights-results-aggregator
-
-ccx-insights-operator-gathering-conditions-service:
-  title: Insights Operator Gathering Conditions Service
-  api:
-    versions:
-      - v1
-    apiName: insights-operator-gathering-conditions-service
+    subItems:
+      insights-results-aggregator:
+        title: Insights Results Aggregator
+        versions:
+          - v1
+        apiName: insights-results-aggregator
+      insights-operator-gathering-conditions-service:
+        title: Insights Operator Gathering Conditions Service
+        versions:
+          - v1
+        apiName: insights-operator-gathering-conditions-service
 
 chrome:
   channel: '#flip-mode-squad'
