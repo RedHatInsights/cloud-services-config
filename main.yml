@@ -255,12 +255,12 @@ ccx:
   title: OpenShift Insights
   api:
     subItems:
-      insights-results-aggregator:
+      insights_operator_aggregator:
         title: Insights Results Aggregator
         versions:
           - v1
         apiName: insights-results-aggregator
-      insights-operator-gathering-conditions-service:
+      insights_operator_gathering_conditions_service:
         title: Insights Operator Gathering Conditions Service
         versions:
           - v1
