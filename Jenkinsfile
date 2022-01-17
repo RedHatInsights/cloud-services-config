@@ -4,7 +4,7 @@ import groovy.json.JsonSlurper
 node {
   // Only run one build at a time; otherwise they'll fail since you can only have one Akamai activation at a time
   properties([disableConcurrentBuilds()])
-
+  NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
   stage ("Create Backup old YAML/JSON files") {
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
@@ -12,13 +12,11 @@ node {
       PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
       PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "stage-stable") {
       PREFIX = ""
       RELEASESTR = "stable"
