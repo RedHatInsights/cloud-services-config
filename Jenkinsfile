@@ -72,6 +72,20 @@ node {
           rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
+
+      // set akamai fast purge env
+      openShiftUtils.withJnlpNode(        
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
+        sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
+        // get akamai fast purge credentials
+        withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
+          sh "python3 bust_cache.py $EDGERC ${BRANCH} ${NAVLIST}"
+        }
+        // we have to wait 5-10s until akamai fast purge takes effect
+        sleep(10)
+      }
     }
   }
 
@@ -125,6 +139,19 @@ node {
             rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
+      }
+
+      openShiftUtils.withJnlpNode(
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
+        sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
+        // get akamai fast purge credentials
+        withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
+          sh "python3 bust_cache.py $EDGERC ${BRANCH} ${NAVLIST}"
+        }
+        // we have to wait 5-10s until akamai fast purge takes effect
+        sleep(10)
       }
 
       // If smoke tests have errors
