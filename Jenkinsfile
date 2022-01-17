@@ -7,18 +7,17 @@ node {
 
   stage ("Create Backup old YAML/JSON files") {
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
+    NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     if (BRANCH == "prod-stable") {
       PREFIX = ""
       PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
       PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "stage-stable") {
       PREFIX = ""
       RELEASESTR = "stable"
