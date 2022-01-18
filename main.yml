@@ -260,7 +260,7 @@ ccx:
         versions:
           - v1
         apiName: insights-results-aggregator
-      gatheringconditions:
+      insights-operator-gathering-conditions-service:
         title: Insights Operator Gathering Conditions Service
         versions:
           - v1
