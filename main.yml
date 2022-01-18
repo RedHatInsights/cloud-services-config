@@ -259,7 +259,6 @@ ccx:
         title: Insights Results Aggregator
         versions:
           - v1
-        apiName: insights-results-aggregator
       insights-operator-gathering-conditions-service:
         title: Insights Operator Gathering Conditions Service
         versions:
