@@ -255,7 +255,7 @@ ccx:
   title: OpenShift Insights
   api:
     subItems:
-      aggregator:
+      insights-results-aggregator:
         title: Insights Results Aggregator
         versions:
           - v1
