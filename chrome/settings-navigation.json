@@ -72,6 +72,11 @@
                     "appId": "ansible",
                     "title": "Ansible",
                     "href": "/settings/notifications/ansible"
+                },
+                {
+                    "appId": "console",
+                    "title": "Console",
+                    "href": "/settings/notifications/console"
                 }
             ]
         },
