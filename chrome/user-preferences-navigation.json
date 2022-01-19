@@ -30,6 +30,11 @@
                     "appId": "userPreferences",
                     "title": "Ansible",
                     "href": "/user-preferences/notifications/ansible"
+                },
+                {
+                    "appId": "userPreferences",
+                    "title": "Console",
+                    "href": "/user-preferences/notifications/console"
                 }
             ]
         }
