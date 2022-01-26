@@ -143,6 +143,12 @@
                             "title": "Packages",
                             "href": "/insights/patch/packages",
                             "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "patch",
+                            "title": "Patch set",
+                            "href": "/insights/patch/patch-set",
+                            "product": "Red Hat Insights"
                         }
                     ]
                 },
