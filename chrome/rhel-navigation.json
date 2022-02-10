@@ -60,18 +60,7 @@
                     "appId": "image_builder",
                     "title": "Image builder",
                     "href": "/insights/image-builder",
-                    "product": "Red Hat Insights",
-                    "permissions": [
-                        {
-                            "method": "apiRequest",
-                            "args": [
-                                {
-                                    "url": "/api/image-builder/v1/version",
-                                    "matcher": "isNotEmpty"
-                                }
-                            ]
-                        }
-                    ]
+                    "product": "Red Hat Insights"
                 },
                 {
                     "appId": "inventory",
@@ -159,6 +148,24 @@
                             "appId": "patch",
                             "title": "Packages",
                             "href": "/insights/patch/packages",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "title": "Malware",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "malware",
+                            "title": "Signatures",
+                            "href": "/insights/malware/signatures",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "malware",
+                            "title": "Systems",
+                            "href": "/insights/malware/systems",
                             "product": "Red Hat Insights"
                         }
                     ]

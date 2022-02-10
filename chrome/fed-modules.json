@@ -1,6 +1,7 @@
 {
     "landing": {
         "manifestLocation": "/apps/landing/fed-mods.json",
+        "defaultDocumentTitle": "Home",
         "modules": [
             {
                 "id": "landing",
@@ -268,6 +269,13 @@
         "manifestLocation": "/apps/subscriptions/fed-mods.json",
         "modules": [
             {
+                "id": "application-services-subscriptions",
+                "module": "./RootApp",
+                "routes": [
+                    "/application-services/subscriptions"
+                ]
+            },
+            {
                 "id": "insights-subscriptions",
                 "module": "./RootApp",
                 "routes": [
@@ -377,12 +385,12 @@
             }
         ]
     },
-    "ansibleAutomationHub": {
-        "dynamic": false,
+    "automationHub": {
+        "manifestLocation": "/apps/automation-hub/fed-mods.json",
         "modules": [
             {
                 "id": "ansible-automation-hub",
-                "dynamic": false,
+                "module": "./RootApp",
                 "routes": [
                     "/ansible/automation-hub"
                 ]
@@ -526,6 +534,18 @@
                 "module": "./RootApp",
                 "routes": [
                     "/openshift/insights/advisor"
+                ]
+            }
+        ]
+    },
+    "dbaas": {
+        "manifestLocation": "/apps/dbaas/fed-mods.json",
+        "modules": [
+            {
+                "id": "dbaas",
+                "module": "./RootApp",
+                "routes": [
+                    "/application-services/databases"
                 ]
             }
         ]

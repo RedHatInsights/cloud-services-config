@@ -351,6 +351,11 @@ docs:
       - id: product
   top_level: true
 
+dbaas:
+  title: Database Access
+  deployment_repo: https://github.com/RedHatInsights/dbaas-ui-build
+  source_repo: https://github.com/RedHatInsights/dbaas-ui
+
 drift:
   title: Drift
   api:
@@ -422,11 +427,6 @@ image-builder:
       - v1
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
-  permissions:
-    method: apiRequest
-    args:
-      - url: '/api/image-builder/v1/version'
-        matcher: isNotEmpty
   frontend:
     section: operations
     module:
@@ -520,7 +520,6 @@ malware:
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
   frontend:
-    isHidden: true
     section: security
     title: Malware
     module: malware#./RootApp
@@ -529,6 +528,8 @@ malware:
     sub_apps:
       - id: signatures
         title: Signatures
+      - id: systems
+        title: Systems
   source_repo: https://github.com/RedHatInsights/malware-detection-frontend
 
 manifests:
@@ -720,7 +721,15 @@ rhosak-control-plane-ui-build:
 rhoas-guides-build:
   title: Guides for RHOAS
   deployment_repo: https://github.com/RedHatInsights/rhoas-guides-build
-  
+
+cos-ui-build:
+  title: UI for COS
+  deployment_repo: https://github.com/RedHatInsights/cos-ui-build
+
+dbz-ui-build:
+  title: UI for Debezium
+  deployment_repo: https://github.com/RedHatInsights/dbz-ui-build
+
 sr-ui-build:
   title: Service Registry data plane UI
   deployment_repo: https://github.com/RedHatInsights/sr-ui-build
@@ -851,7 +860,7 @@ ros:
   title: Resource Optimization
   api:
     versions:
-      - v0
+      - v1
   channel: '#team-ros'
   deployment_repo: https://github.com/RedHatInsights/ros-frontend-build
   frontend:

@@ -1,10 +1,10 @@
-@Library("github.com/RedHatInsights/insights-pipeline-lib") _
+@Library("github.com/RedHatInsights/insights-pipeline-lib@v3") _
 import groovy.json.JsonSlurper
 
 node {
   // Only run one build at a time; otherwise they'll fail since you can only have one Akamai activation at a time
   properties([disableConcurrentBuilds()])
-
+  NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
   stage ("Create Backup old YAML/JSON files") {
     BRANCH = env.BRANCH_NAME.replaceAll("origin/", "")
     if (BRANCH == "prod-stable") {
@@ -12,13 +12,11 @@ node {
       PRODTESTSTR = "\'prod and stable\'"
       RELEASESTR = "stable"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "prod-beta") {
       PREFIX = "beta/"
       PRODTESTSTR = "\'prod and beta\'"
       RELEASESTR = "beta"
       ENVSTR = "prod"
-      NAVLIST = "ansible application-services docs insights landing openshift rhel settings user-preferences"
     } else if (BRANCH == "stage-stable") {
       PREFIX = ""
       RELEASESTR = "stable"
@@ -72,13 +70,31 @@ node {
           rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
         """
       }
+
+      // set akamai fast purge env
+      openShiftUtils.withJnlpNode(        
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
+        sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
+        // get akamai fast purge credentials
+        withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
+          sh "python3 bust_cache.py $EDGERC ${BRANCH} ${NAVLIST}"
+        }
+        // we have to wait 5-10s until akamai fast purge takes effect
+        sleep(10)
+      }
     }
   }
 
   stage ("Run Akamai Production Smoke Tests") {
     try {
       if (RUN_SMOKE_TESTS) {
-        openShiftUtils.withNode {
+        openShiftUtils.withNode(
+          image: "quay.io/cloudservices/iqe-tests:latest",
+          namespace: "insights-dev-jenkins",
+          jenkinsSlaveImage: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9"
+        ) {
           withCredentials([
             string(credentialsId: "vaultRoleId", variable: 'DYNACONF_IQE_VAULT_ROLE_ID'),
             string(credentialsId: "vaultSecretId", variable: 'DYNACONF_IQE_VAULT_SECRET_ID'),
@@ -90,8 +106,6 @@ node {
               "DYNACONF_IQE_VAULT_LOADER_ENABLED=true",
               "ENV_FOR_DYNACONF=prod"
             ]) {
-              // install akamai and 3scale plugins, run smoke tests
-              sh "iqe plugin install akamai 3scale"
               sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
               sh "iqe tests plugin akamai -k 'test_api.py' -m prod"
               sh "iqe tests plugin 3scale --akamai-production -m akamai_smoke"
@@ -125,6 +139,19 @@ node {
             rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
           """
         }
+      }
+
+      openShiftUtils.withJnlpNode(
+        image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
+        namespace: "insights-dev-jenkins"
+      ) {
+        sh "wget https://raw.githubusercontent.com/RedHatInsights/cloud-services-config/${ENVSTR}-${RELEASESTR}/akamai/cache_buster/bust_cache.py"
+        // get akamai fast purge credentials
+        withCredentials([file(credentialsId: "jenkins-eccu-cache-purge", variable: 'EDGERC')]) {
+          sh "python3 bust_cache.py $EDGERC ${BRANCH} ${NAVLIST}"
+        }
+        // we have to wait 5-10s until akamai fast purge takes effect
+        sleep(10)
       }
 
       // If smoke tests have errors
