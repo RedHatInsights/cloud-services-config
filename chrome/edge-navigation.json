@@ -4,7 +4,6 @@
     "navItems": [
         {
             "title": "Systems",
-            "appId": "edge",
             "filterable": false,
             "expandable": true,
             "routes": [
