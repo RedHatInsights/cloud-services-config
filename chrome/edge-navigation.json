@@ -1,12 +1,39 @@
 {
     "id": "edge",
-    "title": "RHEL For Edge",
+    "title": "Edge Management",
     "navItems": [
         {
-            "title": "Fleet management",
+            "title": "Systems",
             "appId": "edge",
             "filterable": false,
-            "href": "/edge/fleet-management",
+            "expandable": true,
+            "routes": [
+                {
+                    "title": "Groups",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/fleet-management",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                },
+
+                {
+                    "title": "Inventory",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/inventory",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                }
+            ],
             "permissions": [
                 {
                     "method": "withEmail",
