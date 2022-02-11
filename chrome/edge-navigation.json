@@ -1,12 +1,38 @@
 {
     "id": "edge",
-    "title": "RHEL For Edge",
+    "title": "Edge Management",
     "navItems": [
         {
-            "title": "Fleet Management",
-            "appId": "edge",
+            "title": "Systems",
             "filterable": false,
-            "href": "/edge/fleet-management",
+            "expandable": true,
+            "routes": [
+                {
+                    "title": "Groups",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/fleet-management",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                },
+
+                {
+                    "title": "Inventory",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/inventory",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                }
+            ],
             "permissions": [
                 {
                     "method": "withEmail",
@@ -15,14 +41,33 @@
             ]
         },
         {
-            "title": "Manage images",
-            "appId": "edge",
-            "filterable": false,
-            "href": "/edge/manage-images",
-            "permissions": [
+            "title": "Manage Images",
+            "expandable": true,
+            "routes": [
                 {
-                    "method": "withEmail",
-                    "args": ["@redhat.com"]
+                    "title": "Images",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/manage-images",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
+                },
+
+                {
+                    "title": "Custom repositories",
+                    "appId": "edge",
+                    "filterable": false,
+                    "href": "/edge/repositories",
+                    "permissions": [
+                        {
+                            "method": "withEmail",
+                            "args": ["@redhat.com"]
+                        }
+                    ]
                 }
             ]
         }
