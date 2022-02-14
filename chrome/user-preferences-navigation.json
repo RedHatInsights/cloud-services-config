@@ -12,29 +12,29 @@
             "expandable": true,
             "routes": [
                 {
-                    "appId": "userPreferences",
-                    "title": "Red Hat Enterprise Linux",
-                    "href": "/user-preferences/notifications/rhel"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Openshift",
-                    "href": "/user-preferences/notifications/openshift"
-                },
-                {
-                    "appId": "userPreferences",
+                    "appId": "notifications",
                     "title": "Application Services",
-                    "href": "/user-preferences/notifications/application-services"
+                    "href": "/settings/notifications/application-services"
                 },
                 {
-                    "appId": "userPreferences",
+                    "appId": "notifications",
+                    "title": "OpenShift",
+                    "href": "/settings/notifications/openshift"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Red Hat Enterprise Linux",
+                    "href": "/settings/notifications/rhel"
+                },
+                {
+                    "appId": "ansible",
                     "title": "Ansible",
-                    "href": "/user-preferences/notifications/ansible"
+                    "href": "/settings/notifications/ansible"
                 },
                 {
-                    "appId": "userPreferences",
+                    "appId": "console",
                     "title": "Console",
-                    "href": "/user-preferences/notifications/console"
+                    "href": "/settings/notifications/console"
                 }
             ]
         }

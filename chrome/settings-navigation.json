@@ -55,8 +55,8 @@
             "routes": [
                 {
                     "appId": "notifications",
-                    "title": "Red Hat Enterprise Linux",
-                    "href": "/settings/notifications/rhel"
+                    "title": "Application Services",
+                    "href": "/settings/notifications/application-services"
                 },
                 {
                     "appId": "notifications",
@@ -65,8 +65,8 @@
                 },
                 {
                     "appId": "notifications",
-                    "title": "Application Services",
-                    "href": "/settings/notifications/application-services"
+                    "title": "Red Hat Enterprise Linux",
+                    "href": "/settings/notifications/rhel"
                 },
                 {
                     "appId": "ansible",
