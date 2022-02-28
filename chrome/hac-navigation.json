@@ -1,0 +1,23 @@
+{
+  "id": "hac",
+  "title": "HAC",
+  "navItems": [
+      {
+          "title": "Example",
+          "appId": "hacCore",
+          "href": "/hac"
+      },
+      {
+        "title": "Demo Plugin",
+        "dynamicNav": "hacCore/admin-demo-section"
+      },
+      {
+        "title": "Demo Plugin",
+        "dynamicNav": "hacCore/dev-demo-section"
+      },
+      {
+        "title": "Flat nav",
+        "dynamicNav": "hacCore"
+      }
+  ]
+}
