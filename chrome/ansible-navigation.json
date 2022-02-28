@@ -113,7 +113,7 @@
                 {
                     "appId": "automationAnalytics",
                     "title": "Automation Calculator",
-                    "href": "/ansible/insights/automation-calculator",
+                    "href": "/ansible/insights/reports/automation_calculator/",
                     "product": "Ansible Automation Analytics"
                 },
                 {
