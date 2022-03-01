@@ -164,6 +164,18 @@
             }
         ]
     },
+    "ocpAdvisor": {
+        "manifestLocation": "/apps/ocp-advisor/fed-mods.json",
+        "modules": [
+            {
+                "id": "ocp-advisor",
+                "module": "./RootApp",
+                "routes": [
+                    "/openshift/insights/advisor"
+                ]
+            }
+        ]
+    },
     "drift": {
         "manifestLocation": "/apps/drift/fed-mods.json",
         "modules": [
