@@ -3,7 +3,7 @@
     "title": "Edge Management",
     "navItems": [
         {
-            "title": "Systems",
+            "title": "Inventory",
             "filterable": false,
             "expandable": true,
             "routes": [
@@ -15,20 +15,20 @@
                     "permissions": [
                         {
                             "method": "withEmail",
-                            "args": ["@redhat.com"]
+                            "args": ["@redhat.com", "@sbb.ch"]
                         }
                     ]
                 },
 
                 {
-                    "title": "Inventory",
+                    "title": "Systems",
                     "appId": "edge",
                     "filterable": false,
                     "href": "/edge/inventory",
                     "permissions": [
                         {
                             "method": "withEmail",
-                            "args": ["@redhat.com"]
+                            "args": ["@redhat.com", "@sbb.ch"]
                         }
                     ]
                 }
@@ -36,7 +36,7 @@
             "permissions": [
                 {
                     "method": "withEmail",
-                    "args": ["@redhat.com"]
+                    "args": ["@redhat.com", "@sbb.ch"]
                 }
             ]
         },
@@ -52,7 +52,7 @@
                     "permissions": [
                         {
                             "method": "withEmail",
-                            "args": ["@redhat.com"]
+                            "args": ["@redhat.com", "@sbb.ch"]
                         }
                     ]
                 },
@@ -65,7 +65,7 @@
                     "permissions": [
                         {
                             "method": "withEmail",
-                            "args": ["@redhat.com"]
+                            "args": ["@redhat.com", "@sbb.ch"]
                         }
                     ]
                 }
