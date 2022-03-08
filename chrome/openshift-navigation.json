@@ -62,13 +62,13 @@
                     "expandable": true,
                     "routes": [
                         {
-                            "appId": "ocp-vulnerability",
+                            "appId": "ocpVulnerability",
                             "title": "CVEs",
                             "href": "/openshift/insights/vulnerability/cves",
                             "product": "Red Hat OpenShift Cluster Manager"
                         },
                         {
-                            "appId": "ocp-vulnerability",
+                            "appId": "ocpVulnerability",
                             "title": "Clusters",
                             "href": "/openshift/insights/vulnerability/clusters",
                             "product": "Red Hat OpenShift Cluster Manager"
