@@ -652,6 +652,8 @@ openshift:
         group: openshift
       - id: ocp-advisor
         group: insights
+      - id: ocp-vulnerability
+        group: insights
       - id: subscriptions
         title: Subscriptions
         section: insights
