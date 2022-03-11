@@ -67,6 +67,23 @@
             ]
         },
         {
+            "title": "Advanced Cluster Security",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "applicationServices",
+                    "title": "ACS Instances",
+                    "isBeta": true,
+                    "href": "/application-services/acs"
+                },
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://docs.openshift.com/acs/3.66/welcome/index.html"
+                }
+            ]
+        },
+        {
             "groupId": "insights",
             "icon": "trend-up",
             "title": "Insights",
