@@ -13,8 +13,8 @@
             "routes": [
                 {
                     "appId": "userPreferences",
-                    "title": "Red Hat Enterprise Linux",
-                    "href": "/user-preferences/notifications/rhel"
+                    "title": "Application Services",
+                    "href": "/user-preferences/notifications/application-services"
                 },
                 {
                     "appId": "userPreferences",
@@ -23,18 +23,8 @@
                 },
                 {
                     "appId": "userPreferences",
-                    "title": "Application Services",
-                    "href": "/user-preferences/notifications/application-services"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Ansible",
-                    "href": "/user-preferences/notifications/ansible"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Console",
-                    "href": "/user-preferences/notifications/console"
+                    "title": "Red Hat Enterprise Linux",
+                    "href": "/user-preferences/notifications/rhel"
                 }
             ]
         }
