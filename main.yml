@@ -17,11 +17,11 @@ acs:
     versions:
       - v1
   description: Frontend for Red Hat employees to manage ACS instances
-  deployment_repo: https://github.com/stackrox/acs-ui-build
+  deployment_repo: https://github.com/RedHatInsights/acs-ui-build
   frontend:
     paths:
       - /application-services/acs
-  source_repo: https://github.com/stackrox/acs-ui
+  source_repo: https://github.com/RedHatInsights/acs-ui
 
 advisor:
   title: Advisor
