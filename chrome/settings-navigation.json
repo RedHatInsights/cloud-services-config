@@ -71,9 +71,21 @@
             ]
         },
         {
-            "appId": "connector",
             "title": "Red Hat Connector",
-            "href": "/settings/connector"
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "connector",
+                    "title": "Settings",
+                    "href": "/settings/connector"
+
+                },
+                {
+                    "appId": "connector",
+                    "title": "Activation Keys",
+                    "href": "/settings/connector/activation-keys"
+                }
+            ]
         },
         {
             "title": "Applications",
