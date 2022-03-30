@@ -55,6 +55,12 @@
             "expandable": true,
             "routes": [
                 {
+                  "appId": "applicationServices",
+                  "title": "Kafka Overview",
+                  "isBeta": true,
+                  "href": "/application-services/streams/overview"
+                },
+                {
                     "appId": "applicationServices",
                     "title": "Kafka Instances",
                     "isBeta": true,
