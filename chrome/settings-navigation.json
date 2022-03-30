@@ -67,6 +67,16 @@
                     "appId": "notifications",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/settings/notifications/rhel"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Edge",
+                    "href": "/settings/notifications/edge"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Console",
+                    "href": "/settings/notifications/console"
                 }
             ]
         },
