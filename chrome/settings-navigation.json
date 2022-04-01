@@ -71,7 +71,7 @@
             ]
         },
         {
-            "title": "Red Hat Connector",
+            "title": "Remote Host Configuration",
             "expandable": true,
             "routes": [
                 {
