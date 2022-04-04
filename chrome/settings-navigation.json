@@ -89,7 +89,16 @@
         },
         {
             "title": "Applications",
-            "expandable": true,
+            "expandable": true,            
+            "permissions": [
+                {
+                    "method": "hasPermissions",
+                    "apps": [
+                        "cost-management:*:*",
+                        "advisor:*:*"
+                    ]
+                }
+            ],
             "routes": [
                 {
                     "appId": "applications",
