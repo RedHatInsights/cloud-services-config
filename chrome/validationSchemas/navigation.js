@@ -63,7 +63,7 @@ const navItemSchema = Joi.object({
   icon: Joi.string().when('groupId', {
     not: Joi.exist(),
     then: Joi.forbidden(),
-    otherwise: Joi.optional().valid('wrench', 'trend-up', 'shield')
+    otherwise: Joi.optional().valid('wrench', 'trend-up', 'shield', 'code', 'cloud', 'database')
   }),
   navItems: Joi.alternatives().conditional('groupId', {
     is: Joi.exist(),
