@@ -61,6 +61,16 @@
                     "appId": "notifications",
                     "title": "Application Services",
                     "href": "/settings/notifications/application-services"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Edge",
+                    "href": "/settings/notifications/edge"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Console",
+                    "href": "/settings/notifications/console"
                 }
             ]
         },
