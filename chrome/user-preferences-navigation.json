@@ -25,6 +25,16 @@
                     "appId": "userPreferences",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/user-preferences/notifications/rhel"
+                },
+                {
+                    "appId": "userPreferences",
+                    "title": "Edge",
+                    "href": "/user-preferences/notifications/edge"
+                },
+                {
+                    "appId": "userPreferences",
+                    "title": "Console",
+                    "href": "/user-preferences/notifications/console"
                 }
             ]
         }
