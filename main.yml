@@ -240,7 +240,6 @@ compliance:
   api:
     versions:
       - v1
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/compliance-frontend-build
   frontend:
     section: security
@@ -268,7 +267,6 @@ cost-management:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#koku'
   deployment_repo: https://github.com/RedHatInsights/cost-management-build
   productId: Red Hat Cost Management
@@ -762,7 +760,6 @@ sources:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#sources'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
