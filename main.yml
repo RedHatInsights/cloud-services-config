@@ -1159,7 +1159,7 @@ vulnerability:
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
 
-  app-studio-docs:
+app-studio-docs:
   title: App Studio Docs
   api:
     versions:
