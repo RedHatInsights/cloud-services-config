@@ -259,10 +259,22 @@
             "product": "Red Hat Insights"
         },
         {
-            "appId": "remediations",
-            "title": "Remediations",
-            "href": "/insights/remediations",
-            "product": "Red Hat Insights"
+            "title": "Toolkit",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "remediations",
+                    "title": "Remediations",
+                    "href": "/insights/remediations",
+                    "product": "Red Hat Insights"
+                },
+                {
+                    "appId": "tasks",
+                    "title": "Tasks",
+                    "href": "/insights/tasks",
+                    "product": "Red Hat Insights"                    
+                }
+            ]
         },
         {
             "title": "Product Materials",

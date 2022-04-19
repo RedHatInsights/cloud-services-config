@@ -1082,6 +1082,19 @@ subscriptions:
 
   source_repo: https://github.com/RedHatInsights/curiosity-frontend
 
+tasks:
+  title: Tasks
+  api:
+    versions:
+      - v1
+  channel: '#tasks'
+  deployment_repo: https://github.com/RedHatInsights/tasks-frontend-build
+  frontend:
+    module: tasks#./RootApp
+    paths:
+      - /insights/tasks
+  source_repo: https://github.com/RedHatInsights/tasks-frontend
+
 topological-inventory:
   title: Topological inventory
   top_level: true
