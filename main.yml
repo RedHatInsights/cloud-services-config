@@ -1171,3 +1171,16 @@ vulnerability:
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
+
+app-studio-docs:
+  title: App Studio Docs
+  api:
+    versions:
+      - v1
+  channel: '#platform-experience'
+  deployment_repo: https://github.com/RedHatInsights/app-studio-docs-build
+  frontend:
+    title: App Studio Docs
+    paths:
+      - /hac/app-studio-docs
+  source_repo: https://github.com/RedHatInsights/app-studio-docs

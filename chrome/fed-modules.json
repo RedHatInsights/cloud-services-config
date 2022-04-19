@@ -673,5 +673,17 @@
               ]
           }
       ]
+    },
+    "appStudioDocs": {
+        "manifestLocation": "/apps/app-studio-docs/fed-mods.json",
+        "modules": [
+            {
+                "id": "app-studio-docs",
+                "module": "./RootApp",
+                "routes": [
+                    "/hac/app-studio-docs"
+                ]
+            }
+        ]
     }
 }
