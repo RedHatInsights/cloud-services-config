@@ -76,7 +76,8 @@ const navItemSchema = Joi.object({
     otherwise: Joi.optional()
   }),
   product: Joi.string(),
-  notifier: Joi.string()
+  notifier: Joi.string(),
+  id: Joi.string().optional()
 })
 
 const subNavItem = navItemSchema.fork(['groupId', 'navItems', 'appId', 'icon'], schema => schema.forbidden())
@@ -87,4 +88,6 @@ const navigationSchema = Joi.object({
   navItems: Joi.array().items(navItemSchema).required()
 }).shared(subNavItem.id('subNavItem'));
 
-module.exports = navigationSchema;
+module.exports.navItemSchema = navItemSchema
+
+module.exports.navigationSchema = navigationSchema;

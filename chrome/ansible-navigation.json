@@ -199,7 +199,7 @@
                 {
                     "appId": "automationAnalytics",
                     "title": "Automation Calculator",
-                    "href": "/ansible/automation-analytics/automation-calculator",
+                    "href": "/ansible/automation-analytics/reports/automation_calculator/",
                     "product": "Ansible Automation Analytics"
                 },
                 {
@@ -227,6 +227,12 @@
                     "title": "Remediations",
                     "href": "/ansible/remediations",
                     "product": "Red Hat Insights"
+                },
+                {
+                    "appId": "tasks",
+                    "title": "Tasks",
+                    "href": "/ansible/tasks",
+                    "product": "Red Hat Insights"                    
                 }
             ]
         },

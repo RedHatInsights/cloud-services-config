@@ -67,17 +67,48 @@
                     "appId": "notifications",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/settings/notifications/rhel"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Edge",
+                    "href": "/settings/notifications/edge"
+                },
+                {
+                    "appId": "notifications",
+                    "title": "Console",
+                    "href": "/settings/notifications/console"
                 }
             ]
         },
         {
-            "appId": "connector",
-            "title": "Red Hat Connector",
-            "href": "/settings/connector"
+            "title": "Remote Host Configuration",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "connector",
+                    "title": "Settings",
+                    "href": "/settings/connector"
+
+                },
+                {
+                    "appId": "connector",
+                    "title": "Activation Keys",
+                    "href": "/settings/connector/activation-keys"
+                }
+            ]
         },
         {
             "title": "Applications",
-            "expandable": true,
+            "expandable": true,            
+            "permissions": [
+                {
+                    "method": "hasPermissions",
+                    "apps": [
+                        "cost-management:*:*",
+                        "advisor:*:*"
+                    ]
+                }
+            ],
             "routes": [
                 {
                     "appId": "applications",

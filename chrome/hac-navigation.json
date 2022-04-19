@@ -23,6 +23,11 @@
           "title": "App Studio",
           "appId": "hacDev",
           "href": "/hac/app-studio"
+      },
+      {
+        "title": "App Studio Docs",
+        "appId": "appStudioDocs",
+        "href": "/hac/app-studio-docs"
       }
   ]
 }
