@@ -450,6 +450,23 @@ frontend-assets:
   deployment_repo: https://github.com/RedHatInsights/frontend-assets-build.git
   source_repo: https://github.com/RedHatInsights/frontend-assets
 
+image-builder:
+  title: Image Builder
+  api:
+    versions:
+      - v1
+  deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
+  frontend:
+    section: operations
+    module:
+      appName: image-builder
+      scope: image_builder
+      module: ./RootApp
+    title: Image Builder
+    paths:
+      - /insights/image-builder
+  source_repo: https://github.com/RedHatInsights/image-builder-frontend
+
 hooks:
   title: Web Hooks Service
   api:
