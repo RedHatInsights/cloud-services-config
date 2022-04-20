@@ -447,18 +447,20 @@ inventory:
 
 image-builder:
   title: Image Builder
+  api:
+    versions:
+      - v1
   deployment_repo: https://github.com/RedHatInsights/image-builder-frontend-build
-  permissions:
-    method: apiRequest
-    args:
-      - url: '/api/image-builder/v1/version'
-        matcher: isNotEmpty
   frontend:
-    isBeta: true
     section: operations
+    module:
+      appName: image-builder
+      scope: image_builder
+      module: ./RootApp
+    title: Image Builder
     paths:
       - /insights/image-builder
-  source_repo: https://github.com/osbuild/image-builder-frontend
+  source_repo: https://github.com/RedHatInsights/image-builder-frontend
 
 landing:
   channel: '#flip-mode-squad'
