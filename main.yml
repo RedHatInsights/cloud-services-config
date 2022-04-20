@@ -753,32 +753,37 @@ service-registry:
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
+
+
+
 application-services:
-  title: Application Services
+  title: Application and Data Services
   api:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
-    title: Application Services
+    title: Application and Data Services
     isBeta: true
     paths:
       - /application-services
+      - /application-services/streams
+      - /application-services/subscriptions/streams
     sub_apps:
       - id: overview
         title: "Overview"
         default: true
         group: overview
+      - id: learning-resources
+        title: "Learning Resources"
+        group: overview  
       - id: api-management
         title: "API Management"
         group: overview
-      - id: cos
-        title: "Connectors"
+      - id: overview
+        title: "Overview"
         group: overview
-      - id: data-science
-        title: "Data Science"
-        group: overview
-      - id: service-accounts
-        title: "Service Accounts"
+      - id: streams
+        title: "Kafka Instances"
         group: overview
       - id: service-registry
         title: "Service Registry"
@@ -791,8 +796,15 @@ application-services:
       - id: learning-resources
         title: "Learning Resources"
         group: overview
+      - id: streams
+        title: "Streams for Apache Kafka"
+        group: overview
+
+
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
+
+
 
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK

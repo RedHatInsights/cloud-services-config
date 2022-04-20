@@ -1,17 +1,17 @@
 {
   "id": "application-services",
-  "title": "Application & Data Services",
+  "title": "Application and Data Services",
   "navItems": [
     {
-      "appId": "applicationServices",
-      "title": "Overview",
-      "filterable": false,
-      "href": "/application-services/overview"
+        "appId": "applicationServices",
+        "title": "Overview",
+        "filterable": false,
+        "href": "/application-services/overview"
     },
     {
-      "appId": "applicationServices",
-      "title": "Learning Resources",
-      "href": "/application-services/learning-resources"
+        "appId": "applicationServices",
+        "title": "Learning Resources",
+        "href": "/application-services/learning-resources"
     },
     {
       "groupId": "application-services",
@@ -37,7 +37,7 @@
               "appId": "applicationServices",
               "title": "Kafka Instances",
               "isBeta": true,
-              "href": "/application-services/streams/kafkas"
+              "href": "/application-services/streams"
             },
             {
               "title": "Documentation",

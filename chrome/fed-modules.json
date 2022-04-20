@@ -488,7 +488,9 @@
                 "module": "./RootApp",
                 "routes": [
                     "/application-services",
-                    "/application-services/streams"
+                    "/application-services/streams",
+                    "/application-services/rivers",
+                    "/application-services/rivers/kafkas"
                 ]
             }
         ]
