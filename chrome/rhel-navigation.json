@@ -57,6 +57,12 @@
                     ]
                 },
                 {
+                    "appId": "image_builder",
+                    "title": "Image builder",
+                    "href": "/insights/image-builder",
+                    "product": "Red Hat Insights"
+                },
+                {
                     "appId": "inventory",
                     "title": "Inventory",
                     "href": "/insights/inventory",
