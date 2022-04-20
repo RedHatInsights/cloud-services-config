@@ -1,26 +1,57 @@
 [
   {
-      "id": "application-services",
-      "appId": "applicationServices",
-      "title": "Application Services",
-      "href": "/application-services"
+      "groupId": "application-services",
+      "title": "Build and Deploy Applications",
+      "icon": "wrench",
+      "navItems": [
+          {
+              "appId": "applicationServices",
+              "title": "Application and Data Services",
+              "href": "/application-services/api-management"
+          }
+      ]
   },
+
   {
-      "id": "openshift",
-      "appId": "openshift",
-      "title": "OpenShift",
-      "href": "/openshift"
-  },
-  {
-      "id": "rhel",
-      "appId": "dashboard",
-      "title": "Red Hat Enterprise Linux",
-      "href": "/insights/dashboard"
-  },
-  {
-      "id": "ansbile",
-      "appId": "ansibleDashboard",
-      "title": "Ansible Automation Platform",
-      "href": "/ansible/ansible-dashboard"
+      "groupId": "application-services",
+      "title": "Manage of Infrastructure",
+      "icon": "wrench",
+      "navItems": [
+          {
+              "id": "openshift",
+              "appId": "openshift",
+              "title": "OpenShift",
+              "href": "/openshift"
+          },
+
+          {
+              "title": "RHEL Services",
+              "expandable": true,
+              "routes": [
+                  {
+                      "appId": "applicationServices",
+                      "title": "Red Hat Insights",
+                      "isBeta": true,
+                      "href": "/application-services/service-registry"
+                  },           
+                  {
+                      "title": "Edge Management",
+                      "isExternal": true,
+                      "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry"
+                  }
+              ]
+          },
+
+
+
+
+          {
+              "id": "ansible",
+              "appId": "ansibleDashboard",
+              "title": "Ansible Automation Platform",
+              "href": "/ansible/ansible-dashboard"
+          }
+      ]
   }
+
 ]
