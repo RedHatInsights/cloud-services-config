@@ -100,24 +100,6 @@
             "title": "Operations Insights",
             "navItems": [
                 {
-                    "appId": "automationAnalytics",
-                    "title": "Organization Statistics",
-                    "href": "/ansible/insights/organization-statistics",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Job Explorer",
-                    "href": "/ansible/insights/job-explorer",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Clusters",
-                    "href": "/ansible/insights/clusters",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
                     "title": "Advisor",
                     "expandable": true,
                     "routes": [
@@ -180,34 +162,58 @@
             ]
         },
         {
-            "groupId": "business",
-            "icon": "trend-up",
-            "title": "Business Insights",
+            "groupId": "automation-analytics",
+            "title": "Automation Analytics",
             "navItems": [
                 {
                     "appId": "automationAnalytics",
+                    "title": "Organization Statistics",
+                    "href": "/ansible/automation-analytics/organization-statistics",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Job Explorer",
+                    "href": "/ansible/automation-analytics/job-explorer",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
+                    "title": "Clusters",
+                    "href": "/ansible/automation-analytics/clusters",
+                    "product": "Ansible Automation Analytics"
+                },
+                {
+                    "appId": "automationAnalytics",
                     "title": "Reports",
-                    "href": "/ansible/insights/reports",
+                    "href": "/ansible/automation-analytics/reports",
                     "product": "Ansible Automation Analytics"
                 },
                 {
                     "appId": "automationAnalytics",
                     "title": "Savings Planner",
-                    "href": "/ansible/insights/savings-planner",
+                    "href": "/ansible/automation-analytics/savings-planner",
                     "product": "Ansible Automation Analytics"
                 },
                 {
                     "appId": "automationAnalytics",
                     "title": "Automation Calculator",
-                    "href": "/ansible/insights/reports/automation_calculator/",
+                    "href": "/ansible/automation-analytics/reports/automation_calculator/",
                     "product": "Ansible Automation Analytics"
                 },
                 {
                     "appId": "automationAnalytics",
                     "title": "Notifications",
-                    "href": "/ansible/insights/notifications",
+                    "href": "/ansible/automation-analytics/notifications",
                     "product": "Ansible Automation Analytics"
-                },
+                }
+            ]
+        },
+        {
+            "groupId": "business",
+            "icon": "trend-up",
+            "title": "Business Insights",
+            "navItems": [
                 {
                     "appId": "registration",
                     "title": "Register Systems",

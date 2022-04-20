@@ -129,7 +129,7 @@ approval:
   source_repo: https://github.com/RedHatInsights/approval-ui
 
 automation-analytics:
-  title: Analytics
+  title: Automation Analytics
   api:
     versions:
       - v1
@@ -137,9 +137,8 @@ automation-analytics:
   deployment_repo: https://github.com/RedHatInsights/tower-analytics-frontend-build.git
   productId: Ansible Automation Analytics
   frontend:
-    section: insights
     paths:
-      - /ansible/insights
+      - /ansible/automation-analytics
     sub_apps:
       - id: reports
         title: Reports
