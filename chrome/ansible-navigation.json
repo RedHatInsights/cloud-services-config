@@ -39,83 +39,34 @@
             ]
         },
         {
-            "title": "Automation Services Catalog",
+            "title": "Automation Analytics",
             "expandable": true,
             "routes": [
                 {
-                    "appId": "catalog",
-                    "title": "Products",
-                    "href": "/ansible/catalog/products"
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Portfolios",
-                    "href": "/ansible/catalog/portfolios"
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Platforms",
-                    "href": "/ansible/catalog/platforms",
-                    "permissions": [
-                        {
-                            "method": "hasPermissions",
-                            "args": [
-                                [
-                                    "catalog:portfolios:create"
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "appId": "catalog",
-                    "title": "order-processes",
-                    "href": "/ansible/catalog/order-processes",
-                    "permissions": [
-                        {
-                            "method": "hasPermissions",
-                            "args": [
-                                [
-                                    "catalog:order_processes:read"
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Orders",
-                    "href": "/ansible/catalog/orders"
-                },
-                {
-                    "appId": "approval",
-                    "title": "Approval",
-                    "href": "/ansible/catalog/approval"
+                    "appId": "automationHub",
+                    "title": "Collections",
+                    "href": "/ansible/automation-hub/",
+                    "product": "Ansible Automation Hub"
                 }
+
             ]
+        },
+        {
+            "title": "Documentation",
+            "isExternal": true,
+            "filterable": false,
+            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
         },
         {
             "groupId": "operations",
             "icon": "wrench",
-            "title": "Operations Insights",
+            "title": "Red Hat Insights",
             "navItems": [
                 {
-                    "appId": "automationAnalytics",
-                    "title": "Organization Statistics",
-                    "href": "/ansible/insights/organization-statistics",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Job Explorer",
-                    "href": "/ansible/insights/job-explorer",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Clusters",
-                    "href": "/ansible/insights/clusters",
-                    "product": "Ansible Automation Analytics"
+                    "appId": "inventory",
+                    "title": "Inventory",
+                    "href": "/ansible/inventory",
+                    "product": "Red Hat Insights"
                 },
                 {
                     "title": "Advisor",
@@ -158,76 +109,21 @@
                             "product": "Red Hat Insights"
                         }
                     ]
-                },
-                {
-                    "appId": "inventory",
-                    "title": "Inventory",
-                    "href": "/ansible/inventory",
-                    "product": "Red Hat Insights"
                 }
             ]
         },
         {
-            "groupId": "security",
-            "icon": "shield",
-            "title": "Security Insights",
-            "navItems": [
-                {
-                    "appId": "policies",
-                    "title": "Policies",
-                    "href": "/ansible/policies"
-                }
-            ]
-        },
-        {
-            "groupId": "business",
-            "icon": "trend-up",
-            "title": "Business Insights",
-            "navItems": [
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Reports",
-                    "href": "/ansible/insights/reports",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Savings Planner",
-                    "href": "/ansible/insights/savings-planner",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Automation Calculator",
-                    "href": "/ansible/insights/reports/automation_calculator/",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "automationAnalytics",
-                    "title": "Notifications",
-                    "href": "/ansible/insights/notifications",
-                    "product": "Ansible Automation Analytics"
-                },
-                {
-                    "appId": "registration",
-                    "title": "Register Systems",
-                    "filterable": false,
-                    "href": "/ansible/registration",
-                    "product": "Red Hat Insights"
-                },
-                {
-                    "appId": "remediations",
-                    "title": "Remediations",
-                    "href": "/ansible/remediations",
-                    "product": "Red Hat Insights"
-                }
-            ]
-        },
-        {
-            "title": "Documentation",
-            "isExternal": true,
+            "appId": "registration",
+            "title": "Register Systems",
             "filterable": false,
-            "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
+            "href": "/ansible/registration",
+            "product": "Red Hat Insights"
+        },
+        {
+            "appId": "remediations",
+            "title": "Remediations",
+            "href": "/ansible/remediations",
+            "product": "Red Hat Insights"
         }
     ]
 }
