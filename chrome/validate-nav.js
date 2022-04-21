@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const landingSchema = require('./validationSchemas/landing');
 const modulesSchema = require('./validationSchemas/modules');
-const navigationSchema = require('./validationSchemas/navigation');
+const { navigationSchema } = require('./validationSchemas/navigation');
 
 
 
