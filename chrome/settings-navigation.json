@@ -151,6 +151,27 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "appId": "applications",
+                    "title": "Insights",
+                    "href": "/settings/applications/insights",
+                    "permissions": [
+                        {
+                            "method": "isEntitled",
+                            "args": [
+                                "insights"
+                            ]
+                        },
+                        {
+                            "method": "hasPermissions",
+                            "args": [
+                                [
+                                    "insights:*:*"
+                                ]
+                            ]
+                        }
+                    ]
                 }
             ]
         },
