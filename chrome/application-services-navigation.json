@@ -15,6 +15,11 @@
         },
         {
             "appId": "applicationServices",
+            "title": "Connectors",
+            "href": "/application-services/connectors"
+        },
+        {
+            "appId": "applicationServices",
             "title": "Data Science",
             "href": "/application-services/data-science"
         },
@@ -30,7 +35,6 @@
                 {
                     "appId": "applicationServices",
                     "title": "Service Registry Instances",
-                    "isBeta": true,
                     "href": "/application-services/service-registry"
                 },
                 {
@@ -44,6 +48,11 @@
             "title": "Streams for Apache Kafka",
             "expandable": true,
             "routes": [
+                {
+                  "appId": "applicationServices",
+                  "title": "Kafka Overview",
+                  "href": "/application-services/streams/overview"
+                },
                 {
                     "appId": "applicationServices",
                     "title": "Kafka Instances",
