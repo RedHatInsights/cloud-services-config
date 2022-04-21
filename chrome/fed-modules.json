@@ -458,5 +458,17 @@
                 ]
             }
         ]
+    },
+    "image_builder": {
+        "manifestLocation": "/apps/image-builder/fed-mods.json",
+        "modules": [
+            {
+                "id": "image-builder",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/image-builder"
+                ]
+            }
+        ]
     }
 }
