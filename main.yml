@@ -993,7 +993,7 @@ settings:
       - id: applications
       - id: settings-documentation
         title: Documentation
-        navigate: https://access.redhat.com/documentation/red_hat_cloud_platform/
+        navigate: https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console
 
 sources:
   title: Discovered Inventory
