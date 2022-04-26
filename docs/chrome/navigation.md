@@ -88,7 +88,7 @@ interface GroupItem {
   /**
    * Icon before title
   */
-  icon?: 'wrench' | 'trend-up' | 'shield' | 'code'
+  icon?: 'wrench' | 'trend-up' | 'shield' | 'code' | 'cloud' | 'database'
   /**
    * Items of the group
   */

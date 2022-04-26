@@ -12,7 +12,7 @@
         {
             "groupId": "operations",
             "title": "Operations Insights",
-            "icon": "code",
+            "icon": "wrench",
             "navItems": [
                 {
                     "title": "Advisor",
