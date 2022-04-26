@@ -38,7 +38,7 @@
         ]
       },
       {
-        "appId": "ansible-dashboard",
+        "appId": "ansibleDashboard",
         "title": "Ansible Automation Platform",
         "href":  "/ansible/ansible-dashboard"
       }
