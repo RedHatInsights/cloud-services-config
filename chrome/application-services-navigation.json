@@ -51,6 +51,11 @@
             ]
         },
         {
+            "appId": "applicationServices",
+            "title": "Smart Events",
+            "href": "/application-services/smart-events"
+        },
+        {
             "title": "Streams for Apache Kafka",
             "expandable": true,
             "routes": [
