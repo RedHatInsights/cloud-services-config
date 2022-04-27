@@ -12,12 +12,12 @@
     ]
   },
   {
-    "groupId": "application-services",
+    "groupId": "manage-infrastructure",
     "title": "Manage Infrastructure",
     "icon": "wrench",
     "navItems": [
       {
-        "appId": "openShift",
+        "appId": "openshift",
         "title": "OpenShift",
         "href": "/openshift"
       },
@@ -26,7 +26,7 @@
         "expandable": true,
         "routes": [
           {
-            "appId": "redhatInsights",
+            "appId": "dashboard",
             "title": "Red Hat Insights",
             "href": "/insights/dashboard"
           },           
