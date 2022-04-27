@@ -14,9 +14,21 @@
             "href": "/application-services/api-management"
         },
         {
-            "appId": "applicationServices",
             "title": "Connectors",
-            "href": "/application-services/connectors"
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "applicationServices",
+                    "title": "Connectors Instances",
+                    "isBeta": true,
+                    "href": "/application-services/connectors"
+                },           
+                {
+                    "title": "Documentation",
+                    "isExternal": true,
+                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors"
+                }
+            ]
         },
         {
             "appId": "applicationServices",
