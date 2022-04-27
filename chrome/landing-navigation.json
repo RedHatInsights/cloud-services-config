@@ -3,6 +3,7 @@
     "groupId": "application-services",
     "title": "Build and Deploy Applications",
     "icon": "wrench",
+    "expandable": true,
     "navItems": [
       {
         "appId": "applicationServices",
