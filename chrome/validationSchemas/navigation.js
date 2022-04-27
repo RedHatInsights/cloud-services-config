@@ -84,4 +84,6 @@ const navigationSchema = Joi.object({
 
 module.exports.navItemSchema = navItemSchema
 
+module.exports.subNavItem = subNavItem;
+
 module.exports.navigationSchema = navigationSchema;
