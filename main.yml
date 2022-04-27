@@ -753,16 +753,13 @@ service-registry:
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
-
-
-
 application-services:
-  title: Application and Data Services
+  title: Application Services
   api:
     isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
-    title: Application and Data Services
+    title: Application Services
     isBeta: true
     paths:
       - /application-services
@@ -800,11 +797,8 @@ application-services:
         title: "Streams for Apache Kafka"
         group: overview
 
-
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
-
-
 
 rhosak-data-plane-ui-build:
   title: Data Plane UI for RHOSAK
