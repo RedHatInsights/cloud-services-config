@@ -68,7 +68,6 @@ ansible:
         default: true
         group: ansible-dashboard
       - id: automation-hub
-      - id: catalog
       - id: automation-analytics
   top_level: true
 
@@ -111,22 +110,6 @@ applications:
     paths:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
-
-approval:
-  title: Approval
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
-  frontend:
-    module:
-      appName: approval
-      scope: approval
-      module: ./RootApp
-    paths:
-      - /ansible/catalog/approval
-    reload: catalog/approval
-  source_repo: https://github.com/RedHatInsights/approval-ui
 
 automation-analytics:
   title: Automation Analytics
@@ -177,39 +160,6 @@ automation-hub:
       - id: token
         title: Connect to Hub
   source_repo: https://github.com/ansible/ansible-hub-ui
-
-catalog:
-  title: Automation Services Catalog
-  api:
-    versions:
-      - v1
-  channel: '#insights-catalog'
-  deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend:
-    paths:
-      - /ansible/catalog
-    sub_apps:
-      - id: products
-        title: Products
-      - id: portfolios
-        title: Portfolios
-        default: true
-      - id: platforms
-        title: Platforms
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:portfolios:create]
-      - id: order-processes
-        title: Order processes
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:order_processes:read]
-      - id: orders
-        title: Orders
-      - id: approval
-  source_repo: https://github.com/RedHatInsights/catalog-ui
 
 ccx:
   title: OpenShift Insights
@@ -683,7 +633,7 @@ openshift:
 
   top_level: true
 
-ocp-advisor: 
+ocp-advisor:
   title: Advisor
   source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
@@ -694,12 +644,12 @@ ocp-advisor:
     sub_apps:
       - id: clusters
         title: Clusters
-        reload: clusters 
+        reload: clusters
       - id: recommendations
         title: Recommendations
         reload: recommendations
 
-ocp-vulnerability: 
+ocp-vulnerability:
   title: Vulnerability
   channel: '#forum-ccx-vulnerability'
   source_repo: https://github.com/RedHatInsights/vuln4shift-frontend
@@ -711,7 +661,7 @@ ocp-vulnerability:
     sub_apps:
       - id: cves
         title: CVEs
-        reload: cves 
+        reload: cves
       - id: clusters
         title: Clusters
         reload: clusters
@@ -772,7 +722,7 @@ application-services:
         group: overview
       - id: learning-resources
         title: "Learning Resources"
-        group: overview  
+        group: overview
       - id: api-management
         title: "API Management"
         group: overview
