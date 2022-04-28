@@ -39,62 +39,6 @@
             ]
         },
         {
-            "title": "Automation Services Catalog",
-            "expandable": true,
-            "routes": [
-                {
-                    "appId": "catalog",
-                    "title": "Products",
-                    "href": "/ansible/catalog/products"
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Portfolios",
-                    "href": "/ansible/catalog/portfolios"
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Platforms",
-                    "href": "/ansible/catalog/platforms",
-                    "permissions": [
-                        {
-                            "method": "hasPermissions",
-                            "args": [
-                                [
-                                    "catalog:portfolios:create"
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "appId": "catalog",
-                    "title": "order-processes",
-                    "href": "/ansible/catalog/order-processes",
-                    "permissions": [
-                        {
-                            "method": "hasPermissions",
-                            "args": [
-                                [
-                                    "catalog:order_processes:read"
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "appId": "catalog",
-                    "title": "Orders",
-                    "href": "/ansible/catalog/orders"
-                },
-                {
-                    "appId": "approval",
-                    "title": "Approval",
-                    "href": "/ansible/catalog/approval"
-                }
-            ]
-        },
-        {
             "groupId": "insights",
             "title": "Insights",
             "navItems": [
@@ -149,4 +93,4 @@
             "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
         }
     ]
-} 
+}
