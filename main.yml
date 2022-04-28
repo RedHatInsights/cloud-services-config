@@ -103,22 +103,6 @@ applications:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
 
-approval:
-  title: Approval
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
-  frontend:
-    module:
-      appName: approval
-      scope: approval
-      module: ./RootApp
-    paths:
-      - /ansible/catalog/approval
-    reload: catalog/approval
-  source_repo: https://github.com/RedHatInsights/approval-ui
-
 automation-analytics:
   title: Analytics
   api:
@@ -169,39 +153,6 @@ automation-hub:
       - id: token
         title: Connect to Hub
   source_repo: https://github.com/ansible/ansible-hub-ui
-
-catalog:
-  title: Automation Services Catalog
-  api:
-    versions:
-      - v1
-  channel: '#insights-catalog'
-  deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend:
-    paths:
-      - /ansible/catalog
-    sub_apps:
-      - id: products
-        title: Products
-      - id: portfolios
-        title: Portfolios
-        default: true
-      - id: platforms
-        title: Platforms
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:portfolios:create]
-      - id: order-processes
-        title: Order processes
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:order_processes:read]
-      - id: orders
-        title: Orders
-      - id: approval
-  source_repo: https://github.com/RedHatInsights/catalog-ui
 
 ccx:
   title: OpenShift Insights
@@ -741,7 +692,7 @@ dbz-ui-build:
 sr-ui-build:
   title: Service Registry data plane UI
   deployment_repo: https://github.com/RedHatInsights/sr-ui-build
-  
+
 srs-ui-build:
   title: Service Registry control plane UI
   deployment_repo: https://github.com/RedHatInsights/srs-ui-build

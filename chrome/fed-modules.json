@@ -361,30 +361,6 @@
             }
         ]
     },
-    "approval": {
-        "manifestLocation": "/apps/approval/fed-mods.json",
-        "modules": [
-            {
-                "id": "approval",
-                "module": "./RootApp",
-                "routes": [
-                    "/ansible/catalog/approval"
-                ]
-            }
-        ]
-    },
-    "catalog": {
-        "manifestLocation": "/apps/catalog/fed-mods.json",
-        "modules": [
-            {
-                "id": "catalog",
-                "module": "./RootApp",
-                "routes": [
-                    "/ansible/catalog"
-                ]
-            }
-        ]
-    },
     "automationHub": {
         "manifestLocation": "/apps/automation-hub/fed-mods.json",
         "modules": [
