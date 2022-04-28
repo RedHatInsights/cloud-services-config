@@ -4,19 +4,16 @@
   "navItems": [
     {
       "title": "Inventory",
-      "filterable": false,
       "expandable": true,
       "routes": [
         {
           "title": "Groups",
           "appId": "edge",
-          "filterable": false,
           "href": "/edge/fleet-management"
         },
         {
           "title": "Systems",
           "appId": "edge",
-          "filterable": false,
           "href": "/edge/inventory"
         }
       ]
@@ -28,7 +25,6 @@
         {
           "title": "Images",
           "appId": "edge",
-          "filterable": false,
           "href": "/edge/manage-images"
         }
       ]
@@ -36,7 +32,6 @@
     {
       "title": "Learning resources",
       "appId": "edge",
-      "filterable": false,
       "href": "/edge/learning-resources"
     }
   ]
