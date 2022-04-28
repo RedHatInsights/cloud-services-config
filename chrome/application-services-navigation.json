@@ -1,135 +1,126 @@
 {
-    "id": "application-services",
-    "title": "Application Services",
-    "navItems": [
+  "id": "application-services",
+  "title": "Application and Data Services",
+  "navItems": [
+    {
+        "appId": "applicationServices",
+        "title": "Overview",
+        "filterable": false,
+        "href": "/application-services/overview"
+    },
+    {
+        "appId": "applicationServices",
+        "title": "Learning Resources",
+        "href": "/application-services/learning-resources"
+    },
+    {
+      "groupId": "application-services",
+      "title": "Application Services",
+      "icon": "cloud",
+      "navItems": [
         {
-            "appId": "applicationServices",
-            "title": "Overview",
-            "filterable": false,
-            "href": "/application-services/overview"
+          "appId": "applicationServices",
+          "title": "API Management",
+          "href": "/application-services/api-management"
         },
         {
-            "appId": "applicationServices",
-            "title": "API Management",
-            "href": "/application-services/api-management"
+          "title": "Streams for Apache Kafka",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "applicationServices",
+              "title": "Overview",
+              "isBeta": true,
+              "href": "/application-services/streams/overview"
+            },
+            {
+              "appId": "applicationServices",
+              "title": "Kafka Instances",
+              "isBeta": true,
+              "href": "/application-services/streams"
+            },
+            {
+              "title": "Documentation",
+              "isExternal": true,
+              "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
+            }
+          ]
         },
         {
-            "title": "Connectors",
-            "expandable": true,
-            "routes": [
-                {
-                    "appId": "applicationServices",
-                    "title": "Connectors Instances",
-                    "isBeta": true,
-                    "href": "/application-services/connectors"
-                },           
-                {
-                    "title": "Documentation",
-                    "isExternal": true,
-                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors"
-                }
-            ]
+          "title": "Service Registry",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "applicationServices",
+              "title": "Service Registry Instances",
+              "isBeta": true,
+              "href": "/application-services/service-registry"
+            },
+            {
+              "title": "Documentation",
+              "isExternal": true,
+              "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry"
+            }
+          ]
         },
         {
-            "appId": "applicationServices",
-            "title": "Data Science",
-            "href": "/application-services/data-science"
+          "title": "Connectors",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "applicationServices",
+              "title": "Connectors Instances",
+              "href": "/application-services/connectors"
+            },
+            {
+              "title": "Documentation",
+              "isExternal": true,
+              "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors"
+            }
+          ]
         },
         {
-            "appId": "dbaas",
-            "title": "Database Access",
-            "href": "/application-services/databases"
-        },
-        {
-            "appId": "applicationServices",
-            "title": "Service Accounts",
-            "href": "/application-services/service-accounts"
-        },
-        {
-            "title": "Service Registry",
-            "expandable": true,
-            "routes": [
-                {
-                    "appId": "applicationServices",
-                    "title": "Service Registry Instances",
-                    "isBeta": true,
-                    "href": "/application-services/service-registry"
-                },           
-                {
-                    "title": "Documentation",
-                    "isExternal": true,
-                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry"
-                }
-            ]
-        },
-        {
-            "appId": "applicationServices",
-            "title": "Smart Events",
-            "href": "/application-services/smart-events"
-        },
-        {
-            "title": "Streams for Apache Kafka",
-            "expandable": true,
-            "routes": [
-                {
-                  "appId": "applicationServices",
-                  "title": "Kafka Overview",
-                  "isBeta": true,
-                  "href": "/application-services/streams/overview"
-                },
-                {
-                    "appId": "applicationServices",
-                    "title": "Kafka Instances",
-                    "isBeta": true,
-                    "href": "/application-services/streams/kafkas"
-                },
-                {
-                    "title": "Documentation",
-                    "isExternal": true,
-                    "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
-                }
-            ]
-        },
-        {
-            "title": "Advanced Cluster Security",
-            "expandable": true,
-            "routes": [
-                {
-                    "appId": "applicationServices",
-                    "title": "ACS Instances",
-                    "isBeta": true,
-                    "href": "/application-services/acs"
-                },
-                {
-                    "title": "Documentation",
-                    "isExternal": true,
-                    "href": "https://docs.openshift.com/acs/3.66/welcome/index.html"
-                }
-            ]
-        },
-        {
-            "groupId": "insights",
-            "icon": "trend-up",
-            "title": "Insights",
-            "navItems": [
-                {
-                    "title": "Subscriptions",
-                    "expandable": true,
-                    "routes": [
-                        {
-                            "appId": "applicationServices",
-                            "title": "Streams for Apache Kafka",
-                            "isBeta": true,
-                            "href": "/application-services/subscriptions/streams"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "appId": "applicationServices",
-            "title": "Learning Resources",
-            "href": "/application-services/learning-resources"
+          "appId": "applicationServices",
+          "title": "Service Accounts",
+          "href": "/application-services/service-accounts"
         }
-    ]
+      ]
+    },
+    {
+      "groupId": "data-services",
+      "title": "Data Services",
+      "icon": "database",
+      "navItems": [
+        {
+          "appId": "dbaas",
+          "title": "Database Access",
+          "href": "/application-services/databases"
+        },
+        {
+          "appId": "applicationServices",
+          "title": "Data Science",
+          "href": "/application-services/data-science"
+        }
+      ]
+    },
+    {
+      "groupId": "insights",
+      "icon": "trend-up",
+      "title": "Red Hat Insights",
+      "navItems": [
+        {
+          "title": "Subscriptions",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "applicationServices",
+              "title": "Streams for Apache Kafka",
+              "isBeta": true,
+              "href": "/application-services/subscriptions/streams"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
