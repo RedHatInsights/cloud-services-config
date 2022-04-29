@@ -790,7 +790,6 @@ patch:
   api:
     versions:
       - v1
-    isBeta: true
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
