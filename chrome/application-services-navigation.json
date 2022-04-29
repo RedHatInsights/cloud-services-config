@@ -30,13 +30,11 @@
             {
               "appId": "applicationServices",
               "title": "Overview",
-              "isBeta": true,
               "href": "/application-services/streams/overview"
             },
             {
               "appId": "applicationServices",
               "title": "Kafka Instances",
-              "isBeta": true,
               "href": "/application-services/streams"
             },
             {
@@ -53,7 +51,6 @@
             {
               "appId": "applicationServices",
               "title": "Service Registry Instances",
-              "isBeta": true,
               "href": "/application-services/service-registry"
             },
             {
@@ -115,7 +112,6 @@
             {
               "appId": "applicationServices",
               "title": "Streams for Apache Kafka",
-              "isBeta": true,
               "href": "/application-services/subscriptions/streams"
             }
           ]
