@@ -2,8 +2,14 @@
 
 name: CLOSE_PRS
 on:
-  pull_request:
-    branches: [ qa-beta, stage-beta, qa-stable, stage-stable  ]
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - qa-beta
+      - stage-beta
+      - qa-stable
+      - stage-stable
 
 jobs:
   build:
