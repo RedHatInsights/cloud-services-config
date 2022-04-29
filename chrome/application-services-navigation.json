@@ -130,7 +130,6 @@
             {
               "appId": "applicationServices",
               "title": "Streams for Apache Kafka",
-              "isBeta": true,
               "href": "/application-services/subscriptions/streams"
             }
           ]
