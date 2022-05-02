@@ -1,26 +1,47 @@
 [
   {
-      "id": "application-services",
-      "appId": "applicationServices",
-      "title": "Application Services",
-      "href": "/application-services"
+    "groupId": "application-services",
+    "title": "Build and Deploy Applications",
+    "icon": "wrench",
+    "navItems": [
+      {
+        "appId": "applicationServices",
+        "title": "Application and Data Services",
+        "href": "/application-services/overview"
+      }
+    ]
   },
   {
-      "id": "openshift",
-      "appId": "openshift",
-      "title": "OpenShift",
-      "href": "/openshift"
-  },
-  {
-      "id": "rhel",
-      "appId": "dashboard",
-      "title": "Red Hat Enterprise Linux",
-      "href": "/insights/dashboard"
-  },
-  {
-      "id": "ansbile",
-      "appId": "ansibleDashboard",
-      "title": "Ansible Automation Platform",
-      "href": "/ansible/ansible-dashboard"
+    "groupId": "manage-infrastructure",
+    "title": "Manage Infrastructure",
+    "icon": "wrench",
+    "navItems": [
+      {
+        "appId": "openshift",
+        "title": "OpenShift",
+        "href": "/openshift"
+      },
+      {
+        "title": "RHEL Services",
+        "expandable": true,
+        "routes": [
+          {
+            "appId": "dashboard",
+            "title": "Red Hat Insights",
+            "href": "/insights/dashboard"
+          },           
+          {
+            "appId": "edge",
+            "title": "Edge Management",
+            "href": "/edge"
+          }
+        ]
+      },
+      {
+        "appId": "ansibleDashboard",
+        "title": "Ansible Automation Platform",
+        "href":  "/ansible/ansible-dashboard"
+      }
+    ]
   }
 ]
