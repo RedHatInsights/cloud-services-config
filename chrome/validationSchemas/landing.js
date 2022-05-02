@@ -1,6 +1,6 @@
 const Joi = require('joi');
-const { navItemSchema } = require('./navigation');
+const { navItemSchema, subNavItem } = require('./navigation');
 
-const landingSchema = Joi.array().items(navItemSchema);
+const landingSchema = Joi.array().items(navItemSchema).shared(subNavItem.id('subNavItem'));
 
 module.exports = landingSchema;
