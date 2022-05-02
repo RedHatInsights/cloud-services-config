@@ -51,7 +51,6 @@
             {
               "appId": "applicationServices",
               "title": "Service Registry Instances",
-              "isBeta": true,
               "href": "/application-services/service-registry"
             },
             {
@@ -68,6 +67,7 @@
             {
               "appId": "applicationServices",
               "title": "Connectors Instances",
+              "isBeta": true,
               "href": "/application-services/connectors"
             },
             {
