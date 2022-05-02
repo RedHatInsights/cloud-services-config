@@ -1,0 +1,24 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CLOSE_PRS
+on:
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - qa-beta
+      - stage-beta
+      - qa-stable
+      - stage-stable
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Close Pull Request
+        uses: superbrothers/close-pull-request@v3.0.0
+        with:
+          comment: "This branch is sychronized automatically. Please change the target branch to ci-beta or ci-stable."
