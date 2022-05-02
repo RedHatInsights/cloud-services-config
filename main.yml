@@ -958,7 +958,7 @@ settings:
         navigate: https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console
 
 sources:
-  title: Discovered Inventory
+  title: Sources
   api:
     versions:
       - v1
