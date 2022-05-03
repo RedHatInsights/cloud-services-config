@@ -21,12 +21,6 @@
             "product": "Red Hat Insights"
           },
           {
-            "appId": "image_builder",
-            "title": "Image builder",
-            "href": "/insights/image-builder",
-            "product": "Red Hat Insights"
-          },
-          {
             "title": "Advisor",
             "expandable": true,
             "routes": [
@@ -234,6 +228,12 @@
                 "href": "https://access.redhat.com/products/subscription-central"
               }
             ]
+          },
+          {
+            "appId": "image_builder",
+            "title": "Image builder",
+            "href": "/insights/image-builder",
+            "product": "Red Hat Insights"
           }
         ]
       },
