@@ -219,7 +219,7 @@ ccx:
         title: Insights Results Aggregator
         versions:
           - v1
-      insights-operator-gathering-conditions-service:
+      gathering:
         title: Insights Operator Gathering Conditions Service
         versions:
           - v1
