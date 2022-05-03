@@ -214,10 +214,15 @@ catalog:
 ccx:
   title: OpenShift Insights
   api:
-    versions:
-      - v1
-      - v2
-    apiName: insights-results-aggregator
+    subItems:
+      insights-results-aggregator:
+        title: Insights Results Aggregator
+        versions:
+          - v1
+      insights-operator-gathering-conditions-service:
+        title: Insights Operator Gathering Conditions Service
+        versions:
+          - v1
 
 chrome:
   channel: '#flip-mode-squad'
@@ -1009,11 +1014,10 @@ settings:
         navigate: https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console
 
 sources:
-  title: Discovered Inventory
+  title: Sources
   api:
     versions:
-      - v1
-    isBeta: true
+      - v3.1
   channel: '#sources'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:

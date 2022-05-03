@@ -2,7 +2,7 @@
   {
     "groupId": "application-services",
     "title": "Build and Deploy Applications",
-    "icon": "wrench",
+    "icon": "code",
     "navItems": [
       {
         "appId": "applicationServices",
