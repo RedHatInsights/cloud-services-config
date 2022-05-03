@@ -39,76 +39,9 @@
             ]
         },
         {
-            "groupId": "operations",
-            "icon": "wrench",
-            "title": "Operations Insights",
-            "navItems": [
-                {
-                    "title": "Advisor",
-                    "expandable": true,
-                    "routes": [
-                        {
-                            "appId": "advisor",
-                            "title": "Recommendations",
-                            "href": "/ansible/advisor/recommendations",
-                            "product": "Red Hat Insights"
-                        },
-                        {
-                            "appId": "advisor",
-                            "title": "Systems",
-                            "href": "/ansible/advisor/systems",
-                            "product": "Red Hat Insights"
-                        },
-                        {
-                            "appId": "approval",
-                            "title": "Topics",
-                            "href": "/ansible/advisor/topics",
-                            "product": "Red Hat Insights"
-                        }
-                    ]
-                },
-                {
-                    "title": "Drift",
-                    "expandable": true,
-                    "routes": [
-                        {
-                            "appId": "drift",
-                            "title": "Comparison",
-                            "href": "/ansible/drift/",
-                            "product": "Red Hat Insights"
-                        },
-                        {
-                            "appId": "drift",
-                            "title": "Baselines",
-                            "href": "/ansible/drift/baselines",
-                            "product": "Red Hat Insights"
-                        }
-                    ]
-                },
-                {
-                    "appId": "inventory",
-                    "title": "Inventory",
-                    "href": "/ansible/inventory",
-                    "product": "Red Hat Insights"
-                }
-            ]
-        },
-        {
-            "groupId": "security",
-            "icon": "shield",
-            "title": "Security Insights",
-            "navItems": [
-                {
-                    "appId": "policies",
-                    "title": "Policies",
-                    "href": "/ansible/policies"
-                }
-            ]
-        },
-        {
-            "groupId": "automation-analytics",
             "title": "Automation Analytics",
-            "navItems": [
+            "expandable": true,
+            "routes": [
                 {
                     "appId": "automationAnalytics",
                     "title": "Organization Statistics",
@@ -154,36 +87,84 @@
             ]
         },
         {
-            "groupId": "business",
-            "icon": "trend-up",
-            "title": "Business Insights",
-            "navItems": [
-                {
-                    "appId": "registration",
-                    "title": "Register Systems",
-                    "filterable": false,
-                    "href": "/ansible/registration",
-                    "product": "Red Hat Insights"
-                },
-                {
-                    "appId": "remediations",
-                    "title": "Remediations",
-                    "href": "/ansible/remediations",
-                    "product": "Red Hat Insights"
-                },
-                {
-                    "appId": "tasks",
-                    "title": "Tasks",
-                    "href": "/ansible/tasks",
-                    "product": "Red Hat Insights"
-                }
-            ]
-        },
-        {
             "title": "Documentation",
             "isExternal": true,
             "filterable": false,
             "href": "https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/"
+        },
+        {
+            "groupId": "operations",
+            "icon": "trend-up",
+            "title": "Red Hat Insights",
+            "navItems": [
+                {
+                    "appId": "inventory",
+                    "title": "Inventory",
+                    "href": "/ansible/inventory",
+                    "product": "Red Hat Insights"
+                },
+                {
+                    "title": "Advisor",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "advisor",
+                            "title": "Recommendations",
+                            "href": "/ansible/advisor/recommendations",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "advisor",
+                            "title": "Systems",
+                            "href": "/ansible/advisor/systems",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "approval",
+                            "title": "Topics",
+                            "href": "/ansible/advisor/topics",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "title": "Drift",
+                    "expandable": true,
+                    "routes": [
+                        {
+                            "appId": "drift",
+                            "title": "Comparison",
+                            "href": "/ansible/drift/",
+                            "product": "Red Hat Insights"
+                        },
+                        {
+                            "appId": "drift",
+                            "title": "Baselines",
+                            "href": "/ansible/drift/baselines",
+                            "product": "Red Hat Insights"
+                        }
+                    ]
+                },
+                {
+                    "appId": "policies",
+                    "title": "Policies",
+                    "href": "/ansible/policies"
+                }
+            ]
+        },
+        {
+            "appId": "registration",
+            "title": "Register Systems",
+            "filterable": false,
+            "href": "/ansible/registration",
+            "product": "Red Hat Insights"
+        },
+        {
+        "appId": "remediations",
+        "title": "Remediations",
+        "href": "/ansible/remediations",
+        "product": "Red Hat Insights"
         }
     ]
 }
+
