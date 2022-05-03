@@ -482,5 +482,17 @@
                 ]
             }
         ]
+    },
+    "sandbox": {
+        "manifestLocation": "/apps/sandbox/fed-mods.json",
+        "modules": [
+            {
+                "id": "sandbox",
+                "module": "./RootApp",
+                "routes": [
+                    "/openshift/sandbox"
+                ]
+            }
+      ]
     }
 }

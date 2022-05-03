@@ -741,6 +741,11 @@ ruledev:
       - /staging/ruledev
   source_repo: https://github.com/RedHatInsights/ruledev-frontend
 
+sandbox:
+  title: Developer Sandbox
+  deployment_repo: https://github.com/RedHatInsights/developer-sandbox-build
+  source_repo: https://github.com/RedHatInsights/developer-sandbox-ui
+
 settings:
   title: Settings
   top_level: true
