@@ -1,6 +1,6 @@
 {
     "id": "rhel",
-    "title": "Red Hat Enterprise Linux",
+    "title": "Red Hat Insights",
     "navItems": [
         {
             "appId": "dashboard",
