@@ -57,6 +57,7 @@ const schema = Joi.object({
     mailing_list: Joi.string(),
     title: Joi.string(),
     api: Joi.object({
+        url: Joi.string(),
         apiName: Joi.string(),
         versions: [Joi.array().items(Joi.string()), Joi.string()],
         isBeta: Joi.boolean(),
