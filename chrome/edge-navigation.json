@@ -11,30 +11,6 @@
           "appId": "edge",
           "href": "/edge/fleet-management"
         },
-
-        {
-          "title": "Systems",
-          "appId": "edge",
-          "href": "/edge/inventory",
-          "permissions": [
-            {
-              "method": "withEmail",
-              "args": ["@redhat.com", "@sbb.ch"]
-            }
-          ]
-        }
-      ],
-      "permissions": [
-        {
-          "method": "withEmail",
-          "args": ["@redhat.com", "@sbb.ch"]
-        }
-      ]
-    },
-    {
-      "title": "Manage Images",
-      "expandable": true,
-      "routes": [
         {
           "title": "Systems",
           "appId": "edge",
