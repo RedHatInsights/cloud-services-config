@@ -43,7 +43,6 @@ ansible:
         default: true
         group: ansible-dashboard
       - id: automation-hub
-      - id: catalog
       - id: automation-analytics
   top_level: true
 
@@ -112,22 +111,6 @@ application-services:
   top_level: true
   source_repo: https://github.com/bf2fc6cc711aee1a0c2a/mk-ui-host
 
-approval:
-  title: Approval
-  api:
-    versions:
-      - v1
-  deployment_repo: https://github.com/RedHatInsights/approvals-frontend-deploy.git
-  frontend:
-    module:
-      appName: approval
-      scope: approval
-      module: ./RootApp
-    paths:
-      - /ansible/catalog/approval
-    reload: catalog/approval
-  source_repo: https://github.com/RedHatInsights/approval-ui
-
 automation-analytics:
   title: Analytics
   api:
@@ -178,39 +161,6 @@ automation-hub:
       - id: token
         title: Connect to Hub
   source_repo: https://github.com/ansible/ansible-hub-ui
-
-catalog:
-  title: Automation Services Catalog
-  api:
-    versions:
-      - v1
-  channel: '#insights-catalog'
-  deployment_repo: https://github.com/RedHatInsights/catalog-static-deploy
-  frontend:
-    paths:
-      - /ansible/catalog
-    sub_apps:
-      - id: products
-        title: Products
-      - id: portfolios
-        title: Portfolios
-        default: true
-      - id: platforms
-        title: Platforms
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:portfolios:create]
-      - id: order-processes
-        title: Order processes
-        permissions:
-          method: hasPermissions
-          args:
-            - [catalog:order_processes:read]
-      - id: orders
-        title: Orders
-      - id: approval
-  source_repo: https://github.com/RedHatInsights/catalog-ui
 
 ccx:
   title: OpenShift Insights
@@ -418,7 +368,7 @@ insights:
       - id: malware
       - id: subscriptions
         section: business
-      - id: ros  
+      - id: ros
       - id: registration
       - id: remediations
   top_level: true
@@ -591,7 +541,7 @@ openshift:
 
   top_level: true
 
-ocp-advisor: 
+ocp-advisor:
   title: Advisor
   source_repo: https://github.com/RedHatInsights/ocp-advisor-frontend
   deployment_repo: https://github.com/RedHatInsights/ocp-advisor-frontend-build
@@ -602,7 +552,7 @@ ocp-advisor:
     sub_apps:
       - id: clusters
         title: Clusters
-        reload: clusters 
+        reload: clusters
       - id: recommendations
         title: Recommendations
         reload: recommendations
