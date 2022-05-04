@@ -31,7 +31,7 @@
     },
     {
       "title": "Learning resources",
-      "filterbale": false,
+      "filterable": false,
       "appId": "edge",
       "href": "/edge/learning-resources"
     }
