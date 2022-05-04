@@ -22,7 +22,7 @@
         "href": "/openshift"
       },
       {
-        "title": "RHEL Services",
+        "title": "Red Hat enterprise Linux",
         "expandable": true,
         "routes": [
           {
