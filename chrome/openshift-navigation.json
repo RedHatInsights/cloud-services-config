@@ -32,6 +32,7 @@
         {
             "groupId": "insights",
             "title": "Red Hat Insights",
+            "icon": "trend-up",
             "navItems": [
                 {
                     "title": "Advisor",
