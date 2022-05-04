@@ -37,7 +37,7 @@
         },
         {
             "groupId": "insights",
-            "title": "Insights",
+            "title": "Red Hat Insights",
             "navItems": [
                 {
                     "title": "Advisor",
