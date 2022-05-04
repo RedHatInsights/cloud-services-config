@@ -4,7 +4,6 @@
   "navItems": [
     {
       "title": "Inventory",
-      "filterable": false,
       "expandable": true,
       "routes": [
         {
