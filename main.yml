@@ -165,9 +165,15 @@ automation-hub:
 ccx:
   title: OpenShift Insights
   api:
-    versions:
-      - v1
-    apiName: insights-results-aggregator
+    subItems:
+      insights-results-aggregator:
+        title: Insights Results Aggregator
+        versions:
+          - v1
+      gathering:
+        title: Insights Operator Gathering Conditions Service
+        versions:
+          - v1
 
 chrome:
   channel: '#flip-mode-squad'
