@@ -201,7 +201,8 @@
                     {
                        "pathname": "/insights/inventory",
                        "isFedramp": true
-                    }
+                    },
+                    "/ansible/inventory"
                 ]
             }
         ]
