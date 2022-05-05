@@ -159,7 +159,8 @@
                     {
                        "pathname": "/insights/advisor",
                        "isFedramp": true
-                    }
+                    },
+                    "/ansible/advisor"
                 ]
             }
         ]
@@ -186,7 +187,8 @@
                     {
                         "pathname": "/insights/drift",
                         "isFedramp": true
-                    }
+                    },
+                    "/ansible/drift"
                 ]
             }
         ]
@@ -243,7 +245,8 @@
                     {
                        "pathname": "/insights/policies",
                        "isFedramp": true
-                    }
+                    },
+                    "/ansible/policies"
                 ]
             }
         ]
@@ -318,7 +321,8 @@
                 "id": "registration",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/registration"
+                    "/insights/registration",
+                    "/ansible/registration"
                 ]
             }
         ]
@@ -333,7 +337,8 @@
                     {
                        "pathname": "/insights/remediations",
                        "isFedramp": true
-                    }
+                    },
+                    "/ansible/remediations"
                 ]
             }
         ]
