@@ -210,12 +210,6 @@
                 "product": "Subscription Watch"
               },
               {
-                "appId": "subscriptionInventory",
-                "title": "Subscription Inventory",
-                "href": "/insights/subscriptions/inventory",
-                "product": "Subscription Watch"
-              },
-              {
                 "appId": "manifests",
                 "title": "Manifests",
                 "href": "/insights/subscriptions/manifests",
