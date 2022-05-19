@@ -70,11 +70,6 @@
                 },
                 {
                     "appId": "notifications",
-                    "title": "Edge",
-                    "href": "/settings/notifications/edge"
-                },
-                {
-                    "appId": "notifications",
                     "title": "Console",
                     "href": "/settings/notifications/console"
                 }
