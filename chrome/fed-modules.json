@@ -392,6 +392,7 @@
                 "id": "ansible-automation-analytics",
                 "module": "./RootApp",
                 "routes": [
+                    "/ansible/automation-analytics",
                     "/ansible/insights",
                     "/ansible/reports",
                     "/ansible/savings-planner",
