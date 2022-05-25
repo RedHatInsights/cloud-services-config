@@ -753,6 +753,8 @@ storybook:
 
 streams:
   title: "Streams for Apache Kafka"
+  api:
+    url: https://api.openshift.com/api/kafkas_mgmt/v1/openapi
   frontend:
     isBeta: true
     sub_apps:
