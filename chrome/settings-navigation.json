@@ -81,7 +81,7 @@
             "routes": [
                 {
                     "appId": "connector",
-                    "title": "Settings",
+                    "title": "Manage configuration",
                     "href": "/settings/connector"
 
                 },
