@@ -7,19 +7,19 @@
       "expandable": true,
       "routes": [
         {
-          "appId": "iam",
+          "appId": "user-access",
           "title": "Users",
           "href": "iam/users",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "user-access",
           "title": "Roles",
           "href": "iam/roles",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "user-access",
           "title": "Groups",
           "href": "iam/groups",
           "product": "Identity & Access Management"
@@ -31,19 +31,19 @@
       "expandable": true,
       "routes": [
         {
-          "appId": "iam",
+          "appId": "authentication-policy",
           "title": "Authentication Factors",
           "href": "iam/auth-policy",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "authentication-policy",
           "title": "Identity Provider Integration",
           "href": "iam/idp-integration",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "authentication-policy",
           "title": "Domain",
           "href": "iam/domain",
           "product": "Identity & Access Management"
