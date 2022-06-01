@@ -81,14 +81,9 @@
             "routes": [
                 {
                     "appId": "connector",
-                    "title": "Settings",
+                    "title": "Manage configuration",
                     "href": "/settings/connector"
 
-                },
-                {
-                    "appId": "connector",
-                    "title": "Activation Keys",
-                    "href": "/settings/connector/activation-keys"
                 }
             ]
         },
