@@ -1203,3 +1203,10 @@ app-studio-docs:
     paths:
       - /hac/app-studio-docs
   source_repo: https://github.com/RedHatInsights/app-studio-docs
+iam:
+  title: Identity & Access management
+  deployment_repo: https://github.com/RedHatInsights/iam-ui-buid
+  frontend:
+      sub_apps:
+        - id: user-access
+        - id: authentication-policy

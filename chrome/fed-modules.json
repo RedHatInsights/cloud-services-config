@@ -685,5 +685,17 @@
                 ]
             }
         ]
+    },
+    "iam": {
+      "manifestLocation": "/apps/iam/fed-mods.json",
+      "modules": [
+          {
+              "id": "authentication-policy",
+              "module": "./RootApp",
+              "routes": [
+                  "/iam/authpolicy"
+              ]
+          }
+      ]
     }
 }
