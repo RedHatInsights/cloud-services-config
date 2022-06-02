@@ -70,9 +70,16 @@
             ]
         },
         {
-            "appId": "connector",
-            "title": "Red Hat Connector",
-            "href": "/settings/connector"
+            "title": "Remote Host Configuration",
+            "expandable": true,
+            "routes": [
+                {
+                    "appId": "connector",
+                    "title": "Manage configuration",
+                    "href": "/settings/connector"
+
+                }
+            ]
         },
         {
             "title": "Applications",
