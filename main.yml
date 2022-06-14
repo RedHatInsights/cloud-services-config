@@ -798,6 +798,7 @@ patch:
   api:
     versions:
       - v1
+      - v2
   channel: '#team-patchman'
   deployment_repo: https://github.com/RedHatInsights/patchman-ui-build
   frontend:
