@@ -1210,6 +1210,8 @@ iam:
   title: Identity & Access management
   deployment_repo: https://github.com/RedHatInsights/iam-ui-build
   frontend:
-      sub_apps:
-        - id: user-access
-        - id: authentication-policy
+    paths:
+        - /iam
+    sub_apps:
+      - id: user-access
+      - id: authentication-policy
