@@ -19,6 +19,22 @@
       "icon": "cloud",
       "navItems": [
         {
+          "title": "API Designer",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "applicationServices",
+              "title": "API and Schema Designs",
+              "href": "/application-services/api-designer"
+            },
+            {
+              "title": "Documentation",
+              "isExternal": true,
+              "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_api_designer"
+            }
+          ]
+        },
+        {
           "appId": "applicationServices",
           "title": "API Management",
           "href": "/application-services/api-management"
