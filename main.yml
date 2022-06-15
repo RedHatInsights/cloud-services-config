@@ -837,6 +837,14 @@ srs-ui-build:
   title: UI for Service Registry Control Plane
   deployment_repo: https://github.com/RedHatInsights/srs-ui-build
 
+ads-ui-build:
+  title: UI for API Designer
+  deployment_repo: https://github.com/RedHatInsights/ads-ui-build
+
+ads-editors-build:
+  title: UI for API Designer (Editor Components)
+  deployment_repo: https://github.com/RedHatInsights/ads-editors-build
+
 se-ui-build:
   title: UI for Smart Events
   deployment_repo: https://github.com/RedHatInsights/se-ui-build
