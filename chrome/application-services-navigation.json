@@ -24,6 +24,7 @@
           "routes": [
             {
               "appId": "applicationServices",
+              "isBeta": true,
               "title": "API and Schema Designs",
               "href": "/application-services/api-designer"
             },
