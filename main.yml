@@ -887,8 +887,7 @@ sources:
   title: Discovered Inventory
   api:
     versions:
-      - v1
-    isBeta: true
+      - v3.1
   channel: '#sources'
   deployment_repo: https://github.com/RedHatInsights/sources-ui-deploy
   frontend:
