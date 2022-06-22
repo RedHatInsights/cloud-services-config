@@ -11,6 +11,7 @@
           "appId": "edge",
           "href": "/edge/fleet-management"
         },
+
         {
           "title": "Systems",
           "appId": "edge",
@@ -26,6 +27,11 @@
           "title": "Images",
           "appId": "edge",
           "href": "/edge/manage-images"
+        },
+        {
+          "title": "Custom repositories",
+          "appId": "edge",
+          "href": "/edge/repositories"
         }
       ]
     },
