@@ -9,19 +9,19 @@
         {
           "appId": "iam",
           "title": "Users",
-          "href": "/iam/useraccess/users",
+          "href": "/iam/user-access/users",
           "product": "Identity & Access Management"
         },
         {
           "appId": "iam",
           "title": "Roles",
-          "href": "/iam/useraccess/roles",
+          "href": "/iam/user-access/roles",
           "product": "Identity & Access Management"
         },
         {
           "appId": "iam",
           "title": "Groups",
-          "href": "/iam/useraccess/groups",
+          "href": "/iam/user-access/groups",
           "product": "Identity & Access Management"
         }
       ]
@@ -33,13 +33,13 @@
         {
           "appId": "iam",
           "title": "Authentication Factors",
-          "href": "/iam/authpolicy/auth-policy",
+          "href": "/iam/authentication-policy/authentication-factors",
           "product": "Identity & Access Management"
         },
         {
           "appId": "iam",
           "title": "Identity Provider Integration",
-          "href": "/iam/authpolicy/idp-integration",
+          "href": "/iam/authentication-policy/identity-provider-integration",
           "product": "Identity & Access Management"
         },
         {
