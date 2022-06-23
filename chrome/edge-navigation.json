@@ -26,6 +26,11 @@
           "title": "Images",
           "appId": "edge",
           "href": "/edge/manage-images"
+        },
+        {
+          "title": "Custom repositories",
+          "appId": "edge",
+          "href": "/edge/repositories"
         }
       ]
     },
