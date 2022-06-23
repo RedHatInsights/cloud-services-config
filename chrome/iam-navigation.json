@@ -45,7 +45,7 @@
         {
           "appId": "iam",
           "title": "Domain",
-          "href": "/iam/authpolicy/domain",
+          "href": "/iam/authentication-policy/domain",
           "product": "Identity & Access Management"
         }
       ]

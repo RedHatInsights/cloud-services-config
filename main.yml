@@ -1219,8 +1219,8 @@ iam:
   deployment_repo: https://github.com/RedHatInsights/iam-ui-build
   frontend:
     paths:
-        - /iam/authpolicy
-        - /iam/useraccess
+        - /iam/authentication-policy
+        - /iam/user-access
     sub_apps:
       - id: user-access
       - id: authentication-policy
