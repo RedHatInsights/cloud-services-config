@@ -884,7 +884,7 @@ settings:
         navigate: https://access.redhat.com/documentation/red_hat_cloud_platform/
 
 sources:
-  title: Discovered Inventory
+  title: Sources
   api:
     versions:
       - v3.1
