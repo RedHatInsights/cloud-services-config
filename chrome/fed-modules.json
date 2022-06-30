@@ -693,8 +693,8 @@
               "id": "authentication-policy",
               "module": "./RootApp",
               "routes": [
-                  "/iam/authpolicy",
-                  "/iam/useraccess"
+                  "/iam/authentication-policy",
+                  "/iam/user-access"
               ]
           }
       ]
