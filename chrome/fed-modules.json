@@ -76,7 +76,8 @@
                 "id": "internal-access",
                 "module": "./RootApp",
                 "routes": [
-                    "/internal/access-requests"
+                    "/internal/access-requests",
+                    "/settings/rbac/access-requests"
                 ]
             }
         ]
