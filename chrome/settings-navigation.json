@@ -32,7 +32,7 @@
                     "href": "/settings/rbac/groups"
                 },
                 {
-                    "appId": "rbac",
+                    "appId": "accessRequests",
                     "title": "Red Hat Access Requests",
                     "href": "/settings/rbac/access-requests",
                     "notifier": "chrome.accessRequests.hasUnseen"
