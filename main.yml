@@ -716,6 +716,7 @@ patch:
   title: Patch
   api:
     versions:
+      - v2
       - v1
     isBeta: true
   channel: '#team-patchman'
