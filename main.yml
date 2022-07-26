@@ -1038,3 +1038,14 @@ vulnerability:
       - id: systems
         title: Systems
   source_repo: https://github.com/RedHatInsights/vulnerability-ui
+
+iam:
+  title: Identity & Access management
+  deployment_repo: https://github.com/RedHatInsights/iam-ui-build
+  frontend:
+    paths:
+        - /iam/authentication-policy
+        - /iam/user-access
+    sub_apps:
+      - id: user-access
+      - id: authentication-policy
