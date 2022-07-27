@@ -31,6 +31,7 @@
     {
       "title": "Authentication Policy",
       "expandable": true,
+      "filterable": false,
       "routes": [
         {
           "appId": "iam",
