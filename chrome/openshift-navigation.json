@@ -133,12 +133,6 @@
                         },
                         {
                             "appId": "costManagement",
-                            "title": "Microsoft Azure",
-                            "href": "/openshift/cost-management/azure",
-                            "product": "Red Hat Cost Management"
-                        },
-                        {
-                            "appId": "costManagement",
                             "title": "Google Cloud Platform",
                             "href": "/openshift/cost-management/gcp",
                             "product": "Red Hat Cost Management"
@@ -147,6 +141,18 @@
                             "appId": "costManagement",
                             "title": "IBM Cloud",
                             "href": "/openshift/cost-management/ibm",
+                            "product": "Red Hat Cost Management"
+                        },
+                        {
+                            "appId": "costManagement",
+                            "title": "Microsoft Azure",
+                            "href": "/openshift/cost-management/azure",
+                            "product": "Red Hat Cost Management"
+                        },
+                        {
+                            "appId": "costManagement",
+                            "title": "Oracle Cloud Infrastructure",
+                            "href": "/openshift/cost-management/oci",
                             "product": "Red Hat Cost Management"
                         },
                         {

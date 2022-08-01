@@ -330,6 +330,9 @@ cost-management:
       - id: gcp
         title: Google Cloud Platform
         group: cost-management
+      - id: oci
+        title: Oracle Cloud Infrastructure
+        group: cost-management
       - id: ibm
         title: IBM Cloud
         group: cost-management
