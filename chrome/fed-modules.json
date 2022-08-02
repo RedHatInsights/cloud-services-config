@@ -63,7 +63,6 @@
                 "id": "commit-tracker",
                 "dynamic": false,
                 "routes": [
-                    "/internal",
                     "/internal/commit-tracker"
                 ]
             }
@@ -76,6 +75,7 @@
                 "id": "internal-access",
                 "module": "./RootApp",
                 "routes": [
+                    "/internal",
                     "/internal/access-requests",
                     "/settings/rbac/access-requests"
                 ]
