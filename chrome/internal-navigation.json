@@ -1,0 +1,11 @@
+{
+    "id": "internal",
+    "title": "Internal",
+    "navItems": [
+        {
+            "title": "Access Requests",
+            "appId": "accessRequests",
+            "href": "/internal/access-requests"
+        }
+    ]
+}
