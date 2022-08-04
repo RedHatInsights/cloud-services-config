@@ -58,13 +58,16 @@ const schema = Joi.object({
     title: Joi.string(),
     api: Joi.object({
         url: Joi.string(),
+        readonly: Joi.boolean(),
+        github: Joi.object({ owner: Joi.string(), repo: Joi.string(), path: Joi.string() }),
         apiName: Joi.string(),
         versions: [Joi.array().items(Joi.string()), Joi.string()],
         isBeta: Joi.boolean(),
         alias: Joi.array().items(Joi.string()),
         subItems: Joi.object().pattern(/^/ ,Joi.object({
             versions: [Joi.array().items(Joi.string()), Joi.string()],
-            readonly: true,
+            url: Joi.string(),
+            readonly: Joi.boolean(),
             github: Joi.object({ owner: Joi.string(), repo: Joi.string(), path: Joi.string() }),
             title: Joi.string()
         })),
