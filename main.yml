@@ -85,7 +85,55 @@ applications:
     paths:
       - /settings/applications
   source_repo: https://github.com/RedHatInsights/settings-frontend
-
+## App Services (RHOAS) APIs
+app-services-apis:
+  title: Application Services
+  api:
+    subItems:
+      kafkamgmt:
+        title: "OpenShift Streams for Apache Kafka Management API"
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: kas-fleet-manager.yaml?ref=doc-portal
+      connectormgmt:
+        title: "OpenShift Connectors Management API "
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: connector_mgmt.yaml?ref=doc-portal
+      serviceregistrymgmt:
+        title: "OpenShift Service Registry Management API"
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: srs-fleet-manager.json?ref=doc-portal
+      smarteventsmgmt:
+        title: "Smart Events Management API"
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: smartevents-mgmt.yaml?ref=doc-portal
+      serviceaccountsmgmt:
+        title: "Service Accounts Management API"
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: service-accounts.yaml?ref=doc-portal
+      kafkainstance:
+        title: "OpenShift Streams for Apache Kafka Instance API"
+        readonly: true
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: kafka-admin-rest.yaml?ref=doc-portal
+      registryinstance:
+        title: "OpenShift Service Registry Instance API"
+        readonly: true
+        github:
+          owner: redhat-developer
+          repo: app-services-sdk-core
+          path: registry-instance.json?ref=doc-portal
 application-services:
   title: Application Services
   api:
