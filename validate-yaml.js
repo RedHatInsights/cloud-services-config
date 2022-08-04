@@ -64,6 +64,8 @@ const schema = Joi.object({
         alias: Joi.array().items(Joi.string()),
         subItems: Joi.object().pattern(/^/ ,Joi.object({
             versions: [Joi.array().items(Joi.string()), Joi.string()],
+            readonly: true,
+            github: Joi.object({ owner: Joi.string(), repo: Joi.string(), path: Joi.string() }),
             title: Joi.string()
         })),
         tags: Joi.array().items(Joi.object({
