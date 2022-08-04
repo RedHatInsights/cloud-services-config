@@ -780,7 +780,7 @@ app-services-apis:
         github:
           owner: redhat-developer
           repo: app-services-sdk-core
-          path: connector_mgmt?ref=doc-portal
+          path: connector_mgmt.yaml?ref=doc-portal
       serviceregistrymgmt:
         title: "OpenShift Service Registry Management API"
         github:
