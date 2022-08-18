@@ -131,7 +131,7 @@
           {
               "title": "Documentation",
               "isExternal": true,
-              "href": "https://docs.openshift.com/acs/3.66/welcome/index.html"
+              "href": "https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_security_for_kubernetes"
           }
       ]
     },
