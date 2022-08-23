@@ -552,6 +552,18 @@
             }
         ]
     },
+    "ocpVulnerability": {
+        "manifestLocation": "/apps/ocp-vulnerability/fed-mods.json",
+        "modules": [
+            {
+                "id": "ocp-vulnerability",
+                "module": "./RootApp",
+                "routes": [
+                    "/openshift/insights/vulnerability"
+                ]
+            }
+        ]
+    },
     "dbaas": {
         "manifestLocation": "/apps/dbaas/fed-mods.json",
         "modules": [
