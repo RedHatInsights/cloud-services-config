@@ -699,5 +699,17 @@
               ]
           }
       ]
+    },
+    "hybridCommittedSpend": {
+        "manifestLocation": "/apps/hybrid-committed-spend/fed-mods.json",
+        "modules": [
+            {
+                "id": "hybrid-committed-spend",
+                "module": "./RootApp",
+                "routes": [
+                    "/business-services/hybrid-committed-spend"
+                ]
+            }
+        ]
     }
 }
