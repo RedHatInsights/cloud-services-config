@@ -618,6 +618,23 @@ ocp-advisor:
         title: Recommendations
         reload: recommendations
 
+ocp-vulnerability: 
+  title: Vulnerability
+  channel: '#forum-ccx-vulnerability'
+  source_repo: https://github.com/RedHatInsights/vuln4shift-frontend
+  deployment_repo: https://github.com/RedHatInsights/vuln4shift-frontend-build
+  frontend:
+    module: ocp-vulnerability#./RootApp
+    paths:
+      - /openshift/insights/vulnerability
+    sub_apps:
+      - id: cves
+        title: CVEs
+        reload: cves 
+      - id: clusters
+        title: Clusters
+        reload: clusters
+
 patch:
   title: Patch
   api:
