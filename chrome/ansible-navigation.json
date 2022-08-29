@@ -32,6 +32,12 @@
                 },
                 {
                     "appId": "automationHub",
+                    "title": "Task Management",
+                    "href": "/ansible/automation-hub/tasks",
+                    "product": "Ansible Automation Hub"
+                },
+                {
+                    "appId": "automationHub",
                     "title": "Connect to Hub",
                     "href": "/ansible/automation-hub/token",
                     "product": "Ansible Automation Hub"
