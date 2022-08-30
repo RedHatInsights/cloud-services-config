@@ -257,6 +257,14 @@ config:
   deployment_repo: https://github.com/RedHatInsights/cloud-services-config
   source_repo: https://github.com/RedHatInsights/cloud-services-config
 
+connect:
+  title: Cloud Connect
+  deployment_repo: https://github.com/RedHatInsights/stratosphere-frontend-build
+  frontend:
+    paths:
+      - /connect
+  mailing_list: it-partner-integration-team@redhat.com
+
 cost-management:
   title: Cost Management
   top_level: true
