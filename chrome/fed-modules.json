@@ -588,6 +588,18 @@
             }
       ]
     },
+    "acs": {
+        "manifestLocation": "/apps/acs/fed-mods.json",
+        "modules": [
+          {
+              "id": "acs",
+              "module": "./RootApp",
+              "routes": [
+                  "/application-services/acs"
+              ]
+          }
+      ]
+    },
     "iam": {
         "manifestLocation": "/apps/iam/fed-mods.json",
         "modules": [
