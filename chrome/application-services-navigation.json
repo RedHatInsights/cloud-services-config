@@ -119,6 +119,23 @@
       ]
     },
     {
+      "title": "Advanced Cluster Security",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "applicationServices",
+          "title": "ACS Instances",
+          "isBeta": true,
+          "href": "/application-services/acs"
+        },
+        {
+          "title": "Documentation",
+          "isExternal": true,
+          "href": "https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_security_for_kubernetes"
+        }
+      ]
+    },
+    {
       "groupId": "insights",
       "icon": "trend-up",
       "title": "Red Hat Insights",
