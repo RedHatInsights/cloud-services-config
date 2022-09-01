@@ -106,27 +106,6 @@
             "routes": [
                 {
                     "appId": "applications",
-                    "title": "Advisor",
-                    "href": "/settings/applications/advisor",
-                    "permissions": [
-                        {
-                            "method": "isEntitled",
-                            "args": [
-                                "insights"
-                            ]
-                        },
-                        {
-                            "method": "hasPermissions",
-                            "args": [
-                                [
-                                    "advisor:*:*"
-                                ]
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "appId": "applications",
                     "title": "Cost Management",
                     "href": "/settings/applications/cost-management",
                     "permissions": [
