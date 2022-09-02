@@ -1283,3 +1283,14 @@ iam:
     sub_apps:
       - id: user-access
       - id: authentication-policy
+
+hybrid-committed-spend:
+  title: Hybrid Committed Spend
+  deployment_repo: https://github.com/RedHatInsights/hybrid-committed-spend-ui-build
+  frontend:
+    paths:
+      - /business-services/hybrid-committed-spend/overview
+      - /business-services/hybrid-committed-spend/explorer
+    sub_apps:
+      - id: overview
+      - id: explorer
