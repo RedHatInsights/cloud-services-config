@@ -1,0 +1,25 @@
+
+{
+    "id": "business-services",
+    "title": "Business Services",
+    "navItems": [
+      {
+        "title": "Hybrid Committed Spend",
+        "expandable": true,
+        "filterable": false,
+        "routes": [
+          {
+            "appId": "hybridCommittedSpend",
+            "title": "Overview",
+            "href": "/business-services/hybrid-committed-spend/overview"
+          },
+          {
+            "appId": "hybridCommittedSpend",
+            "title": "Explorer",
+            "href": "/business-services/hybrid-committed-spend/explorer"
+          }
+        ]
+      }
+    ]
+  }
+  
