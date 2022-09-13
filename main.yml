@@ -220,8 +220,8 @@ ccx:
       insights-results-aggregator:
         title: Insights Results Aggregator
         versions:
-          - v1
           - v2
+          - v1
       gathering:
         title: Insights Operator Gathering Conditions Service
         versions:
