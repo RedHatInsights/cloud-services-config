@@ -1295,5 +1295,5 @@ business-services:
       - id: overview
         title: Overview
         default: true
-      - id: explorer
-        title: Explorer
+      - id: details
+        title: Details

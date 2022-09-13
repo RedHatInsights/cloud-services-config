@@ -15,8 +15,8 @@
           },
           {
             "appId": "hybridCommittedSpend",
-            "title": "Explorer",
-            "href": "/business-services/hybrid-committed-spend/explorer"
+            "title": "Details",
+            "href": "/business-services/hybrid-committed-spend/details"
           }
         ]
       }
