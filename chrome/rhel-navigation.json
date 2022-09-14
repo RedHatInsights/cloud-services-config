@@ -187,6 +187,24 @@
               },
               {
                 "appId": "subscriptions",
+                "title": "All Satellite",
+                "href": "/insights/subscriptions/satellite",
+                "product": "Subscription Watch"
+              },
+              {
+                "appId": "subscriptions",
+                "title": "Satellite Capsule",
+                "href": "/insights/subscriptions/satellite-capsule",
+                "product": "Subscription Watch"
+              },
+              {
+                "appId": "subscriptions",
+                "title": "Satellite Server",
+                "href": "/insights/subscriptions/satellite-server",
+                "product": "Subscription Watch"
+              },
+              {
+                "appId": "subscriptions",
                 "title": "OpenShift Subscriptions",
                 "href": "/openshift/subscriptions/openshift-container",
                 "product": "Subscription Watch"
@@ -240,7 +258,7 @@
                 "appId": "tasks",
                 "title": "Tasks",
                 "href": "/insights/tasks",
-                "product": "Red Hat Insights"                    
+                "product": "Red Hat Insights"
             }
         ]
       },
