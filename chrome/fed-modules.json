@@ -503,5 +503,17 @@
                 ]
             }
       ]
+    },
+    "connect": {
+        "manifestLocation": "/apps/connect/fed-mods.json",
+        "modules": [
+            {
+                "id": "connect",
+		        "module": "./RootApp",
+		        "routes": [
+		            "/connect"
+		        ]
+	        }
+        ]
     }
 }
