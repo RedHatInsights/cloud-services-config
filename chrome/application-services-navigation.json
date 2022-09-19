@@ -123,7 +123,7 @@
       "expandable": true,
       "routes": [
           {
-              "appId": "applicationServices",
+              "appId": "acs",
               "title": "ACS Instances",
               "isBeta": true,
               "href": "/application-services/acs"
