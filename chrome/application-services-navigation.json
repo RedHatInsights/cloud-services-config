@@ -85,7 +85,7 @@
               "method": "withEmail",
               "args": ["@redhat.com"]
             }
-          ]
+          ],
           "routes": [
             {
               "appId": "acs",
