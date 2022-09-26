@@ -124,7 +124,7 @@
       "routes": [
         {
           "appId": "acs",
-          "title": "ACS Instances",
+          "title": "Overview",
           "isBeta": true,
           "href": "/application-services/acs/overview"
         },
