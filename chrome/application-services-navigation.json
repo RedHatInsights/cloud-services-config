@@ -80,9 +80,15 @@
         {
           "title": "Connectors",
           "expandable": true,
+          "permissions": [
+            {
+              "method": "withEmail",
+              "args": ["@redhat.com"]
+            }
+          ],
           "routes": [
             {
-              "appId": "applicationServices",
+              "appId": "acs",
               "title": "Connectors Instances",
               "isBeta": true,
               "href": "/application-services/connectors"
