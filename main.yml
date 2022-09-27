@@ -752,6 +752,15 @@ onboarding:
       - /staging/test-onboarding-app
   source_repo: https://github.com/RedHatInsights/test-onboarding-app
 
+provisioning:
+  title: Launch
+  api:
+    versions:
+      - v1
+  channel: '#envision-team'
+  source_repo: https://github.com/RHEnVision/provisioning-frontend
+  deployment_repo: https://github.com/RedHatInsights/provisioning-frontend-build
+
 streams:
   title: "Streams for Apache Kafka"
   frontend:
