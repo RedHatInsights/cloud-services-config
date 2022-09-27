@@ -191,6 +191,18 @@
             }
         ]
     },
+    "ocpVulnerability": {
+        "manifestLocation": "/apps/ocp-vulnerability/fed-mods.json",
+        "modules": [
+            {
+                "id": "ocp-vulnerability",
+                "module": "./RootApp",
+                "routes": [
+                    "/openshift/insights/vulnerability"
+                ]
+            }
+        ]
+    },
     "drift": {
         "manifestLocation": "/apps/drift/fed-mods.json",
         "modules": [
