@@ -117,6 +117,26 @@
             ]
           },
           {
+            "title": "Malware",
+            "expandable": true,
+            "routes": [
+              {
+                "appId": "malware",
+                "title": "Signatures",
+                "href": "/insights/malware/signatures",
+                "product": "Red Hat Insights",
+                "isBeta": true
+              },
+              {
+                "appId": "malware",
+                "title": "Systems",
+                "href": "/insights/malware/systems",
+                "product": "Red Hat Insights",
+                "isBeta": true
+              }
+            ]
+          },
+          {
             "title": "Drift",
             "expandable": true,
             "routes": [
