@@ -760,6 +760,9 @@ provisioning:
   channel: '#envision-team'
   source_repo: https://github.com/RHEnVision/provisioning-frontend
   deployment_repo: https://github.com/RedHatInsights/provisioning-frontend-build
+  frontend:
+    title: Launch
+    isBeta: true
 
 streams:
   title: "Streams for Apache Kafka"
