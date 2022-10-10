@@ -80,15 +80,9 @@
         {
           "title": "Connectors",
           "expandable": true,
-          "permissions": [
-            {
-              "method": "withEmail",
-              "args": ["@redhat.com"]
-            }
-          ],
           "routes": [
             {
-              "appId": "acs",
+              "appId": "applicationServices",
               "title": "Connectors Instances",
               "isBeta": true,
               "href": "/application-services/connectors"
@@ -127,6 +121,12 @@
     {
       "title": "Advanced Cluster Security",
       "expandable": true,
+      "permissions": [
+        {
+          "method": "withEmail",
+          "args": ["@redhat.com"]
+        }
+      ],
       "routes": [
         {
           "appId": "acs",
