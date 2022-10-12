@@ -91,7 +91,7 @@ node {
     try {
       if (RUN_SMOKE_TESTS) {
         openShiftUtils.withNode(
-          image: "quay.io/cloudservices/iqe-tests:latest",
+          image: "quay.io/cloudservices/iqe-tests:3scale",
           namespace: "insights-dev-jenkins",
           jenkinsSlaveImage: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9"
         ) {
