@@ -51,7 +51,7 @@
                 "id": "user-access",
                 "module": "./RootApp",
                 "routes": [
-                    "/settings/rbac"
+                    "/iam/user-access"
                 ]
             }
         ]
@@ -78,6 +78,13 @@
                 "routes": [
                     "/internal/access-requests",
                     "/settings/rbac/access-requests"
+                ]
+            },
+            {
+                "id": "user-access-requests",
+                "module": "./RootApp",
+                "routes": [
+                    "/iam/user-access/access-requests"
                 ]
             }
         ]
@@ -698,8 +705,7 @@
               "id": "authentication-policy",
               "module": "./RootApp",
               "routes": [
-                  "/iam/authentication-policy",
-                  "/iam/user-access"
+                  "/iam/authentication-policy"
               ]
           }
       ]

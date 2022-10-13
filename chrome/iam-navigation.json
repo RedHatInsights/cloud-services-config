@@ -9,20 +9,23 @@
         {
           "appId": "iam",
           "title": "Users",
-          "href": "/iam/user-access/users",
-          "product": "Identity & Access Management"
+          "href": "/iam/user-access/users"
         },
         {
           "appId": "iam",
           "title": "Roles",
-          "href": "/iam/user-access/roles",
-          "product": "Identity & Access Management"
+          "href": "/iam/user-access/roles"
         },
         {
           "appId": "iam",
           "title": "Groups",
-          "href": "/iam/user-access/groups",
-          "product": "Identity & Access Management"
+          "href": "/iam/user-access/groups"
+        },
+        {
+          "appId": "iam",
+          "title": "Red Hat Access Requests",
+          "href": "/iam/user-access/access-requests",
+          "notifier": "chrome.accessRequests.hasUnseen"
         }
       ]
     },
