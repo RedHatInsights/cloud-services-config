@@ -35,6 +35,18 @@
             }
         ]
     },
+    "learningResources": {
+        "manifestLocation": "/apps/learning-resources/fed-mods.json",
+        "modules": [
+            {
+                "id": "learningResources",
+                "module": "./RootApp",
+                "routes": [
+                    "/settings/learning-resources"
+                ]
+            }
+        ]
+    },
     "rbac": {
         "manifestLocation": "/apps/rbac/fed-mods.json",
         "isFedramp": true,
