@@ -45,6 +45,11 @@
             "href": "/settings/sources"
         },
         {
+            "appId": "contentSources",
+            "title": "Repositories",
+            "href": "/insights/content"
+        },
+	{
             "appId": "notifications",
             "title": "Integrations",
             "href": "/settings/integrations"
