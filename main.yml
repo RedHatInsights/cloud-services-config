@@ -791,8 +791,7 @@ service-registry:
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
-## App Services (RHOAS) APIs
-app-services-apis:
+application-services:
   title: Application Services
   api:
     subItems:
@@ -840,10 +839,6 @@ app-services-apis:
           owner: redhat-developer
           repo: app-services-sdk-core
           path: registry-instance.json?ref=doc-portal
-application-services:
-  title: Application Services
-  api:
-    isBeta: true
   deployment_repo: https://github.com/RedHatInsights/rhosak-dashboard-build
   frontend:
     title: Application Services
