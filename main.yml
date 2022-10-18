@@ -241,6 +241,15 @@ connect:
       - /connect
   mailing_list: it-partner-integration-team@redhat.com
 
+content-sources:
+  title: Repositories
+  api:
+    versions:
+      - v1
+  channel: '#content-services-dev'
+  source_repo: https://github.com/content-services/content-sources-frontend
+  deployment_repo: https://github.com/RedHatInsights/content-sources-frontend-build
+
 cost-management:
   title: Cost Management
   top_level: true
