@@ -369,6 +369,22 @@
             }
         ]
     },
+    "tasks": {
+        "manifestLocation": "/apps/tasks/fed-mods.json",
+        "modules": [
+            {
+                "id": "tasks",
+                "module": "./RootApp",
+                "routes": [
+                    {
+                        "pathname": "/insights/tasks",
+                        "isFedramp": true
+                    },
+                    "/ansible/tasks"
+                ]
+            }
+        ]
+    },
     "ansibleDashboard": {
         "manifestLocation": "/apps/ansible-dashboard/fed-mods.json",
         "modules": [
