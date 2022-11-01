@@ -513,6 +513,8 @@ malware:
   api:
     versions:
       - v1
+    alias:
+      - malware-detection
   channel: '#advisor'
   deployment_repo: https://github.com/RedHatInsights/malware-detection-frontend-build
   frontend:
