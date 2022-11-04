@@ -150,9 +150,14 @@
           "expandable": true,
           "routes": [
             {
-              "appId": "applicationServices",
+              "appId": "subscriptions",
               "title": "Streams for Apache Kafka",
               "href": "/application-services/subscriptions/streams"
+            },
+            {
+              "appId": "subscriptions",
+              "title": "OpenShift Data Science",
+              "href": "/application-services/subscriptions/rhods"
             }
           ]
         }
