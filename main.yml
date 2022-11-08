@@ -291,7 +291,7 @@ connect:
       - /connect
   mailing_list: it-partner-integration-team@redhat.com
 
-contentSources:
+content-sources:
   title: Repositories
   api:
     versions:
