@@ -9,19 +9,19 @@
       "filterable": false,
       "routes": [
         {
-          "appId": "iam",
+          "appId": "rbac",
           "title": "Users",
           "href": "/iam/user-access/users",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "rbac",
           "title": "Roles",
           "href": "/iam/user-access/roles",
           "product": "Identity & Access Management"
         },
         {
-          "appId": "iam",
+          "appId": "rbac",
           "title": "Groups",
           "href": "/iam/user-access/groups",
           "product": "Identity & Access Management"
