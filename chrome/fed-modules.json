@@ -53,6 +53,14 @@
                 "routes": [
                     "/settings/rbac"
                 ]
+            },
+            {
+                "id": "iam-user-access",
+                "module": "./IamUserAccess",
+                "routes": [
+                    "/iam",
+                    "/iam/user-access"
+                ]
             }
         ]
     },
@@ -666,6 +674,18 @@
                 ]
             }
         ]
+    },
+    "iam": {
+      "manifestLocation": "/apps/iam/fed-mods.json",
+      "modules": [
+          {
+              "id": "authentication-policy",
+              "module": "./RootApp",
+              "routes": [
+                  "/iam/authentication-policy"
+              ]
+          }
+      ]
     },
     "connect": {
         "manifestLocation": "/apps/connect/fed-mods.json",
