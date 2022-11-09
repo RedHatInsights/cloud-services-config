@@ -53,17 +53,25 @@
         "modules": [
             {
                 "id": "my-user-access",
-                "module": "./RootApp",
+                "module": "./MyUserAccess",
                 "routes": [
                     "/settings",
                     "/settings/my-user-access"
                 ]
             },
             {
-                "id": "user-access",
-                "module": "./RootApp",
+                "id": "settings-user-access",
+                "module": "./SettingsUserAccess",
                 "routes": [
                     "/settings/rbac"
+                ]
+            },
+            {
+                "id": "iam-user-access",
+                "module": "./IamUserAccess",
+                "routes": [
+                    "/iam",
+                    "/iam/user-access"
                 ]
             }
         ]
@@ -710,8 +718,7 @@
               "id": "authentication-policy",
               "module": "./RootApp",
               "routes": [
-                  "/iam/authentication-policy",
-                  "/iam/user-access"
+                  "/iam/authentication-policy"
               ]
           }
       ]
