@@ -747,7 +747,8 @@
                 "id": "insights-content-sources",
                 "module": "./RootApp",
                 "routes": [
-                    "/insights/content"
+                    "/insights/content",
+                    "/settings/content"
                 ]
             }
 	]
