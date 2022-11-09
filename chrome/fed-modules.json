@@ -41,15 +41,15 @@
         "modules": [
             {
                 "id": "my-user-access",
-                "module": "./RootApp",
+                "module": "./MyUserAccess",
                 "routes": [
                     "/settings",
                     "/settings/my-user-access"
                 ]
             },
             {
-                "id": "user-access",
-                "module": "./RootApp",
+                "id": "settings-user-access",
+                "module": "./SettingsUserAccess",
                 "routes": [
                     "/settings/rbac"
                 ]
