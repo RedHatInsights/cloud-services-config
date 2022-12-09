@@ -23,6 +23,12 @@
           "title": "Groups",
           "href": "/iam/user-access/groups",
           "product": "Identity & Access Management"
+        },
+        {
+          "appId": "rbac",
+          "title": "Red Hat Access Requests",
+          "href": "/iam/user-access/access-requests",
+          "notifier": "chrome.accessRequests.hasUnseen"
         }
       ]
     },
@@ -35,20 +41,14 @@
           "title": "Authentication Factors",
           "href": "/iam/authentication-policy/authentication-factors",
           "product": "Identity & Access Management"
-        },
-        {
-          "appId": "iam",
-          "title": "Identity Provider Integration",
-          "href": "/iam/authentication-policy/identity-provider-integration",
-          "product": "Identity & Access Management"
-        },
-        {
-          "appId": "iam",
-          "title": "Domain",
-          "href": "/iam/authentication-policy/domain",
-          "product": "Identity & Access Management"
         }
       ]
+    },
+    {
+      "title": "Documentation",
+      "isExternal": true,
+      "filterable": false,
+      "href": "https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/"
     }
   ]
 }
