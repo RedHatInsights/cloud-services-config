@@ -53,6 +53,14 @@
                 "routes": [
                     "/settings/rbac"
                 ]
+            },
+            {
+                "id": "iam-user-access",
+                "module": "./IamUserAccess",
+                "routes": [
+                    "/iam",
+                    "/iam/user-access"
+                ]
             }
         ]
     },
@@ -77,7 +85,8 @@
                 "module": "./RootApp",
                 "routes": [
                     "/internal/access-requests",
-                    "/settings/rbac/access-requests"
+                    "/settings/rbac/access-requests",
+                    "/iam/user-access/access-requests"
                 ]
             }
         ]
@@ -462,17 +471,17 @@
         ]
     },
     "applicationServices": {
-        "manifestLocation": "/apps/application-services/fed-mods.json",
-        "modules": [
-            {
-                "id": "application-services",
-                "module": "./RootApp",
-                "routes": [
-                    "/application-services",
-                    "/application-services/streams"
-                ]
-            }
-        ]
+      "manifestLocation": "/apps/application-services/fed-mods.json",
+      "analytics": {
+        "APIKey": "TpKcgYihGHSaBRom5Yg4wudB808Uk4XL"
+      },
+      "modules": [
+        {
+          "id": "application-services",
+          "module": "./RootApp",
+          "routes": ["/application-services", "/application-services/streams"]
+        }
+      ]
     },
     "trust": {
         "dynamic": false,
@@ -666,6 +675,18 @@
                 ]
             }
         ]
+    },
+    "iam": {
+      "manifestLocation": "/apps/iam/fed-mods.json",
+      "modules": [
+          {
+              "id": "authentication-policy",
+              "module": "./RootApp",
+              "routes": [
+                  "/iam/authentication-policy"
+              ]
+          }
+      ]
     },
     "connect": {
         "manifestLocation": "/apps/connect/fed-mods.json",
