@@ -85,7 +85,8 @@
                 "module": "./RootApp",
                 "routes": [
                     "/internal/access-requests",
-                    "/settings/rbac/access-requests"
+                    "/settings/rbac/access-requests",
+                    "/iam/user-access/access-requests"
                 ]
             }
         ]
