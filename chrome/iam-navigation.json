@@ -1,0 +1,54 @@
+{
+  "id": "iam",
+  "title": "Identity & Access Management",
+  "navItems": [
+    {
+      "title": "User Access",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "rbac",
+          "title": "Users",
+          "href": "/iam/user-access/users",
+          "product": "Identity & Access Management"
+        },
+        {
+          "appId": "rbac",
+          "title": "Roles",
+          "href": "/iam/user-access/roles",
+          "product": "Identity & Access Management"
+        },
+        {
+          "appId": "rbac",
+          "title": "Groups",
+          "href": "/iam/user-access/groups",
+          "product": "Identity & Access Management"
+        },
+        {
+          "appId": "rbac",
+          "title": "Red Hat Access Requests",
+          "href": "/iam/user-access/access-requests",
+          "notifier": "chrome.accessRequests.hasUnseen"
+        }
+      ]
+    },
+    {
+      "title": "Authentication Policy",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "iam",
+          "title": "Authentication Factors",
+          "href": "/iam/authentication-policy/authentication-factors",
+          "product": "Identity & Access Management"
+        }
+      ]
+    },
+    {
+      "title": "Documentation",
+      "isExternal": true,
+      "filterable": false,
+      "href": "https://access.redhat.com/documentation/en-us/red_hat_hybrid_cloud_console/"
+    }
+  ]
+}
