@@ -41,7 +41,10 @@ const moduleItemSchema = Joi.object({
     otherwise: Joi.string().required()
   }),
   isFedramp: Joi.boolean(),
-  modules: Joi.array().items(routeModuleSchema).required()
+  modules: Joi.array().items(routeModuleSchema).required(),
+  analytics: Joi.object({
+    APIKey: Joi.string().required()
+  })
 })
 
 const modulesSchema = Joi.object().pattern(Joi.string().token(), moduleItemSchema);
