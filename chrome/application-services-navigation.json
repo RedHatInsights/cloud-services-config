@@ -121,16 +121,22 @@
       "title": "Advanced Cluster Security",
       "expandable": true,
       "routes": [
-          {
-              "appId": "acs",
-              "title": "ACS Instances",
-              "href": "/application-services/acs"
-          },
-          {
-              "title": "Documentation",
-              "isExternal": true,
-              "href": "https://docs.openshift.com/acs/3.66/welcome/index.html"
-          }
+        {
+          "appId": "acs",
+          "title": "Overview",
+          "href": "/application-services/acs/overview"
+        },
+        {
+          "appId": "acs",
+          "title": "ACS Instances",
+          "isBeta": true,
+          "href": "/application-services/acs/instances"
+        },
+        {
+          "title": "Documentation",
+          "isExternal": true,
+          "href": "https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_security_for_kubernetes"
+        }
       ]
     },
     {
@@ -143,9 +149,14 @@
           "expandable": true,
           "routes": [
             {
-              "appId": "applicationServices",
+              "appId": "subscriptions",
               "title": "Streams for Apache Kafka",
               "href": "/application-services/subscriptions/streams"
+            },
+            {
+              "appId": "subscriptions",
+              "title": "OpenShift Data Science",
+              "href": "/application-services/subscriptions/rhods"
             }
           ]
         }

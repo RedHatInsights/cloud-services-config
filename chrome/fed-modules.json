@@ -41,15 +41,15 @@
         "modules": [
             {
                 "id": "my-user-access",
-                "module": "./RootApp",
+                "module": "./MyUserAccess",
                 "routes": [
                     "/settings",
                     "/settings/my-user-access"
                 ]
             },
             {
-                "id": "user-access",
-                "module": "./RootApp",
+                "id": "settings-user-access",
+                "module": "./SettingsUserAccess",
                 "routes": [
                     "/settings/rbac"
                 ]
@@ -301,6 +301,10 @@
                 ]
             }
         ]
+    },
+    "provisioning": {
+        "manifestLocation": "/apps/provisioning/fed-mods.json",
+        "modules": []
     },
     "subscriptions": {
         "manifestLocation": "/apps/subscriptions/fed-mods.json",
@@ -674,5 +678,18 @@
 		        ]
 	        }
         ]
+    },
+    "contentSources": {
+        "manifestLocation": "/apps/content-sources/fed-mods.json",
+        "modules": [
+            {
+                "id": "insights-content-sources",
+                "module": "./RootApp",
+                "routes": [
+                    "/insights/content",
+                    "/settings/content"
+                ]
+            }
+	]
     }
 }
