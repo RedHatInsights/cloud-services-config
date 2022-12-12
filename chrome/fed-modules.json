@@ -499,17 +499,17 @@
         ]
     },
     "applicationServices": {
-        "manifestLocation": "/apps/application-services/fed-mods.json",
-        "modules": [
-            {
-                "id": "application-services",
-                "module": "./RootApp",
-                "routes": [
-                    "/application-services",
-                    "/application-services/streams"
-                ]
-            }
-        ]
+      "manifestLocation": "/apps/application-services/fed-mods.json",
+      "analytics": {
+        "APIKey": "TpKcgYihGHSaBRom5Yg4wudB808Uk4XL"
+      },
+      "modules": [
+        {
+          "id": "application-services",
+          "module": "./RootApp",
+          "routes": ["/application-services", "/application-services/streams"]
+        }
+      ]
     },
     "trust": {
         "dynamic": false,
