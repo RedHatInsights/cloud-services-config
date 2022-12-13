@@ -796,6 +796,15 @@ service-registry:
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
+rhosak-ui:
+  title: Streams for Apache Kafka - Application Services
+  deployment_repo: https://github.com/RedHatInsights/rhosak-ui-build
+  frontend:
+    title: Streams for Apache Kafka
+    isBeta: true
+    paths:
+      - /application-services/streams
+
 application-services:
   title: Application Services
   api:
@@ -850,8 +859,6 @@ application-services:
     isBeta: true
     paths:
       - /application-services
-      - /application-services/streams
-      - /application-services/subscriptions/streams
     sub_apps:
       - id: overview
         title: "Overview"
