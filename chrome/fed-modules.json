@@ -22,6 +22,7 @@
                 "id": "user-preferences-notifications",
                 "module": "./RootApp",
                 "routes": [
+                    "/user-preferences",
                     "/user-preferences/notifications"
                 ]
             }
