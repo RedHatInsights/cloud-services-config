@@ -99,6 +99,7 @@ node {
             withEnv([
               "DYNACONF_IQE_VAULT_ROLE_ID=$DYNACONF_IQE_VAULT_ROLE_ID",
               "DYNACONF_IQE_VAULT_SECRET_ID=$DYNACONF_IQE_VAULT_SECRET_ID",
+              "DYNACONF_IQE_VAULT_URL=https://vault.ci.ext.devshift.net/",
               "DYNACONF_IQE_VAULT_LOADER_ENABLED=true",
               "ENV_FOR_DYNACONF=prod"
             ]) {
