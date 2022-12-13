@@ -175,50 +175,14 @@
             "routes": [
               {
                 "appId": "subscriptions",
-                "title": "All RHEL",
+                "title": "RHEL",
                 "href": "/insights/subscriptions/rhel",
                 "product": "Subscription Watch"
               },
               {
                 "appId": "subscriptions",
-                "title": "ARM",
-                "href": "/insights/subscriptions/rhel-arm",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "IBM Power",
-                "href": "/insights/subscriptions/rhel-ibmpower",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "IBM Z systems",
-                "href": "/insights/subscriptions/rhel-ibmz",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "X86",
-                "href": "/insights/subscriptions/rhel-x86",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "All Satellite",
+                "title": "Satellite",
                 "href": "/insights/subscriptions/satellite",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "Satellite Capsule",
-                "href": "/insights/subscriptions/satellite-capsule",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "Satellite Server",
-                "href": "/insights/subscriptions/satellite-server",
                 "product": "Subscription Watch"
               },
               {
