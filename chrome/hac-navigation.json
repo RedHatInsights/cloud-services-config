@@ -8,26 +8,8 @@
           "href": "/hac"
       },
       {
-        "title": "Demo Plugin",
-        "dynamicNav": "hacCore/admin-demo-section"
-      },
-      {
-        "title": "Demo Plugin",
-        "dynamicNav": "hacCore/dev-demo-section"
-      },
-      {
         "title": "Flat nav",
         "dynamicNav": "hacCore"
-      },
-      {
-          "title": "App Studio",
-          "appId": "hacDev",
-          "href": "/hac/app-studio"
-      },
-      {
-        "title": "App Studio Docs",
-        "appId": "appStudioDocs",
-        "href": "/hac/app-studio-docs"
       }
   ]
 }
