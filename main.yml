@@ -181,6 +181,10 @@ ccx:
         title: Insights Operator Gathering Conditions Service
         versions:
           - v1
+      ocp-vulnerability:
+        title: Vulnerability
+        versions:
+          - v1
 
 chrome:
   channel: '#flip-mode-squad'
@@ -649,9 +653,6 @@ ocp-advisor:
 
 ocp-vulnerability: 
   title: Vulnerability
-  api:
-    versions:
-      - v1
   channel: '#forum-ccx-vulnerability'
   source_repo: https://github.com/RedHatInsights/vuln4shift-frontend
   deployment_repo: https://github.com/RedHatInsights/vuln4shift-frontend-build
