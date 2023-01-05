@@ -509,6 +509,18 @@
             }
         ]
     },
+    "srs": {
+        "manifestLocation": "/beta/apps/srs-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "ar": {
+        "manifestLocation": "/beta/apps/sr-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "guides": {
+        "manifestLocation": "/apps/rhoas-guides-build/fed-mods.json",
+        "modules": []
+    },
     "applicationServices": {
       "manifestLocation": "/apps/application-services/fed-mods.json",
       "analytics": {
