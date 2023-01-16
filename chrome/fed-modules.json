@@ -711,6 +711,18 @@
                     "/settings/content"
                 ]
             }
-	]
+        ]
+    },
+    "learningResources": {
+        "manifestLocation": "/apps/learningResources/fed-mods.json",
+        "modules": [
+            {
+                "id": "learningResources",
+                "module": "./RootApp",
+                "routes": [
+                    "/settings/learning-resources"
+                ]
+            }
+        ]
     }
 }
