@@ -121,12 +121,6 @@
     {
       "title": "Advanced Cluster Security",
       "expandable": true,
-      "permissions": [
-        {
-          "method": "withEmail",
-          "args": ["@redhat.com"]
-        }
-      ],
       "routes": [
         {
           "appId": "acs",
