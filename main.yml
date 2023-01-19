@@ -1317,7 +1317,7 @@ business-services:
   title: Business Services
   deployment_repo: https://github.com/RedHatInsights/hybrid-committed-spend-ui-build
   frontend:
-    title: Committed Spend
+    title: Hybrid Committed Spend
     paths:
       - /business-services/hybrid-committed-spend
     sub_apps:
