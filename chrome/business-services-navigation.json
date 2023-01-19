@@ -4,7 +4,7 @@
     "title": "Business Services",
     "navItems": [
       {
-        "title": "Committed Spend",
+        "title": "Hybrid Committed Spend",
         "expandable": true,
         "filterable": false,
         "routes": [
