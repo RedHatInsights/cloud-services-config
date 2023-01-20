@@ -1,12 +1,7 @@
 {
   "id": "hac",
-  "title": "HAC",
+  "title": "StoneSoup",
   "navItems": [
-      {
-          "title": "Example",
-          "appId": "hacCore",
-          "href": "/hac"
-      },
       {
         "title": "Demo Plugin",
         "dynamicNav": "hacCore/admin-demo-section"
