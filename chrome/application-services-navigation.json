@@ -83,7 +83,6 @@
             {
               "appId": "applicationServices",
               "title": "Connectors Instances",
-              "isBeta": true,
               "href": "/application-services/connectors"
             },
             {
