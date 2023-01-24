@@ -287,6 +287,10 @@
             }
         ]
     },
+    "provisioning": {
+        "manifestLocation": "/apps/provisioning/fed-mods.json",
+        "modules": []
+    },
     "subscriptions": {
         "manifestLocation": "/apps/subscriptions/fed-mods.json",
         "modules": [
