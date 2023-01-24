@@ -296,14 +296,17 @@ cost-management:
       - id: aws
         title: Amazon Web Services
         group: cost-management
-      - id: azure
-        title: Microsoft Azure
-        group: cost-management
       - id: gcp
         title: Google Cloud Platform
         group: cost-management
       - id: ibm
         title: IBM Cloud
+        group: cost-management
+      - id: azure
+        title: Microsoft Azure
+        group: cost-management
+      - id: oci
+        title: Oracle Cloud Infrastructure
         group: cost-management
       - id: cost-models
         title: Cost models
