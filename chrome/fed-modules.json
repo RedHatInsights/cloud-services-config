@@ -649,6 +649,19 @@
 	        }
         ]
     },
+    "contentSources": {
+        "manifestLocation": "/apps/content-sources/fed-mods.json",
+        "modules": [
+            {
+                "id": "insights-content-sources",
+                "module": "./RootApp",
+                "routes": [
+		    "/insights/content",
+                    "/settings/content"
+                ]
+            }
+	]
+    },
     "learningResources": {
         "manifestLocation": "/apps/learningResources/fed-mods.json",
         "modules": [
