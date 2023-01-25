@@ -680,6 +680,16 @@ ocp-vulnerability:
         title: Clusters
         reload: clusters
 
+
+provisioning:
+  title: Launch
+  api:
+    versions:
+      - v1
+  channel: '#envision-team'
+  source_repo: https://github.com/RHEnVision/provisioning-frontend
+  deployment_repo: https://github.com/RedHatInsights/provisioning-frontend-build
+
 streams:
   title: "Streams for Apache Kafka"
   api:
