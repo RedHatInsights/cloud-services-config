@@ -4,34 +4,8 @@
     "navItems": [
         {
             "appId": "userPreferences",
-            "title": "Email preferences",
-            "href": "/user-preferences/email"
-        },
-        {
-            "title": "Notifications",
-            "expandable": true,
-            "routes": [
-                {
-                    "appId": "userPreferences",
-                    "title": "Application Services",
-                    "href": "/user-preferences/notifications/application-services"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Openshift",
-                    "href": "/user-preferences/notifications/openshift"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Red Hat Enterprise Linux",
-                    "href": "/user-preferences/notifications/rhel"
-                },
-                {
-                    "appId": "userPreferences",
-                    "title": "Console",
-                    "href": "/user-preferences/notifications/console"
-                }
-            ]
+            "title": "My Notifications",
+            "href": "/user-preferences/notifications"
         }
     ]
 }
