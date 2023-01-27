@@ -455,6 +455,8 @@ ingress:
   api:
     versions:
       - v1
+  description: Ingress is designed to receive payloads from clients and distribute them via a Kafka message queue to other platform services
+  source_repo: https://github.com/RedHatInsights/insights-ingress-go
 
 insights:
   title: Red Hat Enterprise Linux
