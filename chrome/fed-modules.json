@@ -19,17 +19,10 @@
         "manifestLocation": "/apps/user-preferences/fed-mods.json",
         "modules": [
             {
-                "id": "user-preferences-email",
-                "module": "./RootApp",
-                "routes": [
-                    "/user-preferences",
-                    "/user-preferences/email"
-                ]
-            },
-            {
                 "id": "user-preferences-notifications",
                 "module": "./RootApp",
                 "routes": [
+                    "/user-preferences",
                     "/user-preferences/notifications"
                 ]
             }
