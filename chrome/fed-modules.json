@@ -258,6 +258,16 @@
                     },
                     "/ansible/inventory"
                 ]
+            },
+            {
+                "id": "groups",
+                "module": "./RootApp",
+                "routes": [
+                    {
+                        "pathname": "/insights/inventory/groups",
+                        "isFedramp": true
+                    }
+                ]
             }
         ]
     },

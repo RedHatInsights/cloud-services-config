@@ -559,8 +559,15 @@ internal:
 inventory:
   title: Managed Inventory
   api:
-    versions:
-      - v1
+    subItems:
+      groups:
+        versions:
+          - v1
+        title: Groups
+      systems:
+        versions:
+          - v1
+        title: Systems
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/insights-inventory-frontend-build
   frontend:
@@ -569,12 +576,19 @@ inventory:
     section: operations
     paths:
       - /insights/inventory
+    sub_apps:
+      - id: systems
+        title: Systems
+        default: true
+      - id: groups
+        title: Groups
   source_repo: https://github.com/RedHatInsights/insights-inventory-frontend
 
 landing:
   channel: '#flip-mode-squad'
   deployment_repo: https://github.com/RedHatInsights/landing-page-frontend-build
   source_repo: https://github.com/RedHatInsights/landing-page-frontend
+
 
 malware:
   title: Malware
