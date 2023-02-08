@@ -310,11 +310,14 @@ cost-management:
       - id: aws
         title: Amazon Web Services
         group: cost-management
+      - id: gcp
+        title: Google Cloud Platform
+        group: cost-management
       - id: azure
         title: Microsoft Azure
         group: cost-management
-      - id: gcp
-        title: Google Cloud Platform
+      - id: oci
+        title: Oracle Cloud Infrastructure
         group: cost-management
       - id: cost-models
         title: Cost Models
@@ -637,7 +640,7 @@ ocp-advisor:
         title: Recommendations
         reload: recommendations
 
-ocp-vulnerability: 
+ocp-vulnerability:
   title: Vulnerability
   channel: '#forum-ccx-vulnerability'
   source_repo: https://github.com/RedHatInsights/vuln4shift-frontend
@@ -649,7 +652,7 @@ ocp-vulnerability:
     sub_apps:
       - id: cves
         title: CVEs
-        reload: cves 
+        reload: cves
       - id: clusters
         title: Clusters
         reload: clusters
