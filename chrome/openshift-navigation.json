@@ -127,6 +127,12 @@
                         },
                         {
                             "appId": "costManagement",
+                            "title": "Recommendations",
+                            "href": "/openshift/cost-management/recommendations",
+                            "product": "Red Hat Cost Management"
+                        },
+                        {
+                            "appId": "costManagement",
                             "title": "Amazon Web Services",
                             "href": "/openshift/cost-management/aws",
                             "product": "Red Hat Cost Management"
