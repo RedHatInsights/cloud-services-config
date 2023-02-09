@@ -573,7 +573,7 @@
             }
         ]
     },
-    "image_builder": {
+    "imageBuilder": {
         "manifestLocation": "/apps/image-builder/fed-mods.json",
         "modules": [
             {

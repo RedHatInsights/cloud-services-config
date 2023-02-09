@@ -443,7 +443,7 @@ image-builder:
     section: operations
     module:
       appName: image-builder
-      scope: image_builder
+      scope: imageBuilder
       module: ./RootApp
     title: Image Builder
     paths:
