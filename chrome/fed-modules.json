@@ -695,6 +695,7 @@
     },
     "contentSources": {
         "manifestLocation": "/apps/content-sources/fed-mods.json",
+        "defaultDocumentTitle": "Repositories",
         "modules": [
             {
                 "id": "insights-content-sources",
