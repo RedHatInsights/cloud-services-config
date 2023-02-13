@@ -802,7 +802,7 @@ service-registry:
         title: Documentation
         navigate: https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry
 
-rhosak-ui:
+rhosak:
   title: Streams for Apache Kafka - Application Services
   deployment_repo: https://github.com/RedHatInsights/rhosak-ui-build
   frontend:
