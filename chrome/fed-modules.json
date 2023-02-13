@@ -463,6 +463,16 @@
             }
         ]
     },
+    "rhosakUi": {
+        "manifestLocation": "/apps/rhosak-ui/fed-mods.json",
+        "modules": [
+            {
+                "id": "rhosak",
+                "module": "./RootApp",
+                "routes": ["/application-services/streams"]
+            }
+        ]
+    },
     "applicationServices": {
       "manifestLocation": "/apps/application-services/fed-mods.json",
       "analytics": {
