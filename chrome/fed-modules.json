@@ -499,8 +499,8 @@
             }
         ]
     },
-    "rhosakUi": {
-        "manifestLocation": "/apps/rhosak-ui/fed-mods.json",
+    "rhosak": {
+        "manifestLocation": "/apps/rhosak/fed-mods.json",
         "modules": [
             {
                 "id": "rhosak",
