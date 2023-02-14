@@ -800,6 +800,16 @@ app-services-apis:
           owner: redhat-developer
           repo: app-services-sdk-core
           path: registry-instance.json?ref=doc-portal
+
+rhosak:
+  title: Streams for Apache Kafka - Application Services
+  deployment_repo: https://github.com/RedHatInsights/rhosak-ui-build
+  frontend:
+    title: Streams for Apache Kafka
+    isBeta: true
+    paths:
+      - /application-services/new-streams
+      
 application-services:
   title: Application Services
   api:
