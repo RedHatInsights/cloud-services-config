@@ -487,7 +487,14 @@
                 "id": "ansible-automation-analytics",
                 "module": "./RootApp",
                 "routes": [
-                    "/ansible/automation-analytics"
+                    "/ansible/automation-analytics",
+                    "/ansible/reports",
+                    "/ansible/savings-planner",
+                    "/ansible/automation-calculator",
+                    "/ansible/organization-statistics",
+                    "/ansible/job-explorer",
+                    "/ansible/clusters",
+                    "/ansible/notifications"
                 ]
             }
         ]
