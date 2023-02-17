@@ -254,9 +254,9 @@
             "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
           },
           {
-            "appId": "trust",
             "title": "Security Information",
-            "href": "/security/insights"
+            "href": "https://www.redhat.com/en/technologies/management/insights/data-application-security",
+            "isExternal": true
           },
           {
             "appId": "apiDocs",
