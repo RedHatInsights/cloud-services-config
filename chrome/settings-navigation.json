@@ -8,38 +8,6 @@
             "href": "/settings/my-user-access"
         },
         {
-            "title": "User Access",
-            "expandable": true,
-            "permissions": [
-                {
-                    "method": "isEntitled"
-                }
-            ],
-            "routes": [
-                {
-                    "appId": "rbac",
-                    "title": "Users",
-                    "href": "/settings/rbac/users"
-                },
-                {
-                    "appId": "rbac",
-                    "title": "Roles",
-                    "href": "/settings/rbac/roles"
-                },
-                {
-                    "appId": "rbac",
-                    "title": "Groups",
-                    "href": "/settings/rbac/groups"
-                },
-                {
-                    "appId": "accessRequests",
-                    "title": "Red Hat Access Requests",
-                    "href": "/settings/rbac/access-requests",
-                    "notifier": "chrome.accessRequests.hasUnseen"
-                }
-            ]
-        },
-        {
             "appId": "sources",
             "title": "Sources",
             "href": "/settings/sources"
