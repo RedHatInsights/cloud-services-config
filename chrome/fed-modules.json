@@ -87,6 +87,7 @@
     },
     "sources": {
         "manifestLocation": "/apps/sources/fed-mods.json",
+        "fullProfile": true,
         "modules": [
             {
                 "id": "sources",
