@@ -62,6 +62,7 @@
             {
                 "id": "iam-user-access",
                 "module": "./IamUserAccess",
+                "isFedramp": true,
                 "routes": [
                     "/iam",
                     "/iam/user-access"
@@ -84,6 +85,7 @@
     },
     "accessRequests": {
         "manifestLocation": "/apps/access-requests/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "internal-access",
