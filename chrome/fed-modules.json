@@ -469,9 +469,21 @@
             {
                 "id": "rhosak",
                 "module": "./RootApp",
-                "routes": ["/application-services/new-streams"]
+                "routes": ["/application-services/streams"]
             }
         ]
+    },
+    "srs": {
+        "manifestLocation": "/apps/srs-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "ar": {
+        "manifestLocation": "/apps/sr-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "guides": {
+        "manifestLocation": "/apps/rhoas-guides-build/fed-mods.json",
+        "modules": []
     },
     "applicationServices": {
       "manifestLocation": "/apps/application-services/fed-mods.json",
@@ -482,7 +494,7 @@
         {
           "id": "application-services",
           "module": "./RootApp",
-          "routes": ["/application-services", "/application-services/streams"]
+          "routes": ["/application-services"]
         }
       ]
     },
