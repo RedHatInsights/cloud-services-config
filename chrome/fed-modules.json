@@ -440,9 +440,34 @@
             }
         ]
     },
+    "rhosak": {
+        "manifestLocation": "/apps/rhosak/fed-mods.json",
+        "analytics": {
+            "APIKey": "eGAB8pv9DFgdj80STEaeHSMvRPAjdDUH"
+        },
+        "modules": [
+            {
+                "id": "rhosak",
+                "module": "./RootApp",
+                "routes": ["/application-services/streams"]
+            }
+        ]
+    },
+    "srs": {
+        "manifestLocation": "/apps/srs-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "ar": {
+        "manifestLocation": "/apps/sr-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "guides": {
+        "manifestLocation": "/apps/rhoas-guides-build/fed-mods.json",
+        "modules": []
+    },
     "applicationServices": {
         "manifestLocation": "/apps/application-services/fed-mods.json",
-	"analytics": {
+	    "analytics": {
           "APIKey": "eGAB8pv9DFgdj80STEaeHSMvRPAjdDUH"
         },
         "modules": [
