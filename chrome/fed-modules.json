@@ -2,6 +2,7 @@
     "landing": {
         "manifestLocation": "/apps/landing/fed-mods.json",
         "defaultDocumentTitle": "Home",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "landing",
@@ -179,14 +180,14 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
                 "module": "./RootApp",
                 "routes": [
                     {
-                        "pathname": "/insights/advisor",
-                        "isFedramp": true
+                        "pathname": "/insights/advisor"
                     },
                     "/ansible/advisor"
                 ]
@@ -469,9 +470,21 @@
             {
                 "id": "rhosak",
                 "module": "./RootApp",
-                "routes": ["/application-services/new-streams"]
+                "routes": ["/application-services/streams"]
             }
         ]
+    },
+    "srs": {
+        "manifestLocation": "/apps/srs-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "ar": {
+        "manifestLocation": "/apps/sr-ui-build/fed-mods.json",
+        "modules": []
+    },
+    "guides": {
+        "manifestLocation": "/apps/rhoas-guides-build/fed-mods.json",
+        "modules": []
     },
     "applicationServices": {
       "manifestLocation": "/apps/application-services/fed-mods.json",
@@ -482,7 +495,7 @@
         {
           "id": "application-services",
           "module": "./RootApp",
-          "routes": ["/application-services", "/application-services/streams"]
+          "routes": ["/application-services"]
         }
       ]
     },
@@ -609,6 +622,7 @@
     },
     "malware": {
         "manifestLocation": "/apps/malware/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "malware",
