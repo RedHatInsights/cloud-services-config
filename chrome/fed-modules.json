@@ -2,6 +2,7 @@
     "landing": {
         "manifestLocation": "/apps/landing/fed-mods.json",
         "defaultDocumentTitle": "Home",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "landing",
@@ -179,14 +180,14 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
                 "module": "./RootApp",
                 "routes": [
                     {
-                        "pathname": "/insights/advisor",
-                        "isFedramp": true
+                        "pathname": "/insights/advisor"
                     },
                     "/ansible/advisor"
                 ]
@@ -609,6 +610,7 @@
     },
     "malware": {
         "manifestLocation": "/apps/malware/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "malware",
