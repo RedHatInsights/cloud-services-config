@@ -475,8 +475,7 @@
                 "id": "application-services",
                 "module": "./RootApp",
                 "routes": [
-                    "/application-services",
-                    "/application-services/streams"
+                    "/application-services"
                 ]
             }
         ]
