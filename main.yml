@@ -340,11 +340,11 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: ocp
-        title: OpenShift
-        group: cost-management
       - id: recommendations
         title: Recommendations
+        group: cost-management
+      - id: ocp
+        title: OpenShift
         group: cost-management
       - id: aws
         title: Amazon Web Services
