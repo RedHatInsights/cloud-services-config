@@ -121,14 +121,14 @@
                         },
                         {
                             "appId": "costManagement",
-                            "title": "OpenShift",
-                            "href": "/openshift/cost-management/ocp",
+                            "title": "Recommendations",
+                            "href": "/openshift/cost-management/recommendations",
                             "product": "Red Hat Cost Management"
                         },
                         {
                             "appId": "costManagement",
-                            "title": "Recommendations",
-                            "href": "/openshift/cost-management/recommendations",
+                            "title": "OpenShift",
+                            "href": "/openshift/cost-management/ocp",
                             "product": "Red Hat Cost Management"
                         },
                         {
