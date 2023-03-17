@@ -45,6 +45,7 @@ const moduleItemSchema = Joi.object({
   analytics: Joi.object({
     APIKey: Joi.string().required()
   }),
+  config: Joi.object(),
   fullProfile: Joi.boolean().optional()
 })
 
