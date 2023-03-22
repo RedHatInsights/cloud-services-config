@@ -778,8 +778,8 @@
             }
 	]
     },
-    "sasUi": {
-        "manifestLocation": "/apps/sasUi/fed-mods.json",
+    "sas-ui": {
+        "manifestLocation": "/apps/sas-ui/fed-mods.json",
         "modules": [
             {
                 "id": "sas-ui",
