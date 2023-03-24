@@ -9,7 +9,8 @@
                 "routes": [
                     {
                         "exact": true,
-                        "pathname": "/"
+                        "pathname": "/",
+                        "isFedramp": true
                     }
                 ]
             }
@@ -192,6 +193,7 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
