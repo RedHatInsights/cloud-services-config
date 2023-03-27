@@ -779,17 +779,5 @@
                 ]
             }
 	]
-    },
-    "sasUi": {
-        "manifestLocation": "/apps/sas-ui/fed-mods.json",
-        "modules": [
-            {
-                "id": "sas-ui",
-                "module": "./RootApp",
-                "routes": [
-                    "/application-services/service-accounts"
-                ]
-            }
-        ]
     }
 }
