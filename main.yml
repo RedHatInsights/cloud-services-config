@@ -340,11 +340,11 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: ocp
-        title: OpenShift
-        group: cost-management
       - id: recommendations
         title: Recommendations
+        group: cost-management
+      - id: ocp
+        title: OpenShift
         group: cost-management
       - id: aws
         title: Amazon Web Services
@@ -1330,10 +1330,3 @@ business-services:
         default: true
       - id: details
         title: Details
-
-sas-ui:
-  title: Service Accounts
-  deployment_repo: https://github.com/RedHatInsights/service-account-ui-build
-  frontend:
-    paths:
-      - /application-services/service-accounts
