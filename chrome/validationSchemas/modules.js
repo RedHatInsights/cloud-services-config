@@ -44,7 +44,8 @@ const moduleItemSchema = Joi.object({
   modules: Joi.array().items(routeModuleSchema).required(),
   analytics: Joi.object({
     APIKey: Joi.string().required()
-  })
+  }),
+  fullProfile: Joi.boolean().optional()
 })
 
 const modulesSchema = Joi.object().pattern(Joi.string().token(), moduleItemSchema);
