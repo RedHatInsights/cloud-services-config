@@ -375,6 +375,7 @@
     },
     "ros": {
         "manifestLocation": "/apps/ros/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "ros",
@@ -660,6 +661,7 @@
     },
     "malware": {
         "manifestLocation": "/apps/malware/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "malware",
