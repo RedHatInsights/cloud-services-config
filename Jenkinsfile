@@ -60,16 +60,12 @@ node {
                   passphraseVariable: "",
                   usernameVariable: "")]) {
 
-      configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
-        sh """
-          eval `ssh-agent`
-          ssh-add \"$privateKeyFile\"
-          cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/known_hosts
-          rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
-          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
-        """
-      }
+      sh """
+        eval `ssh-agent`
+        ssh-add \"$privateKeyFile\"
+        rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+        rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
+      """
 
       // set akamai fast purge env
       openShiftUtils.withJnlpNode(        
@@ -118,28 +114,23 @@ node {
     } catch(e) {
       // If the tests don't all pass, roll back changes:
       // Re-upload the old main.yml/json files
-      configFileProvider([configFile(fileId: "9f0c91bc-4feb-4076-9f3e-13da94ff3cef", variable: "AKAMAI_HOST_KEY")]) {
-        sh "rm main.yml"
-        sh "cp main.yml.bak main.yml"
-        sh "rm releases.yml"
-        sh "cp releases.yml.bak releases.yml"
-        sh "rm -r chrome"
-        sh "cp -r chrome.bak chrome"
-        withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
-                keyFileVariable: "privateKeyFile",
-                passphraseVariable: "",
-                usernameVariable: "")]) {
-          sh """
-            eval `ssh-agent`
-            ssh-add \"$privateKeyFile\"
-            cp \"$AKAMAI_HOST_KEY\" ~/.ssh/known_hosts
-            chmod 600 ~/.ssh/known_hosts
-            rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
-            rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
-          """
-        }
+      sh "rm main.yml"
+      sh "cp main.yml.bak main.yml"
+      sh "rm releases.yml"
+      sh "cp releases.yml.bak releases.yml"
+      sh "rm -r chrome"
+      sh "cp -r chrome.bak chrome"
+      withCredentials(bindings: [sshUserPrivateKey(credentialsId: "cloud-netstorage",
+              keyFileVariable: "privateKeyFile",
+              passphraseVariable: "",
+              usernameVariable: "")]) {
+        sh """
+          eval `ssh-agent`
+          ssh-add \"$privateKeyFile\"
+          rsync -arv -e \"ssh -2\" *.yml sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}
+          rsync -arv -e \"ssh -2\" ./chrome/*.json sshacs@cloud-unprotected.upload.akamai.com:${AKAMAI_APP_PATH}/chrome
+        """
       }
-
       openShiftUtils.withJnlpNode(
         image: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9",
         namespace: "insights-dev-jenkins"

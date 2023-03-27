@@ -9,7 +9,8 @@
                 "routes": [
                     {
                         "exact": true,
-                        "pathname": "/"
+                        "pathname": "/",
+                        "isFedramp": true
                     }
                 ]
             }
@@ -192,6 +193,7 @@
     },
     "advisor": {
         "manifestLocation": "/apps/advisor/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "advisor",
@@ -373,6 +375,7 @@
     },
     "ros": {
         "manifestLocation": "/apps/ros/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "ros",
@@ -658,6 +661,7 @@
     },
     "malware": {
         "manifestLocation": "/apps/malware/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "malware",
@@ -777,17 +781,5 @@
                 ]
             }
 	]
-    },
-    "sasUi": {
-        "manifestLocation": "/apps/sasUi/fed-mods.json",
-        "modules": [
-            {
-                "id": "sas-ui",
-                "module": "./RootApp",
-                "routes": [
-                    "/application-services/service-accounts"
-                ]
-            }
-        ]
     }
 }
