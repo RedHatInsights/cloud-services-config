@@ -18,6 +18,7 @@
     },
     "userPreferences": {
         "manifestLocation": "/apps/user-preferences/fed-mods.json",
+        "isFedramp": true,
         "modules": [
             {
                 "id": "user-preferences-notifications",
