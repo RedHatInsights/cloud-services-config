@@ -86,11 +86,7 @@ node {
   stage ("Run Akamai Production Smoke Tests") {
     try {
       if (RUN_SMOKE_TESTS) {
-        openShiftUtils.withNode(
-          image: "quay.io/cloudservices/iqe-tests:3scale",
-          namespace: "insights-dev-jenkins",
-          jenkinsSlaveImage: "quay.io/redhatqe/origin-jenkins-agent-akamai:4.9"
-        ) {
+        openShiftUtils.withNode {
           withCredentials([
             string(credentialsId: "vaultRoleId", variable: 'DYNACONF_IQE_VAULT_ROLE_ID'),
             string(credentialsId: "vaultSecretId", variable: 'DYNACONF_IQE_VAULT_SECRET_ID'),
@@ -103,6 +99,8 @@ node {
               "DYNACONF_IQE_VAULT_LOADER_ENABLED=true",
               "ENV_FOR_DYNACONF=prod"
             ]) {
+              // install akamai and 3scale plugins, run smoke tests
+              sh "iqe plugin install akamai 3scale"
               sh "IQE_AKAMAI_CERTIFI=true DYNACONF_AKAMAI=\'@json {\"release\":\"${RELEASESTR}\"}\' iqe tests plugin akamai -s -m ${PRODTESTSTR}"
               sh "iqe tests plugin akamai -k 'test_api.py' -m prod"
               sh "iqe tests plugin 3scale --akamai-production -m akamai_smoke"
