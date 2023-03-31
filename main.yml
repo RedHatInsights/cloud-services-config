@@ -340,8 +340,8 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
-      - id: recommendations
-        title: Recommendations
+      - id: optimizations
+        title: Optimizations
         group: cost-management
       - id: ocp
         title: OpenShift
