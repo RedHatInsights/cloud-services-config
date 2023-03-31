@@ -3,16 +3,19 @@
     "title": "Staging Bundle;",
     "navItems": [
         {
+            "id": "commitTracker",
             "title": "Commit Tracker",
             "appId": "starter",
             "href": "/staging/starter"
         },
         {
+            "id": "accessRequests",
             "title": "Access Requests",
             "appId": "ruledev",
             "href": "/staging/ruledev"
         },
         {
+            "id": "onboardingTest",
             "title": "Onboarding Test",
             "appId": "onboarding",
             "href": "/staging/test-onboarding-app"

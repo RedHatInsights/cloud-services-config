@@ -15,6 +15,7 @@ const routeSchema = Joi.object({
   filterable: Joi.bool(),
   isBeta: Joi.bool(),
   title: Joi.string().required(),
+  id: Joi.string().required(),
   href: Joi.string().required(),
   permissions: Joi.array().items(permissionsSchema),
   isExternal: Joi.bool(),

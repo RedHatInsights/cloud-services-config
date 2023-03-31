@@ -3,12 +3,14 @@
     "title": "OpenShift",
     "navItems": [
         {
+            "id": "clusters",
             "appId": "openshift",
             "href": "/openshift",
             "title": "Clusters",
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
+            "id": "overview",
             "appId": "openshift",
             "href": "/openshift/overview",
             "title": "Overview",
@@ -16,6 +18,7 @@
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
+            "id": "releases",
             "appId": "openshift",
             "href": "/openshift/releases",
             "title": "Releases",
@@ -23,12 +26,14 @@
             "product": "Red Hat OpenShift Cluster Manager"
         },
         {
+            "id": "developerSandbox",
             "appId": "sandbox",
             "href": "/openshift/sandbox",
             "title": "Developer Sandbox",
             "filterable": false
         },
         {
+            "id": "downloads",
             "appId": "openshift",
             "href": "/openshift/downloads",
             "title": "Downloads",
@@ -44,12 +49,14 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "recommendations",
                             "appId": "ocpAdvisor",
                             "title": "Recommendations",
                             "href": "/openshift/insights/advisor/recommendations",
                             "product": "Red Hat OpenShift Cluster Manager"
                         },
                         {
+                            "id": "clusters",
                             "appId": "ocpAdvisor",
                             "title": "Clusters",
                             "href": "/openshift/insights/advisor/clusters",
@@ -62,12 +69,14 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "cves",
                             "appId": "ocpVulnerability",
                             "title": "CVEs",
                             "href": "/openshift/insights/vulnerability/cves",
                             "product": "Red Hat OpenShift Cluster Manager"
                         },
                         {
+                            "id": "vulnerabilityClusters",
                             "appId": "ocpVulnerability",
                             "title": "Clusters",
                             "href": "/openshift/insights/vulnerability/clusters",
@@ -80,27 +89,32 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "containerPlatform",
                             "appId": "subscriptions",
                             "title": "Container Platform",
                             "href": "/openshift/subscriptions/openshift-container",
                             "product": "Subscription Watch"
                         },
                         {
+                            "id": "dedicatedAnnual",
                             "appId": "openshift",
                             "title": "Dedicated (Annual)",
                             "href": "/openshift/quota"
                         },
                         {
+                            "id": "dedicatedOnDemant",
                             "appId": "subscriptions",
                             "title": "Dedicated (On-Demand)",
                             "href": "/openshift/subscriptions/openshift-dedicated"
                         },
                         {
+                            "id": "dedicatedOnDemandLimits",
                             "appId": "openshift",
                             "title": "Dedicated (On-Demand limits)",
                             "href": "/openshift/quota/resource-limits"
                         },
                         {
+                            "id": "rhelSubscriptions",
                             "appId": "subscriptions",
                             "title": "RHEL Subscriptions",
                             "href": "/insights/subscriptions/rhel",
@@ -113,6 +127,7 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "costManagementOverview",
                             "appId": "costManagement",
                             "title": "Overview",
                             "filterable": false,
@@ -120,54 +135,63 @@
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "costManagementRecommendations",
                             "appId": "costManagement",
                             "title": "Optimizations",
                             "href": "/openshift/cost-management/optimizations",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "openshift",
                             "appId": "costManagement",
                             "title": "OpenShift",
                             "href": "/openshift/cost-management/ocp",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "amazonWebServices",
                             "appId": "costManagement",
                             "title": "Amazon Web Services",
                             "href": "/openshift/cost-management/aws",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "googleCloudPlatform",
                             "appId": "costManagement",
                             "title": "Google Cloud Platform",
                             "href": "/openshift/cost-management/gcp",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "ibmCloud",
                             "appId": "costManagement",
                             "title": "IBM Cloud",
                             "href": "/openshift/cost-management/ibm",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "microsoftAzure",
                             "appId": "costManagement",
                             "title": "Microsoft Azure",
                             "href": "/openshift/cost-management/azure",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "oracleCloudInfrastructure",
                             "appId": "costManagement",
                             "title": "Oracle Cloud Infrastructure",
                             "href": "/openshift/cost-management/oci",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "costModels",
                             "appId": "costManagement",
                             "title": "Cost Models",
                             "href": "/openshift/cost-management/cost-models",
                             "product": "Red Hat Cost Management"
                         },
                         {
+                            "id": "costExplorer",
                             "appId": "costManagement",
                             "title": "Cost Explorer",
                             "href": "/openshift/cost-management/explorer",
@@ -178,21 +202,25 @@
             ]
         },
         {
+            "id": "supportCases",
             "title": "Support Cases",
             "href": "https://access.redhat.com/support/cases",
             "isExternal": true
         },
         {
+            "id": "clusterManagerFeedback",
             "title": "Cluster Manager Feedback",
             "href": "mailto:ocm-feedback@redhat.com",
             "isExternal": true
         },
         {
+            "id": "redhatMarketplace",
             "title": "Red Hat Marketplace",
             "href": "https://marketplace.redhat.com",
             "isExternal": true
         },
         {
+            "id": "documentation",
             "href": "https://access.redhat.com/documentation/en-us/openshift_cluster_manager/",
             "title": "Documentation",
             "filterable": false,

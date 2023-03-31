@@ -9,11 +9,13 @@
         "filterable": false,
         "routes": [
           {
+            "id": "overview",
             "appId": "hybridCommittedSpend",
             "title": "Overview",
             "href": "/business-services/hybrid-committed-spend"
           },
           {
+            "id": "details",
             "appId": "hybridCommittedSpend",
             "title": "Details",
             "href": "/business-services/hybrid-committed-spend/details"

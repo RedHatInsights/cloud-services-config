@@ -1,0 +1,33 @@
+[
+  {
+    "id": "applicationServices",
+    "description": "",
+    "icon": "",
+    "title": "Application services",
+    "items": [
+      "application-services.apiDesigner",
+      "application-services.apiManagement",
+      "application-services.connectorsInstances",
+      "application-services.serviceAccounts",
+      "application-services.serviceRegistryInstances",
+      "application-services.kafkaInstances"
+    ]
+  },
+  {
+    "id": "observe",
+    "title": "Observe",
+    "groups": [{
+      "id": "ansible",
+      "title": "Ansible",
+      "items": []
+    }, {
+      "id": "openshift",
+      "title": "openshift",
+      "items": []
+    }, {
+      "id": "rhel",
+      "title": "RHEL",
+      "items": []
+    }]
+  }
+]

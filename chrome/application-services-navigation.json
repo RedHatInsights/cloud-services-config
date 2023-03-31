@@ -3,12 +3,14 @@
   "title": "Application and Data Services",
   "navItems": [
     {
+        "id": "overview",
         "appId": "applicationServices",
         "title": "Overview",
         "filterable": false,
         "href": "/application-services/overview"
     },
     {
+        "id": "learningResources",
         "appId": "applicationServices",
         "title": "Learning Resources",
         "href": "/application-services/learning-resources"
@@ -23,12 +25,14 @@
           "expandable": true,
           "routes": [
             {
+              "id": "apiDesigner",
               "appId": "applicationServices",
               "isBeta": true,
               "title": "API and Schema Designs",
               "href": "/application-services/api-designer"
             },
             {
+              "id": "documentation",
               "title": "Documentation",
               "isExternal": true,
               "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_api_designer"
@@ -36,6 +40,7 @@
           ]
         },
         {
+          "id": "apiManagement",
           "appId": "applicationServices",
           "title": "API Management",
           "href": "/application-services/api-management"
@@ -45,16 +50,19 @@
           "expandable": true,
           "routes": [
             {
+              "id": "overview",
               "appId": "applicationServices",
               "title": "Overview",
               "href": "/application-services/streams/overview"
             },
             {
+              "id": "kafkaInstances",
               "appId": "applicationServices",
               "title": "Kafka Instances",
               "href": "/application-services/streams"
             },
             {
+              "id": "streamsDocumentation",
               "title": "Documentation",
               "isExternal": true,
               "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_streams_for_apache_kafka"
@@ -66,11 +74,13 @@
           "expandable": true,
           "routes": [
             {
+              "id": "serviceRegistryInstances",
               "appId": "applicationServices",
               "title": "Service Registry Instances",
               "href": "/application-services/service-registry"
             },
             {
+              "id": "serviceRegistryDocumenation",
               "title": "Documentation",
               "isExternal": true,
               "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_service_registry"
@@ -82,11 +92,13 @@
           "expandable": true,
           "routes": [
             {
+              "id": "connectorsInstances",
               "appId": "applicationServices",
               "title": "Connectors Instances",
               "href": "/application-services/connectors"
             },
             {
+              "id": "connectorsDocumentation",
               "title": "Documentation",
               "isExternal": true,
               "href": "https://access.redhat.com/documentation/en-us/red_hat_openshift_connectors"
@@ -94,6 +106,7 @@
           ]
         },
         {
+          "id": "serviceAccounts",
           "appId": "applicationServices",
           "title": "Service Accounts",
           "href": "/application-services/service-accounts"
@@ -106,11 +119,13 @@
       "icon": "database",
       "navItems": [
         {
+          "id": "databaseAccess",
           "appId": "dbaas",
           "title": "Database Access",
           "href": "/application-services/databases"
         },
         {
+          "id": "dataScience",
           "appId": "applicationServices",
           "title": "Data Science",
           "href": "/application-services/data-science"
@@ -122,17 +137,20 @@
       "expandable": true,
       "routes": [
           {
+              "id": "clusterOverview",
               "appId": "acs",
               "title": "Overview",
               "href": "/application-services/acs/overview"
           },
           {
+              "id": "acsInstances",
               "appId": "acs",
               "title": "ACS Instances",
               "isBeta": true,
               "href": "/application-services/acs/instances"
           },
           {
+              "id": "clustersDocumentation",
               "title": "Documentation",
               "isExternal": true,
               "href": "https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_security_for_kubernetes"
@@ -149,11 +167,13 @@
           "expandable": true,
           "routes": [
             {
+              "id": "streamdForApacheKafka",
               "appId": "subscriptions",
               "title": "Streams for Apache Kafka",
               "href": "/application-services/subscriptions/streams"
             },
             {
+              "id": "openshiftDataScience",
               "appId": "subscriptions",
               "title": "OpenShift Data Science",
               "href": "/application-services/subscriptions/rhods"

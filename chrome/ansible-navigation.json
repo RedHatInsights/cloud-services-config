@@ -4,6 +4,7 @@
     "navItems": [
         {
             "appId": "ansibleDashboard",
+            "id": "overview",
             "title": "Overview",
             "filterable": false,
             "href": "/ansible/ansible-dashboard"
@@ -13,30 +14,35 @@
             "expandable": true,
             "routes": [
                 {
+                    "id": "collections",
                     "appId": "automationHub",
                     "title": "Collections",
                     "href": "/ansible/automation-hub/",
                     "product": "Ansible Automation Hub"
                 },
                 {
+                    "id": "partners",
                     "appId": "automationHub",
                     "title": "Partners",
                     "href": "/ansible/automation-hub/partners",
                     "product": "Ansible Automation Hub"
                 },
                 {
+                    "id": "repoManagement",
                     "appId": "automationHub",
                     "title": "Repo Management",
                     "href": "/ansible/automation-hub/repositories",
                     "product": "Ansible Automation Hub"
                 },
                 {
+                    "id": "taskManagement",
                     "appId": "automationHub",
                     "title": "Task Management",
                     "href": "/ansible/automation-hub/tasks",
                     "product": "Ansible Automation Hub"
                 },
                 {
+                    "id": "connectToHub",
                     "appId": "automationHub",
                     "title": "Connect to Hub",
                     "href": "/ansible/automation-hub/token",
@@ -49,42 +55,49 @@
             "expandable": true,
             "routes": [
                 {
+                    "id": "organizationStatistics",
                     "appId": "automationAnalytics",
                     "title": "Organization Statistics",
                     "href": "/ansible/automation-analytics/organization-statistics",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "jobExplorer",
                     "appId": "automationAnalytics",
                     "title": "Job Explorer",
                     "href": "/ansible/automation-analytics/job-explorer",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "clusters",
                     "appId": "automationAnalytics",
                     "title": "Clusters",
                     "href": "/ansible/automation-analytics/clusters",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "reports",
                     "appId": "automationAnalytics",
                     "title": "Reports",
                     "href": "/ansible/automation-analytics/reports",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "savingPlanner",
                     "appId": "automationAnalytics",
                     "title": "Savings Planner",
                     "href": "/ansible/automation-analytics/savings-planner",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "automationCalculator",
                     "appId": "automationAnalytics",
                     "title": "Automation Calculator",
                     "href": "/ansible/automation-analytics/reports/automation_calculator/",
                     "product": "Ansible Automation Analytics"
                 },
                 {
+                    "id": "notifications",
                     "appId": "automationAnalytics",
                     "title": "Notifications",
                     "href": "/ansible/automation-analytics/notifications",
@@ -93,6 +106,7 @@
             ]
         },
         {
+            "id": "documentation",
             "title": "Documentation",
             "isExternal": true,
             "filterable": false,
@@ -104,6 +118,7 @@
             "title": "Red Hat Insights",
             "navItems": [
                 {
+                    "id": "inventory",
                     "appId": "inventory",
                     "title": "Inventory",
                     "href": "/ansible/inventory",
@@ -114,18 +129,21 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "recommendations",
                             "appId": "advisor",
                             "title": "Recommendations",
                             "href": "/ansible/advisor/recommendations",
                             "product": "Red Hat Insights"
                         },
                         {
+                            "id": "systems",
                             "appId": "advisor",
                             "title": "Systems",
                             "href": "/ansible/advisor/systems",
                             "product": "Red Hat Insights"
                         },
                         {
+                            "id": "topics",
                             "appId": "approval",
                             "title": "Topics",
                             "href": "/ansible/advisor/topics",
@@ -138,12 +156,14 @@
                     "expandable": true,
                     "routes": [
                         {
+                            "id": "comparision",
                             "appId": "drift",
                             "title": "Comparison",
                             "href": "/ansible/drift/",
                             "product": "Red Hat Insights"
                         },
                         {
+                            "id": "baselines",
                             "appId": "drift",
                             "title": "Baselines",
                             "href": "/ansible/drift/baselines",
@@ -152,6 +172,7 @@
                     ]
                 },
                 {
+                    "id": "policies",
                     "appId": "policies",
                     "title": "Policies",
                     "href": "/ansible/policies"
@@ -159,6 +180,7 @@
             ]
         },
         {
+            "id": "registerSystems",
             "appId": "registration",
             "title": "Register Systems",
             "filterable": false,
@@ -166,12 +188,14 @@
             "product": "Red Hat Insights"
         },
         {
+            "id": "remediations",
             "appId": "remediations",
             "title": "Remediations",
             "href": "/ansible/remediations",
             "product": "Red Hat Insights"
         },
         {
+            "id": "tasks",
             "appId": "tasks",
             "title": "Tasks",
             "href": "/ansible/tasks",

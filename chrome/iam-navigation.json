@@ -12,24 +12,28 @@
       "expandable": true,
       "routes": [
         {
+          "id": "users",
           "appId": "rbac",
           "title": "Users",
           "href": "/iam/user-access/users",
           "product": "Identity & Access Management"
         },
         {
+          "id": "roles",
           "appId": "rbac",
           "title": "Roles",
           "href": "/iam/user-access/roles",
           "product": "Identity & Access Management"
         },
         {
+          "id": "groups",
           "appId": "rbac",
           "title": "Groups",
           "href": "/iam/user-access/groups",
           "product": "Identity & Access Management"
         },
         {
+          "id": "accessRequests",
           "appId": "rbac",
           "title": "Red Hat Access Requests",
           "href": "/iam/user-access/access-requests",
@@ -42,6 +46,7 @@
       "expandable": true,
       "routes": [
         {
+          "id": "authFactors",
           "appId": "iam",
           "title": "Authentication Factors",
           "href": "/iam/authentication-policy/authentication-factors",
@@ -50,6 +55,7 @@
       ]
     },
     {
+      "id": "documentation",
       "title": "Documentation",
       "isExternal": true,
       "filterable": false,

@@ -10,6 +10,7 @@
           "title": "Groups",
           "appId": "edge",
           "filterable": false,
+          "id": "groups",
           "href": "/edge/fleet-management",
           "permissions": [
             {
@@ -17,9 +18,8 @@
               "args": ["@redhat.com", "@sbb.ch"]
             }
           ]
-        },
-
-        {
+        }, {
+          "id": "systems",
           "title": "Systems",
           "appId": "edge",
           "filterable": false,
@@ -44,6 +44,7 @@
       "expandable": true,
       "routes": [
         {
+          "id": "images",
           "title": "Images",
           "appId": "edge",
           "filterable": false,
@@ -54,9 +55,8 @@
               "args": ["@redhat.com", "@sbb.ch"]
             }
           ]
-        },
-
-        {
+        }, {
+          "id": "customRepositories",
           "title": "Custom repositories",
           "appId": "edge",
           "filterable": false,
@@ -69,8 +69,8 @@
           ]
         }
       ]
-    },
-    {
+    }, {
+      "id": "learningResources",
       "title": "Learning resources",
       "appId": "edge",
       "filterable": false,

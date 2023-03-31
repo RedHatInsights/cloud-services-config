@@ -5,6 +5,7 @@
     "icon": "code",
     "navItems": [
       {
+        "id": "applicationAndDataServices",
         "appId": "applicationServices",
         "title": "Application and Data Services",
         "href": "/application-services/overview"
@@ -17,6 +18,7 @@
     "icon": "wrench",
     "navItems": [
       {
+        "id": "openshift",
         "appId": "openshift",
         "title": "OpenShift",
         "href": "/openshift"
@@ -26,11 +28,13 @@
         "expandable": true,
         "routes": [
           {
+            "id": "redhatInsights",
             "appId": "dashboard",
             "title": "Red Hat Insights",
             "href": "/insights/dashboard"
           },           
           {
+            "id": "edge",
             "appId": "edge",
             "title": "Edge Management",
             "href": "/edge"
@@ -38,6 +42,7 @@
         ]
       },
       {
+        "id": "ansibleAutomationPlatform",
         "appId": "ansibleDashboard",
         "title": "Ansible Automation Platform",
         "href":  "/ansible/ansible-dashboard"

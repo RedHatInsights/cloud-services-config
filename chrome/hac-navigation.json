@@ -3,11 +3,13 @@
   "title": "HAC",
   "navItems": [
       {
+          "id": "example",
           "title": "Example",
           "appId": "hacCore",
           "href": "/hac"
       },
       {
+        "id": "flatNav",
         "title": "Flat nav",
         "dynamicNav": "hacCore"
       }

@@ -8,11 +8,13 @@
             "href": "/settings/sources"
         },
         {
+            "id": "repositories",
             "appId": "contentSources",
             "title": "Repositories",
             "href": "/settings/content"
         },
-	{
+        {
+            "id": "integrations",
             "appId": "notifications",
             "title": "Integrations",
             "href": "/settings/integrations"
@@ -22,21 +24,25 @@
             "expandable": true,
             "routes": [
                 {
+                    "id": "applicationServices",
                     "appId": "notifications",
                     "title": "Application Services",
                     "href": "/settings/notifications/application-services"
                 },
                 {
+                    "id": "openshift",
                     "appId": "notifications",
                     "title": "OpenShift",
                     "href": "/settings/notifications/openshift"
                 },
                 {
+                    "id": "redhatEntrpriseLinux",
                     "appId": "notifications",
                     "title": "Red Hat Enterprise Linux",
                     "href": "/settings/notifications/rhel"
                 },
                 {
+                    "id": "console",
                     "appId": "notifications",
                     "title": "Console",
                     "href": "/settings/notifications/console"
@@ -48,11 +54,13 @@
             "expandable": true,
             "routes": [
                 {
+                    "id": "manageConfiguration",
                     "appId": "connector",
                     "title": "Manage configuration",
                     "href": "/settings/connector"
                 },
                 {
+                    "id": "activationKeys",
                     "appId": "connector",
                     "title": "Activation Keys",
                     "href": "/settings/connector/activation-keys"
@@ -73,6 +81,7 @@
             ],
             "routes": [
                 {
+                    "id": "costManagement",
                     "appId": "applications",
                     "title": "Cost Management",
                     "href": "/settings/applications/cost-management",
@@ -96,6 +105,7 @@
             ]
         },
         {
+            "id": "learningResources",
             "appId": "learningResources",
             "title": "Learning Resources",
             "href": "/settings/learning-resources"

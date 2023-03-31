@@ -3,16 +3,19 @@
     "title": "Internal",
     "navItems": [
         {
+            "id": "commitTraccker",
             "title": "Commit Tracker",
             "appId": "commitTracker",
             "href": "/internal/commit-tracker"
         },
         {
+            "id": "accessRequests",
             "title": "Access Requests",
             "appId": "accessRequests",
             "href": "/internal/access-requests"
         },
         {
+            "id": "bonfire",
             "title": "Bonfire",
             "appId": "bonfire",
             "href": "/internal/bonfire"

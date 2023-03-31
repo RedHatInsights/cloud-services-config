@@ -250,6 +250,9 @@
     },
     "inventory": {
         "manifestLocation": "/apps/inventory/fed-mods.json",
+        "config": {
+          "description": "View details about your Red Hat enterprise Linux systems."
+        },
         "modules": [
             {
                 "id": "inventory",
