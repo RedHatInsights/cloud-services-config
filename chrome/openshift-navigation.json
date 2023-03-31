@@ -121,8 +121,8 @@
                         },
                         {
                             "appId": "costManagement",
-                            "title": "Recommendations",
-                            "href": "/openshift/cost-management/recommendations",
+                            "title": "Optimizations",
+                            "href": "/openshift/cost-management/optimizations",
                             "product": "Red Hat Cost Management"
                         },
                         {
