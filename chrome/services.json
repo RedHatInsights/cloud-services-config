@@ -1,10 +1,10 @@
 [
   {
     "id": "applicationServices",
-    "description": "",
-    "icon": "",
+    "description": "Streamline your hybrid cloud experience, reducing the operational cost and complexity of delivering cloud-native applications.",
+    "icon": "CloudUploadAltIcon",
     "title": "Application services",
-    "items": [
+    "links": [
       "application-services.apiDesigner",
       "application-services.apiManagement",
       "application-services.connectorsInstances",
@@ -14,20 +14,204 @@
     ]
   },
   {
+    "id": "automation",
+    "title": "Automation",
+    "icon": "AutomationIcon",
+    "description": "Solve problems once, in one place, and scale up.",
+    "links": [
+      "ansible.automationAnalytics",
+      "ansible.collections",
+      "ansible.inventory",
+      "ansible.remediations"
+    ]
+  },
+  {
+    "id": "dataset",
+    "icon": "DatabaseIcon",
+    "title": "Data Services",
+    "description": "Create, manage, and migrate relational and non-relational databases.",
+    "links": [
+      "application-services.databaseAccess",
+      "application-services.dataScience"
+    ]
+  },
+  {
+    "id": "deploy",
+    "icon": "RocketIcon",
+    "title": "Deploy",
+    "description": "Create RHEL images, systems at the Edge, and OpenShift clusters.",
+    "links": [
+      "edge.groups",
+      "rhel.imageBuilder",
+      "settings.repositories"
+    ]
+  },
+  {
+    "id": "iam",
+    "icon": "UsersIcon",
+    "title": "Identity and Access Management",
+    "description": "Ensure that the right users have the appropriate access to technology resources.",
+    "links": [
+      "iam.authFactors",
+      "iam.rbac",
+      "iam.users"
+    ]
+  },
+  {
+    "id": "infrastructure",
+    "icon": "InfrastructureIcon",
+    "title": "Infrastructure",
+    "description": "Manage your infrastructure across the hybrid cloud.",
+    "links": [
+      "openshift.clusters",
+      "openshift.overview",
+      "openshift.releases"
+    ]
+  },
+  {
+    "id": "integrations-notifications",
+    "icon": "BellIcon",
+    "title": "Integrations and Notifications",
+    "description": "Alerts users to events, using email and integrations such as webhooks.",
+    "links": [
+      "settings.integrations",
+      "settings.console",
+      "settings.sources"
+    ]
+  },
+  {
+    "id": "inventories",
+    "icon": "InfrastructureIcon",
+    "title": "Inventories",
+    "description": "View OpenShift clusters, Edge systems, RHEL hosts, and your organization's subscriptions.",
+    "links": [
+      "openshift.clusters",
+      "edge.groups",
+      "rhel.imageBuilder",
+      "rhel.subscriptionsInventory",
+      "rhel.inventory"
+    ]
+  },
+  {
     "id": "observe",
+    "icon": "ChartLineIcon",
     "title": "Observe",
-    "groups": [{
-      "id": "ansible",
-      "title": "Ansible",
-      "items": []
-    }, {
-      "id": "openshift",
-      "title": "openshift",
-      "items": []
-    }, {
-      "id": "rhel",
-      "title": "RHEL",
-      "items": []
-    }]
+    "description": "Monitor, troubleshoot, and improve application performance.",
+    "links": [
+      {
+        "id": "ansible",
+        "isGroup": true,
+        "title": "Ansible",
+        "links": [
+          "ansible.recommendations",
+          "ansible.comparision",
+          "ansible.policies"
+        ]
+      },
+      {
+        "id": "openshift",
+        "isGroup": true,
+        "title": "OpenShift",
+        "links": [
+          "openshift.recommendations",
+          "openshift.cves"
+        ]
+      },
+      {
+        "id": "rhel",
+        "isGroup": true,
+        "title": "RHEL",
+        "links": [
+          "rhel.recommendations",
+          "rhel.advisories",
+          "rhel.comparision",
+          "rhel.policies",
+          "rhel.remediations",
+          "rhel.resourceOptimization"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "security",
+    "icon": "CloudSecurityIcon",
+    "title": "Security",
+    "description": "Meet your policy and compliance objectives.",
+    "links": [
+      {
+        "id": "ansibleSecurity",
+        "isGroup": true,
+        "title": "Ansible",
+        "links": [
+          "ansible.remediations"
+        ]
+      },
+      {
+        "id": "openshiftsecurity",
+        "isGroup": true,
+        "title": "OpenShift",
+        "links": [
+          "application-services.clusterOverview",
+          "openshift.cves"
+        ]
+      },
+      {
+        "isGroup": true,
+        "title": "RHEL",
+        "links": [
+          "rhel.recommendations",
+          "rhel.advisories",
+          "rhel.complianceReports",
+          "edge.groups",
+          "rhel.signatures",
+          "rhel.remediations",
+          "rhel.cves"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spendManagement",
+    "icon": "CreditCardIcon",
+    "title": "Spend Management",
+    "description": "Control costs and monitor committed spend.",
+    "links": [
+      "openshift.costManagementOverview",
+      "rhel.subscriptionsInventory",
+      "rhel.resourceOptimization"
+    ]
+  },
+  {
+    "id": "systemConfiguration",
+    "icon": "CogIcon",
+    "title": "System Configuration",
+    "description": "Connect your RHEL systems to Hybrid Cloud Console services.",
+    "links": [
+      "settings.activationKeys",
+      "rhel.manifests",
+      "rhel.registerSystems",
+      "settings.manageConfiguration"
+    ]
+  },
+  {
+    "id": "tryBuy",
+    "icon": "ShoppingCartIcon",
+    "title": "Try and Buy",
+    "description": "Our no-cost trials help you gain hands-on experience, prepare for a certification, or assess if a product is right for your organization.",
+    "links": [
+      "openshift.developerSandbox",
+      {
+        "isExternal": true,
+        "href": "https://marketplace.redhat.com/en-us",
+        "title": "Red Hat Marketplace",
+        "description": "Find, try, purchase, and deploy your software across clouds."
+      },
+      {
+        "isExternal": true,
+        "href": "https://www.redhat.com/en/products/trials",
+        "title": "Red Hat Product Trials",
+        "description": "Gain hands-on experience and assess if a product is right for you in a no-cost trial."
+      }
+    ]
   }
 ]

@@ -27,6 +27,7 @@
             {
               "id": "apiDesigner",
               "appId": "applicationServices",
+              "description": "Create, import, edit, and manage API definitions and event schemas in a visual editor.",
               "isBeta": true,
               "title": "API and Schema Designs",
               "href": "/application-services/api-designer"
@@ -43,6 +44,7 @@
           "id": "apiManagement",
           "appId": "applicationServices",
           "title": "API Management",
+          "description": "Manage API access, policy, and traffic controls for microservice-based applications.",
           "href": "/application-services/api-management"
         },
         {
@@ -59,7 +61,8 @@
               "id": "kafkaInstances",
               "appId": "applicationServices",
               "title": "Kafka Instances",
-              "href": "/application-services/streams"
+              "href": "/application-services/streams",
+              "description": "Create, discover, and connect to real-time events and data streams.",
             },
             {
               "id": "streamsDocumentation",
@@ -77,7 +80,8 @@
               "id": "serviceRegistryInstances",
               "appId": "applicationServices",
               "title": "Service Registry Instances",
-              "href": "/application-services/service-registry"
+              "href": "/application-services/service-registry",
+              "description": "Discover, publish, and reuse event schemas and API definitions in a shared repository.",
             },
             {
               "id": "serviceRegistryDocumenation",
@@ -95,6 +99,7 @@
               "id": "connectorsInstances",
               "appId": "applicationServices",
               "title": "Connectors Instances",
+              "description": "Send data between event streams and third-party systems with pre-built integrations.",
               "href": "/application-services/connectors"
             },
             {
@@ -109,7 +114,8 @@
           "id": "serviceAccounts",
           "appId": "applicationServices",
           "title": "Service Accounts",
-          "href": "/application-services/service-accounts"
+          "href": "/application-services/service-accounts",
+          "description": "Authenticate and connect securely to APIs from multiple services."
         }
       ]
     },
@@ -122,13 +128,15 @@
           "id": "databaseAccess",
           "appId": "dbaas",
           "title": "Database Access",
-          "href": "/application-services/databases"
+          "href": "/application-services/databases",
+          "description": "Provision, monitor, and connect to cloud-hosted partner database services."
         },
         {
           "id": "dataScience",
           "appId": "applicationServices",
           "title": "Data Science",
-          "href": "/application-services/data-science"
+          "href": "/application-services/data-science",
+          "description": "Develop, train, and test artificial intelligence and machine learning (AI/ML) models.",
         }
       ]
     },
@@ -140,7 +148,8 @@
               "id": "clusterOverview",
               "appId": "acs",
               "title": "Overview",
-              "href": "/application-services/acs/overview"
+              "href": "/application-services/acs/overview",
+              "description": "Securely build, deploy, and run your cloud applications using Kubernetes-native architecture."
           },
           {
               "id": "acsInstances",

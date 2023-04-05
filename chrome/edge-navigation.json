@@ -12,6 +12,7 @@
           "filterable": false,
           "id": "groups",
           "href": "/edge/fleet-management",
+          "description": "Manage the lifecycle and enhance security of your RHEL systems at the edge.",
           "permissions": [
             {
               "method": "withEmail",

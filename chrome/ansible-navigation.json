@@ -18,7 +18,8 @@
                     "appId": "automationHub",
                     "title": "Collections",
                     "href": "/ansible/automation-hub/",
-                    "product": "Ansible Automation Hub"
+                    "product": "Ansible Automation Hub",
+                    "description": "Find and download Ansible Content Collections from Red Hat and partners."
                 },
                 {
                     "id": "partners",
@@ -80,7 +81,8 @@
                     "appId": "automationAnalytics",
                     "title": "Reports",
                     "href": "/ansible/automation-analytics/reports",
-                    "product": "Ansible Automation Analytics"
+                    "product": "Ansible Automation Analytics",
+                    "description": "Plan, measure, and scale your automation using actionable data."
                 },
                 {
                     "id": "savingPlanner",
@@ -122,7 +124,8 @@
                     "appId": "inventory",
                     "title": "Inventory",
                     "href": "/ansible/inventory",
-                    "product": "Red Hat Insights"
+                    "product": "Red Hat Insights",
+                    "description": "Get recommendations to prevent and resolve potential issues on your Ansible-managed ecosystem."
                 },
                 {
                     "title": "Advisor",
@@ -133,7 +136,8 @@
                             "appId": "advisor",
                             "title": "Recommendations",
                             "href": "/ansible/advisor/recommendations",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "description": "See targeted recommendations to optimize your Ansible hosts’ availability, performance, and security."
                         },
                         {
                             "id": "systems",
@@ -160,7 +164,8 @@
                             "appId": "drift",
                             "title": "Comparison",
                             "href": "/ansible/drift/",
-                            "product": "Red Hat Insights"
+                            "product": "Red Hat Insights",
+                            "description": "Compare systems in your Ansible inventory to one another or against a set baseline."
                         },
                         {
                             "id": "baselines",
@@ -175,7 +180,8 @@
                     "id": "policies",
                     "appId": "policies",
                     "title": "Policies",
-                    "href": "/ansible/policies"
+                    "href": "/ansible/policies",
+                    "description": "Monitor your Ansible hosts against set parameters to detect deviation or misalignment."
                 }
             ]
         },
@@ -192,7 +198,8 @@
             "appId": "remediations",
             "title": "Remediations",
             "href": "/ansible/remediations",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "description": "Resolve issues with security, configuration, compliance, and policy recommendations."
         },
         {
             "id": "tasks",

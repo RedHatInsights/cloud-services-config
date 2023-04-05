@@ -3,6 +3,7 @@
     "title": "Settings",
     "navItems": [
         {
+            "id": "sources",
             "appId": "sources",
             "title": "Sources",
             "href": "/settings/sources"
@@ -57,13 +58,15 @@
                     "id": "manageConfiguration",
                     "appId": "connector",
                     "title": "Manage configuration",
-                    "href": "/settings/connector"
+                    "href": "/settings/connector",
+                    "description": "Configure your systems to execute Ansible Playbooks."
                 },
                 {
                     "id": "activationKeys",
                     "appId": "connector",
                     "title": "Activation Keys",
-                    "href": "/settings/connector/activation-keys"
+                    "href": "/settings/connector/activation-keys",
+                    "description": "Create activation keys to register your systems and configure repositories without using a username and password."
                 }
             ]
         },

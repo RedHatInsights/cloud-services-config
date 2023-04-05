@@ -20,7 +20,8 @@
             "appId": "inventory",
             "title": "Inventory",
             "href": "/insights/inventory",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "description": "View details about your Red Hat Enterprise Linux systems."
           },
           {
             "title": "Advisor",
@@ -31,7 +32,8 @@
                 "appId": "advisor",
                 "title": "Recommendations",
                 "href": "/insights/advisor/recommendations",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "See targeted recommendations to optimize your Red Hat Enterprise Linux systems’ availability, performance, and security."
               },
               {
                 "id": "advisorSystems",
@@ -58,7 +60,8 @@
                 "appId": "patch",
                 "title": "Advisories",
                 "href": "/insights/patch/advisories",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "View applicable advisories and updates for your Red Hat Enterprise Linux systems."
               },
               {
                 "id": "patchSystems",
@@ -92,7 +95,8 @@
                 "appId": "vulnerability",
                 "title": "CVEs",
                 "href": "/insights/vulnerability/cves",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "Identify and prioritize security vulnerabilities within your Red Hat Enterprise Linux systems based on severity and frequency."
               },
               {
                 "id": "vulnerabilityReports",
@@ -119,7 +123,8 @@
                 "appId": "compliance",
                 "title": "Reports",
                 "href": "/insights/compliance/reports",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "Evaluate your Red Hat Enterprise systems’ compliance with security or regulatory standards."
               },
               {
                 "id": "scapPolicies",
@@ -146,7 +151,8 @@
                 "appId": "malware",
                 "title": "Signatures",
                 "href": "/insights/malware/signatures",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "Identify potential malware on your Red Hat Enterprise Linux systems."
               },
               {
                 "id": "malwareSystems",
@@ -166,7 +172,8 @@
                 "appId": "drift",
                 "title": "Comparison",
                 "href": "/insights/drift/",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "Compare your Red Hat Enterprise Linux systems to one another or against a set baseline."
               },
               {
                 "id": "baselines",
@@ -182,13 +189,15 @@
             "appId": "ros",
             "title": "Resource Optimization",
             "href": "/insights/ros",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "description": "Optimize your public cloud-based Red Hat Enterprise Linux systems based on CPU, memory, and disk input/output performance."
           },
           {
             "id": "policies",
             "appId": "policies",
             "title": "Policies",
-            "href": "/insights/policies"
+            "href": "/insights/policies",
+            "description": "Monitor your Red Hat Enterprise Linux inventory systems against set parameters to detect deviation or misalignment."
           },
           {
             "expandable": true,
@@ -220,14 +229,16 @@
                 "appId": "subscriptionInventory",
                 "title": "Subscription Inventory",
                 "href": "/insights/subscriptions/inventory",
-                "product": "Subscription Watch"
+                "product": "Subscription Watch",
+                "description": "List your purchased subscriptions and view more information about each one."
               },
               {
                 "id": "manifests",
                 "appId": "manifests",
                 "title": "Manifests",
                 "href": "/insights/subscriptions/manifests",
-                "product": "Subscription Watch"
+                "product": "Subscription Watch",
+                "description": "Export subscription manifests for Red Hat Satellite."
               },
               {
                 "id": "subscriptionsDocumentation",
@@ -243,7 +254,8 @@
             "appId": "imageBuilder",
             "title": "Image builder",
             "href": "/insights/image-builder",
-            "product": "Red Hat Insights"
+            "product": "Red Hat Insights",
+            "description": "Build and manage Red Hat Enterprise Linux images and environments."
           }
         ]
       },
@@ -253,7 +265,8 @@
         "title": "Register Systems",
         "filterable": false,
         "href": "/insights/registration",
-        "product": "Red Hat Insights"
+        "product": "Red Hat Insights",
+        "description": "Register your systems with the Red Hat Insights Client to view them on the Red Hat Hybrid Cloud Console."
       },
       {
         "title": "Toolkit",
@@ -264,7 +277,8 @@
                 "appId": "remediations",
                 "title": "Remediations",
                 "href": "/insights/remediations",
-                "product": "Red Hat Insights"
+                "product": "Red Hat Insights",
+                "description": "Use Ansible Playbooks to resolve configuration, security, and compliance issues identified on your Red Hat Enterprise Linux systems."
             },
             {
                 "id": "tasks",

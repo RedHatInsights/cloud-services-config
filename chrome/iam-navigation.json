@@ -5,7 +5,8 @@
     {
       "appId": "rbac",
       "title": "My User Access",
-      "href": "/iam/my-user-access"
+      "href": "/iam/my-user-access",
+      "description": "View your account permissions for Red Hat Hybrid Cloud Console services."
     },
     {
       "title": "User Access",
@@ -16,7 +17,8 @@
           "appId": "rbac",
           "title": "Users",
           "href": "/iam/user-access/users",
-          "product": "Identity & Access Management"
+          "product": "Identity & Access Management",
+          "description": "Manage your organization's role-based access control (RBAC) to services."
         },
         {
           "id": "roles",
@@ -50,7 +52,8 @@
           "appId": "iam",
           "title": "Authentication Factors",
           "href": "/iam/authentication-policy/authentication-factors",
-          "product": "Identity & Access Management"
+          "product": "Identity & Access Management",
+          "description": "Manage how your organization authenticates to Red Hat services."
         }
       ]
     },
