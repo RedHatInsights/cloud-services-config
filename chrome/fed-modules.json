@@ -136,6 +136,7 @@
     },
     "openshift": {
         "manifestLocation": "/apps/openshift/fed-mods.json",
+        "fullProfile": true,
         "modules": [
             {
                 "id": "openshift",
