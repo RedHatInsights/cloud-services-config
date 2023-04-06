@@ -3,11 +3,6 @@
     "title": "Settings",
     "navItems": [
         {
-            "appId": "rbac",
-            "title": "My User Access",
-            "href": "/settings/my-user-access"
-        },
-        {
             "appId": "sources",
             "title": "Sources",
             "href": "/settings/sources"

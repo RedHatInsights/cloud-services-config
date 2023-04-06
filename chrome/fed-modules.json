@@ -36,8 +36,8 @@
                 "id": "my-user-access",
                 "module": "./MyUserAccess",
                 "routes": [
-                    "/settings",
-                    "/settings/my-user-access"
+                    "/iam",
+                    "/iam/my-user-access"
                 ]
             },
             {
@@ -51,7 +51,6 @@
                 "id": "iam-user-access",
                 "module": "./IamUserAccess",
                 "routes": [
-                    "/iam",
                     "/iam/user-access"
                 ]
             }
