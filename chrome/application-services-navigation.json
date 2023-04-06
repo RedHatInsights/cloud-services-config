@@ -62,7 +62,7 @@
               "appId": "applicationServices",
               "title": "Kafka Instances",
               "href": "/application-services/streams",
-              "description": "Create, discover, and connect to real-time events and data streams.",
+              "description": "Create, discover, and connect to real-time events and data streams."
             },
             {
               "id": "streamsDocumentation",
@@ -81,7 +81,7 @@
               "appId": "applicationServices",
               "title": "Service Registry Instances",
               "href": "/application-services/service-registry",
-              "description": "Discover, publish, and reuse event schemas and API definitions in a shared repository.",
+              "description": "Discover, publish, and reuse event schemas and API definitions in a shared repository."
             },
             {
               "id": "serviceRegistryDocumenation",
@@ -136,7 +136,7 @@
           "appId": "applicationServices",
           "title": "Data Science",
           "href": "/application-services/data-science",
-          "description": "Develop, train, and test artificial intelligence and machine learning (AI/ML) models.",
+          "description": "Develop, train, and test artificial intelligence and machine learning (AI/ML) models."
         }
       ]
     },

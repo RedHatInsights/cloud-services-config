@@ -16,6 +16,7 @@ const routeSchema = Joi.object({
   isBeta: Joi.bool(),
   title: Joi.string().required(),
   id: Joi.string().required(),
+  description: Joi.string().optional(),
   href: Joi.string().required(),
   permissions: Joi.array().items(permissionsSchema),
   isExternal: Joi.bool(),
@@ -41,6 +42,12 @@ const navItemSchema = Joi.object({
   title: Joi.string().required(),
   dynamicNav: Joi.string(),
   groupId: Joi.string(),
+  id: Joi.string().when('expandable', {
+    is: true,
+    then: Joi.forbidden(),
+    break: true,
+  }),
+  description: Joi.string().optional(),
   href: Joi.string().when('expandable', {
     is: true,
     then: Joi.forbidden(),

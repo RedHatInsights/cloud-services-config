@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const landingSchema = require('./validationSchemas/landing');
+const servicesSchema = require('./validationSchemas/services');
 const modulesSchema = require('./validationSchemas/modules');
 const { navigationSchema } = require('./validationSchemas/navigation');
 
@@ -10,6 +11,7 @@ const navigationFiles = fs.readdirSync(__dirname)
   .filter(f => f.endsWith('-navigation.json') && f !== 'landing-navigation.json');
 const landingFile = path.resolve(__dirname, 'landing-navigation.json')
 const modulesFile = path.resolve(__dirname, 'fed-modules.json')
+const servicesFile = path.resolve(__dirname, 'services.json')
 
 
 async function validateLanding() {    
@@ -44,6 +46,17 @@ async function validateNavigation() {
   })
 }
 
+async function validateServices() {
+  try {
+    const file = fs.readFileSync(servicesFile, 'utf-8')
+    await servicesSchema.strict(true).validateAsync(JSON.parse(file));
+  } catch (error) {
+    console.error(`Error in services definition.\n`, error)
+    process.exit(1)
+  }
+}
+
 validateLanding()
 validateModules()
 validateNavigation()
+validateServices()
