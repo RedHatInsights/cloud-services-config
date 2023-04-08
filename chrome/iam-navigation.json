@@ -41,6 +41,12 @@
           "title": "Authentication Factors",
           "href": "/iam/authentication-policy/authentication-factors",
           "product": "Identity & Access Management"
+        },
+        {
+          "appId": "iam",
+          "title": "Identity Provider Integration",
+          "href": "/iam/authentication-policy/identity-provider-integration",
+          "product": "Identity & Access Management"
         }
       ]
     },
