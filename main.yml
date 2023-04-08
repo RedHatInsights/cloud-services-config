@@ -290,6 +290,9 @@ cost-management:
         title: Overview
         default: true
         group: cost-management
+      - id: optimizations
+        title: Optimizations
+        group: cost-management
       - id: ocp
         title: OpenShift
         group: cost-management
@@ -809,7 +812,7 @@ rhosak:
     isBeta: true
     paths:
       - /application-services/new-streams
-      
+
 application-services:
   title: Application Services
   api:
