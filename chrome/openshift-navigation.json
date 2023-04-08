@@ -121,6 +121,12 @@
                         },
                         {
                             "appId": "costManagement",
+                            "title": "Optimizations",
+                            "href": "/openshift/cost-management/optimizations",
+                            "product": "Red Hat Cost Management"
+                        },
+                        {
+                            "appId": "costManagement",
                             "title": "OpenShift",
                             "href": "/openshift/cost-management/ocp",
                             "product": "Red Hat Cost Management"
@@ -131,7 +137,6 @@
                             "href": "/openshift/cost-management/aws",
                             "product": "Red Hat Cost Management"
                         },
-
                         {
                             "appId": "costManagement",
                             "title": "Google Cloud Platform",
