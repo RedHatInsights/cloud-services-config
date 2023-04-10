@@ -1,0 +1,31 @@
+{
+  "id": "business-services",
+  "title": "Business Services",
+  "navItems": [
+      {
+          "appId": "subscriptionsInventory",
+          "title": "Subscriptions Inventory & Usage",
+          "filterable": false,
+         "href": "/business-services/subscriptions-inventory"
+      },
+      {
+          "title": "Hybrid Committed Spend",
+          "expandable": true,
+          "filterable": false,
+          "routes": [
+              {
+                  "appId": "overview",
+                  "title": "Overview",
+                  "href": "/business-services/hybrid-committed-spend/overview",
+                  "product": "Hybrid Committed Spend"
+              },
+              {
+                  "appId": "explorer",
+                  "title": "Explorer",
+                  "href": "/business-services/hybrid-committed-spend/explorer",
+                  "product": "Hybrid Committed Spend"
+              }
+          ]
+      }
+  ]
+}
