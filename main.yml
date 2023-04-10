@@ -809,7 +809,7 @@ rhosak:
     isBeta: true
     paths:
       - /application-services/new-streams
-      
+
 application-services:
   title: Application Services
   api:
@@ -1253,3 +1253,17 @@ app-studio-docs:
     paths:
       - /hac/app-studio-docs
   source_repo: https://github.com/RedHatInsights/app-studio-docs
+
+business-services:
+  title: Business Services
+  deployment_repo: https://github.com/RedHatInsights/hybrid-committed-spend-ui-build
+  frontend:
+    title: Hybrid Committed Spend
+    paths:
+      - /business-services/hybrid-committed-spend
+    sub_apps:
+      - id: overview
+        title: Overview
+        default: true
+      - id: details
+        title: Details
