@@ -1,270 +1,316 @@
 {
-    "id": "rhel",
-    "title": "Red Hat Insights",
-    "navItems": [
-      {
-        "appId": "dashboard",
-        "title": "Overview",
-        "filterable": false,
-        "href": "/insights/dashboard",
-        "product": "Red Hat Insights"
-      },
-      {
-        "groupId": "business",
-        "icon": "trend-up",
-        "title": "Red Hat Insights",
-        "navItems": [
-          {
-            "appId": "inventory",
-            "title": "Inventory",
-            "href": "/insights/inventory",
-            "product": "Red Hat Insights"
-          },
-          {
-            "title": "Advisor",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "advisor",
-                "title": "Recommendations",
-                "href": "/insights/advisor/recommendations",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "advisor",
-                "title": "Systems",
-                "href": "/insights/advisor/systems",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "advisor",
-                "title": "Topics",
-                "href": "/insights/advisor/topics",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "title": "Patch",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "patch",
-                "title": "Advisories",
-                "href": "/insights/patch/advisories",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "patch",
-                "title": "Systems",
-                "href": "/insights/patch/systems",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "patch",
-                "title": "Packages",
-                "href": "/insights/patch/packages",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "patch",
-                "title": "Templates",
-                "href": "/insights/patch/templates",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "title": "Vulnerability",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "vulnerability",
-                "title": "CVEs",
-                "href": "/insights/vulnerability/cves",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "vulnerability",
-                "title": "Reports",
-                "href": "/insights/vulnerability/reports",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "vulnerability",
-                "title": "Systems",
-                "href": "/insights/vulnerability/systems",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "title": "Compliance",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "compliance",
-                "title": "Reports",
-                "href": "/insights/compliance/reports",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "compliance",
-                "title": "SCAP Policies",
-                "href": "/insights/compliance/scappolicies",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "compliance",
-                "title": "Systems",
-                "href": "/insights/compliance/systems",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "title": "Malware",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "malware",
-                "title": "Signatures",
-                "href": "/insights/malware/signatures",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "malware",
-                "title": "Systems",
-                "href": "/insights/malware/systems",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "title": "Drift",
-            "expandable": true,
-            "routes": [
-              {
-                "appId": "drift",
-                "title": "Comparison",
-                "href": "/insights/drift/",
-                "product": "Red Hat Insights"
-              },
-              {
-                "appId": "drift",
-                "title": "Baselines",
-                "href": "/insights/drift/baselines",
-                "product": "Red Hat Insights"
-              }
-            ]
-          },
-          {
-            "appId": "ros",
-            "title": "Resource Optimization",
-            "href": "/insights/ros",
-            "product": "Red Hat Insights"
-          },
-          {
-            "appId": "policies",
-            "title": "Policies",
-            "href": "/insights/policies"
-          },
-          {
-            "expandable": true,
-            "title": "Subscriptions",
-            "routes": [
-              {
-                "appId": "subscriptions",
-                "title": "RHEL",
-                "href": "/insights/subscriptions/rhel",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "Satellite",
-                "href": "/insights/subscriptions/satellite",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptions",
-                "title": "OpenShift Subscriptions",
-                "href": "/openshift/subscriptions/openshift-container",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "subscriptionInventory",
-                "title": "Subscription Inventory",
-                "href": "/insights/subscriptions/inventory",
-                "product": "Subscription Watch"
-              },
-              {
-                "appId": "manifests",
-                "title": "Manifests",
-                "href": "/insights/subscriptions/manifests",
-                "product": "Subscription Watch"
-              },
-              {
-                "title": "Documentation",
-                "isExternal": true,
-                "filterable": false,
-                "href": "https://access.redhat.com/products/subscription-central"
-              }
-            ]
-          },
-          {
-            "appId": "imageBuilder",
-            "title": "Image builder",
-            "href": "/insights/image-builder",
-            "product": "Red Hat Insights"
-          }
-        ]
-      },
-      {
-        "appId": "registration",
-        "title": "Register Systems",
-        "filterable": false,
-        "href": "/insights/registration",
-        "product": "Red Hat Insights"
-      },
-      {
-        "title": "Toolkit",
-        "expandable": true,
-        "routes": [
+  "id": "rhel",
+  "title": "Red Hat Insights",
+  "navItems": [
+    {
+      "appId": "dashboard",
+      "title": "Dashboard",
+      "filterable": false,
+      "href": "/insights/dashboard",
+      "product": "Red Hat Insights"
+    },
+    {
+      "title": "Inventory",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "inventory",
+          "title": "Systems",
+          "href": "/insights/inventory",
+          "product": "Red Hat Insights"
+        },
+        {
+          "appId": "imageBuilder",
+          "title": "Images",
+          "href": "/image-builder",
+          "product": "Red Hat Insights"
+        },
+        {
+          "title": "System configuration",
+          "expandable": true,
+          "routes": [
             {
-                "appId": "remediations",
-                "title": "Remediations",
-                "href": "/insights/remediations",
-                "product": "Red Hat Insights"
+              "appId": "settings",
+              "title": "Remote host configuration (RHC)",
+              "href": "/settings/connector",
+              "product": "Red Hat Insights"
             },
             {
-                "appId": "tasks",
-                "title": "Tasks",
-                "href": "/insights/tasks",
-                "product": "Red Hat Insights"
+              "appId": "settings",
+              "title": "Activation keys",
+              "href": "/settings/connector/activation-keys",
+              "product": "Red Hat Insights"
             }
-        ]
-      },
-      {
-        "title": "Product Materials",
-        "expandable": true,
-        "routes": [
-          {
-            "title": "Documentation",
-            "isExternal": true,
-            "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
-          },
-          {
-            "title": "Security Information",
-            "href": "https://www.redhat.com/en/technologies/management/insights/data-application-security",
-            "isExternal": true
-          },
-          {
-            "appId": "apiDocs",
-            "title": "APIs",
-            "href": "/docs/api"
-          }
-        ]
-      }
-    ]
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Content",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "patch",
+          "title": "Advisories",
+          "href": "/insights/patch/advisories",
+          "product": "Red Hat Insights"
+        },
+        {
+          "appId": "patch",
+          "title": "Packages",
+          "href": "/insights/patch/packages",
+          "product": "Red Hat Insights"
+        },
+        {
+          "appId": "settings",
+          "title": "Repositories",
+          "href": "/insights/settings/content",
+          "product": "Red Hat Insights"
+        },
+        {
+          "title": "Patch",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "patch",
+              "title": "Systems",
+              "href": "/insights/patch/systems",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "patch",
+              "title": "Templates",
+              "href": "/insights/patch/templates",
+              "product": "Red Hat Insights"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Operations",
+      "expandable": true,
+      "routes": [
+        {
+          "title": "Advisor",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "advisor",
+              "title": "Recommendations",
+              "href": "/insights/advisor/recommendations",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "advisor",
+              "title": "Systems",
+              "href": "/insights/advisor/systems",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "advisor",
+              "title": "Topics",
+              "href": "/insights/advisor/topics",
+              "product": "Red Hat Insights"
+            }
+          ]
+        },
+        {
+          "title": "Drift",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "drift",
+              "title": "Comparison",
+              "href": "/insights/drift/",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "drift",
+              "title": "Baselines",
+              "href": "/insights/drift/baselines",
+              "product": "Red Hat Insights"
+            }
+          ]
+        },
+        {
+          "appId": "policies",
+          "title": "Policies",
+          "href": "/insights/policies"
+        }
+      ]
+    },
+    {
+      "title": "Security",
+      "expandable": true,
+      "routes": [
+        {
+          "title": "Vulnerability",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "vulnerability",
+              "title": "CVEs",
+              "href": "/insights/vulnerability/cves",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "vulnerability",
+              "title": "Reports",
+              "href": "/insights/vulnerability/reports",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "vulnerability",
+              "title": "Systems",
+              "href": "/insights/vulnerability/systems",
+              "product": "Red Hat Insights"
+            }
+          ]
+        },
+        {
+          "title": "Compliance",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "compliance",
+              "title": "Reports",
+              "href": "/insights/compliance/reports",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "compliance",
+              "title": "SCAP Policies",
+              "href": "/insights/compliance/scappolicies",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "compliance",
+              "title": "Systems",
+              "href": "/insights/compliance/systems",
+              "product": "Red Hat Insights"
+            }
+          ]
+        },
+        {
+          "title": "Malware",
+          "expandable": true,
+          "routes": [
+            {
+              "appId": "malware",
+              "title": "Signatures",
+              "href": "/insights/malware/signatures",
+              "product": "Red Hat Insights"
+            },
+            {
+              "appId": "malware",
+              "title": "Systems",
+              "href": "/insights/malware/systems",
+              "product": "Red Hat Insights"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Buisiness",
+      "expandable": true,
+      "routes": [
+        {
+          "expandable": true,
+          "title": "Subscriptions",
+          "routes": [
+            {
+              "appId": "subscriptions",
+              "title": "RHEL",
+              "href": "/insights/subscriptions/rhel",
+              "product": "Subscription Watch"
+            },
+            {
+              "appId": "subscriptions",
+              "title": "Satellite",
+              "href": "/insights/subscriptions/satellite",
+              "product": "Subscription Watch"
+            },
+            {
+              "appId": "subscriptions",
+              "title": "OpenShift Subscriptions",
+              "href": "/openshift/subscriptions/openshift-container",
+              "product": "Subscription Watch"
+            },
+            {
+              "appId": "subscriptionInventory",
+              "title": "Subscription Inventory",
+              "href": "/insights/subscriptions/inventory",
+              "product": "Subscription Watch"
+            },
+            {
+              "appId": "manifests",
+              "title": "Manifests",
+              "href": "/insights/subscriptions/manifests",
+              "product": "Subscription Watch"
+            },
+            {
+              "title": "Documentation",
+              "isExternal": true,
+              "filterable": false,
+              "href": "https://access.redhat.com/products/subscription-central"
+            }
+          ]
+        },
+        {
+          "appId": "ros",
+          "title": "Resource Optimization",
+          "href": "/insights/ros",
+          "product": "Red Hat Insights"
+        }
+      ]
+    },
+    {
+      "title": "Automation toolkit",
+      "expandable": true,
+      "routes": [
+        {
+          "appId": "remediations",
+          "title": "Remediations",
+          "href": "/insights/remediations",
+          "product": "Red Hat Insights"
+        },
+        {
+          "appId": "tasks",
+          "title": "Tasks",
+          "href": "/insights/tasks",
+          "product": "Red Hat Insights"
+        }
+      ]
+    },
+    {
+      "appId": "registration",
+      "title": "Register Systems",
+      "filterable": false,
+      "href": "/insights/registration",
+      "product": "Red Hat Insights"
+    },
+    {
+      "title": "Product Materials",
+      "expandable": true,
+      "routes": [
+        {
+          "title": "Documentation",
+          "isExternal": true,
+          "href": "https://access.redhat.com/documentation/en-us/red_hat_insights/"
+        },
+        {
+          "title": "Security Information",
+          "href": "https://www.redhat.com/en/technologies/management/insights/data-application-security",
+          "isExternal": true
+        },
+        {
+          "appId": "apiDocs",
+          "title": "APIs",
+          "href": "/docs/api"
+        }
+      ]
+    }
+  ]
 }
-
