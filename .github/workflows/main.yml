@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CLOSE_PRS
+on:
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - "*"
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Close Pull Request
+        uses: superbrothers/close-pull-request@v3.0.0
+        with:
+          comment: "This repository is no longer used for modules and navigation files changes. Please chek the repository [Readme](https://github.com/RedHatInsights/cloud-services-config/blob/ci-beta/README.md#exclamation-this-repo-is-no-longer-used-a-source-of-config-files-for-hcc-exclamation) details."
