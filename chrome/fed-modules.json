@@ -781,5 +781,15 @@
                 ]
             }
 	]
+    },
+    "seats-admin": {
+        "manifestLocation": "/apps/seats-admin/fed-mods.json",
+        "modules": [
+            {
+                "id": "seats-admin",
+                "module": "./RootApp",
+                "routes": ["/ansible/seats-administration"]
+            }
+        ]
     }
 }

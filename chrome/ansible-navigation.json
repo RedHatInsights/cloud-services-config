@@ -93,6 +93,12 @@
             ]
         },
         {
+            "appId": "ansibleSeatsAdmin",
+            "title": "Seats Administration",
+            "filterable": false,
+            "href": "/ansible/seats-administration"
+        },
+        {
             "title": "Documentation",
             "isExternal": true,
             "filterable": false,
