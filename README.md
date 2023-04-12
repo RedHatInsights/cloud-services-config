@@ -1,3 +1,8 @@
+# :exclamation: This repo is no longer used a source of config files for HCC! :exclamation:
+
+Due to ongoing migration to the frontend operator, module and navigation files were moved to te chrome service api. Follow this [link](https://github.com/RedHatInsights/chrome-service-backend/blob/main/docs/cloud-services-config.md) to learn more.
+
+
 # About
 
 This repo deals with the high-level configuration of Cloud Services. `main.yml` contains the source of truth for CS apps, and the `akamai` folder deals with updating our Akamai configuration.
