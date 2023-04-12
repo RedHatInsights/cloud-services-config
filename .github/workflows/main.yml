@@ -6,10 +6,7 @@ on:
     types:
       - opened
     branches:
-      - qa-beta
-      - stage-beta
-      - qa-stable
-      - stage-stable
+      - "*"
 env:
   GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
@@ -21,4 +18,4 @@ jobs:
       - name: Close Pull Request
         uses: superbrothers/close-pull-request@v3.0.0
         with:
-          comment: "This branch is sychronized automatically. Please change the target branch to ci-beta or ci-stable."
+          comment: "This repository is no longer used for modules and navigation files changes. Please chek the repository [Readme](https://github.com/RedHatInsights/cloud-services-config/blob/ci-beta/README.md#exclamation-this-repo-is-no-longer-used-a-source-of-config-files-for-hcc-exclamation) details."
