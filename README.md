@@ -1,5 +1,7 @@
 # :exclamation: This repo is no longer used a source of config files for HCC! :exclamation:
 
+foo
+
 Due to ongoing migration to the frontend operator, module and navigation files were moved to te chrome service api. Follow this [link](https://github.com/RedHatInsights/chrome-service-backend/blob/main/docs/cloud-services-config.md) to learn more.
 
 
