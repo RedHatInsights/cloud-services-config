@@ -4,7 +4,6 @@ name: CLOSE_PRS
 on:
   pull_request_target:
     types:
-      - opened
       - unlabeled
     branches:
       - "*"
