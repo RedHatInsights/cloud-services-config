@@ -12,11 +12,11 @@ env:
 
 jobs:
   build:
-    if: ${{!contains(github.event.head_commit.message, 'qaprodauth')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Close Pull Request
+        if: ${{!contains(github.event.head_commit.message, 'qaprodauth')}}
         uses: superbrothers/close-pull-request@v3.0.0
         with:
           comment: "This repository is no longer used for modules and navigation files changes. Please chek the repository [Readme](https://github.com/RedHatInsights/cloud-services-config/blob/ci-beta/README.md#exclamation-this-repo-is-no-longer-used-a-source-of-config-files-for-hcc-exclamation) details."
