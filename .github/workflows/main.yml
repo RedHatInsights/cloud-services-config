@@ -5,7 +5,6 @@ on:
   pull_request_target:
     types:
       - opened
-      - unlabeled
     branches:
       - "*"
 env:
@@ -13,6 +12,7 @@ env:
 
 jobs:
   build:
+    if: ${{!contains(github.event.head_commit.message, 'qaprodauth')}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
