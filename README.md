@@ -2,6 +2,8 @@
 
 Due to ongoing migration to the frontend operator, module and navigation files were moved to te chrome service api. Follow this [link](https://github.com/RedHatInsights/chrome-service-backend/blob/main/docs/cloud-services-config.md) to learn more.
 
+If you need to make updatse to `qaprodauth` environment add the `qaprodauth` label to your PR. The PR will not be closed.
+
 
 # About
 
