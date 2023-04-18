@@ -46,11 +46,6 @@
           "routes": [
             {
               "appId": "applicationServices",
-              "title": "Overview",
-              "href": "/application-services/streams/overview"
-            },
-            {
-              "appId": "applicationServices",
               "title": "Kafka Instances",
               "href": "/application-services/streams"
             },
