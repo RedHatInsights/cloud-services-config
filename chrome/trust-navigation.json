@@ -1,0 +1,11 @@
+{
+    "id": "trust",
+    "title": "Trusted Content",
+    "navItems": [
+        {
+            "title": "Trusted Content",
+            "appId": "trust",
+            "href": "/trust"
+        }
+    ]
+}
