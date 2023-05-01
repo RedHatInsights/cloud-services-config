@@ -1,6 +1,11 @@
 Stable:
   branch: prod-stable
 
+Preview:
+  branch: prod-beta
+  url_prefix: /preview
+  content_path_prefix: /beta
+
 Beta:
   branch: prod-beta
   url_prefix: /beta
