@@ -6,6 +6,11 @@ Beta:
   url_prefix: /beta
   content_path_prefix: /beta
 
+Preview:
+  branch: prod-preview
+  url_prefix: /preview
+  content_path_prefix: /preview
+
 PenTestStable:
   branch: qa-stable
   cookie_required: True
