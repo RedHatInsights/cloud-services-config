@@ -2,7 +2,7 @@ asn1crypto==0.24.0
 certifi==2019.3.9
 cffi==1.12.3
 chardet==3.0.4
-cryptography==3.3.2
+cryptography==42.0.2
 edgegrid-python==1.1.1
 enum34==1.1.6
 httpie==1.0.3
